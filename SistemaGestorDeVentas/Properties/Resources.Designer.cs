@@ -63,6 +63,16 @@ namespace SistemaGestorDeVentas.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cliente_nav {
+            get {
+                object obj = ResourceManager.GetObject("cliente_nav", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap descarga__7_ {
             get {
                 object obj = ResourceManager.GetObject("descarga (7)", resourceCulture);
@@ -76,6 +86,26 @@ namespace SistemaGestorDeVentas.Properties {
         internal static System.Drawing.Bitmap descarga__8_ {
             get {
                 object obj = ResourceManager.GetObject("descarga (8)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo_sistemaGestorDeVentas {
+            get {
+                object obj = ResourceManager.GetObject("logo_sistemaGestorDeVentas", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mantenimiento_nav {
+            get {
+                object obj = ResourceManager.GetObject("mantenimiento_nav", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -104,9 +134,59 @@ namespace SistemaGestorDeVentas.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap proveedor_nav {
+            get {
+                object obj = ResourceManager.GetObject("proveedor_nav", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap reporte_nav {
+            get {
+                object obj = ResourceManager.GetObject("reporte_nav", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap stats_people_logo_icon_design_vector_22904156 {
             get {
                 object obj = ResourceManager.GetObject("stats-people-logo-icon-design-vector-22904156", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap usuarios {
+            get {
+                object obj = ResourceManager.GetObject("usuarios", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap usuarioss {
+            get {
+                object obj = ResourceManager.GetObject("usuarioss", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ventas_nav {
+            get {
+                object obj = ResourceManager.GetObject("ventas_nav", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

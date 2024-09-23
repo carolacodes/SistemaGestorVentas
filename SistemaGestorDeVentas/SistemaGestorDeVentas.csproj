@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -89,6 +90,18 @@
     </Compile>
     <Compile Include="api\product\Product.cs" />
     <Compile Include="api\product\service.cs" />
+    <Compile Include="api\proveedor\gestionProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="api\proveedor\gestionProveedores.Designer.cs">
+      <DependentUpon>gestionProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="api\report\reporteView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="api\report\reporteView.Designer.cs">
+      <DependentUpon>reporteView.cs</DependentUpon>
+    </Compile>
     <Compile Include="api\user\adminMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +123,12 @@
     <Compile Include="api\user\supervisorMenu.Designer.cs">
       <DependentUpon>supervisorMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="components\navLogo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="components\navLogo.Designer.cs">
+      <DependentUpon>navLogo.cs</DependentUpon>
+    </Compile>
     <Compile Include="paginaInicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +137,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="components\navbar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="components\navbar.Designer.cs">
+      <DependentUpon>navbar.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="api\auth\loginView.resx">
       <DependentUpon>loginView.cs</DependentUpon>
     </EmbeddedResource>
@@ -127,11 +152,23 @@
     <EmbeddedResource Include="api\cart\cartView.resx">
       <DependentUpon>cartView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="api\category\categoryMenu.resx">
+      <DependentUpon>categoryMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="api\product\adminGestionProduct.resx">
       <DependentUpon>adminGestionProduct.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="api\proveedor\gestionProveedores.resx">
+      <DependentUpon>gestionProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="api\report\reporteView.resx">
+      <DependentUpon>reporteView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="api\user\adminMenu.resx">
       <DependentUpon>adminMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="components\navLogo.resx">
+      <DependentUpon>navLogo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="paginaInicio.resx">
       <DependentUpon>paginaInicio.cs</DependentUpon>
@@ -146,6 +183,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="components\navbar.resx">
+      <DependentUpon>navbar.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -168,6 +208,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\descarga %288%29.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuarios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuarioss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mantenimiento_nav.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ventas_nav.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cliente_nav.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\proveedor_nav.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reporte_nav.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_sistemaGestorDeVentas.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
