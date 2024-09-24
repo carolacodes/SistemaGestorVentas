@@ -44,8 +44,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-	
-	<Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="api\auth\controller.cs" />
@@ -144,22 +143,19 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-	
-	  <Compile Include="components\navLogo.cs">
+    <Compile Include="components\navLogo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-  <Compile Include="components\navLogo.Designer.cs">
+    <Compile Include="components\navLogo.Designer.cs">
       <DependentUpon>navLogo.cs</DependentUpon>
-  </Compile>
-  
-  <Compile Include="components\navbar.cs">
+    </Compile>
+    <Compile Include="components\navbar.cs">
       <SubType>UserControl</SubType>
     </Compile>
-  <Compile Include="components\navbar.Designer.cs">
+    <Compile Include="components\navbar.Designer.cs">
       <DependentUpon>navbar.cs</DependentUpon>
-  </Compile>
-  
-  <Compile Include="api\proveedor\gestionProveedores.cs">
+    </Compile>
+    <Compile Include="api\proveedor\gestionProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="api\proveedor\gestionProveedores.Designer.cs">
@@ -171,25 +167,18 @@
     <Compile Include="api\report\reporteView.Designer.cs">
       <DependentUpon>reporteView.cs</DependentUpon>
     </Compile>
-	
-	
-	<EmbeddedResource Include="components\navLogo.resx">
-    <DependentUpon>navLogo.cs</DependentUpon>
+    <EmbeddedResource Include="components\navLogo.resx">
+      <DependentUpon>navLogo.cs</DependentUpon>
     </EmbeddedResource>
-	
-	<EmbeddedResource Include="components\navbar.resx">
+    <EmbeddedResource Include="components\navbar.resx">
       <DependentUpon>navbar.cs</DependentUpon>
     </EmbeddedResource>
-	
-	<EmbeddedResource Include="api\proveedor\gestionProveedores.resx">
+    <EmbeddedResource Include="api\proveedor\gestionProveedores.resx">
       <DependentUpon>gestionProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="api\report\reporteView.resx">
       <DependentUpon>reporteView.cs</DependentUpon>
     </EmbeddedResource>
-	
-	
-	
     <EmbeddedResource Include="api\auth\loginView.resx">
       <DependentUpon>loginView.cs</DependentUpon>
     </EmbeddedResource>
@@ -271,6 +260,26 @@
   <ItemGroup>
     <None Include="Resources\subir.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuarioss1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mantenimiento_nav1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ventas_nav1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cliente_nav1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\proveedor_nav1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reporte_nav1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_sistemaGestorDeVentas1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  
 </Project>

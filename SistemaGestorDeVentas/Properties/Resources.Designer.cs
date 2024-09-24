@@ -73,6 +73,16 @@ namespace SistemaGestorDeVentas.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cliente_nav {
+            get {
+                object obj = ResourceManager.GetObject("cliente_nav", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap descarga__7_ {
             get {
                 object obj = ResourceManager.GetObject("descarga (7)", resourceCulture);
@@ -113,6 +123,26 @@ namespace SistemaGestorDeVentas.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logo_sistemaGestorDeVentas {
+            get {
+                object obj = ResourceManager.GetObject("logo_sistemaGestorDeVentas", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mantenimiento_nav {
+            get {
+                object obj = ResourceManager.GetObject("mantenimiento_nav", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap png_transparent_clean_master_computer_icons_android_clean_hand_mobile_phones_personal_computer {
             get {
                 object obj = ResourceManager.GetObject("png-transparent-clean-master-computer-icons-android-clean-hand-mobile-phones-pers" +
@@ -127,6 +157,26 @@ namespace SistemaGestorDeVentas.Properties {
         internal static System.Drawing.Bitmap pngtree_green_check_icon_design_template_vector_png_image_3971423 {
             get {
                 object obj = ResourceManager.GetObject("pngtree-green-check-icon-design-template-vector-png-image_3971423", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap proveedor_nav {
+            get {
+                object obj = ResourceManager.GetObject("proveedor_nav", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap reporte_nav {
+            get {
+                object obj = ResourceManager.GetObject("reporte_nav", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -157,6 +207,36 @@ namespace SistemaGestorDeVentas.Properties {
         internal static System.Drawing.Bitmap subir {
             get {
                 object obj = ResourceManager.GetObject("subir", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap usuarios {
+            get {
+                object obj = ResourceManager.GetObject("usuarios", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap usuarioss {
+            get {
+                object obj = ResourceManager.GetObject("usuarioss", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ventas_nav {
+            get {
+                object obj = ResourceManager.GetObject("ventas_nav", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

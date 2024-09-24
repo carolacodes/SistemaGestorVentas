@@ -112,7 +112,7 @@
             this.btnUsuarios.UseVisualStyleBackColor = false;
             this.btnUsuarios.Click += new System.EventHandler(this.button1_Click);
             // 
-            // UserControl1
+            // navbar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -122,7 +122,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btn_Productos);
             this.Controls.Add(this.btnUsuarios);
-            this.Name = "UserControl1";
+            this.Name = "navbar";
             this.Size = new System.Drawing.Size(1129, 76);
             this.ResumeLayout(false);
 
