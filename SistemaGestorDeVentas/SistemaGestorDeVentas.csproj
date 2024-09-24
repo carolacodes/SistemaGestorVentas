@@ -69,6 +69,12 @@
     </Compile>
     <Compile Include="api\cart\controller.cs" />
     <Compile Include="api\cart\dao.cs" />
+    <Compile Include="api\cart\detalleVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="api\cart\detalleVenta.Designer.cs">
+      <DependentUpon>detalleVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="api\cart\service.cs" />
     <Compile Include="api\category\categoryMenu.cs">
       <SubType>Form</SubType>
@@ -79,6 +85,18 @@
     <Compile Include="api\category\controller.cs" />
     <Compile Include="api\category\dao.cs" />
     <Compile Include="api\category\service.cs" />
+    <Compile Include="api\cliente\detalleCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="api\cliente\detalleCliente.Designer.cs">
+      <DependentUpon>detalleCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="api\Negocio\gestionNegocio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="api\Negocio\gestionNegocio.Designer.cs">
+      <DependentUpon>gestionNegocio.cs</DependentUpon>
+    </Compile>
     <Compile Include="api\product\controller.cs" />
     <Compile Include="api\product\dao.cs" />
     <Compile Include="api\product\adminGestionProduct.cs">
@@ -97,6 +115,12 @@
     </Compile>
     <Compile Include="api\user\controller.cs" />
     <Compile Include="api\user\dao.cs" />
+    <Compile Include="api\user\listaUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="api\user\listaUsuarios.Designer.cs">
+      <DependentUpon>listaUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="api\user\sellerMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,11 +151,26 @@
     <EmbeddedResource Include="api\cart\cartView.resx">
       <DependentUpon>cartView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="api\cart\detalleVenta.resx">
+      <DependentUpon>detalleVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="api\category\categoryMenu.resx">
+      <DependentUpon>categoryMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="api\cliente\detalleCliente.resx">
+      <DependentUpon>detalleCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="api\Negocio\gestionNegocio.resx">
+      <DependentUpon>gestionNegocio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="api\product\adminGestionProduct.resx">
       <DependentUpon>adminGestionProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="api\user\adminMenu.resx">
       <DependentUpon>adminMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="api\user\listaUsuarios.resx">
+      <DependentUpon>listaUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="paginaInicio.resx">
       <DependentUpon>paginaInicio.cs</DependentUpon>
@@ -168,6 +207,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\descarga %288%29.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buscar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\limpiar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stats-people-logo-icon-design-vector-229041561.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\subir.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
