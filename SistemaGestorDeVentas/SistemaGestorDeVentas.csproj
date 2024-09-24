@@ -142,6 +142,52 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+	
+	  <Compile Include="components\navLogo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  <Compile Include="components\navLogo.Designer.cs">
+      <DependentUpon>navLogo.cs</DependentUpon>
+  </Compile>
+  
+  <Compile Include="components\navbar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  <Compile Include="components\navbar.Designer.cs">
+      <DependentUpon>navbar.cs</DependentUpon>
+  </Compile>
+  
+  <Compile Include="api\proveedor\gestionProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="api\proveedor\gestionProveedores.Designer.cs">
+      <DependentUpon>gestionProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="api\report\reporteView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="api\report\reporteView.Designer.cs">
+      <DependentUpon>reporteView.cs</DependentUpon>
+    </Compile>
+	
+	
+	<EmbeddedResource Include="components\navLogo.resx">
+    <DependentUpon>navLogo.cs</DependentUpon>
+    </EmbeddedResource>
+	
+	<EmbeddedResource Include="components\navbar.resx">
+      <DependentUpon>navbar.cs</DependentUpon>
+    </EmbeddedResource>
+	
+	<EmbeddedResource Include="api\proveedor\gestionProveedores.resx">
+      <DependentUpon>gestionProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="api\report\reporteView.resx">
+      <DependentUpon>reporteView.cs</DependentUpon>
+    </EmbeddedResource>
+	
+	
+	
     <EmbeddedResource Include="api\auth\loginView.resx">
       <DependentUpon>loginView.cs</DependentUpon>
     </EmbeddedResource>
@@ -224,41 +270,5 @@
     <None Include="Resources\subir.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  
-  
-  <Compile Include="components\navLogo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-  <Compile Include="components\navLogo.Designer.cs">
-      <DependentUpon>navLogo.cs</DependentUpon>
-  </Compile>
-  
-  <Compile Include="components\navbar.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-  <Compile Include="components\navbar.Designer.cs">
-      <DependentUpon>navbar.cs</DependentUpon>
-  </Compile>
-  
-  <Compile Include="api\proveedor\gestionProveedores.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="api\proveedor\gestionProveedores.Designer.cs">
-      <DependentUpon>gestionProveedores.cs</DependentUpon>
-    </Compile>
-    <Compile Include="api\report\reporteView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="api\report\reporteView.Designer.cs">
-      <DependentUpon>reporteView.cs</DependentUpon>
-    </Compile>
-	
-	<EmbeddedResource Include="components\navLogo.resx">
-      <DependentUpon>navLogo.cs</DependentUpon>
-    </EmbeddedResource>
-	
-	<EmbeddedResource Include="components\navbar.resx">
-      <DependentUpon>navbar.cs</DependentUpon>
-    </EmbeddedResource>
   
 </Project>
