@@ -32,7 +32,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtCartDetalleNroVenta = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
@@ -53,6 +53,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.dateCartDetalleFecha = new System.Windows.Forms.DateTimePicker();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -63,7 +64,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -98,7 +98,7 @@
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.button5);
             this.panel6.Controls.Add(this.button4);
-            this.panel6.Controls.Add(this.textBox5);
+            this.panel6.Controls.Add(this.txtCartDetalleNroVenta);
             this.panel6.Controls.Add(this.label9);
             this.panel6.Location = new System.Drawing.Point(734, 45);
             this.panel6.Name = "panel6";
@@ -123,12 +123,14 @@
             this.button4.TabIndex = 22;
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // textBox5
+            // txtCartDetalleNroVenta
             // 
-            this.textBox5.Location = new System.Drawing.Point(124, 32);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(125, 22);
-            this.textBox5.TabIndex = 21;
+            this.txtCartDetalleNroVenta.Location = new System.Drawing.Point(124, 32);
+            this.txtCartDetalleNroVenta.Name = "txtCartDetalleNroVenta";
+            this.txtCartDetalleNroVenta.Size = new System.Drawing.Size(125, 22);
+            this.txtCartDetalleNroVenta.TabIndex = 21;
+            this.txtCartDetalleNroVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCartDetalleNroVenta_KeyPress);
+            this.txtCartDetalleNroVenta.Validating += new System.ComponentModel.CancelEventHandler(this.txtCartDetalleNroVenta_Validating);
             // 
             // label9
             // 
@@ -314,7 +316,7 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.Azure;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.dateTimePicker1);
+            this.panel4.Controls.Add(this.dateCartDetalleFecha);
             this.panel4.Controls.Add(this.textBox4);
             this.panel4.Controls.Add(this.label8);
             this.panel4.Controls.Add(this.comboBox1);
@@ -326,12 +328,21 @@
             this.panel4.Size = new System.Drawing.Size(709, 92);
             this.panel4.TabIndex = 1;
             // 
+            // dateCartDetalleFecha
+            // 
+            this.dateCartDetalleFecha.Location = new System.Drawing.Point(7, 54);
+            this.dateCartDetalleFecha.Name = "dateCartDetalleFecha";
+            this.dateCartDetalleFecha.Size = new System.Drawing.Size(143, 22);
+            this.dateCartDetalleFecha.TabIndex = 7;
+            this.dateCartDetalleFecha.ValueChanged += new System.EventHandler(this.dateCartDetalleFecha_ValueChanged);
+            // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(354, 54);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(194, 22);
             this.textBox4.TabIndex = 6;
+            this.textBox4.Validating += new System.ComponentModel.CancelEventHandler(this.textBox4_Validating);
             // 
             // label8
             // 
@@ -421,13 +432,6 @@
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.Width = 125;
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(7, 54);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(143, 22);
-            this.dateTimePicker1.TabIndex = 7;
-            // 
             // detalleVenta
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -482,12 +486,12 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtCartDetalleNroVenta;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridViewTextBoxColumn DetalleCardProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn DetalleCardPrecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn DetalleCardCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn DetalleCardSubtotal;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateCartDetalleFecha;
     }
 }

@@ -38,43 +38,43 @@
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridCartView = new System.Windows.Forms.DataGridView();
             this.cardProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CardPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CardCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CardSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CardEliminar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAgregarCartView = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.domainUpDown1 = new System.Windows.Forms.DomainUpDown();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtCartStock = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtCartPrecio = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtCartProducto = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtCartCodProduct = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtCartNombreCliente = new System.Windows.Forms.TextBox();
+            this.txtCartViewDNI = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.dateCartViewFecha = new System.Windows.Forms.DateTimePicker();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridCartView)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -109,8 +109,8 @@
             this.panel3.Controls.Add(this.textBox9);
             this.panel3.Controls.Add(this.label14);
             this.panel3.Controls.Add(this.textBox8);
-            this.panel3.Controls.Add(this.dataGridView1);
-            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.dataGridCartView);
+            this.panel3.Controls.Add(this.btnAgregarCartView);
             this.panel3.Controls.Add(this.panel6);
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.panel4);
@@ -181,23 +181,23 @@
             this.textBox8.Size = new System.Drawing.Size(106, 22);
             this.textBox8.TabIndex = 9;
             // 
-            // dataGridView1
+            // dataGridCartView
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Azure;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridCartView.BackgroundColor = System.Drawing.Color.Azure;
+            this.dataGridCartView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridCartView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cardProducto,
             this.CardPrecio,
             this.CardCantidad,
             this.CardSubtotal,
             this.CardEliminar});
-            this.dataGridView1.Location = new System.Drawing.Point(19, 252);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(970, 189);
-            this.dataGridView1.TabIndex = 8;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
+            this.dataGridCartView.Location = new System.Drawing.Point(19, 252);
+            this.dataGridCartView.Name = "dataGridCartView";
+            this.dataGridCartView.RowHeadersWidth = 51;
+            this.dataGridCartView.RowTemplate.Height = 24;
+            this.dataGridCartView.Size = new System.Drawing.Size(970, 189);
+            this.dataGridCartView.TabIndex = 8;
+            this.dataGridCartView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
             // cardProducto
             // 
@@ -236,29 +236,29 @@
             this.CardEliminar.Name = "CardEliminar";
             this.CardEliminar.Width = 125;
             // 
-            // button1
+            // btnAgregarCartView
             // 
-            this.button1.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1006, 161);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 72);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Agregar";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAgregarCartView.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarCartView.Location = new System.Drawing.Point(1006, 161);
+            this.btnAgregarCartView.Name = "btnAgregarCartView";
+            this.btnAgregarCartView.Size = new System.Drawing.Size(75, 72);
+            this.btnAgregarCartView.TabIndex = 7;
+            this.btnAgregarCartView.Text = "Agregar";
+            this.btnAgregarCartView.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnAgregarCartView.UseVisualStyleBackColor = true;
             // 
             // panel6
             // 
             this.panel6.Controls.Add(this.domainUpDown1);
             this.panel6.Controls.Add(this.label13);
-            this.panel6.Controls.Add(this.textBox7);
+            this.panel6.Controls.Add(this.txtCartStock);
             this.panel6.Controls.Add(this.label12);
-            this.panel6.Controls.Add(this.textBox6);
+            this.panel6.Controls.Add(this.txtCartPrecio);
             this.panel6.Controls.Add(this.label11);
-            this.panel6.Controls.Add(this.textBox5);
+            this.panel6.Controls.Add(this.txtCartProducto);
             this.panel6.Controls.Add(this.label10);
             this.panel6.Controls.Add(this.button2);
-            this.panel6.Controls.Add(this.textBox4);
+            this.panel6.Controls.Add(this.txtCartCodProduct);
             this.panel6.Controls.Add(this.label9);
             this.panel6.Controls.Add(this.label8);
             this.panel6.Location = new System.Drawing.Point(19, 146);
@@ -285,13 +285,15 @@
             this.label13.TabIndex = 14;
             this.label13.Text = "Cantidad";
             // 
-            // textBox7
+            // txtCartStock
             // 
-            this.textBox7.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(584, 65);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(145, 25);
-            this.textBox7.TabIndex = 13;
+            this.txtCartStock.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCartStock.Location = new System.Drawing.Point(584, 65);
+            this.txtCartStock.Name = "txtCartStock";
+            this.txtCartStock.Size = new System.Drawing.Size(145, 25);
+            this.txtCartStock.TabIndex = 13;
+            this.txtCartStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCartStock_KeyPress);
+            this.txtCartStock.Validating += new System.ComponentModel.CancelEventHandler(this.txtCartStock_Validating);
             // 
             // label12
             // 
@@ -303,13 +305,15 @@
             this.label12.TabIndex = 12;
             this.label12.Text = "Stock";
             // 
-            // textBox6
+            // txtCartPrecio
             // 
-            this.textBox6.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(433, 65);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(145, 25);
-            this.textBox6.TabIndex = 11;
+            this.txtCartPrecio.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCartPrecio.Location = new System.Drawing.Point(433, 65);
+            this.txtCartPrecio.Name = "txtCartPrecio";
+            this.txtCartPrecio.Size = new System.Drawing.Size(145, 25);
+            this.txtCartPrecio.TabIndex = 11;
+            this.txtCartPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCartPrecio_KeyPress);
+            this.txtCartPrecio.Validating += new System.ComponentModel.CancelEventHandler(this.txtCartPrecio_Validating);
             // 
             // label11
             // 
@@ -321,13 +325,15 @@
             this.label11.TabIndex = 10;
             this.label11.Text = "Precio";
             // 
-            // textBox5
+            // txtCartProducto
             // 
-            this.textBox5.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(225, 65);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(195, 25);
-            this.textBox5.TabIndex = 9;
+            this.txtCartProducto.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCartProducto.Location = new System.Drawing.Point(225, 65);
+            this.txtCartProducto.Name = "txtCartProducto";
+            this.txtCartProducto.Size = new System.Drawing.Size(195, 25);
+            this.txtCartProducto.TabIndex = 9;
+            this.txtCartProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCartProducto_KeyPress);
+            this.txtCartProducto.Validating += new System.ComponentModel.CancelEventHandler(this.txtCartProducto_Validating);
             // 
             // label10
             // 
@@ -348,13 +354,15 @@
             this.button2.TabIndex = 7;
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // txtCartCodProduct
             // 
-            this.textBox4.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(10, 65);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(145, 25);
-            this.textBox4.TabIndex = 2;
+            this.txtCartCodProduct.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCartCodProduct.Location = new System.Drawing.Point(10, 65);
+            this.txtCartCodProduct.Name = "txtCartCodProduct";
+            this.txtCartCodProduct.Size = new System.Drawing.Size(145, 25);
+            this.txtCartCodProduct.TabIndex = 2;
+            this.txtCartCodProduct.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCartCodProduct_KeyPress);
+            this.txtCartCodProduct.Validating += new System.ComponentModel.CancelEventHandler(this.txtCartCodProduct_Validating);
             // 
             // label9
             // 
@@ -381,8 +389,8 @@
             this.panel5.BackColor = System.Drawing.Color.Azure;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.button4);
-            this.panel5.Controls.Add(this.textBox3);
-            this.panel5.Controls.Add(this.textBox2);
+            this.panel5.Controls.Add(this.txtCartNombreCliente);
+            this.panel5.Controls.Add(this.txtCartViewDNI);
             this.panel5.Controls.Add(this.label5);
             this.panel5.Controls.Add(this.label6);
             this.panel5.Controls.Add(this.label7);
@@ -400,19 +408,25 @@
             this.button4.TabIndex = 6;
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // txtCartNombreCliente
             // 
-            this.textBox3.Location = new System.Drawing.Point(253, 52);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(231, 22);
-            this.textBox3.TabIndex = 5;
+            this.txtCartNombreCliente.Location = new System.Drawing.Point(253, 52);
+            this.txtCartNombreCliente.Name = "txtCartNombreCliente";
+            this.txtCartNombreCliente.Size = new System.Drawing.Size(231, 22);
+            this.txtCartNombreCliente.TabIndex = 5;
+            this.txtCartNombreCliente.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.txtCartNombreCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCartNombreCliente_KeyPress);
+            this.txtCartNombreCliente.Validating += new System.ComponentModel.CancelEventHandler(this.txtCartNombreCliente_Validating);
             // 
-            // textBox2
+            // txtCartViewDNI
             // 
-            this.textBox2.Location = new System.Drawing.Point(7, 51);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(185, 22);
-            this.textBox2.TabIndex = 3;
+            this.txtCartViewDNI.Location = new System.Drawing.Point(7, 51);
+            this.txtCartViewDNI.Name = "txtCartViewDNI";
+            this.txtCartViewDNI.Size = new System.Drawing.Size(185, 22);
+            this.txtCartViewDNI.TabIndex = 3;
+            this.txtCartViewDNI.TextChanged += new System.EventHandler(this.txtCartViewDNI_TextChanged);
+            this.txtCartViewDNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCartViewDNI_KeyPress);
+            this.txtCartViewDNI.Validating += new System.ComponentModel.CancelEventHandler(this.txtCartViewDNI_Validating);
             // 
             // label5
             // 
@@ -448,7 +462,7 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.Azure;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.dateTimePicker1);
+            this.panel4.Controls.Add(this.dateCartViewFecha);
             this.panel4.Controls.Add(this.comboBox1);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.label3);
@@ -457,6 +471,14 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(420, 92);
             this.panel4.TabIndex = 1;
+            // 
+            // dateCartViewFecha
+            // 
+            this.dateCartViewFecha.Location = new System.Drawing.Point(9, 54);
+            this.dateCartViewFecha.Name = "dateCartViewFecha";
+            this.dateCartViewFecha.Size = new System.Drawing.Size(119, 22);
+            this.dateCartViewFecha.TabIndex = 17;
+            this.dateCartViewFecha.ValueChanged += new System.EventHandler(this.dateCartViewFecha_ValueChanged);
             // 
             // comboBox1
             // 
@@ -519,13 +541,6 @@
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.Width = 125;
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(9, 54);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(119, 22);
-            this.dateTimePicker1.TabIndex = 17;
-            // 
             // cartView
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -540,7 +555,7 @@
             this.Load += new System.EventHandler(this.cartView_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridCartView)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -563,27 +578,27 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtCartViewDNI;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtCartNombreCliente;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAgregarCartView;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtCartPrecio;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtCartProducto;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtCartCodProduct;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DomainUpDown domainUpDown1;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtCartStock;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridCartView;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox textBox10;
@@ -597,6 +612,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CardSubtotal;
         private System.Windows.Forms.DataGridViewImageColumn CardEliminar;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateCartViewFecha;
     }
 }

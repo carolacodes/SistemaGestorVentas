@@ -41,22 +41,22 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtClienteBuscar = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtClienteTelefono = new System.Windows.Forms.TextBox();
+            this.txtClienteCorreo = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtClienteNombre = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtClienteDni = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -145,7 +145,7 @@
             this.panel4.Controls.Add(this.button5);
             this.panel4.Controls.Add(this.button4);
             this.panel4.Controls.Add(this.comboBox2);
-            this.panel4.Controls.Add(this.textBox2);
+            this.panel4.Controls.Add(this.txtClienteBuscar);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Location = new System.Drawing.Point(315, 157);
@@ -183,18 +183,21 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "DNI"});
             this.comboBox2.Location = new System.Drawing.Point(402, 21);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 24);
             this.comboBox2.TabIndex = 3;
-            this.comboBox2.Text = "Nombre";
+            this.comboBox2.Text = "DNI";
             // 
-            // textBox2
+            // txtClienteBuscar
             // 
-            this.textBox2.Location = new System.Drawing.Point(529, 23);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(169, 22);
-            this.textBox2.TabIndex = 2;
+            this.txtClienteBuscar.Location = new System.Drawing.Point(529, 23);
+            this.txtClienteBuscar.Name = "txtClienteBuscar";
+            this.txtClienteBuscar.Size = new System.Drawing.Size(169, 22);
+            this.txtClienteBuscar.TabIndex = 2;
+            this.txtClienteBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClienteBuscar_KeyPress);
             // 
             // label5
             // 
@@ -221,16 +224,16 @@
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.comboBox3);
             this.panel3.Controls.Add(this.label10);
-            this.panel3.Controls.Add(this.textBox5);
-            this.panel3.Controls.Add(this.textBox4);
+            this.panel3.Controls.Add(this.txtClienteTelefono);
+            this.panel3.Controls.Add(this.txtClienteCorreo);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.textBox3);
+            this.panel3.Controls.Add(this.txtClienteNombre);
             this.panel3.Controls.Add(this.button3);
             this.panel3.Controls.Add(this.button2);
             this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.txtClienteDni);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Location = new System.Drawing.Point(1, 142);
@@ -259,19 +262,23 @@
             this.label10.TabIndex = 16;
             this.label10.Text = "Estado: ";
             // 
-            // textBox5
+            // txtClienteTelefono
             // 
-            this.textBox5.Location = new System.Drawing.Point(10, 234);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(266, 22);
-            this.textBox5.TabIndex = 12;
+            this.txtClienteTelefono.Location = new System.Drawing.Point(10, 234);
+            this.txtClienteTelefono.Name = "txtClienteTelefono";
+            this.txtClienteTelefono.Size = new System.Drawing.Size(266, 22);
+            this.txtClienteTelefono.TabIndex = 12;
+            this.txtClienteTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClienteTelefono_KeyPress);
+            this.txtClienteTelefono.Validating += new System.ComponentModel.CancelEventHandler(this.txtClienteTelefono_Validating);
             // 
-            // textBox4
+            // txtClienteCorreo
             // 
-            this.textBox4.Location = new System.Drawing.Point(10, 186);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(266, 22);
-            this.textBox4.TabIndex = 11;
+            this.txtClienteCorreo.Location = new System.Drawing.Point(10, 186);
+            this.txtClienteCorreo.Name = "txtClienteCorreo";
+            this.txtClienteCorreo.Size = new System.Drawing.Size(266, 22);
+            this.txtClienteCorreo.TabIndex = 11;
+            this.txtClienteCorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClienteCorreo_KeyPress);
+            this.txtClienteCorreo.Validating += new System.ComponentModel.CancelEventHandler(this.txtClienteCorreo_Validating);
             // 
             // label7
             // 
@@ -293,12 +300,14 @@
             this.label6.TabIndex = 9;
             this.label6.Text = "Correo:";
             // 
-            // textBox3
+            // txtClienteNombre
             // 
-            this.textBox3.Location = new System.Drawing.Point(10, 138);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(266, 22);
-            this.textBox3.TabIndex = 8;
+            this.txtClienteNombre.Location = new System.Drawing.Point(10, 138);
+            this.txtClienteNombre.Name = "txtClienteNombre";
+            this.txtClienteNombre.Size = new System.Drawing.Size(266, 22);
+            this.txtClienteNombre.TabIndex = 8;
+            this.txtClienteNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClienteNombre_KeyPress);
+            this.txtClienteNombre.Validating += new System.ComponentModel.CancelEventHandler(this.txtClienteNombre_Validating);
             // 
             // button3
             // 
@@ -343,12 +352,14 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Nombre Completo:";
             // 
-            // textBox1
+            // txtClienteDni
             // 
-            this.textBox1.Location = new System.Drawing.Point(10, 90);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(266, 22);
-            this.textBox1.TabIndex = 2;
+            this.txtClienteDni.Location = new System.Drawing.Point(10, 90);
+            this.txtClienteDni.Name = "txtClienteDni";
+            this.txtClienteDni.Size = new System.Drawing.Size(266, 22);
+            this.txtClienteDni.TabIndex = 2;
+            this.txtClienteDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClienteDni_KeyPress);
+            this.txtClienteDni.Validating += new System.ComponentModel.CancelEventHandler(this.txtClienteDni_Validating);
             // 
             // label2
             // 
@@ -424,22 +435,22 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtClienteBuscar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtClienteTelefono;
+        private System.Windows.Forms.TextBox txtClienteCorreo;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtClienteNombre;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtClienteDni;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;

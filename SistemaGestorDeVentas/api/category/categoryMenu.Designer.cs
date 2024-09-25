@@ -36,7 +36,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCategoriaNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -44,7 +44,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtCategoriaBuscar = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -86,7 +86,7 @@
             this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.comboBox1);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.txtCategoriaNombre);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Location = new System.Drawing.Point(0, 142);
@@ -148,12 +148,14 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Estado";
             // 
-            // textBox1
+            // txtCategoriaNombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(14, 131);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(266, 22);
-            this.textBox1.TabIndex = 2;
+            this.txtCategoriaNombre.Location = new System.Drawing.Point(14, 131);
+            this.txtCategoriaNombre.Name = "txtCategoriaNombre";
+            this.txtCategoriaNombre.Size = new System.Drawing.Size(266, 22);
+            this.txtCategoriaNombre.TabIndex = 2;
+            this.txtCategoriaNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCategoriaNombre_KeyPress);
+            this.txtCategoriaNombre.Validating += new System.ComponentModel.CancelEventHandler(this.txtCategoriaNombre_Validating);
             // 
             // label2
             // 
@@ -183,7 +185,7 @@
             this.panel4.Controls.Add(this.button5);
             this.panel4.Controls.Add(this.button4);
             this.panel4.Controls.Add(this.comboBox2);
-            this.panel4.Controls.Add(this.textBox2);
+            this.panel4.Controls.Add(this.txtCategoriaBuscar);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Location = new System.Drawing.Point(314, 157);
@@ -221,18 +223,21 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Nombre"});
             this.comboBox2.Location = new System.Drawing.Point(402, 21);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 24);
             this.comboBox2.TabIndex = 3;
             this.comboBox2.Text = "Nombre";
             // 
-            // textBox2
+            // txtCategoriaBuscar
             // 
-            this.textBox2.Location = new System.Drawing.Point(529, 23);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(169, 22);
-            this.textBox2.TabIndex = 2;
+            this.txtCategoriaBuscar.Location = new System.Drawing.Point(529, 23);
+            this.txtCategoriaBuscar.Name = "txtCategoriaBuscar";
+            this.txtCategoriaBuscar.Size = new System.Drawing.Size(169, 22);
+            this.txtCategoriaBuscar.TabIndex = 2;
+            this.txtCategoriaBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCategoriaBuscar_KeyPress);
             // 
             // label5
             // 
@@ -343,7 +348,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCategoriaNombre;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button3;
@@ -351,7 +356,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtCategoriaBuscar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button5;

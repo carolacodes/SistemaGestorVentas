@@ -26,5 +26,31 @@ namespace SistemaGestorDeVentas.api.category
         {
 
         }
+
+        private void txtCategoriaNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // si no es una letra, no es borrar, no es espacio entonces bloquea
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Space)
+            {
+                e.Handled = true; // Bloquear caracteres que no sean letras o espacios
+            }
+        }
+
+        private void txtCategoriaBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Space)
+            {
+                e.Handled = true; // bloqeua caracteres que no sean letras o espacios
+            }
+        }
+
+        private void txtCategoriaNombre_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtCategoriaNombre.Text))
+            {
+                MessageBox.Show("La dirección no puede estar vacía.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Cancel = true;
+            }
+        }
     }
 }
