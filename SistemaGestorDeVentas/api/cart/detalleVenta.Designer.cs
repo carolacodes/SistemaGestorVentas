@@ -56,7 +56,6 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -64,6 +63,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -314,10 +314,10 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.Azure;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.dateTimePicker1);
             this.panel4.Controls.Add(this.textBox4);
             this.panel4.Controls.Add(this.label8);
             this.panel4.Controls.Add(this.comboBox1);
-            this.panel4.Controls.Add(this.textBox1);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.label2);
@@ -353,13 +353,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(178, 24);
             this.comboBox1.TabIndex = 4;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(9, 53);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(135, 22);
-            this.textBox1.TabIndex = 3;
             // 
             // label4
             // 
@@ -428,6 +421,13 @@
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.Width = 125;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(7, 54);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(143, 22);
+            this.dateTimePicker1.TabIndex = 7;
+            // 
             // detalleVenta
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -470,7 +470,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -489,5 +488,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DetalleCardPrecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn DetalleCardCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn DetalleCardSubtotal;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
