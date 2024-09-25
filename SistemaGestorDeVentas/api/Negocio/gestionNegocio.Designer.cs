@@ -33,9 +33,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNegocioDireccion = new System.Windows.Forms.TextBox();
+            this.txtNegocioRUC = new System.Windows.Forms.TextBox();
+            this.txtNegocioNombre = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -82,9 +82,9 @@
             this.panel4.BackColor = System.Drawing.Color.Azure;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.button2);
-            this.panel4.Controls.Add(this.textBox3);
-            this.panel4.Controls.Add(this.textBox2);
-            this.panel4.Controls.Add(this.textBox1);
+            this.panel4.Controls.Add(this.txtNegocioDireccion);
+            this.panel4.Controls.Add(this.txtNegocioRUC);
+            this.panel4.Controls.Add(this.txtNegocioNombre);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.label3);
@@ -106,26 +106,32 @@
             this.button2.Text = "GUARDAR CAMBIOS ";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // txtNegocioDireccion
             // 
-            this.textBox3.Location = new System.Drawing.Point(510, 169);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(336, 22);
-            this.textBox3.TabIndex = 8;
+            this.txtNegocioDireccion.Location = new System.Drawing.Point(510, 169);
+            this.txtNegocioDireccion.Name = "txtNegocioDireccion";
+            this.txtNegocioDireccion.Size = new System.Drawing.Size(336, 22);
+            this.txtNegocioDireccion.TabIndex = 8;
+            this.txtNegocioDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNegocioDireccion_KeyPress);
+            this.txtNegocioDireccion.Validating += new System.ComponentModel.CancelEventHandler(this.txtNegocioDireccion_Validating);
             // 
-            // textBox2
+            // txtNegocioRUC
             // 
-            this.textBox2.Location = new System.Drawing.Point(510, 114);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(336, 22);
-            this.textBox2.TabIndex = 7;
+            this.txtNegocioRUC.Location = new System.Drawing.Point(510, 114);
+            this.txtNegocioRUC.Name = "txtNegocioRUC";
+            this.txtNegocioRUC.Size = new System.Drawing.Size(336, 22);
+            this.txtNegocioRUC.TabIndex = 7;
+            this.txtNegocioRUC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNegocioRUC_KeyPress);
+            this.txtNegocioRUC.Validating += new System.ComponentModel.CancelEventHandler(this.txtNegocioRUC_Validating);
             // 
-            // textBox1
+            // txtNegocioNombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(510, 55);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(336, 22);
-            this.textBox1.TabIndex = 6;
+            this.txtNegocioNombre.Location = new System.Drawing.Point(510, 55);
+            this.txtNegocioNombre.Name = "txtNegocioNombre";
+            this.txtNegocioNombre.Size = new System.Drawing.Size(336, 22);
+            this.txtNegocioNombre.TabIndex = 6;
+            this.txtNegocioNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNegocioNombre_KeyPress);
+            this.txtNegocioNombre.Validating += new System.ComponentModel.CancelEventHandler(this.txtNegocioNombre_Validating);
             // 
             // label5
             // 
@@ -230,9 +236,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNegocioDireccion;
+        private System.Windows.Forms.TextBox txtNegocioRUC;
+        private System.Windows.Forms.TextBox txtNegocioNombre;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;

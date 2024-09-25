@@ -51,5 +51,35 @@ namespace SistemaGestorDeVentas.api.cart
         {
 
         }
+
+        private void dateCartDetalleFecha_ValueChanged(object sender, EventArgs e)
+        {
+            if (dateCartDetalleFecha.Value == null || dateCartDetalleFecha.Value == DateTime.MinValue)
+            {
+                dateCartDetalleFecha.Value = DateTime.Now;
+            }
+        }
+
+        private void txtCartDetalleNroVenta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox4_Validating(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void txtCartDetalleNroVenta_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtCartDetalleNroVenta.Text))
+            {
+                MessageBox.Show("La dirección no puede estar vacía.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Cancel = true;
+            }
+        }
     }
 }
