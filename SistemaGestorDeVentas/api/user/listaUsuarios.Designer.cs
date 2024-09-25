@@ -39,6 +39,8 @@
             this.listaUsuarioSeleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -64,8 +66,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel4.SuspendLayout();
@@ -174,6 +174,24 @@
             this.button6.TabIndex = 6;
             this.button6.Text = "Descargar Excel";
             this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Image = global::SistemaGestorDeVentas.Properties.Resources.limpiar;
+            this.button5.Location = new System.Drawing.Point(755, 12);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(45, 44);
+            this.button5.TabIndex = 5;
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Image = global::SistemaGestorDeVentas.Properties.Resources.buscar;
+            this.button4.Location = new System.Drawing.Point(704, 12);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(45, 44);
+            this.button4.TabIndex = 4;
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // comboBox2
             // 
@@ -426,28 +444,9 @@
             this.panel1.Size = new System.Drawing.Size(1129, 68);
             this.panel1.TabIndex = 5;
             // 
-            // button5
-            // 
-            this.button5.Image = global::SistemaGestorDeVentas.Properties.Resources.limpiar;
-            this.button5.Location = new System.Drawing.Point(755, 12);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(45, 44);
-            this.button5.TabIndex = 5;
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Image = global::SistemaGestorDeVentas.Properties.Resources.buscar;
-            this.button4.Location = new System.Drawing.Point(704, 12);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(45, 44);
-            this.button4.TabIndex = 4;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // listaUsuarios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1130, 630);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
