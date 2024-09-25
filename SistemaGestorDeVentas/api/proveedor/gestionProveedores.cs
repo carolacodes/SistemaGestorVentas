@@ -45,5 +45,74 @@ namespace SistemaGestorDeVentas.api.proveedor
         {
 
         }
+
+        private void btnProveedorGuardar_Click(object sender, EventArgs e)
+        {
+            // Validar TextBox de Nombre
+            if (string.IsNullOrWhiteSpace(txtProveedorNombre.Text))
+            {
+                MessageBox.Show("El campo Nombre es obligatorio.");
+                txtProveedorNombre.Focus();
+                return;
+            }
+
+            // Validar TextBox de Código
+            if (string.IsNullOrWhiteSpace(txtProveedorCodigo.Text))
+            {
+                MessageBox.Show("El campo Código es obligatorio.");
+                txtProveedorCodigo.Focus();
+                return;
+            }
+
+            // Validar ComboBox de Estado
+            if (cboxProveedorEstado.SelectedIndex == -1)
+            {
+                MessageBox.Show("Seleccione un Estado.");
+                cboxProveedorEstado.Focus();
+                return;
+            }
+
+
+            // Si todas las validaciones son correctas, se guarda el proveedor
+            MessageBox.Show("Proveedor guardado correctamente.");
+        }
+
+        private void txtProveedorCodigo_TextChanged(object sender, EventArgs e)
+        {
+            if (!decimal.TryParse(txtProveedorCodigo.Text, out decimal precio))
+            {
+                MessageBox.Show("Ingrese un valor válido para el Codigo.");
+                txtProveedorCodigo.Focus();
+                return;
+            }
+        }
+
+        private void txtProveedorTelefono_TextChanged(object sender, EventArgs e)
+        {
+            if (!decimal.TryParse(txtProveedorTelefono.Text, out decimal precio))
+            {
+                MessageBox.Show("Ingrese un valor válido para el Telefono.");
+                txtProveedorTelefono.Focus();
+                return;
+            }
+        }
+
+        private void txtProveedorCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si la tecla presionada no es un número ni la tecla de retroceso
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Cancela la acción, no permite la entrada
+            }
+        }
+
+        private void txtProveedorTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si la tecla presionada no es un número ni la tecla de retroceso
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Cancela la acción, no permite la entrada
+            }
+        }
     }
 }

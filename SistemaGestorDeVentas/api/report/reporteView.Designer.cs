@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panelNav = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -50,13 +50,13 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cboxReportFiltrar = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboxReportEmpleado = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimeReportHasta = new System.Windows.Forms.DateTimePicker();
+            this.dateTimeReportDesde = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -93,7 +93,7 @@
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.chart1);
             this.panel2.Location = new System.Drawing.Point(319, 158);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(795, 455);
             this.panel2.TabIndex = 10;
@@ -105,16 +105,16 @@
             this.label7.Location = new System.Drawing.Point(584, 388);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(43, 17);
+            this.label7.Size = new System.Drawing.Size(35, 13);
             this.label7.TabIndex = 4;
             this.label7.Text = "Total ";
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(642, 383);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 22);
+            this.textBox1.Size = new System.Drawing.Size(132, 20);
             this.textBox1.TabIndex = 2;
             // 
             // dataGridView1
@@ -131,7 +131,7 @@
             this.Precio_reporte,
             this.SubTotal_reporte});
             this.dataGridView1.Location = new System.Drawing.Point(16, 15);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(766, 225);
@@ -195,18 +195,18 @@
             // 
             // chart1
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart1.Legends.Add(legend4);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(16, 268);
-            this.chart1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chart1.Margin = new System.Windows.Forms.Padding(4);
             this.chart1.Name = "chart1";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chart1.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(309, 170);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -218,16 +218,16 @@
             this.panel3.Controls.Add(this.button2);
             this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.comboBox2);
+            this.panel3.Controls.Add(this.cboxReportFiltrar);
             this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.comboBox1);
+            this.panel3.Controls.Add(this.cboxReportEmpleado);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.dateTimePicker2);
-            this.panel3.Controls.Add(this.dateTimePicker1);
+            this.panel3.Controls.Add(this.dateTimeReportHasta);
+            this.panel3.Controls.Add(this.dateTimeReportDesde);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Location = new System.Drawing.Point(1, 142);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(296, 489);
             this.panel3.TabIndex = 11;
@@ -264,18 +264,18 @@
             this.label5.Location = new System.Drawing.Point(14, 239);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 17);
+            this.label5.Size = new System.Drawing.Size(58, 13);
             this.label5.TabIndex = 8;
             this.label5.Text = "Filtrar por";
             // 
-            // comboBox2
+            // cboxReportFiltrar
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(18, 259);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(265, 24);
-            this.comboBox2.TabIndex = 7;
+            this.cboxReportFiltrar.FormattingEnabled = true;
+            this.cboxReportFiltrar.Location = new System.Drawing.Point(18, 259);
+            this.cboxReportFiltrar.Margin = new System.Windows.Forms.Padding(4);
+            this.cboxReportFiltrar.Name = "cboxReportFiltrar";
+            this.cboxReportFiltrar.Size = new System.Drawing.Size(265, 21);
+            this.cboxReportFiltrar.TabIndex = 7;
             // 
             // label4
             // 
@@ -284,19 +284,19 @@
             this.label4.Location = new System.Drawing.Point(14, 60);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 17);
+            this.label4.Size = new System.Drawing.Size(59, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Empleado";
             // 
-            // comboBox1
+            // cboxReportEmpleado
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(18, 79);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(265, 24);
-            this.comboBox1.TabIndex = 5;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cboxReportEmpleado.FormattingEnabled = true;
+            this.cboxReportEmpleado.Location = new System.Drawing.Point(18, 79);
+            this.cboxReportEmpleado.Margin = new System.Windows.Forms.Padding(4);
+            this.cboxReportEmpleado.Name = "cboxReportEmpleado";
+            this.cboxReportEmpleado.Size = new System.Drawing.Size(265, 21);
+            this.cboxReportEmpleado.TabIndex = 5;
+            this.cboxReportEmpleado.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -305,7 +305,7 @@
             this.label3.Location = new System.Drawing.Point(14, 181);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 17);
+            this.label3.Size = new System.Drawing.Size(36, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Hasta";
             // 
@@ -316,25 +316,25 @@
             this.label2.Location = new System.Drawing.Point(14, 121);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 17);
+            this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Desde";
             // 
-            // dateTimePicker2
+            // dateTimeReportHasta
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(18, 201);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(265, 22);
-            this.dateTimePicker2.TabIndex = 2;
+            this.dateTimeReportHasta.Location = new System.Drawing.Point(18, 201);
+            this.dateTimeReportHasta.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimeReportHasta.Name = "dateTimeReportHasta";
+            this.dateTimeReportHasta.Size = new System.Drawing.Size(265, 20);
+            this.dateTimeReportHasta.TabIndex = 2;
             // 
-            // dateTimePicker1
+            // dateTimeReportDesde
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(18, 141);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(265, 22);
-            this.dateTimePicker1.TabIndex = 1;
+            this.dateTimeReportDesde.Location = new System.Drawing.Point(18, 141);
+            this.dateTimeReportDesde.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimeReportDesde.Name = "dateTimeReportDesde";
+            this.dateTimeReportDesde.Size = new System.Drawing.Size(265, 20);
+            this.dateTimeReportDesde.TabIndex = 1;
             // 
             // label1
             // 
@@ -343,7 +343,7 @@
             this.label1.Location = new System.Drawing.Point(65, 16);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 28);
+            this.label1.Size = new System.Drawing.Size(135, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Generar informe";
             // 
@@ -356,7 +356,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelNav);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "reporteView";
             this.Text = "reporteView";
             this.panel2.ResumeLayout(false);
@@ -379,9 +379,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DateTimePicker dateTimeReportHasta;
+        private System.Windows.Forms.DateTimePicker dateTimeReportDesde;
+        private System.Windows.Forms.ComboBox cboxReportEmpleado;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nroVenta_informe;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaVenta_reporte;
@@ -393,7 +393,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio_reporte;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal_reporte;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cboxReportFiltrar;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label7;
