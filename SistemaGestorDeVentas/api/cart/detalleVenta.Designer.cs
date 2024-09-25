@@ -30,6 +30,8 @@
         {
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
@@ -61,8 +63,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -104,6 +104,24 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(360, 92);
             this.panel6.TabIndex = 16;
+            // 
+            // button5
+            // 
+            this.button5.Image = global::SistemaGestorDeVentas.Properties.Resources.limpiar;
+            this.button5.Location = new System.Drawing.Point(306, 20);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(45, 44);
+            this.button5.TabIndex = 23;
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Image = global::SistemaGestorDeVentas.Properties.Resources.buscar;
+            this.button4.Location = new System.Drawing.Point(255, 20);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(45, 44);
+            this.button4.TabIndex = 22;
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // textBox5
             // 
@@ -401,24 +419,6 @@
             this.panel1.Size = new System.Drawing.Size(1129, 68);
             this.panel1.TabIndex = 10;
             // 
-            // button5
-            // 
-            this.button5.Image = global::SistemaGestorDeVentas.Properties.Resources.limpiar;
-            this.button5.Location = new System.Drawing.Point(306, 20);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(45, 44);
-            this.button5.TabIndex = 23;
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Image = global::SistemaGestorDeVentas.Properties.Resources.buscar;
-            this.button4.Location = new System.Drawing.Point(255, 20);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(45, 44);
-            this.button4.TabIndex = 22;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.HeaderText = "Eliminar";
@@ -430,8 +430,7 @@
             // 
             // detalleVenta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.LightSeaGreen;
             this.ClientSize = new System.Drawing.Size(1130, 630);
             this.Controls.Add(this.panel3);

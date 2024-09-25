@@ -30,6 +30,14 @@
         {
             this.panel5 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.detalleProductoNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleProductoCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleProductoDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleProductoCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleProductoPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleProductoStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleProductoEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleProductoSeleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -59,14 +67,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.detalleProductoNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleProductoCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleProductoDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleProductoCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleProductoPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleProductoStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleProductoEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleProductoSeleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel4.SuspendLayout();
@@ -96,12 +96,68 @@
             this.detalleProductoStock,
             this.detalleProductoEstado,
             this.detalleProductoSeleccionar});
-            this.dataGridView1.Location = new System.Drawing.Point(3, 17);
+            this.dataGridView1.Location = new System.Drawing.Point(16, 17);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(766, 334);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // detalleProductoNombre
+            // 
+            this.detalleProductoNombre.HeaderText = "Nombre";
+            this.detalleProductoNombre.MinimumWidth = 6;
+            this.detalleProductoNombre.Name = "detalleProductoNombre";
+            this.detalleProductoNombre.Width = 125;
+            // 
+            // detalleProductoCodigo
+            // 
+            this.detalleProductoCodigo.HeaderText = "Codigo";
+            this.detalleProductoCodigo.MinimumWidth = 6;
+            this.detalleProductoCodigo.Name = "detalleProductoCodigo";
+            this.detalleProductoCodigo.Width = 125;
+            // 
+            // detalleProductoDescripcion
+            // 
+            this.detalleProductoDescripcion.HeaderText = "Descripcion";
+            this.detalleProductoDescripcion.MinimumWidth = 6;
+            this.detalleProductoDescripcion.Name = "detalleProductoDescripcion";
+            this.detalleProductoDescripcion.Width = 125;
+            // 
+            // detalleProductoCategoria
+            // 
+            this.detalleProductoCategoria.HeaderText = "Categoria";
+            this.detalleProductoCategoria.MinimumWidth = 6;
+            this.detalleProductoCategoria.Name = "detalleProductoCategoria";
+            this.detalleProductoCategoria.Width = 125;
+            // 
+            // detalleProductoPrecio
+            // 
+            this.detalleProductoPrecio.HeaderText = "Precio";
+            this.detalleProductoPrecio.MinimumWidth = 6;
+            this.detalleProductoPrecio.Name = "detalleProductoPrecio";
+            this.detalleProductoPrecio.Width = 125;
+            // 
+            // detalleProductoStock
+            // 
+            this.detalleProductoStock.HeaderText = "Stock";
+            this.detalleProductoStock.MinimumWidth = 6;
+            this.detalleProductoStock.Name = "detalleProductoStock";
+            this.detalleProductoStock.Width = 125;
+            // 
+            // detalleProductoEstado
+            // 
+            this.detalleProductoEstado.HeaderText = "Estado";
+            this.detalleProductoEstado.MinimumWidth = 6;
+            this.detalleProductoEstado.Name = "detalleProductoEstado";
+            this.detalleProductoEstado.Width = 125;
+            // 
+            // detalleProductoSeleccionar
+            // 
+            this.detalleProductoSeleccionar.HeaderText = "Seleccionar";
+            this.detalleProductoSeleccionar.MinimumWidth = 6;
+            this.detalleProductoSeleccionar.Name = "detalleProductoSeleccionar";
+            this.detalleProductoSeleccionar.Width = 125;
             // 
             // panel4
             // 
@@ -395,66 +451,9 @@
             this.panel1.Size = new System.Drawing.Size(1129, 68);
             this.panel1.TabIndex = 5;
             // 
-            // detalleProductoNombre
-            // 
-            this.detalleProductoNombre.HeaderText = "Nombre";
-            this.detalleProductoNombre.MinimumWidth = 6;
-            this.detalleProductoNombre.Name = "detalleProductoNombre";
-            this.detalleProductoNombre.Width = 125;
-            // 
-            // detalleProductoCodigo
-            // 
-            this.detalleProductoCodigo.HeaderText = "Codigo";
-            this.detalleProductoCodigo.MinimumWidth = 6;
-            this.detalleProductoCodigo.Name = "detalleProductoCodigo";
-            this.detalleProductoCodigo.Width = 125;
-            // 
-            // detalleProductoDescripcion
-            // 
-            this.detalleProductoDescripcion.HeaderText = "Descripcion";
-            this.detalleProductoDescripcion.MinimumWidth = 6;
-            this.detalleProductoDescripcion.Name = "detalleProductoDescripcion";
-            this.detalleProductoDescripcion.Width = 125;
-            // 
-            // detalleProductoCategoria
-            // 
-            this.detalleProductoCategoria.HeaderText = "Categoria";
-            this.detalleProductoCategoria.MinimumWidth = 6;
-            this.detalleProductoCategoria.Name = "detalleProductoCategoria";
-            this.detalleProductoCategoria.Width = 125;
-            // 
-            // detalleProductoPrecio
-            // 
-            this.detalleProductoPrecio.HeaderText = "Precio";
-            this.detalleProductoPrecio.MinimumWidth = 6;
-            this.detalleProductoPrecio.Name = "detalleProductoPrecio";
-            this.detalleProductoPrecio.Width = 125;
-            // 
-            // detalleProductoStock
-            // 
-            this.detalleProductoStock.HeaderText = "Stock";
-            this.detalleProductoStock.MinimumWidth = 6;
-            this.detalleProductoStock.Name = "detalleProductoStock";
-            this.detalleProductoStock.Width = 125;
-            // 
-            // detalleProductoEstado
-            // 
-            this.detalleProductoEstado.HeaderText = "Estado";
-            this.detalleProductoEstado.MinimumWidth = 6;
-            this.detalleProductoEstado.Name = "detalleProductoEstado";
-            this.detalleProductoEstado.Width = 125;
-            // 
-            // detalleProductoSeleccionar
-            // 
-            this.detalleProductoSeleccionar.HeaderText = "Seleccionar";
-            this.detalleProductoSeleccionar.MinimumWidth = 6;
-            this.detalleProductoSeleccionar.Name = "detalleProductoSeleccionar";
-            this.detalleProductoSeleccionar.Width = 125;
-            // 
             // adminGestionProduct
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.LightSeaGreen;
             this.ClientSize = new System.Drawing.Size(1130, 630);
             this.Controls.Add(this.panel5);

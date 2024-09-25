@@ -30,6 +30,12 @@
         {
             this.panel5 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.detalleClienteDni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleClienteNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleClienteEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleClienteTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleClienteCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleClienteSeleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -55,12 +61,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.detalleClienteDni = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleClienteNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleClienteEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleClienteTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleClienteCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleClienteSeleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel4.SuspendLayout();
@@ -94,6 +94,48 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(766, 334);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // detalleClienteDni
+            // 
+            this.detalleClienteDni.HeaderText = "Nro DNI";
+            this.detalleClienteDni.MinimumWidth = 6;
+            this.detalleClienteDni.Name = "detalleClienteDni";
+            this.detalleClienteDni.Width = 125;
+            // 
+            // detalleClienteNombre
+            // 
+            this.detalleClienteNombre.HeaderText = "Nombre Completo";
+            this.detalleClienteNombre.MinimumWidth = 6;
+            this.detalleClienteNombre.Name = "detalleClienteNombre";
+            this.detalleClienteNombre.Width = 125;
+            // 
+            // detalleClienteEstado
+            // 
+            this.detalleClienteEstado.HeaderText = "Estado";
+            this.detalleClienteEstado.MinimumWidth = 6;
+            this.detalleClienteEstado.Name = "detalleClienteEstado";
+            this.detalleClienteEstado.Width = 125;
+            // 
+            // detalleClienteTelefono
+            // 
+            this.detalleClienteTelefono.HeaderText = "Telefono";
+            this.detalleClienteTelefono.MinimumWidth = 6;
+            this.detalleClienteTelefono.Name = "detalleClienteTelefono";
+            this.detalleClienteTelefono.Width = 125;
+            // 
+            // detalleClienteCorreo
+            // 
+            this.detalleClienteCorreo.HeaderText = "Correo";
+            this.detalleClienteCorreo.MinimumWidth = 6;
+            this.detalleClienteCorreo.Name = "detalleClienteCorreo";
+            this.detalleClienteCorreo.Width = 125;
+            // 
+            // detalleClienteSeleccionar
+            // 
+            this.detalleClienteSeleccionar.HeaderText = "Seleccionar";
+            this.detalleClienteSeleccionar.MinimumWidth = 6;
+            this.detalleClienteSeleccionar.Name = "detalleClienteSeleccionar";
+            this.detalleClienteSeleccionar.Width = 125;
             // 
             // panel4
             // 
@@ -346,52 +388,9 @@
             this.panel1.Size = new System.Drawing.Size(1129, 68);
             this.panel1.TabIndex = 10;
             // 
-            // detalleClienteDni
-            // 
-            this.detalleClienteDni.HeaderText = "Nro DNI";
-            this.detalleClienteDni.MinimumWidth = 6;
-            this.detalleClienteDni.Name = "detalleClienteDni";
-            this.detalleClienteDni.Width = 125;
-            // 
-            // detalleClienteNombre
-            // 
-            this.detalleClienteNombre.HeaderText = "Nombre Completo";
-            this.detalleClienteNombre.MinimumWidth = 6;
-            this.detalleClienteNombre.Name = "detalleClienteNombre";
-            this.detalleClienteNombre.Width = 125;
-            // 
-            // detalleClienteEstado
-            // 
-            this.detalleClienteEstado.HeaderText = "Estado";
-            this.detalleClienteEstado.MinimumWidth = 6;
-            this.detalleClienteEstado.Name = "detalleClienteEstado";
-            this.detalleClienteEstado.Width = 125;
-            // 
-            // detalleClienteTelefono
-            // 
-            this.detalleClienteTelefono.HeaderText = "Telefono";
-            this.detalleClienteTelefono.MinimumWidth = 6;
-            this.detalleClienteTelefono.Name = "detalleClienteTelefono";
-            this.detalleClienteTelefono.Width = 125;
-            // 
-            // detalleClienteCorreo
-            // 
-            this.detalleClienteCorreo.HeaderText = "Correo";
-            this.detalleClienteCorreo.MinimumWidth = 6;
-            this.detalleClienteCorreo.Name = "detalleClienteCorreo";
-            this.detalleClienteCorreo.Width = 125;
-            // 
-            // detalleClienteSeleccionar
-            // 
-            this.detalleClienteSeleccionar.HeaderText = "Seleccionar";
-            this.detalleClienteSeleccionar.MinimumWidth = 6;
-            this.detalleClienteSeleccionar.Name = "detalleClienteSeleccionar";
-            this.detalleClienteSeleccionar.Width = 125;
-            // 
             // detalleCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1130, 630);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
