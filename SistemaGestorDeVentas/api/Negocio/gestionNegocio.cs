@@ -17,6 +17,10 @@ namespace SistemaGestorDeVentas.api.Negocio
             InitializeComponent();
         }
 
+        private SistemaGestorDeVentas.components.navLogo navLogo;
+
+
+
         private void txtNegocioNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             // si no es una letra, no es borrar, no es espacio entonces bloquea
@@ -65,6 +69,11 @@ namespace SistemaGestorDeVentas.api.Negocio
                 MessageBox.Show("La dirección no puede estar vacía.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 e.Cancel = true;
             }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace SistemaGestorDeVentas.api.Negocio
+﻿using System.Windows.Forms;
+
+namespace SistemaGestorDeVentas.api.Negocio
 {
     partial class gestionNegocio
     {
@@ -26,8 +28,12 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
+        /// 
+        private SistemaGestorDeVentas.navbar navbar;
         private void InitializeComponent()
         {
+            this.navbar = new SistemaGestorDeVentas.navbar();
+            this.navLogo = new SistemaGestorDeVentas.components.navLogo();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -48,6 +54,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
+            // navbar
+            // 
+            this.navbar.BackColor = System.Drawing.Color.Gainsboro;
+            this.navbar.Location = new System.Drawing.Point(0, 68);
+            this.navbar.Margin = new System.Windows.Forms.Padding(4);
+            this.navbar.Name = "navbar";
+            this.navbar.Size = new System.Drawing.Size(1129, 76);
+            this.navbar.TabIndex = 0;
+            // 
+            // navLogo
+            // 
+            this.navLogo.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.navLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.navLogo.Location = new System.Drawing.Point(0, 0);
+            this.navLogo.Margin = new System.Windows.Forms.Padding(4);
+            this.navLogo.Name = "navLogo";
+            this.navLogo.Size = new System.Drawing.Size(1130, 68);
+            this.navLogo.TabIndex = 0;
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -56,6 +81,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1129, 76);
             this.panel2.TabIndex = 3;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // panel1
             // 
@@ -110,7 +136,7 @@
             // 
             this.txtNegocioDireccion.Location = new System.Drawing.Point(510, 169);
             this.txtNegocioDireccion.Name = "txtNegocioDireccion";
-            this.txtNegocioDireccion.Size = new System.Drawing.Size(336, 22);
+            this.txtNegocioDireccion.Size = new System.Drawing.Size(336, 20);
             this.txtNegocioDireccion.TabIndex = 8;
             this.txtNegocioDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNegocioDireccion_KeyPress);
             this.txtNegocioDireccion.Validating += new System.ComponentModel.CancelEventHandler(this.txtNegocioDireccion_Validating);
@@ -119,7 +145,7 @@
             // 
             this.txtNegocioRUC.Location = new System.Drawing.Point(510, 114);
             this.txtNegocioRUC.Name = "txtNegocioRUC";
-            this.txtNegocioRUC.Size = new System.Drawing.Size(336, 22);
+            this.txtNegocioRUC.Size = new System.Drawing.Size(336, 20);
             this.txtNegocioRUC.TabIndex = 7;
             this.txtNegocioRUC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNegocioRUC_KeyPress);
             this.txtNegocioRUC.Validating += new System.ComponentModel.CancelEventHandler(this.txtNegocioRUC_Validating);
@@ -128,7 +154,7 @@
             // 
             this.txtNegocioNombre.Location = new System.Drawing.Point(510, 55);
             this.txtNegocioNombre.Name = "txtNegocioNombre";
-            this.txtNegocioNombre.Size = new System.Drawing.Size(336, 22);
+            this.txtNegocioNombre.Size = new System.Drawing.Size(336, 20);
             this.txtNegocioNombre.TabIndex = 6;
             this.txtNegocioNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNegocioNombre_KeyPress);
             this.txtNegocioNombre.Validating += new System.ComponentModel.CancelEventHandler(this.txtNegocioNombre_Validating);
@@ -139,7 +165,7 @@
             this.label5.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(316, 169);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(107, 28);
+            this.label5.Size = new System.Drawing.Size(87, 21);
             this.label5.TabIndex = 5;
             this.label5.Text = "Dirección:";
             // 
@@ -149,7 +175,7 @@
             this.label4.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(316, 108);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 28);
+            this.label4.Size = new System.Drawing.Size(54, 21);
             this.label4.TabIndex = 4;
             this.label4.Text = "R.U.C:";
             // 
@@ -159,7 +185,7 @@
             this.label3.Font = new System.Drawing.Font("Nirmala UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(316, 51);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(193, 25);
+            this.label3.Size = new System.Drawing.Size(158, 20);
             this.label3.TabIndex = 3;
             this.label3.Text = "Nombre del Negocio:";
             // 
@@ -182,7 +208,7 @@
             this.label2.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(141, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 28);
+            this.label2.Size = new System.Drawing.Size(52, 21);
             this.label2.TabIndex = 1;
             this.label2.Text = "LOGO";
             // 
@@ -203,7 +229,7 @@
             this.label1.Font = new System.Drawing.Font("Nirmala UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(381, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(275, 38);
+            this.label1.Size = new System.Drawing.Size(216, 30);
             this.label1.TabIndex = 0;
             this.label1.Text = "Detalle del Negocio";
             // 
@@ -212,6 +238,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.LightSeaGreen;
             this.ClientSize = new System.Drawing.Size(1130, 630);
+            this.Controls.Add(this.navbar);
+            this.Controls.Add(this.navLogo);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
