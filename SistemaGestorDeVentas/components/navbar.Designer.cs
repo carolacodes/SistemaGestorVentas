@@ -28,120 +28,181 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.btn_Productos = new System.Windows.Forms.Button();
-            this.btnUsuarios = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.nuevaVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.compraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nuevaCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarComprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.negocioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button6
+            // menuStrip1
             // 
-            this.button6.BackColor = System.Drawing.SystemColors.Control;
-            this.button6.Image = global::SistemaGestorDeVentas.Properties.Resources.reporte_nav;
-            this.button6.Location = new System.Drawing.Point(800, 4);
-            this.button6.Margin = new System.Windows.Forms.Padding(4);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(93, 68);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "Reportes";
-            this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button6.UseVisualStyleBackColor = false;
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nuevaVentaToolStripMenuItem,
+            this.gestioToolStripMenuItem,
+            this.compraToolStripMenuItem,
+            this.ventasToolStripMenuItem,
+            this.reportesToolStripMenuItem,
+            this.negocioToolStripMenuItem,
+            this.usuariosToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1129, 58);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // button5
+            // nuevaVentaToolStripMenuItem
             // 
-            this.button5.BackColor = System.Drawing.SystemColors.Control;
-            this.button5.Image = global::SistemaGestorDeVentas.Properties.Resources.proveedor_nav;
-            this.button5.Location = new System.Drawing.Point(643, 4);
-            this.button5.Margin = new System.Windows.Forms.Padding(4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(103, 68);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Proveedores";
-            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button5.UseVisualStyleBackColor = false;
+            this.nuevaVentaToolStripMenuItem.Image = global::SistemaGestorDeVentas.Properties.Resources.compras;
+            this.nuevaVentaToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.nuevaVentaToolStripMenuItem.Name = "nuevaVentaToolStripMenuItem";
+            this.nuevaVentaToolStripMenuItem.Size = new System.Drawing.Size(135, 54);
+            this.nuevaVentaToolStripMenuItem.Text = "Nueva Venta";
+            this.nuevaVentaToolStripMenuItem.Click += new System.EventHandler(this.nuevaVentaToolStripMenuItem_Click);
             // 
-            // button4
+            // gestioToolStripMenuItem
             // 
-            this.button4.BackColor = System.Drawing.SystemColors.Control;
-            this.button4.Image = global::SistemaGestorDeVentas.Properties.Resources.cliente_nav;
-            this.button4.Location = new System.Drawing.Point(492, 4);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(93, 68);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Clientes";
-            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button4.UseVisualStyleBackColor = false;
+            this.gestioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.productosToolStripMenuItem,
+            this.categoriasToolStripMenuItem,
+            this.clientesToolStripMenuItem,
+            this.proveedoresToolStripMenuItem});
+            this.gestioToolStripMenuItem.Image = global::SistemaGestorDeVentas.Properties.Resources.mantenimiento_nav;
+            this.gestioToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.gestioToolStripMenuItem.Name = "gestioToolStripMenuItem";
+            this.gestioToolStripMenuItem.Size = new System.Drawing.Size(109, 54);
+            this.gestioToolStripMenuItem.Text = "Gestion";
+            this.gestioToolStripMenuItem.Click += new System.EventHandler(this.gestioToolStripMenuItem_Click);
             // 
-            // button3
+            // productosToolStripMenuItem
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.Control;
-            this.button3.Image = global::SistemaGestorDeVentas.Properties.Resources.ventas_nav;
-            this.button3.Location = new System.Drawing.Point(340, 4);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(93, 68);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Ventas";
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button3.UseVisualStyleBackColor = false;
+            this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
+            this.productosToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.productosToolStripMenuItem.Text = "Productos";
             // 
-            // btn_Productos
+            // categoriasToolStripMenuItem
             // 
-            this.btn_Productos.BackColor = System.Drawing.SystemColors.Control;
-            this.btn_Productos.Image = global::SistemaGestorDeVentas.Properties.Resources.mantenimiento_nav;
-            this.btn_Productos.Location = new System.Drawing.Point(192, 4);
-            this.btn_Productos.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_Productos.Name = "btn_Productos";
-            this.btn_Productos.Size = new System.Drawing.Size(93, 68);
-            this.btn_Productos.TabIndex = 1;
-            this.btn_Productos.Text = "Productos";
-            this.btn_Productos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btn_Productos.UseVisualStyleBackColor = false;
+            this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
+            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.categoriasToolStripMenuItem.Text = "Categorias";
             // 
-            // btnUsuarios
+            // clientesToolStripMenuItem
             // 
-            this.btnUsuarios.BackColor = System.Drawing.SystemColors.Control;
-            this.btnUsuarios.Image = global::SistemaGestorDeVentas.Properties.Resources.usuarioss;
-            this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnUsuarios.Location = new System.Drawing.Point(49, 4);
-            this.btnUsuarios.Margin = new System.Windows.Forms.Padding(4);
-            this.btnUsuarios.Name = "btnUsuarios";
-            this.btnUsuarios.Size = new System.Drawing.Size(93, 68);
-            this.btnUsuarios.TabIndex = 0;
-            this.btnUsuarios.Text = "Usuarios";
-            this.btnUsuarios.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnUsuarios.UseVisualStyleBackColor = false;
-            this.btnUsuarios.Click += new System.EventHandler(this.button1_Click);
+            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.clientesToolStripMenuItem.Text = "Clientes";
+            // 
+            // proveedoresToolStripMenuItem
+            // 
+            this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
+            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.proveedoresToolStripMenuItem.Text = "Proveedores";
+            // 
+            // compraToolStripMenuItem
+            // 
+            this.compraToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nuevaCompraToolStripMenuItem,
+            this.consultarComprasToolStripMenuItem});
+            this.compraToolStripMenuItem.Image = global::SistemaGestorDeVentas.Properties.Resources.proveedor_nav;
+            this.compraToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.compraToolStripMenuItem.Name = "compraToolStripMenuItem";
+            this.compraToolStripMenuItem.Size = new System.Drawing.Size(112, 54);
+            this.compraToolStripMenuItem.Text = "Compra";
+            // 
+            // nuevaCompraToolStripMenuItem
+            // 
+            this.nuevaCompraToolStripMenuItem.Name = "nuevaCompraToolStripMenuItem";
+            this.nuevaCompraToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.nuevaCompraToolStripMenuItem.Text = "Nueva Compra";
+            // 
+            // consultarComprasToolStripMenuItem
+            // 
+            this.consultarComprasToolStripMenuItem.Name = "consultarComprasToolStripMenuItem";
+            this.consultarComprasToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.consultarComprasToolStripMenuItem.Text = "Consultar Compras";
+            // 
+            // ventasToolStripMenuItem
+            // 
+            this.ventasToolStripMenuItem.Image = global::SistemaGestorDeVentas.Properties.Resources.ventas_nav;
+            this.ventasToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
+            this.ventasToolStripMenuItem.Size = new System.Drawing.Size(103, 54);
+            this.ventasToolStripMenuItem.Text = "Ventas";
+            // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.Image = global::SistemaGestorDeVentas.Properties.Resources.reporte_nav;
+            this.reportesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(115, 54);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            // 
+            // negocioToolStripMenuItem
+            // 
+            this.negocioToolStripMenuItem.Image = global::SistemaGestorDeVentas.Properties.Resources.negocio_nav;
+            this.negocioToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.negocioToolStripMenuItem.Name = "negocioToolStripMenuItem";
+            this.negocioToolStripMenuItem.Size = new System.Drawing.Size(114, 54);
+            this.negocioToolStripMenuItem.Text = "Negocio";
+            // 
+            // usuariosToolStripMenuItem
+            // 
+            this.usuariosToolStripMenuItem.Image = global::SistemaGestorDeVentas.Properties.Resources.usuarioss;
+            this.usuariosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(114, 54);
+            this.usuariosToolStripMenuItem.Text = "Usuarios";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // navbar
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.btn_Productos);
-            this.Controls.Add(this.btnUsuarios);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.menuStrip1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "navbar";
-            this.Size = new System.Drawing.Size(1129, 76);
+            this.Size = new System.Drawing.Size(1129, 60);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnUsuarios;
-        private System.Windows.Forms.Button btn_Productos;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem nuevaVentaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gestioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem categoriasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem proveedoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem compraToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nuevaCompraToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultarComprasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ventasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem negocioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

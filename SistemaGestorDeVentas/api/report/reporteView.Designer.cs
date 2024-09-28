@@ -1,4 +1,6 @@
-﻿namespace SistemaGestorDeVentas.api.report
+﻿using System.Windows.Forms;
+
+namespace SistemaGestorDeVentas.api.report
 {
     partial class reporteView
     {
@@ -22,6 +24,10 @@
 
         #region Windows Form Designer generated code
 
+
+        private SistemaGestorDeVentas.components.navLogo navLogo;
+        private SistemaGestorDeVentas.navbar navbar;
+
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
@@ -31,8 +37,8 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.panelNav = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.navLogo = new SistemaGestorDeVentas.components.navLogo();
+            this.navbar = new SistemaGestorDeVentas.navbar();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -64,25 +70,24 @@
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panelNav
+            // navLogo
             // 
-            this.panelNav.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panelNav.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelNav.Location = new System.Drawing.Point(1, 66);
-            this.panelNav.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelNav.Name = "panelNav";
-            this.panelNav.Size = new System.Drawing.Size(1129, 76);
-            this.panelNav.TabIndex = 9;
+            this.navLogo.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.navLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.navLogo.Location = new System.Drawing.Point(0, 0);
+            this.navLogo.Margin = new System.Windows.Forms.Padding(4);
+            this.navLogo.Name = "navLogo";
+            this.navLogo.Size = new System.Drawing.Size(1130, 68);
+            this.navLogo.TabIndex = 0;
             // 
-            // panel1
+            // navbar
             // 
-            this.panel1.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(3, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1129, 68);
-            this.panel1.TabIndex = 8;
+            this.navbar.BackColor = System.Drawing.SystemColors.Control;
+            this.navbar.Location = new System.Drawing.Point(0, 68);
+            this.navbar.Margin = new System.Windows.Forms.Padding(4);
+            this.navbar.Name = "navbar";
+            this.navbar.Size = new System.Drawing.Size(1129, 58);
+            this.navbar.TabIndex = 1;
             // 
             // panel2
             // 
@@ -92,10 +97,10 @@
             this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.chart1);
-            this.panel2.Location = new System.Drawing.Point(319, 158);
+            this.panel2.Location = new System.Drawing.Point(319, 142);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(795, 455);
+            this.panel2.Size = new System.Drawing.Size(795, 471);
             this.panel2.TabIndex = 10;
             // 
             // label7
@@ -352,13 +357,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.LightSeaGreen;
             this.ClientSize = new System.Drawing.Size(1130, 630);
+            this.Controls.Add(this.navLogo);
+            this.Controls.Add(this.navbar);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panelNav);
-            this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "reporteView";
-            this.Text = "reporteView";
+            this.Text = "reportes";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -370,9 +375,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panelNav;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Panel panel3;

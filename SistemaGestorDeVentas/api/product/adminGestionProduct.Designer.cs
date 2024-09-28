@@ -1,4 +1,6 @@
-﻿namespace SistemaGestorDeVentas.api.product
+﻿using System.Windows.Forms;
+
+namespace SistemaGestorDeVentas.api.product
 {
     partial class adminGestionProduct
     {
@@ -20,6 +22,9 @@
             base.Dispose(disposing);
         }
 
+        private SistemaGestorDeVentas.components.navLogo navLogo;
+        private SistemaGestorDeVentas.navbar navbar;
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -28,6 +33,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.navLogo = new SistemaGestorDeVentas.components.navLogo();
+            this.navbar = new SistemaGestorDeVentas.navbar();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.detalleProductoNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,13 +72,30 @@
             this.txtProductCodigo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // navLogo
+            // 
+            this.navLogo.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.navLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.navLogo.Location = new System.Drawing.Point(0, 0);
+            this.navLogo.Margin = new System.Windows.Forms.Padding(4);
+            this.navLogo.Name = "navLogo";
+            this.navLogo.Size = new System.Drawing.Size(1130, 68);
+            this.navLogo.TabIndex = 0;
+            // 
+            // navbar
+            // 
+            this.navbar.BackColor = System.Drawing.SystemColors.Control;
+            this.navbar.Location = new System.Drawing.Point(0, 68);
+            this.navbar.Margin = new System.Windows.Forms.Padding(4);
+            this.navbar.Name = "navbar";
+            this.navbar.Size = new System.Drawing.Size(1129, 58);
+            this.navbar.TabIndex = 1;
             // 
             // panel5
             // 
@@ -440,37 +464,19 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Detalle Producto";
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Location = new System.Drawing.Point(1, 66);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1129, 76);
-            this.panel2.TabIndex = 6;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(1, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1129, 68);
-            this.panel1.TabIndex = 5;
-            // 
             // adminGestionProduct
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.LightSeaGreen;
             this.ClientSize = new System.Drawing.Size(1130, 630);
+            this.Controls.Add(this.navLogo);
+            this.Controls.Add(this.navbar);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "adminGestionProduct";
-            this.Text = "Gestion Producto (Admin)";
+            this.Text = "Productos";
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel4.ResumeLayout(false);
@@ -501,8 +507,6 @@
         private System.Windows.Forms.TextBox txtProductCodigo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtProductPrecio;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;

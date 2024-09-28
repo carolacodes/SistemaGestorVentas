@@ -22,5 +22,15 @@ namespace SistemaGestorDeVentas
         {
 
         }
+
+        private void gestioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nuevaVentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

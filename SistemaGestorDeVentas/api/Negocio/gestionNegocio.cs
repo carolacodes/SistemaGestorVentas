@@ -75,5 +75,10 @@ namespace SistemaGestorDeVentas.api.Negocio
         {
 
         }
+
+        private void navbar_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

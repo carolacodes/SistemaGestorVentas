@@ -36,10 +36,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::SistemaGestorDeVentas.Properties.Resources.logo_sistemaGestorDeVentas;
-            this.pictureBox1.Location = new System.Drawing.Point(4, 4);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(80, 74);
+            this.pictureBox1.Size = new System.Drawing.Size(75, 68);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -51,16 +51,17 @@
             this.label1.Location = new System.Drawing.Point(139, 27);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(267, 25);
+            this.label1.Size = new System.Drawing.Size(224, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "Sistema Gestor De Ventas";
             // 
             // navLogo
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.LightSeaGreen;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "navLogo";
             this.Size = new System.Drawing.Size(1129, 68);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

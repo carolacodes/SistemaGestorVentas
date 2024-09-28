@@ -23,18 +23,8 @@ namespace SistemaGestorDeVentas.api.Negocio
         }
 
         #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        /// 
-        private SistemaGestorDeVentas.navbar navbar;
         private void InitializeComponent()
         {
-            this.navbar = new SistemaGestorDeVentas.navbar();
-            this.navLogo = new SistemaGestorDeVentas.components.navLogo();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -49,39 +39,12 @@ namespace SistemaGestorDeVentas.api.Negocio
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.navbar = new SistemaGestorDeVentas.navbar();
+            this.navLogo = new SistemaGestorDeVentas.components.navLogo();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // navbar
-            // 
-            this.navbar.BackColor = System.Drawing.Color.Gainsboro;
-            this.navbar.Location = new System.Drawing.Point(0, 68);
-            this.navbar.Margin = new System.Windows.Forms.Padding(4);
-            this.navbar.Name = "navbar";
-            this.navbar.Size = new System.Drawing.Size(1129, 76);
-            this.navbar.TabIndex = 0;
-            // 
-            // navLogo
-            // 
-            this.navLogo.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.navLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.navLogo.Location = new System.Drawing.Point(0, 0);
-            this.navLogo.Margin = new System.Windows.Forms.Padding(4);
-            this.navLogo.Name = "navLogo";
-            this.navLogo.Size = new System.Drawing.Size(1130, 68);
-            this.navLogo.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Location = new System.Drawing.Point(1, 66);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1129, 76);
-            this.panel2.TabIndex = 3;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // panel1
             // 
@@ -175,7 +138,7 @@ namespace SistemaGestorDeVentas.api.Negocio
             this.label4.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(316, 108);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 21);
+            this.label4.Size = new System.Drawing.Size(53, 21);
             this.label4.TabIndex = 4;
             this.label4.Text = "R.U.T:";
             // 
@@ -233,6 +196,25 @@ namespace SistemaGestorDeVentas.api.Negocio
             this.label1.TabIndex = 0;
             this.label1.Text = "Detalle del Negocio";
             // 
+            // navbar
+            // 
+            this.navbar.BackColor = System.Drawing.SystemColors.Control;
+            this.navbar.Location = new System.Drawing.Point(0, 68);
+            this.navbar.Margin = new System.Windows.Forms.Padding(4);
+            this.navbar.Name = "navbar";
+            this.navbar.Size = new System.Drawing.Size(1129, 58);
+            this.navbar.TabIndex = 0;
+            // 
+            // navLogo
+            // 
+            this.navLogo.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.navLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.navLogo.Location = new System.Drawing.Point(0, 0);
+            this.navLogo.Margin = new System.Windows.Forms.Padding(4);
+            this.navLogo.Name = "navLogo";
+            this.navLogo.Size = new System.Drawing.Size(1130, 68);
+            this.navLogo.TabIndex = 0;
+            // 
             // gestionNegocio
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -241,10 +223,9 @@ namespace SistemaGestorDeVentas.api.Negocio
             this.Controls.Add(this.navbar);
             this.Controls.Add(this.navLogo);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "gestionNegocio";
-            this.Text = "gestionNegocio";
+            this.Text = "Negocio";
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -255,8 +236,6 @@ namespace SistemaGestorDeVentas.api.Negocio
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
@@ -271,5 +250,6 @@ namespace SistemaGestorDeVentas.api.Negocio
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button2;
+        private navbar navbar;
     }
 }

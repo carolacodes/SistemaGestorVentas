@@ -83,6 +83,16 @@ namespace SistemaGestorDeVentas.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap compras {
+            get {
+                object obj = ResourceManager.GetObject("compras", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap descarga__7_ {
             get {
                 object obj = ResourceManager.GetObject("descarga (7)", resourceCulture);
@@ -136,6 +146,26 @@ namespace SistemaGestorDeVentas.Properties {
         internal static System.Drawing.Bitmap mantenimiento_nav {
             get {
                 object obj = ResourceManager.GetObject("mantenimiento_nav", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap negocio_nav {
+            get {
+                object obj = ResourceManager.GetObject("negocio_nav", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nueva_venta_nav {
+            get {
+                object obj = ResourceManager.GetObject("nueva_venta_nav", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

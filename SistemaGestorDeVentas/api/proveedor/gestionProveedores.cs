@@ -27,8 +27,6 @@ namespace SistemaGestorDeVentas.api.proveedor
             navbar nav = new navbar();
 
             nav.Dock = DockStyle.Fill;
-
-            panelNav.Controls.Add(nav);
             
         }
         private void panelNav_Paint(object sender, PaintEventArgs e)

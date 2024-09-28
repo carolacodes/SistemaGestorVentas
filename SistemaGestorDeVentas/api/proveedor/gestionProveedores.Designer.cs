@@ -1,4 +1,6 @@
-﻿namespace SistemaGestorDeVentas.api.proveedor
+﻿using System.Windows.Forms;
+
+namespace SistemaGestorDeVentas.api.proveedor
 {
     partial class gestionProveedores
     {
@@ -22,14 +24,17 @@
 
         #region Windows Form Designer generated code
 
+        private SistemaGestorDeVentas.components.navLogo navLogo;
+        private SistemaGestorDeVentas.navbar navbar;
+
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panelNav = new System.Windows.Forms.Panel();
+            this.navLogo = new SistemaGestorDeVentas.components.navLogo();
+            this.navbar = new SistemaGestorDeVentas.navbar();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -75,27 +80,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // navLogo
             // 
-            this.panel1.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(1, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1129, 68);
-            this.panel1.TabIndex = 6;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.navLogo.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.navLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.navLogo.Location = new System.Drawing.Point(0, 0);
+            this.navLogo.Margin = new System.Windows.Forms.Padding(4);
+            this.navLogo.Name = "navLogo";
+            this.navLogo.Size = new System.Drawing.Size(1130, 68);
+            this.navLogo.TabIndex = 0;
             // 
-            // panelNav
+            // navbar
             // 
-            this.panelNav.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panelNav.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelNav.Location = new System.Drawing.Point(1, 66);
-            this.panelNav.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelNav.Name = "panelNav";
-            this.panelNav.Size = new System.Drawing.Size(1129, 76);
-            this.panelNav.TabIndex = 6;
-            this.panelNav.Paint += new System.Windows.Forms.PaintEventHandler(this.panelNav_Paint);
+            this.navbar.BackColor = System.Drawing.SystemColors.Control;
+            this.navbar.Location = new System.Drawing.Point(0, 68);
+            this.navbar.Margin = new System.Windows.Forms.Padding(4);
+            this.navbar.Name = "navbar";
+            this.navbar.Size = new System.Drawing.Size(1129, 58);
+            this.navbar.TabIndex = 1;
             // 
             // panel2
             // 
@@ -512,14 +514,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.LightSeaGreen;
             this.ClientSize = new System.Drawing.Size(1130, 630);
+            this.Controls.Add(this.navLogo);
+            this.Controls.Add(this.navbar);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panelNav);
-            this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "gestionProveedores";
-            this.Text = "gestionProveedores";
+            this.Text = "Proveedores";
             this.Load += new System.EventHandler(this.gestionProveedores_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -532,9 +534,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panelNav;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
