@@ -177,7 +177,7 @@ namespace SistemaGestorDeVentas.api.Negocio
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 21);
             this.label4.TabIndex = 4;
-            this.label4.Text = "R.U.C:";
+            this.label4.Text = "R.U.T:";
             // 
             // label3
             // 

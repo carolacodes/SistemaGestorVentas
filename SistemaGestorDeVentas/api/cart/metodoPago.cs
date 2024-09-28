@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SistemaGestorDeVentas.api.user
+namespace SistemaGestorDeVentas.api.cart
 {
-    public partial class adminMenu : Form
+    public partial class metodoPago : Form
     {
-        public adminMenu()
+        public metodoPago()
         {
             InitializeComponent();
         }
@@ -22,7 +22,7 @@ namespace SistemaGestorDeVentas.api.user
 
         }
 
-        private void adminMenu_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

@@ -62,6 +62,18 @@
       <DependentUpon>registerView.cs</DependentUpon>
     </Compile>
     <Compile Include="api\auth\service.cs" />
+    <Compile Include="api\cart\buscarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="api\cart\buscarCliente.Designer.cs">
+      <DependentUpon>buscarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="api\cart\buscarVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="api\cart\buscarVenta.Designer.cs">
+      <DependentUpon>buscarVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="api\cart\cartView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +87,12 @@
     </Compile>
     <Compile Include="api\cart\detalleVenta.Designer.cs">
       <DependentUpon>detalleVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="api\cart\metodoPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="api\cart\metodoPago.Designer.cs">
+      <DependentUpon>metodoPago.cs</DependentUpon>
     </Compile>
     <Compile Include="api\cart\service.cs" />
     <Compile Include="api\category\categoryMenu.cs">
@@ -92,11 +110,35 @@
     <Compile Include="api\cliente\detalleCliente.Designer.cs">
       <DependentUpon>detalleCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="api\compra\buscarCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="api\compra\buscarCompra.Designer.cs">
+      <DependentUpon>buscarCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="api\compra\compraProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="api\compra\compraProducto.Designer.cs">
+      <DependentUpon>compraProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="api\compra\detalleCompraProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="api\compra\detalleCompraProducto.Designer.cs">
+      <DependentUpon>detalleCompraProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="api\Negocio\gestionNegocio.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="api\Negocio\gestionNegocio.Designer.cs">
       <DependentUpon>gestionNegocio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="api\product\buscarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="api\product\buscarProducto.Designer.cs">
+      <DependentUpon>buscarProducto.cs</DependentUpon>
     </Compile>
     <Compile Include="api\product\controller.cs" />
     <Compile Include="api\product\dao.cs" />
@@ -108,33 +150,15 @@
     </Compile>
     <Compile Include="api\product\Product.cs" />
     <Compile Include="api\product\service.cs" />
-    <Compile Include="api\user\adminMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="api\user\adminMenu.Designer.cs">
-      <DependentUpon>adminMenu.cs</DependentUpon>
-    </Compile>
     <Compile Include="api\user\controller.cs" />
     <Compile Include="api\user\dao.cs" />
-    <Compile Include="api\user\listaUsuarios.cs">
+    <Compile Include="api\user\usuarioView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="api\user\listaUsuarios.Designer.cs">
-      <DependentUpon>listaUsuarios.cs</DependentUpon>
-    </Compile>
-    <Compile Include="api\user\sellerMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="api\user\sellerMenu.Designer.cs">
-      <DependentUpon>sellerMenu.cs</DependentUpon>
+    <Compile Include="api\user\usuarioView.Designer.cs">
+      <DependentUpon>usuarioView.cs</DependentUpon>
     </Compile>
     <Compile Include="api\user\service.cs" />
-    <Compile Include="api\user\supervisorMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="api\user\supervisorMenu.Designer.cs">
-      <DependentUpon>supervisorMenu.cs</DependentUpon>
-    </Compile>
     <Compile Include="paginaInicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +191,27 @@
     <Compile Include="api\report\reporteView.Designer.cs">
       <DependentUpon>reporteView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="api\cart\buscarCliente.resx">
+      <DependentUpon>buscarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="api\cart\buscarVenta.resx">
+      <DependentUpon>buscarVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="api\cart\metodoPago.resx">
+      <DependentUpon>metodoPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="api\compra\buscarCompra.resx">
+      <DependentUpon>buscarCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="api\compra\compraProducto.resx">
+      <DependentUpon>compraProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="api\compra\detalleCompraProducto.resx">
+      <DependentUpon>detalleCompraProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="api\product\buscarProducto.resx">
+      <DependentUpon>buscarProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="components\navLogo.resx">
       <DependentUpon>navLogo.cs</DependentUpon>
     </EmbeddedResource>
@@ -203,11 +248,8 @@
     <EmbeddedResource Include="api\product\adminGestionProduct.resx">
       <DependentUpon>adminGestionProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="api\user\adminMenu.resx">
-      <DependentUpon>adminMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="api\user\listaUsuarios.resx">
-      <DependentUpon>listaUsuarios.cs</DependentUpon>
+    <EmbeddedResource Include="api\user\usuarioView.resx">
+      <DependentUpon>usuarioView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="paginaInicio.resx">
       <DependentUpon>paginaInicio.cs</DependentUpon>

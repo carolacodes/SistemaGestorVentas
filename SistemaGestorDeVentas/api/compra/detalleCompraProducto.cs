@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SistemaGestorDeVentas.api.user
+namespace SistemaGestorDeVentas.api.compra
 {
-    public partial class supervisorMenu : Form
+    public partial class detalleCompraProducto : Form
     {
-        public supervisorMenu()
+        public detalleCompraProducto()
         {
             InitializeComponent();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

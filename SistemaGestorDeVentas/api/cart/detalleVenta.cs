@@ -81,5 +81,10 @@ namespace SistemaGestorDeVentas.api.cart
                 e.Cancel = true;
             }
         }
+
+        private void detalleVenta_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

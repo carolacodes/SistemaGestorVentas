@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SistemaGestorDeVentas.api.user
+namespace SistemaGestorDeVentas.api.compra
 {
-    public partial class sellerMenu : Form
+    public partial class compraProducto : Form
     {
-        public sellerMenu()
+        public compraProducto()
         {
             InitializeComponent();
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
