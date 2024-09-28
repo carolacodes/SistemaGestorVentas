@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SistemaGestorDeVentas.api.user
 {
-    public partial class listaUsuarios : Form
+    public partial class usuarioView : Form
     {
-        public listaUsuarios()
+        public usuarioView()
         {
             InitializeComponent();
         }

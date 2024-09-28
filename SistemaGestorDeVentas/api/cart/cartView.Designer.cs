@@ -31,19 +31,11 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.dataGridCartView = new System.Windows.Forms.DataGridView();
-            this.cardProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CardPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CardCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CardSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CardEliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.btnAgregarCartView = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.domainUpDown1 = new System.Windows.Forms.DomainUpDown();
@@ -54,12 +46,10 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txtCartProducto = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.txtCartCodProduct = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
             this.txtCartNombreCliente = new System.Windows.Forms.TextBox();
             this.txtCartViewDNI = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -73,6 +63,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.cartProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cartPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cartCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cartSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cartEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCartView)).BeginInit();
             this.panel6.SuspendLayout();
@@ -102,11 +99,8 @@
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.button3);
-            this.panel3.Controls.Add(this.label16);
-            this.panel3.Controls.Add(this.textBox10);
-            this.panel3.Controls.Add(this.label15);
-            this.panel3.Controls.Add(this.textBox9);
             this.panel3.Controls.Add(this.label14);
             this.panel3.Controls.Add(this.textBox8);
             this.panel3.Controls.Add(this.dataGridCartView);
@@ -120,49 +114,25 @@
             this.panel3.Size = new System.Drawing.Size(1106, 458);
             this.panel3.TabIndex = 9;
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(995, 326);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(106, 53);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Realizar Pago";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(995, 411);
+            this.button3.Location = new System.Drawing.Point(995, 400);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(106, 42);
             this.button3.TabIndex = 15;
             this.button3.Text = "Crear Venta";
             this.button3.UseVisualStyleBackColor = true;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(995, 360);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(54, 20);
-            this.label16.TabIndex = 14;
-            this.label16.Text = "Vuelto";
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(995, 383);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(106, 22);
-            this.textBox10.TabIndex = 13;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(995, 308);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(52, 20);
-            this.label15.TabIndex = 12;
-            this.label15.Text = "Pago: ";
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(995, 331);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(106, 22);
-            this.textBox9.TabIndex = 11;
             // 
             // label14
             // 
@@ -186,11 +156,11 @@
             this.dataGridCartView.BackgroundColor = System.Drawing.Color.Azure;
             this.dataGridCartView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridCartView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cardProducto,
-            this.CardPrecio,
-            this.CardCantidad,
-            this.CardSubtotal,
-            this.CardEliminar});
+            this.cartProducto,
+            this.cartPrecio,
+            this.cartCantidad,
+            this.cartSubtotal,
+            this.cartEliminar});
             this.dataGridCartView.Location = new System.Drawing.Point(19, 252);
             this.dataGridCartView.Name = "dataGridCartView";
             this.dataGridCartView.RowHeadersWidth = 51;
@@ -198,43 +168,6 @@
             this.dataGridCartView.Size = new System.Drawing.Size(970, 189);
             this.dataGridCartView.TabIndex = 8;
             this.dataGridCartView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
-            // 
-            // cardProducto
-            // 
-            this.cardProducto.HeaderText = "Producto";
-            this.cardProducto.MinimumWidth = 6;
-            this.cardProducto.Name = "cardProducto";
-            this.cardProducto.Width = 125;
-            // 
-            // CardPrecio
-            // 
-            this.CardPrecio.HeaderText = "Precio";
-            this.CardPrecio.MinimumWidth = 6;
-            this.CardPrecio.Name = "CardPrecio";
-            this.CardPrecio.Width = 125;
-            // 
-            // CardCantidad
-            // 
-            this.CardCantidad.HeaderText = "Cantidad";
-            this.CardCantidad.MinimumWidth = 6;
-            this.CardCantidad.Name = "CardCantidad";
-            this.CardCantidad.Width = 125;
-            // 
-            // CardSubtotal
-            // 
-            this.CardSubtotal.HeaderText = "Subtotal";
-            this.CardSubtotal.MinimumWidth = 6;
-            this.CardSubtotal.Name = "CardSubtotal";
-            this.CardSubtotal.Width = 125;
-            // 
-            // CardEliminar
-            // 
-            this.CardEliminar.HeaderText = "Eliminar";
-            this.CardEliminar.Image = global::SistemaGestorDeVentas.Properties.Resources.eliminar;
-            this.CardEliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.CardEliminar.MinimumWidth = 6;
-            this.CardEliminar.Name = "CardEliminar";
-            this.CardEliminar.Width = 125;
             // 
             // btnAgregarCartView
             // 
@@ -345,15 +278,6 @@
             this.label10.TabIndex = 8;
             this.label10.Text = "Producto";
             // 
-            // button2
-            // 
-            this.button2.Image = global::SistemaGestorDeVentas.Properties.Resources.buscar;
-            this.button2.Location = new System.Drawing.Point(161, 43);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(45, 44);
-            this.button2.TabIndex = 7;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // txtCartCodProduct
             // 
             this.txtCartCodProduct.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -398,15 +322,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(616, 92);
             this.panel5.TabIndex = 5;
-            // 
-            // button4
-            // 
-            this.button4.Image = global::SistemaGestorDeVentas.Properties.Resources.buscar;
-            this.button4.Location = new System.Drawing.Point(198, 31);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(45, 44);
-            this.button4.TabIndex = 6;
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // txtCartNombreCliente
             // 
@@ -541,6 +456,61 @@
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.Width = 125;
             // 
+            // button2
+            // 
+            this.button2.Image = global::SistemaGestorDeVentas.Properties.Resources.buscar;
+            this.button2.Location = new System.Drawing.Point(166, 47);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(45, 44);
+            this.button2.TabIndex = 7;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Image = global::SistemaGestorDeVentas.Properties.Resources.buscar;
+            this.button4.Location = new System.Drawing.Point(198, 31);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(45, 44);
+            this.button4.TabIndex = 6;
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // cartProducto
+            // 
+            this.cartProducto.HeaderText = "Producto";
+            this.cartProducto.MinimumWidth = 6;
+            this.cartProducto.Name = "cartProducto";
+            this.cartProducto.Width = 125;
+            // 
+            // cartPrecio
+            // 
+            this.cartPrecio.HeaderText = "Precio";
+            this.cartPrecio.MinimumWidth = 6;
+            this.cartPrecio.Name = "cartPrecio";
+            this.cartPrecio.Width = 125;
+            // 
+            // cartCantidad
+            // 
+            this.cartCantidad.HeaderText = "Cantidad";
+            this.cartCantidad.MinimumWidth = 6;
+            this.cartCantidad.Name = "cartCantidad";
+            this.cartCantidad.Width = 125;
+            // 
+            // cartSubtotal
+            // 
+            this.cartSubtotal.HeaderText = "Subtotal";
+            this.cartSubtotal.MinimumWidth = 6;
+            this.cartSubtotal.Name = "cartSubtotal";
+            this.cartSubtotal.Width = 125;
+            // 
+            // cartEliminar
+            // 
+            this.cartEliminar.HeaderText = "Eliminar";
+            this.cartEliminar.MinimumWidth = 6;
+            this.cartEliminar.Name = "cartEliminar";
+            this.cartEliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cartEliminar.Text = "Eliminar";
+            this.cartEliminar.Width = 125;
+            // 
             // cartView
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -600,18 +570,15 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridView dataGridCartView;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cardProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CardPrecio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CardCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CardSubtotal;
-        private System.Windows.Forms.DataGridViewImageColumn CardEliminar;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DateTimePicker dateCartViewFecha;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cartProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cartPrecio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cartCantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cartSubtotal;
+        private System.Windows.Forms.DataGridViewButtonColumn cartEliminar;
     }
 }
