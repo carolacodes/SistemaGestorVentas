@@ -112,5 +112,15 @@ namespace SistemaGestorDeVentas.api.proveedor
                 e.Handled = true; // Cancela la acción, no permite la entrada
             }
         }
+
+        private void txtProveedorDireccion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtProveedorNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -17,8 +17,6 @@ namespace SistemaGestorDeVentas.api.Negocio
             InitializeComponent();
         }
 
-        private SistemaGestorDeVentas.components.navLogo navLogo;
-
 
 
         private void txtNegocioNombre_KeyPress(object sender, KeyPressEventArgs e)

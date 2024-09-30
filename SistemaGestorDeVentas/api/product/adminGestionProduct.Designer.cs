@@ -22,9 +22,6 @@ namespace SistemaGestorDeVentas.api.product
             base.Dispose(disposing);
         }
 
-        private SistemaGestorDeVentas.components.navLogo navLogo;
-        private SistemaGestorDeVentas.navbar navbar;
-
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -33,8 +30,6 @@ namespace SistemaGestorDeVentas.api.product
         /// </summary>
         private void InitializeComponent()
         {
-            this.navLogo = new SistemaGestorDeVentas.components.navLogo();
-            this.navbar = new SistemaGestorDeVentas.navbar();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.detalleProductoNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,31 +73,12 @@ namespace SistemaGestorDeVentas.api.product
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // navLogo
-            // 
-            this.navLogo.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.navLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.navLogo.Location = new System.Drawing.Point(0, 0);
-            this.navLogo.Margin = new System.Windows.Forms.Padding(4);
-            this.navLogo.Name = "navLogo";
-            this.navLogo.Size = new System.Drawing.Size(1130, 68);
-            this.navLogo.TabIndex = 0;
-            // 
-            // navbar
-            // 
-            this.navbar.BackColor = System.Drawing.SystemColors.Control;
-            this.navbar.Location = new System.Drawing.Point(0, 68);
-            this.navbar.Margin = new System.Windows.Forms.Padding(4);
-            this.navbar.Name = "navbar";
-            this.navbar.Size = new System.Drawing.Size(1129, 58);
-            this.navbar.TabIndex = 1;
-            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.dataGridView1);
-            this.panel5.Location = new System.Drawing.Point(318, 233);
+            this.panel5.Location = new System.Drawing.Point(318, 91);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(800, 370);
             this.panel5.TabIndex = 8;
@@ -194,7 +170,7 @@ namespace SistemaGestorDeVentas.api.product
             this.panel4.Controls.Add(this.textBox2);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.label4);
-            this.panel4.Location = new System.Drawing.Point(315, 157);
+            this.panel4.Location = new System.Drawing.Point(315, 15);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(804, 64);
             this.panel4.TabIndex = 7;
@@ -231,7 +207,7 @@ namespace SistemaGestorDeVentas.api.product
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(402, 21);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.Size = new System.Drawing.Size(121, 24);
             this.comboBox2.TabIndex = 3;
             this.comboBox2.Text = "Nombre";
             // 
@@ -239,7 +215,7 @@ namespace SistemaGestorDeVentas.api.product
             // 
             this.textBox2.Location = new System.Drawing.Point(529, 23);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(169, 20);
+            this.textBox2.Size = new System.Drawing.Size(169, 22);
             this.textBox2.TabIndex = 2;
             // 
             // label5
@@ -247,7 +223,7 @@ namespace SistemaGestorDeVentas.api.product
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(317, 24);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 13);
+            this.label5.Size = new System.Drawing.Size(79, 16);
             this.label5.TabIndex = 1;
             this.label5.Text = "Buscar Por: ";
             // 
@@ -257,7 +233,7 @@ namespace SistemaGestorDeVentas.api.product
             this.label4.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(2, 7);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(108, 15);
+            this.label4.Size = new System.Drawing.Size(138, 20);
             this.label4.TabIndex = 0;
             this.label4.Text = "Lista de Productos";
             // 
@@ -283,7 +259,7 @@ namespace SistemaGestorDeVentas.api.product
             this.panel3.Controls.Add(this.txtProductCodigo);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(1, 142);
+            this.panel3.Location = new System.Drawing.Point(1, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(296, 489);
             this.panel3.TabIndex = 4;
@@ -292,7 +268,7 @@ namespace SistemaGestorDeVentas.api.product
             // 
             this.txtProductNombre.Location = new System.Drawing.Point(10, 45);
             this.txtProductNombre.Name = "txtProductNombre";
-            this.txtProductNombre.Size = new System.Drawing.Size(266, 20);
+            this.txtProductNombre.Size = new System.Drawing.Size(266, 22);
             this.txtProductNombre.TabIndex = 18;
             // 
             // label10
@@ -301,7 +277,7 @@ namespace SistemaGestorDeVentas.api.product
             this.label10.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(8, 22);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(59, 15);
+            this.label10.Size = new System.Drawing.Size(75, 20);
             this.label10.TabIndex = 17;
             this.label10.Text = "Nombre: ";
             this.label10.Click += new System.EventHandler(this.label10_Click);
@@ -311,14 +287,14 @@ namespace SistemaGestorDeVentas.api.product
             this.cboxProductCategoria.FormattingEnabled = true;
             this.cboxProductCategoria.Location = new System.Drawing.Point(12, 187);
             this.cboxProductCategoria.Name = "cboxProductCategoria";
-            this.cboxProductCategoria.Size = new System.Drawing.Size(264, 21);
+            this.cboxProductCategoria.Size = new System.Drawing.Size(264, 24);
             this.cboxProductCategoria.TabIndex = 16;
             // 
             // txtProductStock
             // 
             this.txtProductStock.Location = new System.Drawing.Point(12, 285);
             this.txtProductStock.Name = "txtProductStock";
-            this.txtProductStock.Size = new System.Drawing.Size(266, 20);
+            this.txtProductStock.Size = new System.Drawing.Size(266, 22);
             this.txtProductStock.TabIndex = 15;
             this.txtProductStock.TextChanged += new System.EventHandler(this.txtProductStock_TextChanged);
             this.txtProductStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProductStock_KeyPress);
@@ -329,7 +305,7 @@ namespace SistemaGestorDeVentas.api.product
             this.label9.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(12, 262);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(42, 15);
+            this.label9.Size = new System.Drawing.Size(52, 20);
             this.label9.TabIndex = 14;
             this.label9.Text = "Stock:";
             // 
@@ -337,7 +313,7 @@ namespace SistemaGestorDeVentas.api.product
             // 
             this.txtProductPrecio.Location = new System.Drawing.Point(12, 237);
             this.txtProductPrecio.Name = "txtProductPrecio";
-            this.txtProductPrecio.Size = new System.Drawing.Size(266, 20);
+            this.txtProductPrecio.Size = new System.Drawing.Size(266, 22);
             this.txtProductPrecio.TabIndex = 13;
             this.txtProductPrecio.TextChanged += new System.EventHandler(this.txtProductPrecio_TextChanged);
             this.txtProductPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProductPrecio_KeyPress);
@@ -348,7 +324,7 @@ namespace SistemaGestorDeVentas.api.product
             this.label8.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(12, 214);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(48, 15);
+            this.label8.Size = new System.Drawing.Size(60, 20);
             this.label8.TabIndex = 12;
             this.label8.Text = "Precio: ";
             // 
@@ -358,7 +334,7 @@ namespace SistemaGestorDeVentas.api.product
             this.label7.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(6, 164);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 15);
+            this.label7.Size = new System.Drawing.Size(84, 20);
             this.label7.TabIndex = 10;
             this.label7.Text = "Categoria: ";
             // 
@@ -366,7 +342,7 @@ namespace SistemaGestorDeVentas.api.product
             // 
             this.txtProductDescripcion.Location = new System.Drawing.Point(10, 139);
             this.txtProductDescripcion.Name = "txtProductDescripcion";
-            this.txtProductDescripcion.Size = new System.Drawing.Size(266, 20);
+            this.txtProductDescripcion.Size = new System.Drawing.Size(266, 22);
             this.txtProductDescripcion.TabIndex = 9;
             // 
             // label6
@@ -375,7 +351,7 @@ namespace SistemaGestorDeVentas.api.product
             this.label6.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(6, 115);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 15);
+            this.label6.Size = new System.Drawing.Size(98, 20);
             this.label6.TabIndex = 8;
             this.label6.Text = "Descripcion: ";
             // 
@@ -421,7 +397,7 @@ namespace SistemaGestorDeVentas.api.product
             "Inactivo"});
             this.cboxProductEstado.Location = new System.Drawing.Point(14, 333);
             this.cboxProductEstado.Name = "cboxProductEstado";
-            this.cboxProductEstado.Size = new System.Drawing.Size(264, 21);
+            this.cboxProductEstado.Size = new System.Drawing.Size(264, 24);
             this.cboxProductEstado.TabIndex = 4;
             // 
             // label3
@@ -430,7 +406,7 @@ namespace SistemaGestorDeVentas.api.product
             this.label3.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(12, 310);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 15);
+            this.label3.Size = new System.Drawing.Size(60, 20);
             this.label3.TabIndex = 3;
             this.label3.Text = "Estado:";
             // 
@@ -438,7 +414,7 @@ namespace SistemaGestorDeVentas.api.product
             // 
             this.txtProductCodigo.Location = new System.Drawing.Point(10, 90);
             this.txtProductCodigo.Name = "txtProductCodigo";
-            this.txtProductCodigo.Size = new System.Drawing.Size(266, 20);
+            this.txtProductCodigo.Size = new System.Drawing.Size(266, 22);
             this.txtProductCodigo.TabIndex = 2;
             this.txtProductCodigo.TextChanged += new System.EventHandler(this.txtProductCodigo_TextChanged);
             this.txtProductCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProductCodigo_KeyPress);
@@ -449,7 +425,7 @@ namespace SistemaGestorDeVentas.api.product
             this.label2.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(6, 70);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 15);
+            this.label2.Size = new System.Drawing.Size(66, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Codigo: ";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -460,7 +436,7 @@ namespace SistemaGestorDeVentas.api.product
             this.label1.Font = new System.Drawing.Font("Nirmala UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(66, -1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 20);
+            this.label1.Size = new System.Drawing.Size(155, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Detalle Producto";
             // 
@@ -468,12 +444,11 @@ namespace SistemaGestorDeVentas.api.product
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.ClientSize = new System.Drawing.Size(1130, 630);
-            this.Controls.Add(this.navLogo);
-            this.Controls.Add(this.navbar);
+            this.ClientSize = new System.Drawing.Size(1130, 489);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "adminGestionProduct";
             this.Text = "Productos";

@@ -15,6 +15,11 @@ namespace SistemaGestorDeVentas.api.cart
         public cartView()
         {
             InitializeComponent();
+
+            // Ocultar los botones de minimizar, maximizar y cerrar
+            this.ControlBox = false;
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
         }
 
         private void cartView_Load(object sender, EventArgs e)

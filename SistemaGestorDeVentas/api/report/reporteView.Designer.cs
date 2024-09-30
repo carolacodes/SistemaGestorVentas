@@ -24,10 +24,6 @@ namespace SistemaGestorDeVentas.api.report
 
         #region Windows Form Designer generated code
 
-
-        private SistemaGestorDeVentas.components.navLogo navLogo;
-        private SistemaGestorDeVentas.navbar navbar;
-
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
@@ -37,8 +33,6 @@ namespace SistemaGestorDeVentas.api.report
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.navLogo = new SistemaGestorDeVentas.components.navLogo();
-            this.navbar = new SistemaGestorDeVentas.navbar();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -70,25 +64,6 @@ namespace SistemaGestorDeVentas.api.report
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // navLogo
-            // 
-            this.navLogo.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.navLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.navLogo.Location = new System.Drawing.Point(0, 0);
-            this.navLogo.Margin = new System.Windows.Forms.Padding(4);
-            this.navLogo.Name = "navLogo";
-            this.navLogo.Size = new System.Drawing.Size(1130, 68);
-            this.navLogo.TabIndex = 0;
-            // 
-            // navbar
-            // 
-            this.navbar.BackColor = System.Drawing.SystemColors.Control;
-            this.navbar.Location = new System.Drawing.Point(0, 68);
-            this.navbar.Margin = new System.Windows.Forms.Padding(4);
-            this.navbar.Name = "navbar";
-            this.navbar.Size = new System.Drawing.Size(1129, 58);
-            this.navbar.TabIndex = 1;
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -97,7 +72,7 @@ namespace SistemaGestorDeVentas.api.report
             this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.chart1);
-            this.panel2.Location = new System.Drawing.Point(319, 142);
+            this.panel2.Location = new System.Drawing.Point(318, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(795, 471);
@@ -110,7 +85,7 @@ namespace SistemaGestorDeVentas.api.report
             this.label7.Location = new System.Drawing.Point(584, 388);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.Size = new System.Drawing.Size(43, 17);
             this.label7.TabIndex = 4;
             this.label7.Text = "Total ";
             // 
@@ -119,7 +94,7 @@ namespace SistemaGestorDeVentas.api.report
             this.textBox1.Location = new System.Drawing.Point(642, 383);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 20);
+            this.textBox1.Size = new System.Drawing.Size(132, 22);
             this.textBox1.TabIndex = 2;
             // 
             // dataGridView1
@@ -231,7 +206,7 @@ namespace SistemaGestorDeVentas.api.report
             this.panel3.Controls.Add(this.dateTimeReportHasta);
             this.panel3.Controls.Add(this.dateTimeReportDesde);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(1, 142);
+            this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(296, 489);
@@ -269,7 +244,7 @@ namespace SistemaGestorDeVentas.api.report
             this.label5.Location = new System.Drawing.Point(14, 239);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 13);
+            this.label5.Size = new System.Drawing.Size(70, 17);
             this.label5.TabIndex = 8;
             this.label5.Text = "Filtrar por";
             // 
@@ -279,7 +254,7 @@ namespace SistemaGestorDeVentas.api.report
             this.cboxReportFiltrar.Location = new System.Drawing.Point(18, 259);
             this.cboxReportFiltrar.Margin = new System.Windows.Forms.Padding(4);
             this.cboxReportFiltrar.Name = "cboxReportFiltrar";
-            this.cboxReportFiltrar.Size = new System.Drawing.Size(265, 21);
+            this.cboxReportFiltrar.Size = new System.Drawing.Size(265, 24);
             this.cboxReportFiltrar.TabIndex = 7;
             // 
             // label4
@@ -289,7 +264,7 @@ namespace SistemaGestorDeVentas.api.report
             this.label4.Location = new System.Drawing.Point(14, 60);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 13);
+            this.label4.Size = new System.Drawing.Size(69, 17);
             this.label4.TabIndex = 6;
             this.label4.Text = "Empleado";
             // 
@@ -299,7 +274,7 @@ namespace SistemaGestorDeVentas.api.report
             this.cboxReportEmpleado.Location = new System.Drawing.Point(18, 79);
             this.cboxReportEmpleado.Margin = new System.Windows.Forms.Padding(4);
             this.cboxReportEmpleado.Name = "cboxReportEmpleado";
-            this.cboxReportEmpleado.Size = new System.Drawing.Size(265, 21);
+            this.cboxReportEmpleado.Size = new System.Drawing.Size(265, 24);
             this.cboxReportEmpleado.TabIndex = 5;
             this.cboxReportEmpleado.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -310,7 +285,7 @@ namespace SistemaGestorDeVentas.api.report
             this.label3.Location = new System.Drawing.Point(14, 181);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.Size = new System.Drawing.Size(43, 17);
             this.label3.TabIndex = 4;
             this.label3.Text = "Hasta";
             // 
@@ -321,7 +296,7 @@ namespace SistemaGestorDeVentas.api.report
             this.label2.Location = new System.Drawing.Point(14, 121);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 13);
+            this.label2.Size = new System.Drawing.Size(46, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "Desde";
             // 
@@ -330,7 +305,7 @@ namespace SistemaGestorDeVentas.api.report
             this.dateTimeReportHasta.Location = new System.Drawing.Point(18, 201);
             this.dateTimeReportHasta.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimeReportHasta.Name = "dateTimeReportHasta";
-            this.dateTimeReportHasta.Size = new System.Drawing.Size(265, 20);
+            this.dateTimeReportHasta.Size = new System.Drawing.Size(265, 22);
             this.dateTimeReportHasta.TabIndex = 2;
             // 
             // dateTimeReportDesde
@@ -338,7 +313,7 @@ namespace SistemaGestorDeVentas.api.report
             this.dateTimeReportDesde.Location = new System.Drawing.Point(18, 141);
             this.dateTimeReportDesde.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimeReportDesde.Name = "dateTimeReportDesde";
-            this.dateTimeReportDesde.Size = new System.Drawing.Size(265, 20);
+            this.dateTimeReportDesde.Size = new System.Drawing.Size(265, 22);
             this.dateTimeReportDesde.TabIndex = 1;
             // 
             // label1
@@ -348,7 +323,7 @@ namespace SistemaGestorDeVentas.api.report
             this.label1.Location = new System.Drawing.Point(65, 16);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 21);
+            this.label1.Size = new System.Drawing.Size(168, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Generar informe";
             // 
@@ -356,11 +331,10 @@ namespace SistemaGestorDeVentas.api.report
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.ClientSize = new System.Drawing.Size(1130, 630);
-            this.Controls.Add(this.navLogo);
-            this.Controls.Add(this.navbar);
+            this.ClientSize = new System.Drawing.Size(1130, 489);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "reporteView";
             this.Text = "reportes";

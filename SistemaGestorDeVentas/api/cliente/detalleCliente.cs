@@ -126,29 +126,54 @@ namespace SistemaGestorDeVentas.api.cliente
 
         private void txtClienteDni_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtClienteDni.Text))
-            {
-                MessageBox.Show("La dirección no puede estar vacía.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                e.Cancel = true;
-            }
+            //if (string.IsNullOrWhiteSpace(txtClienteDni.Text))
+            //{
+            //    MessageBox.Show("La dirección no puede estar vacía.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    e.Cancel = true;
+            //}
         }
 
         private void txtClienteNombre_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtClienteNombre.Text))
-            {
-                MessageBox.Show("La dirección no puede estar vacía.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                e.Cancel = true;
-            }
+            //if (string.IsNullOrWhiteSpace(txtClienteNombre.Text))
+            //{
+              //  MessageBox.Show("La dirección no puede estar vacía.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+              //  e.Cancel = true;
+            //}
         }
 
         private void txtClienteTelefono_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtClienteTelefono.Text))
-            {
-                MessageBox.Show("La dirección no puede estar vacía.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                e.Cancel = true;
-            }
+            //if (string.IsNullOrWhiteSpace(txtClienteTelefono.Text))
+            //{
+                //MessageBox.Show("La dirección no puede estar vacía.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //e.Cancel = true;
+            //}
+        }
+
+        private void txtClienteDni_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //boton guardar
+            string dni = txtClienteDni.Text;
+            string nombreCompleto = txtClienteNombre.Text;
+            string correo = txtClienteCorreo.Text;
+            string telefono = txtClienteTelefono.Text;
+            string estado = cbClienteEstado.SelectedItem != null ? cbClienteEstado.SelectedItem.ToString() : "Inactivo";
+
+            dataGridCliente.Rows.Add(dni, nombreCompleto, correo, telefono, estado);
+
+
+            // Opcional: Limpiar los campos después de guardar
+            txtClienteDni.Clear();
+            txtClienteNombre.Clear();
+            txtClienteCorreo.Clear();
+            txtClienteTelefono.Clear();
+            cbClienteEstado.SelectedIndex = -1;
         }
     }
 }

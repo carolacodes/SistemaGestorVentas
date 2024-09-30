@@ -22,9 +22,6 @@ namespace SistemaGestorDeVentas.api.compra
             base.Dispose(disposing);
         }
 
-        private SistemaGestorDeVentas.components.navLogo navLogo;
-        private SistemaGestorDeVentas.navbar navbar;
-
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -33,20 +30,6 @@ namespace SistemaGestorDeVentas.api.compra
         /// </summary>
         private void InitializeComponent()
         {
-            this.navLogo = new SistemaGestorDeVentas.components.navLogo();
-            this.Controls.Add(this.navLogo);
-            // Ajustes de posición, tamaño y otras propiedades
-            this.navLogo.Location = new System.Drawing.Point(0, 0);
-            this.navLogo.Size = new System.Drawing.Size(1129, 68); // Ajusta según sea necesario
-            this.navLogo.Dock = DockStyle.Top; // Para que siempre esté en la parte superior
-
-            this.navbar = new SistemaGestorDeVentas.navbar();
-            this.Controls.Add(this.navbar);
-
-            // Ajustes de posición, tamaño y otras propiedades
-            this.navbar.Location = new System.Drawing.Point(0, 68); // Mueve el navbar 68 píxeles hacia abajo
-            this.navbar.Size = new System.Drawing.Size(1129, 58); // Ajusta el tamaño según sea necesario
-
             this.panel3 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -99,7 +82,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(9, 160);
+            this.panel3.Location = new System.Drawing.Point(12, 19);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1106, 458);
             this.panel3.TabIndex = 15;
@@ -110,7 +93,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.label10.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(857, 268);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(89, 15);
+            this.label10.Size = new System.Drawing.Size(115, 20);
             this.label10.TabIndex = 21;
             this.label10.Text = "Estado Compra";
             this.label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -119,7 +102,7 @@ namespace SistemaGestorDeVentas.api.compra
             // 
             this.textBox1.Location = new System.Drawing.Point(845, 291);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(142, 20);
+            this.textBox1.Size = new System.Drawing.Size(142, 22);
             this.textBox1.TabIndex = 20;
             // 
             // button3
@@ -139,7 +122,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.label14.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(869, 332);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(74, 15);
+            this.label14.Size = new System.Drawing.Size(94, 20);
             this.label14.TabIndex = 18;
             this.label14.Text = "Monto Total";
             this.label14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -148,7 +131,7 @@ namespace SistemaGestorDeVentas.api.compra
             // 
             this.textBox8.Location = new System.Drawing.Point(845, 355);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(142, 20);
+            this.textBox8.Size = new System.Drawing.Size(142, 22);
             this.textBox8.TabIndex = 17;
             // 
             // panel6
@@ -186,7 +169,7 @@ namespace SistemaGestorDeVentas.api.compra
             // 
             this.txtCartDetalleNroVenta.Location = new System.Drawing.Point(127, 32);
             this.txtCartDetalleNroVenta.Name = "txtCartDetalleNroVenta";
-            this.txtCartDetalleNroVenta.Size = new System.Drawing.Size(125, 20);
+            this.txtCartDetalleNroVenta.Size = new System.Drawing.Size(125, 22);
             this.txtCartDetalleNroVenta.TabIndex = 21;
             // 
             // label9
@@ -195,7 +178,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.label9.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(-1, 32);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(99, 15);
+            this.label9.Size = new System.Drawing.Size(126, 20);
             this.label9.TabIndex = 20;
             this.label9.Text = "Numero Compra";
             // 
@@ -261,14 +244,14 @@ namespace SistemaGestorDeVentas.api.compra
             // 
             this.textBox3.Location = new System.Drawing.Point(208, 51);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(231, 20);
+            this.textBox3.Size = new System.Drawing.Size(231, 22);
             this.textBox3.TabIndex = 5;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(7, 51);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(185, 20);
+            this.textBox2.Size = new System.Drawing.Size(185, 22);
             this.textBox2.TabIndex = 3;
             // 
             // label5
@@ -277,7 +260,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.label5.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(204, 30);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 15);
+            this.label5.Size = new System.Drawing.Size(143, 20);
             this.label5.TabIndex = 2;
             this.label5.Text = "Nombre Completo ";
             // 
@@ -287,7 +270,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.label6.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(3, 28);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(90, 15);
+            this.label6.Size = new System.Drawing.Size(112, 20);
             this.label6.TabIndex = 1;
             this.label6.Text = "Nro Proveedor";
             // 
@@ -297,7 +280,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.label7.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(3, -1);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(137, 15);
+            this.label7.Size = new System.Drawing.Size(171, 20);
             this.label7.TabIndex = 0;
             this.label7.Text = "Informacion Proveedor";
             // 
@@ -321,14 +304,14 @@ namespace SistemaGestorDeVentas.api.compra
             // 
             this.dateCartDetalleFecha.Location = new System.Drawing.Point(7, 54);
             this.dateCartDetalleFecha.Name = "dateCartDetalleFecha";
-            this.dateCartDetalleFecha.Size = new System.Drawing.Size(143, 20);
+            this.dateCartDetalleFecha.Size = new System.Drawing.Size(143, 22);
             this.dateCartDetalleFecha.TabIndex = 7;
             // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(354, 54);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(194, 20);
+            this.textBox4.Size = new System.Drawing.Size(194, 22);
             this.textBox4.TabIndex = 6;
             // 
             // label8
@@ -337,7 +320,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.label8.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(350, 30);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(49, 15);
+            this.label8.Size = new System.Drawing.Size(63, 20);
             this.label8.TabIndex = 5;
             this.label8.Text = "Usuario";
             // 
@@ -349,7 +332,7 @@ namespace SistemaGestorDeVentas.api.compra
             "Factura"});
             this.comboBox1.Location = new System.Drawing.Point(158, 52);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(178, 21);
+            this.comboBox1.Size = new System.Drawing.Size(178, 24);
             this.comboBox1.TabIndex = 4;
             // 
             // label4
@@ -358,7 +341,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.label4.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(154, 30);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 15);
+            this.label4.Size = new System.Drawing.Size(126, 20);
             this.label4.TabIndex = 2;
             this.label4.Text = "Tipo Documento";
             // 
@@ -368,7 +351,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.label3.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(5, 30);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 15);
+            this.label3.Size = new System.Drawing.Size(49, 20);
             this.label3.TabIndex = 1;
             this.label3.Text = "Fecha";
             // 
@@ -378,7 +361,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.label2.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(121, 15);
+            this.label2.Size = new System.Drawing.Size(154, 20);
             this.label2.TabIndex = 0;
             this.label2.Text = "Informacion Compra";
             // 
@@ -388,7 +371,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.label1.Font = new System.Drawing.Font("Nirmala UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(484, 4);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(174, 30);
+            this.label1.Size = new System.Drawing.Size(221, 38);
             this.label1.TabIndex = 0;
             this.label1.Text = "Detalle Compra";
             // 
@@ -396,8 +379,9 @@ namespace SistemaGestorDeVentas.api.compra
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.ClientSize = new System.Drawing.Size(1130, 630);
+            this.ClientSize = new System.Drawing.Size(1130, 503);
             this.Controls.Add(this.panel3);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "detalleCompraProducto";
             this.Text = "detalleCompraProducto";
             this.panel3.ResumeLayout(false);

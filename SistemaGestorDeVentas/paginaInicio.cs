@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaGestorDeVentas.components;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace SistemaGestorDeVentas
         public paginaInicio()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -30,6 +32,18 @@ namespace SistemaGestorDeVentas
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //creo una nueva instancia del formulario navegador
+            navegador navForm = new navegador();
+
+            //muestro el formulario navegador
+            navForm.Show();
+
+            this.Hide();
+            
         }
     }
 }

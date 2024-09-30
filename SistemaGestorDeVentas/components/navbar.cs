@@ -30,7 +30,7 @@ namespace SistemaGestorDeVentas
 
         private void nuevaVentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Form FormOpen = Application.OpenForms["cartView"];
         }
     }
 }

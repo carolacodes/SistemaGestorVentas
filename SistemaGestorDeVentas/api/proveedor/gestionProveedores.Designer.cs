@@ -24,17 +24,12 @@ namespace SistemaGestorDeVentas.api.proveedor
 
         #region Windows Form Designer generated code
 
-        private SistemaGestorDeVentas.components.navLogo navLogo;
-        private SistemaGestorDeVentas.navbar navbar;
-
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.navLogo = new SistemaGestorDeVentas.components.navLogo();
-            this.navbar = new SistemaGestorDeVentas.navbar();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -80,25 +75,6 @@ namespace SistemaGestorDeVentas.api.proveedor
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // navLogo
-            // 
-            this.navLogo.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.navLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.navLogo.Location = new System.Drawing.Point(0, 0);
-            this.navLogo.Margin = new System.Windows.Forms.Padding(4);
-            this.navLogo.Name = "navLogo";
-            this.navLogo.Size = new System.Drawing.Size(1130, 68);
-            this.navLogo.TabIndex = 0;
-            // 
-            // navbar
-            // 
-            this.navbar.BackColor = System.Drawing.SystemColors.Control;
-            this.navbar.Location = new System.Drawing.Point(0, 68);
-            this.navbar.Margin = new System.Windows.Forms.Padding(4);
-            this.navbar.Name = "navbar";
-            this.navbar.Size = new System.Drawing.Size(1129, 58);
-            this.navbar.TabIndex = 1;
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -122,7 +98,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.lblTituloProveedor);
-            this.panel2.Location = new System.Drawing.Point(1, 142);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(296, 489);
@@ -156,7 +132,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.cboxProveedorEstado.Location = new System.Drawing.Point(12, 318);
             this.cboxProveedorEstado.Margin = new System.Windows.Forms.Padding(4);
             this.cboxProveedorEstado.Name = "cboxProveedorEstado";
-            this.cboxProveedorEstado.Size = new System.Drawing.Size(264, 21);
+            this.cboxProveedorEstado.Size = new System.Drawing.Size(264, 24);
             this.cboxProveedorEstado.TabIndex = 18;
             // 
             // label9
@@ -166,7 +142,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.label9.Location = new System.Drawing.Point(9, 297);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(42, 13);
+            this.label9.Size = new System.Drawing.Size(49, 17);
             this.label9.TabIndex = 16;
             this.label9.Text = "Estado";
             // 
@@ -175,7 +151,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.txtProveedorCodigo.Location = new System.Drawing.Point(12, 83);
             this.txtProveedorCodigo.Margin = new System.Windows.Forms.Padding(4);
             this.txtProveedorCodigo.Name = "txtProveedorCodigo";
-            this.txtProveedorCodigo.Size = new System.Drawing.Size(264, 20);
+            this.txtProveedorCodigo.Size = new System.Drawing.Size(264, 22);
             this.txtProveedorCodigo.TabIndex = 15;
             this.txtProveedorCodigo.TextChanged += new System.EventHandler(this.txtProveedorCodigo_TextChanged);
             this.txtProveedorCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProveedorCodigo_KeyPress);
@@ -187,7 +163,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.label6.Location = new System.Drawing.Point(9, 62);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 13);
+            this.label6.Size = new System.Drawing.Size(52, 17);
             this.label6.TabIndex = 14;
             this.label6.Text = "Codigo";
             // 
@@ -196,7 +172,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.txtProveedorSitioWeb.Location = new System.Drawing.Point(12, 271);
             this.txtProveedorSitioWeb.Margin = new System.Windows.Forms.Padding(4);
             this.txtProveedorSitioWeb.Name = "txtProveedorSitioWeb";
-            this.txtProveedorSitioWeb.Size = new System.Drawing.Size(264, 20);
+            this.txtProveedorSitioWeb.Size = new System.Drawing.Size(264, 22);
             this.txtProveedorSitioWeb.TabIndex = 13;
             // 
             // label5
@@ -206,7 +182,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.label5.Location = new System.Drawing.Point(14, 250);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 13);
+            this.label5.Size = new System.Drawing.Size(68, 17);
             this.label5.TabIndex = 12;
             this.label5.Text = "Sitio Web";
             this.label5.Click += new System.EventHandler(this.label5_Click);
@@ -253,15 +229,16 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.txtProveedorDireccion.Location = new System.Drawing.Point(13, 130);
             this.txtProveedorDireccion.Margin = new System.Windows.Forms.Padding(4);
             this.txtProveedorDireccion.Name = "txtProveedorDireccion";
-            this.txtProveedorDireccion.Size = new System.Drawing.Size(264, 20);
+            this.txtProveedorDireccion.Size = new System.Drawing.Size(264, 22);
             this.txtProveedorDireccion.TabIndex = 8;
+            this.txtProveedorDireccion.TextChanged += new System.EventHandler(this.txtProveedorDireccion_TextChanged);
             // 
             // txtProveedorTelefono
             // 
             this.txtProveedorTelefono.Location = new System.Drawing.Point(13, 177);
             this.txtProveedorTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.txtProveedorTelefono.Name = "txtProveedorTelefono";
-            this.txtProveedorTelefono.Size = new System.Drawing.Size(264, 20);
+            this.txtProveedorTelefono.Size = new System.Drawing.Size(264, 22);
             this.txtProveedorTelefono.TabIndex = 7;
             this.txtProveedorTelefono.TextChanged += new System.EventHandler(this.txtProveedorTelefono_TextChanged);
             this.txtProveedorTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProveedorTelefono_KeyPress);
@@ -271,7 +248,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.txtProveedorEmail.Location = new System.Drawing.Point(13, 224);
             this.txtProveedorEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtProveedorEmail.Name = "txtProveedorEmail";
-            this.txtProveedorEmail.Size = new System.Drawing.Size(264, 20);
+            this.txtProveedorEmail.Size = new System.Drawing.Size(264, 22);
             this.txtProveedorEmail.TabIndex = 6;
             // 
             // txtProveedorNombre
@@ -279,8 +256,9 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.txtProveedorNombre.Location = new System.Drawing.Point(12, 39);
             this.txtProveedorNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtProveedorNombre.Name = "txtProveedorNombre";
-            this.txtProveedorNombre.Size = new System.Drawing.Size(264, 20);
+            this.txtProveedorNombre.Size = new System.Drawing.Size(264, 22);
             this.txtProveedorNombre.TabIndex = 5;
+            this.txtProveedorNombre.TextChanged += new System.EventHandler(this.txtProveedorNombre_TextChanged);
             // 
             // label4
             // 
@@ -289,7 +267,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.label4.Location = new System.Drawing.Point(14, 203);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.Size = new System.Drawing.Size(42, 17);
             this.label4.TabIndex = 4;
             this.label4.Text = "Email";
             // 
@@ -300,7 +278,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.label3.Location = new System.Drawing.Point(10, 156);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.Size = new System.Drawing.Size(62, 17);
             this.label3.TabIndex = 3;
             this.label3.Text = "Telefono";
             // 
@@ -311,7 +289,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.label2.Location = new System.Drawing.Point(10, 109);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 13);
+            this.label2.Size = new System.Drawing.Size(66, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "Direccion";
             // 
@@ -322,7 +300,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.label1.Location = new System.Drawing.Point(8, 19);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.Size = new System.Drawing.Size(58, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Nombre";
             // 
@@ -333,7 +311,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.lblTituloProveedor.Location = new System.Drawing.Point(66, 2);
             this.lblTituloProveedor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTituloProveedor.Name = "lblTituloProveedor";
-            this.lblTituloProveedor.Size = new System.Drawing.Size(134, 20);
+            this.lblTituloProveedor.Size = new System.Drawing.Size(165, 25);
             this.lblTituloProveedor.TabIndex = 0;
             this.lblTituloProveedor.Text = "Detalle Proveedor";
             // 
@@ -350,7 +328,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.panel3.Controls.Add(this.button5);
             this.panel3.Controls.Add(this.button4);
             this.panel3.Controls.Add(this.label7);
-            this.panel3.Location = new System.Drawing.Point(315, 157);
+            this.panel3.Location = new System.Drawing.Point(314, 15);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(804, 64);
@@ -379,7 +357,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(391, 21);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
             this.comboBox1.TabIndex = 11;
             this.comboBox1.Text = "Nombre";
             // 
@@ -387,7 +365,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             // 
             this.textBox7.Location = new System.Drawing.Point(518, 23);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(169, 20);
+            this.textBox7.Size = new System.Drawing.Size(169, 22);
             this.textBox7.TabIndex = 10;
             // 
             // label8
@@ -395,7 +373,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(306, 24);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(65, 13);
+            this.label8.Size = new System.Drawing.Size(79, 16);
             this.label8.TabIndex = 9;
             this.label8.Text = "Buscar Por: ";
             // 
@@ -435,7 +413,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.label7.Location = new System.Drawing.Point(14, 3);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(150, 19);
+            this.label7.Size = new System.Drawing.Size(175, 23);
             this.label7.TabIndex = 0;
             this.label7.Text = "Lista de Proveedores";
             // 
@@ -444,7 +422,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.panel4.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.dataGridView1);
-            this.panel4.Location = new System.Drawing.Point(315, 233);
+            this.panel4.Location = new System.Drawing.Point(314, 91);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(803, 372);
             this.panel4.TabIndex = 11;
@@ -513,12 +491,11 @@ namespace SistemaGestorDeVentas.api.proveedor
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.ClientSize = new System.Drawing.Size(1130, 630);
-            this.Controls.Add(this.navLogo);
-            this.Controls.Add(this.navbar);
+            this.ClientSize = new System.Drawing.Size(1130, 486);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "gestionProveedores";
             this.Text = "Proveedores";

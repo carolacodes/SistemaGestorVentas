@@ -144,6 +144,12 @@
       <DependentUpon>usuarioView.cs</DependentUpon>
     </Compile>
     <Compile Include="api\user\service.cs" />
+    <Compile Include="components\navegador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="components\navegador.Designer.cs">
+      <DependentUpon>navegador.cs</DependentUpon>
+    </Compile>
     <Compile Include="paginaInicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="api\product\buscarProducto.resx">
       <DependentUpon>buscarProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="components\navegador.resx">
+      <DependentUpon>navegador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="components\navLogo.resx">
       <DependentUpon>navLogo.cs</DependentUpon>

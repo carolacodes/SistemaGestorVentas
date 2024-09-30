@@ -46,11 +46,16 @@ namespace SistemaGestorDeVentas.api.category
 
         private void txtCategoriaNombre_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtCategoriaNombre.Text))
-            {
-                MessageBox.Show("La dirección no puede estar vacía.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                e.Cancel = true;
-            }
+            //if (string.IsNullOrWhiteSpace(txtCategoriaNombre.Text))
+            //{
+                //  MessageBox.Show("La dirección no puede estar vacía.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               // e.Cancel = true;
+            //}
+        }
+
+        private void txtCategoriaNombre_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
