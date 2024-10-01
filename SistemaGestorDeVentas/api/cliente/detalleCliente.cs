@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using SistemaGestorDeVentas.middleware;
+using SistemaGestorDeVentas.db;
 
 namespace SistemaGestorDeVentas.api.cliente
 {
@@ -162,84 +164,144 @@ namespace SistemaGestorDeVentas.api.cliente
         private void button1_Click(object sender, EventArgs e)
         {
             //boton guardar
-            string dni = txtClienteDni.Text;
-            string nombreCompleto = txtClienteNombre.Text;
-            string correo = txtClienteCorreo.Text;
-            string telefono = txtClienteTelefono.Text;
+            string dniCliente = txtClienteDni.Text;
+            string nombreCompletoCliente = txtClienteNombre.Text;
+            string correoCliente = txtClienteCorreo.Text;
+            string telefonoCliente = txtClienteTelefono.Text;
+            int estadoCliente = (int)cbClienteEstado.SelectedValue;
 
-            // Determinar el estado como 1 o 0
-            /*
-             * int estado = 0; // Valor por defecto
-            if (cbClienteEstado.SelectedItem != null)
-            {
-                estado = cbClienteEstado.SelectedItem.ToString() == "Activo" ? 1 : 0;
-            }
-             */
 
-            int estado = 0; // valor por defecto
-            string estadoTexto = "Inactivo"; //valor por defecto para el datagrid
-            if (cbClienteEstado.SelectedItem != null)
-            {
-                if (cbClienteEstado.SelectedItem.ToString() == "Activo")
+
+            try
+            {   
+                var nuevoCliente = new Cliente
                 {
-                    estado = 1;
-                    estadoTexto = "Activo";
+                    DNI_cliente = dniCliente,
+                    nombre = nombreCompletoCliente,
+                    correo = correoCliente,
+                    telefono = telefonoCliente,
+                    id_estado = estadoCliente
+                };
+
+                var clienteService = new ClienteService();
+
+                if (clienteService.getCliente(nuevoCliente.DNI_cliente) == null)
+                {
+                    clienteService.CreateCliente(nuevoCliente);
+                    MessageBox.Show("Cliente registrado exitosamente");
                 }
                 else
                 {
-                    estado = 0;
-                    estadoTexto = "Inactivo";
+                    clienteService.updateCliente(nuevoCliente);
+                    MessageBox.Show("Cliente modificado exitosamente");
                 }
-            }
+                txtClienteDni.Clear();
+                txtClienteNombre.Clear();
+                txtClienteCorreo.Clear();
+                txtClienteTelefono.Clear();
 
-
-
-         // dataGridCliente.Rows.Add(dni, nombreCompleto, correo, telefono, estadoTexto);
-
-            
-
-            // Limpiar los campos después de guardar
-            txtClienteDni.Clear();
-            txtClienteNombre.Clear();
-            txtClienteCorreo.Clear();
-            txtClienteTelefono.Clear();
-            cbClienteEstado.SelectedIndex = -1;
-
-
-            //insert data base
-
-            try
-            {
-                conexion.Open();
-
-                /*
-                 * string consulta = "INSERT INTO Cliente (DNI_cliente, nombre, correo, telefono, id_estado) " +
-                                  "VALUES ('" + dni + "', '" + nombreCompleto + "', '" + correo + "', '" + telefono + "', " + estado + ")";
-
-                SqlCommand command = new SqlCommand(consulta, conexion);
-                command.ExecuteNonQuery();
-                */
-
-                string consulta = "INSERT INTO Cliente (DNI_cliente, nombre, correo, telefono, id_estado) VALUES (@dni, @nombre, @correo, @telefono, @estado)";
-                SqlCommand command = new SqlCommand(consulta, conexion);
-                command.Parameters.AddWithValue("@dni", dni);
-                command.Parameters.AddWithValue("@nombre", nombreCompleto);
-                command.Parameters.AddWithValue("@correo", correo);
-                command.Parameters.AddWithValue("@telefono", telefono);
-                command.Parameters.AddWithValue("@estado", estado);
-                command.ExecuteNonQuery();
-
-                MessageBox.Show("Se registro correctamente en la bases de datos");
-                dataGridCliente.Rows.Add(dni, nombreCompleto, correo, telefono, estadoTexto);
-
+                cargarClientes();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al guardar un cliente en la base de datos: " + ex.Message);
             }
-            finally
+        }
+
+        private void cbClienteEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void detalleCliente_Load(object sender, EventArgs e)
+        {
+            // Estados
+            
+            var estadoService = new EstadoService();
+            var estados = estadoService.getEstados();
+            cbClienteEstado.DataSource = estados;
+            cbClienteEstado.DisplayMember = "nombre";
+            cbClienteEstado.ValueMember = "id_estado";
+
+            //Clientes
+
+            var clienteService = new ClienteService();
+            var clientes = clienteService.getClientes();
+            foreach (var cliente in clientes)
             {
-                conexion.Close();
+                dataGridCliente.Rows.Add(cliente.DNI_cliente, cliente.nombre, cliente.correo, cliente.telefono, estadoService.getEstado(cliente.id_estado).nombre);
+            }
+            //dataGridCliente.DataSource = clientes;
+        }
+
+        private void dataGridCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridCliente_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Asegúrate de que se ha hecho clic en una fila válida
+            if (e.RowIndex >= 0)
+            {
+                var estadoService = new EstadoService();
+                // Obtener la fila seleccionada
+                DataGridViewRow row = dataGridCliente.Rows[e.RowIndex];
+
+                // Rellenar los TextBox con los datos de la fila
+                txtClienteDni.Text = row.Cells["detalleClienteDni"].Value.ToString();
+                txtClienteNombre.Text = row.Cells["detalleClienteNombre"].Value.ToString(); // Cambia "Nombre" por el nombre de la columna correspondiente
+                txtClienteCorreo.Text = row.Cells["detalleClienteCorreo"].Value.ToString();
+                txtClienteTelefono.Text = row.Cells["detalleClienteTelefono"].Value.ToString();
+
+                string nombreEstado = row.Cells["detalleClienteEstado"].Value.ToString();
+                int? estadoID = estadoService.GetEstadoIdByNombre(nombreEstado);
+
+                cbClienteEstado.SelectedValue = estadoID;
+            }
+        }
+
+        private void btnLimpiarCliente_Click(object sender, EventArgs e)
+        {
+            txtClienteDni.Clear();
+            txtClienteNombre.Clear();
+            txtClienteCorreo.Clear();
+            txtClienteTelefono.Clear();
+        }
+
+        private void btnEliminarCliente_Click(object sender, EventArgs e)
+        {
+            string dniCliente = txtClienteDni.Text;
+
+            try
+            {
+                var clienteService = new ClienteService();
+                var cliente = clienteService.deleteCliente(dniCliente);
+                MessageBox.Show("Eliminacion del cliente exitosa");
+                cargarClientes();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo eliminar el cliente: " + ex.Message);
+            }
+        }
+
+        private void cargarClientes()
+        {
+            ClienteService clienteService = new ClienteService();
+
+            List<Cliente> clientes = clienteService.getClientes();
+
+            var estadoService = new EstadoService();
+            
+            var estados = estadoService.getEstados();
+
+            dataGridCliente.Rows.Clear();
+
+            foreach (var cliente in clientes)
+            {
+                dataGridCliente.Rows.Add(cliente.DNI_cliente, cliente.nombre, cliente.correo, cliente.telefono,
+                                estadoService.getEstado(cliente.id_estado).nombre);
             }
         }
     }

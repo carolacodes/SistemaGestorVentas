@@ -32,12 +32,6 @@ namespace SistemaGestorDeVentas.api.cliente
         {
             this.panel5 = new System.Windows.Forms.Panel();
             this.dataGridCliente = new System.Windows.Forms.DataGridView();
-            this.detalleClienteDni = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleClienteNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleClienteEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleClienteTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleClienteCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleClienteSeleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -54,13 +48,18 @@ namespace SistemaGestorDeVentas.api.cliente
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtClienteNombre = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnEliminarCliente = new System.Windows.Forms.Button();
+            this.btnLimpiarCliente = new System.Windows.Forms.Button();
+            this.btnGuardarCliente = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtClienteDni = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.detalleClienteDni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleClienteNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleClienteCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleClienteTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleClienteEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCliente)).BeginInit();
             this.panel4.SuspendLayout();
@@ -84,58 +83,17 @@ namespace SistemaGestorDeVentas.api.cliente
             this.dataGridCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.detalleClienteDni,
             this.detalleClienteNombre,
-            this.detalleClienteEstado,
-            this.detalleClienteTelefono,
             this.detalleClienteCorreo,
-            this.detalleClienteSeleccionar});
+            this.detalleClienteTelefono,
+            this.detalleClienteEstado});
             this.dataGridCliente.Location = new System.Drawing.Point(16, 14);
             this.dataGridCliente.Name = "dataGridCliente";
             this.dataGridCliente.RowHeadersWidth = 51;
             this.dataGridCliente.RowTemplate.Height = 24;
             this.dataGridCliente.Size = new System.Drawing.Size(766, 334);
             this.dataGridCliente.TabIndex = 0;
-            // 
-            // detalleClienteDni
-            // 
-            this.detalleClienteDni.HeaderText = "Nro DNI";
-            this.detalleClienteDni.MinimumWidth = 6;
-            this.detalleClienteDni.Name = "detalleClienteDni";
-            this.detalleClienteDni.Width = 125;
-            // 
-            // detalleClienteNombre
-            // 
-            this.detalleClienteNombre.HeaderText = "Nombre Completo";
-            this.detalleClienteNombre.MinimumWidth = 6;
-            this.detalleClienteNombre.Name = "detalleClienteNombre";
-            this.detalleClienteNombre.Width = 125;
-            // 
-            // detalleClienteEstado
-            // 
-            this.detalleClienteEstado.HeaderText = "Estado";
-            this.detalleClienteEstado.MinimumWidth = 6;
-            this.detalleClienteEstado.Name = "detalleClienteEstado";
-            this.detalleClienteEstado.Width = 125;
-            // 
-            // detalleClienteTelefono
-            // 
-            this.detalleClienteTelefono.HeaderText = "Telefono";
-            this.detalleClienteTelefono.MinimumWidth = 6;
-            this.detalleClienteTelefono.Name = "detalleClienteTelefono";
-            this.detalleClienteTelefono.Width = 125;
-            // 
-            // detalleClienteCorreo
-            // 
-            this.detalleClienteCorreo.HeaderText = "Correo";
-            this.detalleClienteCorreo.MinimumWidth = 6;
-            this.detalleClienteCorreo.Name = "detalleClienteCorreo";
-            this.detalleClienteCorreo.Width = 125;
-            // 
-            // detalleClienteSeleccionar
-            // 
-            this.detalleClienteSeleccionar.HeaderText = "Seleccionar";
-            this.detalleClienteSeleccionar.MinimumWidth = 6;
-            this.detalleClienteSeleccionar.Name = "detalleClienteSeleccionar";
-            this.detalleClienteSeleccionar.Width = 125;
+            this.dataGridCliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridCliente_CellClick);
+            this.dataGridCliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridCliente_CellContentClick);
             // 
             // panel4
             // 
@@ -187,7 +145,7 @@ namespace SistemaGestorDeVentas.api.cliente
             "DNI"});
             this.comboBox2.Location = new System.Drawing.Point(402, 21);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 3;
             this.comboBox2.Text = "DNI";
             // 
@@ -195,7 +153,7 @@ namespace SistemaGestorDeVentas.api.cliente
             // 
             this.txtClienteBuscar.Location = new System.Drawing.Point(529, 23);
             this.txtClienteBuscar.Name = "txtClienteBuscar";
-            this.txtClienteBuscar.Size = new System.Drawing.Size(169, 22);
+            this.txtClienteBuscar.Size = new System.Drawing.Size(169, 20);
             this.txtClienteBuscar.TabIndex = 2;
             this.txtClienteBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClienteBuscar_KeyPress);
             // 
@@ -204,7 +162,7 @@ namespace SistemaGestorDeVentas.api.cliente
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(317, 24);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 16);
+            this.label5.Size = new System.Drawing.Size(65, 13);
             this.label5.TabIndex = 1;
             this.label5.Text = "Buscar Por: ";
             // 
@@ -214,7 +172,7 @@ namespace SistemaGestorDeVentas.api.cliente
             this.label4.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(3, 11);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(115, 20);
+            this.label4.Size = new System.Drawing.Size(91, 15);
             this.label4.TabIndex = 0;
             this.label4.Text = "Lista de Cliente";
             // 
@@ -229,9 +187,9 @@ namespace SistemaGestorDeVentas.api.cliente
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.txtClienteNombre);
-            this.panel3.Controls.Add(this.button3);
-            this.panel3.Controls.Add(this.button2);
-            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.btnEliminarCliente);
+            this.panel3.Controls.Add(this.btnLimpiarCliente);
+            this.panel3.Controls.Add(this.btnGuardarCliente);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.txtClienteDni);
             this.panel3.Controls.Add(this.label2);
@@ -244,13 +202,11 @@ namespace SistemaGestorDeVentas.api.cliente
             // cbClienteEstado
             // 
             this.cbClienteEstado.FormattingEnabled = true;
-            this.cbClienteEstado.Items.AddRange(new object[] {
-            "Activo",
-            "Inactivo"});
             this.cbClienteEstado.Location = new System.Drawing.Point(10, 287);
             this.cbClienteEstado.Name = "cbClienteEstado";
-            this.cbClienteEstado.Size = new System.Drawing.Size(266, 24);
+            this.cbClienteEstado.Size = new System.Drawing.Size(266, 21);
             this.cbClienteEstado.TabIndex = 17;
+            this.cbClienteEstado.SelectedIndexChanged += new System.EventHandler(this.cbClienteEstado_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -258,7 +214,7 @@ namespace SistemaGestorDeVentas.api.cliente
             this.label10.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(6, 264);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(64, 20);
+            this.label10.Size = new System.Drawing.Size(49, 15);
             this.label10.TabIndex = 16;
             this.label10.Text = "Estado: ";
             // 
@@ -266,7 +222,7 @@ namespace SistemaGestorDeVentas.api.cliente
             // 
             this.txtClienteTelefono.Location = new System.Drawing.Point(10, 234);
             this.txtClienteTelefono.Name = "txtClienteTelefono";
-            this.txtClienteTelefono.Size = new System.Drawing.Size(266, 22);
+            this.txtClienteTelefono.Size = new System.Drawing.Size(266, 20);
             this.txtClienteTelefono.TabIndex = 12;
             this.txtClienteTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClienteTelefono_KeyPress);
             this.txtClienteTelefono.Validating += new System.ComponentModel.CancelEventHandler(this.txtClienteTelefono_Validating);
@@ -275,7 +231,7 @@ namespace SistemaGestorDeVentas.api.cliente
             // 
             this.txtClienteCorreo.Location = new System.Drawing.Point(10, 186);
             this.txtClienteCorreo.Name = "txtClienteCorreo";
-            this.txtClienteCorreo.Size = new System.Drawing.Size(266, 22);
+            this.txtClienteCorreo.Size = new System.Drawing.Size(266, 20);
             this.txtClienteCorreo.TabIndex = 11;
             this.txtClienteCorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClienteCorreo_KeyPress);
             this.txtClienteCorreo.Validating += new System.ComponentModel.CancelEventHandler(this.txtClienteCorreo_Validating);
@@ -286,7 +242,7 @@ namespace SistemaGestorDeVentas.api.cliente
             this.label7.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(6, 211);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(73, 20);
+            this.label7.Size = new System.Drawing.Size(59, 15);
             this.label7.TabIndex = 10;
             this.label7.Text = "Telefono:";
             // 
@@ -296,7 +252,7 @@ namespace SistemaGestorDeVentas.api.cliente
             this.label6.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(6, 163);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 20);
+            this.label6.Size = new System.Drawing.Size(48, 15);
             this.label6.TabIndex = 9;
             this.label6.Text = "Correo:";
             // 
@@ -304,44 +260,46 @@ namespace SistemaGestorDeVentas.api.cliente
             // 
             this.txtClienteNombre.Location = new System.Drawing.Point(10, 138);
             this.txtClienteNombre.Name = "txtClienteNombre";
-            this.txtClienteNombre.Size = new System.Drawing.Size(266, 22);
+            this.txtClienteNombre.Size = new System.Drawing.Size(266, 20);
             this.txtClienteNombre.TabIndex = 8;
             this.txtClienteNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClienteNombre_KeyPress);
             this.txtClienteNombre.Validating += new System.ComponentModel.CancelEventHandler(this.txtClienteNombre_Validating);
             // 
-            // button3
+            // btnEliminarCliente
             // 
-            this.button3.BackColor = System.Drawing.Color.Red;
-            this.button3.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(71, 439);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(152, 36);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Eliminar";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnEliminarCliente.BackColor = System.Drawing.Color.Red;
+            this.btnEliminarCliente.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarCliente.Location = new System.Drawing.Point(71, 439);
+            this.btnEliminarCliente.Name = "btnEliminarCliente";
+            this.btnEliminarCliente.Size = new System.Drawing.Size(152, 36);
+            this.btnEliminarCliente.TabIndex = 7;
+            this.btnEliminarCliente.Text = "Eliminar";
+            this.btnEliminarCliente.UseVisualStyleBackColor = false;
+            this.btnEliminarCliente.Click += new System.EventHandler(this.btnEliminarCliente_Click);
             // 
-            // button2
+            // btnLimpiarCliente
             // 
-            this.button2.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button2.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(71, 385);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(152, 36);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Limpiar";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnLimpiarCliente.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnLimpiarCliente.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiarCliente.Location = new System.Drawing.Point(71, 385);
+            this.btnLimpiarCliente.Name = "btnLimpiarCliente";
+            this.btnLimpiarCliente.Size = new System.Drawing.Size(152, 36);
+            this.btnLimpiarCliente.TabIndex = 6;
+            this.btnLimpiarCliente.Text = "Limpiar";
+            this.btnLimpiarCliente.UseVisualStyleBackColor = false;
+            this.btnLimpiarCliente.Click += new System.EventHandler(this.btnLimpiarCliente_Click);
             // 
-            // button1
+            // btnGuardarCliente
             // 
-            this.button1.BackColor = System.Drawing.Color.LimeGreen;
-            this.button1.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(71, 327);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(152, 36);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Guardar";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnGuardarCliente.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnGuardarCliente.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarCliente.Location = new System.Drawing.Point(71, 327);
+            this.btnGuardarCliente.Name = "btnGuardarCliente";
+            this.btnGuardarCliente.Size = new System.Drawing.Size(152, 36);
+            this.btnGuardarCliente.TabIndex = 5;
+            this.btnGuardarCliente.Text = "Guardar";
+            this.btnGuardarCliente.UseVisualStyleBackColor = false;
+            this.btnGuardarCliente.Click += new System.EventHandler(this.button1_Click);
             // 
             // label3
             // 
@@ -349,7 +307,7 @@ namespace SistemaGestorDeVentas.api.cliente
             this.label3.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(6, 115);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(143, 20);
+            this.label3.Size = new System.Drawing.Size(113, 15);
             this.label3.TabIndex = 3;
             this.label3.Text = "Nombre Completo:";
             // 
@@ -357,7 +315,7 @@ namespace SistemaGestorDeVentas.api.cliente
             // 
             this.txtClienteDni.Location = new System.Drawing.Point(10, 90);
             this.txtClienteDni.Name = "txtClienteDni";
-            this.txtClienteDni.Size = new System.Drawing.Size(266, 22);
+            this.txtClienteDni.Size = new System.Drawing.Size(266, 20);
             this.txtClienteDni.TabIndex = 2;
             this.txtClienteDni.TextChanged += new System.EventHandler(this.txtClienteDni_TextChanged);
             this.txtClienteDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClienteDni_KeyPress);
@@ -369,7 +327,7 @@ namespace SistemaGestorDeVentas.api.cliente
             this.label2.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(6, 67);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 20);
+            this.label2.Size = new System.Drawing.Size(59, 15);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nro DNI: ";
             // 
@@ -379,9 +337,44 @@ namespace SistemaGestorDeVentas.api.cliente
             this.label1.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(71, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(152, 28);
+            this.label1.Size = new System.Drawing.Size(123, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Detalle Cliente";
+            // 
+            // detalleClienteDni
+            // 
+            this.detalleClienteDni.HeaderText = "Nro DNI";
+            this.detalleClienteDni.MinimumWidth = 6;
+            this.detalleClienteDni.Name = "detalleClienteDni";
+            this.detalleClienteDni.Width = 125;
+            // 
+            // detalleClienteNombre
+            // 
+            this.detalleClienteNombre.HeaderText = "Nombre Completo";
+            this.detalleClienteNombre.MinimumWidth = 6;
+            this.detalleClienteNombre.Name = "detalleClienteNombre";
+            this.detalleClienteNombre.Width = 125;
+            // 
+            // detalleClienteCorreo
+            // 
+            this.detalleClienteCorreo.HeaderText = "Correo";
+            this.detalleClienteCorreo.MinimumWidth = 6;
+            this.detalleClienteCorreo.Name = "detalleClienteCorreo";
+            this.detalleClienteCorreo.Width = 125;
+            // 
+            // detalleClienteTelefono
+            // 
+            this.detalleClienteTelefono.HeaderText = "Telefono";
+            this.detalleClienteTelefono.MinimumWidth = 6;
+            this.detalleClienteTelefono.Name = "detalleClienteTelefono";
+            this.detalleClienteTelefono.Width = 125;
+            // 
+            // detalleClienteEstado
+            // 
+            this.detalleClienteEstado.HeaderText = "Estado";
+            this.detalleClienteEstado.MinimumWidth = 6;
+            this.detalleClienteEstado.Name = "detalleClienteEstado";
+            this.detalleClienteEstado.Width = 125;
             // 
             // detalleCliente
             // 
@@ -394,6 +387,7 @@ namespace SistemaGestorDeVentas.api.cliente
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "detalleCliente";
             this.Text = "detalleCliente";
+            this.Load += new System.EventHandler(this.detalleCliente_Load);
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCliente)).EndInit();
             this.panel4.ResumeLayout(false);
@@ -408,12 +402,6 @@ namespace SistemaGestorDeVentas.api.cliente
 
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.DataGridView dataGridCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn detalleClienteDni;
-        private System.Windows.Forms.DataGridViewTextBoxColumn detalleClienteNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn detalleClienteEstado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn detalleClienteTelefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn detalleClienteCorreo;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn detalleClienteSeleccionar;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
@@ -430,12 +418,17 @@ namespace SistemaGestorDeVentas.api.cliente
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtClienteNombre;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnEliminarCliente;
+        private System.Windows.Forms.Button btnLimpiarCliente;
+        private System.Windows.Forms.Button btnGuardarCliente;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtClienteDni;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private DataGridViewTextBoxColumn detalleClienteDni;
+        private DataGridViewTextBoxColumn detalleClienteNombre;
+        private DataGridViewTextBoxColumn detalleClienteCorreo;
+        private DataGridViewTextBoxColumn detalleClienteTelefono;
+        private DataGridViewTextBoxColumn detalleClienteEstado;
     }
 }

@@ -33,8 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -89,6 +98,7 @@
     <Compile Include="api\category\controller.cs" />
     <Compile Include="api\category\dao.cs" />
     <Compile Include="api\category\service.cs" />
+    <Compile Include="api\cliente\ClienteService.cs" />
     <Compile Include="api\cliente\detalleCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +160,73 @@
     <Compile Include="components\navegador.Designer.cs">
       <DependentUpon>navegador.cs</DependentUpon>
     </Compile>
+    <Compile Include="db\Categoria.cs">
+      <DependentUpon>DB_Connect.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\Cliente.cs">
+      <DependentUpon>DB_Connect.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\Compra.cs">
+      <DependentUpon>DB_Connect.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\DB_Connect.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_Connect.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\DB_Connect.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_Connect.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\DB_Connect.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_Connect.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="db\Estado.cs">
+      <DependentUpon>DB_Connect.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\Estado_Compra.cs">
+      <DependentUpon>DB_Connect.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\Factura.cs">
+      <DependentUpon>DB_Connect.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\Metodo_Pago.cs">
+      <DependentUpon>DB_Connect.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\Negocio.cs">
+      <DependentUpon>DB_Connect.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\Pago.cs">
+      <DependentUpon>DB_Connect.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\Producto.cs">
+      <DependentUpon>DB_Connect.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\Producto_Compra.cs">
+      <DependentUpon>DB_Connect.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\Producto_Venta.cs">
+      <DependentUpon>DB_Connect.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\Proveedor.cs">
+      <DependentUpon>DB_Connect.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\Rol.cs">
+      <DependentUpon>DB_Connect.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\Ticket.cs">
+      <DependentUpon>DB_Connect.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\Usuario.cs">
+      <DependentUpon>DB_Connect.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\Venta.cs">
+      <DependentUpon>DB_Connect.tt</DependentUpon>
+    </Compile>
+    <Compile Include="middleware\EstadoService.cs" />
     <Compile Include="paginaInicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,6 +329,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EntityDeploy Include="db\DB_Connect.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DB_Connect.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="db\DB_Connect.edmx.diagram">
+      <DependentUpon>DB_Connect.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -264,10 +349,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="db\" />
-    <Folder Include="middlewares\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\descarga %287%29.jpeg" />
@@ -319,6 +400,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\negocio_nav.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="db\DB_Connect.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DB_Connect.edmx</DependentUpon>
+      <LastGenOutput>DB_Connect.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="db\DB_Connect.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DB_Connect.edmx</DependentUpon>
+      <LastGenOutput>DB_Connect.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
