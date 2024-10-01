@@ -59,8 +59,8 @@ namespace SistemaGestorDeVentas.api.product
             this.label7 = new System.Windows.Forms.Label();
             this.txtProductDescripcion = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnProductEliminar = new System.Windows.Forms.Button();
+            this.btnProductLimpiar = new System.Windows.Forms.Button();
             this.btnProductGuardar = new System.Windows.Forms.Button();
             this.cboxProductEstado = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -251,8 +251,8 @@ namespace SistemaGestorDeVentas.api.product
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.txtProductDescripcion);
             this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.button3);
-            this.panel3.Controls.Add(this.button2);
+            this.panel3.Controls.Add(this.btnProductEliminar);
+            this.panel3.Controls.Add(this.btnProductLimpiar);
             this.panel3.Controls.Add(this.btnProductGuardar);
             this.panel3.Controls.Add(this.cboxProductEstado);
             this.panel3.Controls.Add(this.label3);
@@ -270,6 +270,7 @@ namespace SistemaGestorDeVentas.api.product
             this.txtProductNombre.Name = "txtProductNombre";
             this.txtProductNombre.Size = new System.Drawing.Size(266, 22);
             this.txtProductNombre.TabIndex = 18;
+            this.txtProductNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProductNombre_KeyPress);
             // 
             // label10
             // 
@@ -344,6 +345,7 @@ namespace SistemaGestorDeVentas.api.product
             this.txtProductDescripcion.Name = "txtProductDescripcion";
             this.txtProductDescripcion.Size = new System.Drawing.Size(266, 22);
             this.txtProductDescripcion.TabIndex = 9;
+            this.txtProductDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProductDescripcion_KeyPress);
             // 
             // label6
             // 
@@ -355,27 +357,27 @@ namespace SistemaGestorDeVentas.api.product
             this.label6.TabIndex = 8;
             this.label6.Text = "Descripcion: ";
             // 
-            // button3
+            // btnProductEliminar
             // 
-            this.button3.BackColor = System.Drawing.Color.Red;
-            this.button3.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(61, 448);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(152, 36);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Eliminar";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnProductEliminar.BackColor = System.Drawing.Color.Red;
+            this.btnProductEliminar.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProductEliminar.Location = new System.Drawing.Point(61, 448);
+            this.btnProductEliminar.Name = "btnProductEliminar";
+            this.btnProductEliminar.Size = new System.Drawing.Size(152, 36);
+            this.btnProductEliminar.TabIndex = 7;
+            this.btnProductEliminar.Text = "Eliminar";
+            this.btnProductEliminar.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnProductLimpiar
             // 
-            this.button2.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button2.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(61, 406);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(152, 36);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Limpiar";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnProductLimpiar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnProductLimpiar.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProductLimpiar.Location = new System.Drawing.Point(61, 406);
+            this.btnProductLimpiar.Name = "btnProductLimpiar";
+            this.btnProductLimpiar.Size = new System.Drawing.Size(152, 36);
+            this.btnProductLimpiar.TabIndex = 6;
+            this.btnProductLimpiar.Text = "Limpiar";
+            this.btnProductLimpiar.UseVisualStyleBackColor = false;
             // 
             // btnProductGuardar
             // 
@@ -474,8 +476,8 @@ namespace SistemaGestorDeVentas.api.product
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnProductEliminar;
+        private System.Windows.Forms.Button btnProductLimpiar;
         private System.Windows.Forms.Button btnProductGuardar;
         private System.Windows.Forms.ComboBox cboxProductEstado;
         private System.Windows.Forms.Label label3;

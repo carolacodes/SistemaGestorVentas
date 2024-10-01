@@ -137,56 +137,56 @@ namespace SistemaGestorDeVentas.api.cart
 
         private void txtCartViewDNI_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtCartViewDNI.Text))
-            {
-                MessageBox.Show("La dirección no puede estar vacía.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                e.Cancel = true;
-            }
+            //if (string.IsNullOrWhiteSpace(txtCartViewDNI.Text))
+            //{
+            //    MessageBox.Show("La dirección no puede estar vacía.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    e.Cancel = true;
+            //}
         }
 
         private void txtCartNombreCliente_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtCartNombreCliente.Text))
-            {
-                MessageBox.Show("La dirección no puede estar vacía.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                e.Cancel = true;
-            }
+            //if (string.IsNullOrWhiteSpace(txtCartNombreCliente.Text))
+            //{
+            //    MessageBox.Show("La dirección no puede estar vacía.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    e.Cancel = true;
+            //}
         }
 
         private void txtCartCodProduct_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtCartCodProduct.Text))
-            {
-                MessageBox.Show("La dirección no puede estar vacía.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                e.Cancel = true;
-            }
+            //if (string.IsNullOrWhiteSpace(txtCartCodProduct.Text))
+            //{
+            //    MessageBox.Show("La dirección no puede estar vacía.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    e.Cancel = true;
+            //}
         }
 
         private void txtCartProducto_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtCartProducto.Text))
-            {
-                MessageBox.Show("La dirección no puede estar vacía.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                e.Cancel = true;
-            }
+            //if (string.IsNullOrWhiteSpace(txtCartProducto.Text))
+            //{
+            //    MessageBox.Show("La dirección no puede estar vacía.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    e.Cancel = true;
+            //}
         }
 
         private void txtCartPrecio_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtCartPrecio.Text))
-            {
-                MessageBox.Show("La dirección no puede estar vacía.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                e.Cancel = true;
-            }
+            //if (string.IsNullOrWhiteSpace(txtCartPrecio.Text))
+            //{
+            //    MessageBox.Show("La dirección no puede estar vacía.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    e.Cancel = true;
+            //}
         }
 
         private void txtCartStock_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtCartStock.Text))
-            {
-                MessageBox.Show("La dirección no puede estar vacía.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                e.Cancel = true;
-            }
+            //if (string.IsNullOrWhiteSpace(txtCartStock.Text))
+            //{
+            //    MessageBox.Show("La dirección no puede estar vacía.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    e.Cancel = true;
+            //}
         }
     }
 }

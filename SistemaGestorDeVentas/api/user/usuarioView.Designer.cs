@@ -59,8 +59,8 @@ namespace SistemaGestorDeVentas.api.user
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtUsuarioNombre = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnUsuarioEliminar = new System.Windows.Forms.Button();
+            this.btnUsuarioLimpiar = new System.Windows.Forms.Button();
             this.btnUsuarioGuardar = new System.Windows.Forms.Button();
             this.cboxUsuarioRol = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -243,8 +243,8 @@ namespace SistemaGestorDeVentas.api.user
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.txtUsuarioNombre);
-            this.panel3.Controls.Add(this.button3);
-            this.panel3.Controls.Add(this.button2);
+            this.panel3.Controls.Add(this.btnUsuarioEliminar);
+            this.panel3.Controls.Add(this.btnUsuarioLimpiar);
             this.panel3.Controls.Add(this.btnUsuarioGuardar);
             this.panel3.Controls.Add(this.cboxUsuarioRol);
             this.panel3.Controls.Add(this.label3);
@@ -317,6 +317,7 @@ namespace SistemaGestorDeVentas.api.user
             this.txtUsuarioCorreo.Name = "txtUsuarioCorreo";
             this.txtUsuarioCorreo.Size = new System.Drawing.Size(266, 22);
             this.txtUsuarioCorreo.TabIndex = 11;
+            this.txtUsuarioCorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuarioCorreo_KeyPress);
             // 
             // label7
             // 
@@ -344,28 +345,29 @@ namespace SistemaGestorDeVentas.api.user
             this.txtUsuarioNombre.Name = "txtUsuarioNombre";
             this.txtUsuarioNombre.Size = new System.Drawing.Size(266, 22);
             this.txtUsuarioNombre.TabIndex = 8;
+            this.txtUsuarioNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuarioNombre_KeyPress);
             // 
-            // button3
+            // btnUsuarioEliminar
             // 
-            this.button3.BackColor = System.Drawing.Color.Red;
-            this.button3.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(62, 448);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(152, 36);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Eliminar";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnUsuarioEliminar.BackColor = System.Drawing.Color.Red;
+            this.btnUsuarioEliminar.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsuarioEliminar.Location = new System.Drawing.Point(62, 448);
+            this.btnUsuarioEliminar.Name = "btnUsuarioEliminar";
+            this.btnUsuarioEliminar.Size = new System.Drawing.Size(152, 36);
+            this.btnUsuarioEliminar.TabIndex = 7;
+            this.btnUsuarioEliminar.Text = "Eliminar";
+            this.btnUsuarioEliminar.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnUsuarioLimpiar
             // 
-            this.button2.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button2.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(62, 406);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(152, 36);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Limpiar";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnUsuarioLimpiar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnUsuarioLimpiar.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsuarioLimpiar.Location = new System.Drawing.Point(62, 406);
+            this.btnUsuarioLimpiar.Name = "btnUsuarioLimpiar";
+            this.btnUsuarioLimpiar.Size = new System.Drawing.Size(152, 36);
+            this.btnUsuarioLimpiar.TabIndex = 6;
+            this.btnUsuarioLimpiar.Text = "Limpiar";
+            this.btnUsuarioLimpiar.UseVisualStyleBackColor = false;
             // 
             // btnUsuarioGuardar
             // 
@@ -463,8 +465,8 @@ namespace SistemaGestorDeVentas.api.user
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnUsuarioEliminar;
+        private System.Windows.Forms.Button btnUsuarioLimpiar;
         private System.Windows.Forms.Button btnUsuarioGuardar;
         private System.Windows.Forms.ComboBox cboxUsuarioRol;
         private System.Windows.Forms.Label label3;

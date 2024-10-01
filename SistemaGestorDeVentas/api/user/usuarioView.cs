@@ -122,5 +122,29 @@ namespace SistemaGestorDeVentas.api.user
                 }
             }
         }
+
+        private void txtUsuarioNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // si no es una letra, no es borrar, no es espacio entonces bloquea
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Space)
+            {
+                e.Handled = true; // Bloquear caracteres que no sean letras o espacios
+            }
+        }
+
+        private void txtUsuarioCorreo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // permite letras, números, @, puntos, guiones y retroceso
+            if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != '@' && e.KeyChar != '.' && e.KeyChar != '-' && e.KeyChar != '_' && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Bloquear la tecla si no es válida
+            }
+
+            // bloqueo  espacios
+            if (e.KeyChar == (char)Keys.Space)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

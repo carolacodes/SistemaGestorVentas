@@ -153,5 +153,23 @@ namespace SistemaGestorDeVentas.api.product
                 e.Handled = true; // Cancela la acción, no permite la entrada
             }
         }
+
+        private void txtProductNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // si no es una letra, no es borrar, no es espacio entonces bloquea
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Space)
+            {
+                e.Handled = true; // Bloquear caracteres que no sean letras o espacios
+            }
+        }
+
+        private void txtProductDescripcion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // si no es una letra, no es borrar, no es espacio entonces bloquea
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Space)
+            {
+                e.Handled = true; // Bloquear caracteres que no sean letras o espacios
+            }
+        }
     }
 }

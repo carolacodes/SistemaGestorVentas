@@ -57,5 +57,20 @@ namespace SistemaGestorDeVentas.api.category
         {
 
         }
+
+        private void btnGuardarCategoria_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtCategoriaNombre.Text))
+            {
+                MessageBox.Show("Por favor, ingrese un nombre de categoría.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (cbCategoriaEstado.SelectedItem == null)
+            {
+                MessageBox.Show("Por favor, seleccione un estado para la categoría.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+        }
     }
 }

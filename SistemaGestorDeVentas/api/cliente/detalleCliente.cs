@@ -163,6 +163,41 @@ namespace SistemaGestorDeVentas.api.cliente
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+
+            //valido que los textbox no esten vacios 
+            if (string.IsNullOrWhiteSpace(txtClienteDni.Text))
+            {
+                MessageBox.Show("Por favor, ingrese el DNI del cliente.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtClienteNombre.Text))
+            {
+                MessageBox.Show("Por favor, ingrese el nombre completo del cliente.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtClienteCorreo.Text))
+            {
+                MessageBox.Show("Por favor, ingrese el correo del cliente.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtClienteTelefono.Text))
+            {
+                MessageBox.Show("Por favor, ingrese el teléfono del cliente.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Validar que el estado esté seleccionado
+            if (cbClienteEstado.SelectedItem == null)
+            {
+                MessageBox.Show("Por favor, seleccione el estado del cliente.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
             //boton guardar
             string dniCliente = txtClienteDni.Text;
             string nombreCompletoCliente = txtClienteNombre.Text;

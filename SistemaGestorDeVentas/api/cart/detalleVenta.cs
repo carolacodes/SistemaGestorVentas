@@ -75,11 +75,11 @@ namespace SistemaGestorDeVentas.api.cart
 
         private void txtCartDetalleNroVenta_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtCartDetalleNroVenta.Text))
-            {
-                MessageBox.Show("La dirección no puede estar vacía.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                e.Cancel = true;
-            }
+            //if (string.IsNullOrWhiteSpace(txtCartDetalleNroVenta.Text))
+            //{
+            //    MessageBox.Show("La dirección no puede estar vacía.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    e.Cancel = true;
+            //}
         }
 
         private void detalleVenta_Load(object sender, EventArgs e)
