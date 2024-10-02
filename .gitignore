@@ -398,3 +398,10 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+
+# DataSet
+SistemaGestorDeVentas/sistema_de_ventasDataSet.Designer.cs
+SistemaGestorDeVentas/sistema_de_ventasDataSet.xsc
+SistemaGestorDeVentas/sistema_de_ventasDataSet.xsd
+SistemaGestorDeVentas/sistema_de_ventasDataSet.xss
