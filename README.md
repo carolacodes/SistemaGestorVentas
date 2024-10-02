@@ -13,3 +13,17 @@ Creacion de bases de datos con SQL Server (Se adjunta script de la bases de dato
 Conexion a la bases de datos en el visual studio utilizando Entity Framework
 
 CRUD de la entidad Cliente y Estado 
+
+Para el inicio de sesion:
+
+Vendedor:
+Correo: vendedor@gmail.com        
+Contraseña: vendedor123
+
+Administrador:
+Correo: admin@gmail.com 
+Contraseña: admin123
+
+Supervisor:
+Correo: supervisor@gmail.com
+Contraseña: supervisor123
