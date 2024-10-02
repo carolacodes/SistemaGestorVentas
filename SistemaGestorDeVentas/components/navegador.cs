@@ -368,5 +368,26 @@ namespace SistemaGestorDeVentas.components
             }*/
 
         }
+
+        public void MostrarMenuVendedor()
+        {
+            //paginas de gestion que no puede ver
+            productosToolStripMenuItem.Visible = false;
+            categoriasToolStripMenuItem.Visible=false;
+            proveedoresToolStripMenuItem.Visible=false;
+
+
+            compraToolStripMenuItem.Visible = false;
+            reportesToolStripMenuItem.Visible=false;
+            negocioToolStripMenuItem.Visible = false;
+            usuariosToolStripMenuItem.Visible = false;
+        }
+
+        public void MostrarMenuAdministrador()
+        {
+            reportesToolStripMenuItem.Visible = false;
+            negocioToolStripMenuItem.Visible = false;
+            usuariosToolStripMenuItem.Visible = false;
+        }
     }
 }
