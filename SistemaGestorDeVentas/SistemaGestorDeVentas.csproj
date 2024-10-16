@@ -146,14 +146,14 @@
     <Compile Include="api\product\Product.cs" />
     <Compile Include="api\product\service.cs" />
     <Compile Include="api\user\controller.cs" />
-    <Compile Include="api\user\dao.cs" />
+    <Compile Include="api\user\UserDao.cs" />
+    <Compile Include="api\user\UserService.cs" />
     <Compile Include="api\user\usuarioView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="api\user\usuarioView.Designer.cs">
       <DependentUpon>usuarioView.cs</DependentUpon>
     </Compile>
-    <Compile Include="api\user\service.cs" />
     <Compile Include="components\navegador.cs">
       <SubType>Form</SubType>
     </Compile>
