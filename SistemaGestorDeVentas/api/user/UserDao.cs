@@ -10,35 +10,53 @@ namespace SistemaGestorDeVentas.api.user
     internal class UserDao
     {
         public Usuario createUserDao(Usuario nuevoUsuario)
-        {
-            using (var context = new sistema_de_ventas_Entities())
-            {
+        {   
+            try{
+                using (var context = new sistema_de_ventas_Entities())
+                {
                 var usuario = context.Usuario.Add(nuevoUsuario);
                 context.SaveChanges();
                 return usuario;
+                }
+            } catch(Exception ex) {
+                throw new Exception("error al crear usuario: " + ex.Message);
             }
+
         }
 
         public Usuario getUserDao(string dni)
         {
-            using (var context = new sistema_de_ventas_Entities())
+            try{
+                using (var context = new sistema_de_ventas_Entities())
             {
                 var usuario = context.Usuario.Find(dni);
                 return usuario;
+            }
+            }catch(Exception ex)
+            {
+                throw new Exception("error al buscar el usuario: " + ex.Message);
             }
         }
 
         public List<Usuario> getUsersDao()
         {
-            using (var context = new sistema_de_ventas_Entities())
+            try
+            {
+                using (var context = new sistema_de_ventas_Entities())
             {
                 return context.Usuario.ToList();
+            }
+            }catch(Exception ex)
+            {
+                throw new Exception("error al obtener los usuarios: " + ex.Message);
             }
         }
 
         public Usuario updateUserDao(Usuario userActualizado)
         {
-            using (var context = new sistema_de_ventas_Entities())
+            try
+            {
+                using (var context = new sistema_de_ventas_Entities())
             {
                 var user = context.Usuario.Find(userActualizado.DNI_usuario);
                 if(user != null)
@@ -49,18 +67,36 @@ namespace SistemaGestorDeVentas.api.user
                     user.pass = userActualizado.pass;
                     user.id_rol = userActualizado.id_rol;
 
-
                 }
-        }
-
-        public Usuario deleteUserDao(string dni)
-        {
-            using (var context = new sistema_de_ventas_Entities())
-            {
+                return user;
+            }
+            }catch(Exception ex) {
+                throw new Exception("error al actualizar el usuario: " + ex.Message);
             }
         }
 
 
-    }
+        public Usuario deleteUserDao(string dni)
+        {
+            try
+            {
+                using (var context = new sistema_de_ventas_Entities())
+            {
+                    var usuario = context.Usuario.Find(dni);
+                    if (usuario != null)
+                    {
+                        usuario.id_estado = 0;
+                        // 0 = 'inactivo'
+                        context.SaveChanges();
 
+                    }
+
+                    return usuario;
+                }
+            }catch(Exception ex)
+            {
+                throw new Exception("error al eliminar el usuario: " + ex.Message);
+            }
+    }
+}
 }

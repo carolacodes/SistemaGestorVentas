@@ -8,66 +8,67 @@ using SistemaGestorDeVentas.db;
 
 
 namespace SistemaGestorDeVentas.api.cliente
-{   
+{
 
     internal class ClienteService
     {
-        public void CreateCliente(Cliente nuevoCliente)
-        {
-            using (var context = new sistema_de_ventas_Entities())
+        ClienteDao clienteDao = new ClienteDao();
+
+        public Cliente createCliente(Cliente nuevoCliente) {
+            try
             {
-                context.Cliente.Add(nuevoCliente);
-                context.SaveChanges();
+                var cliente = clienteDao.CreateClienteDao(nuevoCliente);
+                return cliente;
+            }catch(Exception ex)
+            {
+                throw new Exception("Error al crear el cliente: " + ex.Message);
             }
         }
 
-        public void updateCliente(Cliente clienteActualizado)
+        public Cliente updateCliente(Cliente clienteActualizado)
         {
-            using (var context = new sistema_de_ventas_Entities())
+            try
             {
-                var clienteExistente = context.Cliente.Find(clienteActualizado.DNI_cliente);
-                if (clienteExistente != null)
-                {
-                    clienteExistente.nombre = clienteActualizado.nombre;
-                    clienteExistente.correo = clienteActualizado.correo;
-                    clienteExistente.telefono = clienteActualizado.telefono;
-                    clienteExistente.id_estado = clienteActualizado.id_estado;
-                    context.SaveChanges();
-                }
+                var cliente = clienteDao.updateClienteDao(clienteActualizado);
+                return cliente;
+            }catch(Exception ex)
+            {
+                throw new Exception("Error al modificar los datos del cliente: " + ex.Message);
             }
         }
 
-        public Cliente deleteCliente(string DNI_cliente)
-        {
-            using (var context = new sistema_de_ventas_Entities())
+        public Cliente deleteCliente(string dni) {
+            try
             {
-                var cliente = context.Cliente.Find(DNI_cliente);
-                if (cliente != null)
-                {
-                    cliente.id_estado = 0;
-                    // 0 = 'inactivo'
-                    context.SaveChanges();
-                }
+                var cliente = clienteDao.deleteClienteDao(dni);
                 return cliente;
             }
-        }
-
-        public List<Cliente> getClientes()
-        {
-            using (var context = new sistema_de_ventas_Entities())
+            catch(Exception ex)
             {
-                return context.Cliente.ToList();
+                throw new Exception("Error al intentar eliminar el cliente: " + ex.Message);
             }
         }
 
-        public Cliente getCliente(string dni)
-        {
-            using (var context = new sistema_de_ventas_Entities())
+        public List<Cliente> getClientes() {
+            try
             {
-                var cliente = context.Cliente.Find(dni);
+                List<Cliente> clientes = clienteDao.getClientesDao();
+                return clientes;
+            }catch(Exception ex)
+            {
+                throw new Exception("Error al intentar obtener todos los clientes: " + ex.Message);
+            }
+        }
+
+        public Cliente getCliente(string dni) {
+            try
+            {
+                var cliente = clienteDao.getClienteDao(dni);
                 return cliente;
+            }catch(Exception ex)
+            {
+                throw new Exception("Error al intentar obtener el cliente: " + ex.Message);
             }
         }
-
     }
 }

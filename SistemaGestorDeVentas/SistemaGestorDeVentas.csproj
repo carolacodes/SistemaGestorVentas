@@ -98,6 +98,7 @@
     <Compile Include="api\category\controller.cs" />
     <Compile Include="api\category\dao.cs" />
     <Compile Include="api\category\service.cs" />
+    <Compile Include="api\cliente\ClienteDao.cs" />
     <Compile Include="api\cliente\ClienteService.cs" />
     <Compile Include="api\cliente\detalleCliente.cs">
       <SubType>Form</SubType>
