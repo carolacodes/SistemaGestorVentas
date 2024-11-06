@@ -16,6 +16,7 @@ namespace SistemaGestorDeVentas.api.cart
                 using (var context = new sistema_de_ventas_Entities())
                 {
                     var venta = context.Venta.Add(nuevaVenta);
+                    context.SaveChanges();
                     return venta;
                  }
             }

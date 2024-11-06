@@ -113,12 +113,14 @@
     <Compile Include="api\compra\buscarCompra.Designer.cs">
       <DependentUpon>buscarCompra.cs</DependentUpon>
     </Compile>
+    <Compile Include="api\compra\CompraDao.cs" />
     <Compile Include="api\compra\compraProducto.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="api\compra\compraProducto.Designer.cs">
       <DependentUpon>compraProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="api\compra\CompraService.cs" />
     <Compile Include="api\compra\detalleCompraProducto.cs">
       <SubType>Form</SubType>
     </Compile>

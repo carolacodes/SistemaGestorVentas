@@ -66,6 +66,7 @@ namespace SistemaGestorDeVentas.api.category
                     if (categoria != null)
                     {
                         categoria.nombre = categoriaActualizada.nombre;
+                        context.SaveChanges();
                     }
                     return categoria;
                 }

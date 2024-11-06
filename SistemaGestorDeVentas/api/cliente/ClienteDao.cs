@@ -9,7 +9,7 @@ namespace SistemaGestorDeVentas.api.cliente
 {
     internal class ClienteDao
     {
-        public Cliente CreateClienteDao(Cliente nuevoCliente)
+        public Cliente createClienteDao(Cliente nuevoCliente)
         {
             try
             {
@@ -22,7 +22,7 @@ namespace SistemaGestorDeVentas.api.cliente
                 }
             } catch(Exception ex)
             {
-                throw new Exception("Error al intentar crear un nuevo cliente: "ex.Message);
+                throw new Exception("Error al intentar crear un nuevo cliente: "+ex.Message);
             }
         }
 

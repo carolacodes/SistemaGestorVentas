@@ -77,6 +77,8 @@ namespace SistemaGestorDeVentas.api.product
                         producto.precio_venta = productoActualizado.precio_venta;
                         producto.stock = productoActualizado.stock;
                         producto.Estado = productoActualizado.Estado;
+                        context.SaveChanges();
+                        return producto;
                     }
                     return producto;
                 }
@@ -94,7 +96,7 @@ namespace SistemaGestorDeVentas.api.product
                 using (var context = new sistema_de_ventas_Entities())
                 {
                     var producto = context.Producto.Find(codigo);
-                    if (codigo != null)
+                    if (producto != null)
                     {
                        producto.id_estado = 0;
                         // 0 = 'inactivo'
@@ -144,5 +146,3 @@ namespace SistemaGestorDeVentas.api.product
     }
 }
 
-    }
-}
