@@ -4,11 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace SistemaGestorDeVentas.api.product
 {
     internal class ProductDao
     {
+        private string connectionString = "tu_cadena_de_conexion"; // Especifica tu cadena de conexión aquí
+
         public Producto createProductDao(Producto nuevoProducto)
         {
             try
@@ -107,6 +111,38 @@ namespace SistemaGestorDeVentas.api.product
             }
         }
 
+        public List<Producto> getProductByName(string name)
+        {
+            var productos = new List<Producto>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT Id, Nombre, Precio FROM Productos WHERE Nombre LIKE @name";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@name", "%" + name + "%");
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var producto = new Producto
+                            {
+                                id_producto = reader.GetInt32(0),
+                                nombre = reader.GetString(1),
+                                precio_venta = reader.GetFloat(2)
+                            };
+                            productos.Add(producto);
+                        }
+                    }
+                }
+            }
+            return productos;
+        }
+    }
+}
 
     }
 }

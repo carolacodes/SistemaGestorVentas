@@ -222,7 +222,7 @@ namespace SistemaGestorDeVentas.api.cliente
 
                 if (clienteService.getCliente(nuevoCliente.DNI_cliente) == null)
                 {
-                    clienteService.CreateCliente(nuevoCliente);
+                    clienteService.createCliente(nuevoCliente);
                     MessageBox.Show("Cliente registrado exitosamente");
                 }
                 else

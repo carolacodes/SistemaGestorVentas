@@ -12,11 +12,11 @@ namespace SistemaGestorDeVentas.api.product
     {
         ProductDao productDao = new ProductDao();
 
-        public Producto createProductService(Producto nuevoProducto)
+        public Producto createProductService(Producto nuevoProducto, int ganancia)
         {
             try
             {
-                nuevoProducto.precio_venta = nuevoProducto.precio_compra * 1.20;
+                nuevoProducto.precio_venta = nuevoProducto.precio_compra * (1 + ganancia /100);
                 var producto = productDao.createProductDao(nuevoProducto);
                 return producto;
             }

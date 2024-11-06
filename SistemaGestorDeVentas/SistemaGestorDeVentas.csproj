@@ -89,15 +89,16 @@
       <DependentUpon>metodoPago.cs</DependentUpon>
     </Compile>
     <Compile Include="api\cart\service.cs" />
+    <Compile Include="api\cart\VentaDao.cs" />
+    <Compile Include="api\cart\VentaService.cs" />
+    <Compile Include="api\category\CategoriaDao.cs" />
+    <Compile Include="api\category\CategoriaService.cs" />
     <Compile Include="api\category\categoryMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="api\category\categoryMenu.Designer.cs">
       <DependentUpon>categoryMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="api\category\controller.cs" />
-    <Compile Include="api\category\dao.cs" />
-    <Compile Include="api\category\service.cs" />
     <Compile Include="api\cliente\ClienteDao.cs" />
     <Compile Include="api\cliente\ClienteService.cs" />
     <Compile Include="api\cliente\detalleCliente.cs">
@@ -130,6 +131,8 @@
     <Compile Include="api\Negocio\gestionNegocio.Designer.cs">
       <DependentUpon>gestionNegocio.cs</DependentUpon>
     </Compile>
+    <Compile Include="api\Negocio\NegocioDao.cs" />
+    <Compile Include="api\Negocio\NegocioService.cs" />
     <Compile Include="api\product\buscarProducto.cs">
       <SubType>Form</SubType>
     </Compile>
