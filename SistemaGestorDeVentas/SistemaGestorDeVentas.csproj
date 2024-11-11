@@ -153,14 +153,14 @@
     </Compile>
     <Compile Include="api\factura\FacturaDao.cs" />
     <Compile Include="api\factura\FacturaService.cs" />
-    <Compile Include="api\Negocio\gestionNegocio.cs">
+    <Compile Include="api\negocio\gestionNegocio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="api\Negocio\gestionNegocio.Designer.cs">
+    <Compile Include="api\negocio\gestionNegocio.Designer.cs">
       <DependentUpon>gestionNegocio.cs</DependentUpon>
     </Compile>
-    <Compile Include="api\Negocio\NegocioDao.cs" />
-    <Compile Include="api\Negocio\NegocioService.cs" />
+    <Compile Include="api\negocio\NegocioDao.cs" />
+    <Compile Include="api\negocio\NegocioService.cs" />
     <Compile Include="api\product\buscarProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -360,7 +360,7 @@
     <EmbeddedResource Include="api\cliente\detalleCliente.resx">
       <DependentUpon>detalleCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="api\Negocio\gestionNegocio.resx">
+    <EmbeddedResource Include="api\negocio\gestionNegocio.resx">
       <DependentUpon>gestionNegocio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="api\product\adminGestionProduct.resx">
