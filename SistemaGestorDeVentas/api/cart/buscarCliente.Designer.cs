@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.detalleClienteDni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleClienteNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleClienteEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleClienteTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleClienteCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.txtCartViewDNI = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.detalleClienteDni = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleClienteNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleClienteEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleClienteTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleClienteCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -60,6 +60,16 @@
             this.panel2.Size = new System.Drawing.Size(776, 318);
             this.panel2.TabIndex = 5;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
+            this.button3.Location = new System.Drawing.Point(624, 256);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(130, 40);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "Volver";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -87,6 +97,41 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(734, 223);
             this.dataGridView1.TabIndex = 11;
+            // 
+            // detalleClienteDni
+            // 
+            this.detalleClienteDni.HeaderText = "Nro DNI";
+            this.detalleClienteDni.MinimumWidth = 6;
+            this.detalleClienteDni.Name = "detalleClienteDni";
+            this.detalleClienteDni.Width = 125;
+            // 
+            // detalleClienteNombre
+            // 
+            this.detalleClienteNombre.HeaderText = "Nombre Completo";
+            this.detalleClienteNombre.MinimumWidth = 6;
+            this.detalleClienteNombre.Name = "detalleClienteNombre";
+            this.detalleClienteNombre.Width = 125;
+            // 
+            // detalleClienteEstado
+            // 
+            this.detalleClienteEstado.HeaderText = "Estado";
+            this.detalleClienteEstado.MinimumWidth = 6;
+            this.detalleClienteEstado.Name = "detalleClienteEstado";
+            this.detalleClienteEstado.Width = 125;
+            // 
+            // detalleClienteTelefono
+            // 
+            this.detalleClienteTelefono.HeaderText = "Telefono";
+            this.detalleClienteTelefono.MinimumWidth = 6;
+            this.detalleClienteTelefono.Name = "detalleClienteTelefono";
+            this.detalleClienteTelefono.Width = 125;
+            // 
+            // detalleClienteCorreo
+            // 
+            this.detalleClienteCorreo.HeaderText = "Correo";
+            this.detalleClienteCorreo.MinimumWidth = 6;
+            this.detalleClienteCorreo.Name = "detalleClienteCorreo";
+            this.detalleClienteCorreo.Width = 125;
             // 
             // button1
             // 
@@ -140,57 +185,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(314, 51);
+            this.label1.Font = new System.Drawing.Font("Nirmala UI", 14.8F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(306, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(187, 31);
+            this.label1.Size = new System.Drawing.Size(206, 35);
             this.label1.TabIndex = 0;
             this.label1.Text = "Lista de Clientes";
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
-            this.button3.Location = new System.Drawing.Point(624, 256);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(130, 40);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "Volver";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // detalleClienteDni
-            // 
-            this.detalleClienteDni.HeaderText = "Nro DNI";
-            this.detalleClienteDni.MinimumWidth = 6;
-            this.detalleClienteDni.Name = "detalleClienteDni";
-            this.detalleClienteDni.Width = 125;
-            // 
-            // detalleClienteNombre
-            // 
-            this.detalleClienteNombre.HeaderText = "Nombre Completo";
-            this.detalleClienteNombre.MinimumWidth = 6;
-            this.detalleClienteNombre.Name = "detalleClienteNombre";
-            this.detalleClienteNombre.Width = 125;
-            // 
-            // detalleClienteEstado
-            // 
-            this.detalleClienteEstado.HeaderText = "Estado";
-            this.detalleClienteEstado.MinimumWidth = 6;
-            this.detalleClienteEstado.Name = "detalleClienteEstado";
-            this.detalleClienteEstado.Width = 125;
-            // 
-            // detalleClienteTelefono
-            // 
-            this.detalleClienteTelefono.HeaderText = "Telefono";
-            this.detalleClienteTelefono.MinimumWidth = 6;
-            this.detalleClienteTelefono.Name = "detalleClienteTelefono";
-            this.detalleClienteTelefono.Width = 125;
-            // 
-            // detalleClienteCorreo
-            // 
-            this.detalleClienteCorreo.HeaderText = "Correo";
-            this.detalleClienteCorreo.MinimumWidth = 6;
-            this.detalleClienteCorreo.Name = "detalleClienteCorreo";
-            this.detalleClienteCorreo.Width = 125;
             // 
             // buscarCliente
             // 

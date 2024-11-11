@@ -32,17 +32,19 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.detalleClienteDni = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleClienteNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleClienteEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleClienteTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleClienteCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.txtCartViewDNI = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.detalleClienteDni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleClienteNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleClienteCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleClienteTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sitioWeb = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleClienteEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -87,50 +89,17 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.detalleClienteDni,
             this.detalleClienteNombre,
-            this.detalleClienteEstado,
+            this.detalleClienteCorreo,
             this.detalleClienteTelefono,
-            this.detalleClienteCorreo});
+            this.direccion,
+            this.sitioWeb,
+            this.detalleClienteEstado});
             this.dataGridView1.Location = new System.Drawing.Point(19, 15);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(734, 223);
             this.dataGridView1.TabIndex = 11;
-            // 
-            // detalleClienteDni
-            // 
-            this.detalleClienteDni.HeaderText = "Nro DNI";
-            this.detalleClienteDni.MinimumWidth = 6;
-            this.detalleClienteDni.Name = "detalleClienteDni";
-            this.detalleClienteDni.Width = 125;
-            // 
-            // detalleClienteNombre
-            // 
-            this.detalleClienteNombre.HeaderText = "Nombre Completo";
-            this.detalleClienteNombre.MinimumWidth = 6;
-            this.detalleClienteNombre.Name = "detalleClienteNombre";
-            this.detalleClienteNombre.Width = 125;
-            // 
-            // detalleClienteEstado
-            // 
-            this.detalleClienteEstado.HeaderText = "Estado";
-            this.detalleClienteEstado.MinimumWidth = 6;
-            this.detalleClienteEstado.Name = "detalleClienteEstado";
-            this.detalleClienteEstado.Width = 125;
-            // 
-            // detalleClienteTelefono
-            // 
-            this.detalleClienteTelefono.HeaderText = "Telefono";
-            this.detalleClienteTelefono.MinimumWidth = 6;
-            this.detalleClienteTelefono.Name = "detalleClienteTelefono";
-            this.detalleClienteTelefono.Width = 125;
-            // 
-            // detalleClienteCorreo
-            // 
-            this.detalleClienteCorreo.HeaderText = "Correo";
-            this.detalleClienteCorreo.MinimumWidth = 6;
-            this.detalleClienteCorreo.Name = "detalleClienteCorreo";
-            this.detalleClienteCorreo.Width = 125;
             // 
             // button1
             // 
@@ -155,6 +124,15 @@
             this.panel1.Size = new System.Drawing.Size(800, 100);
             this.panel1.TabIndex = 6;
             // 
+            // button4
+            // 
+            this.button4.Image = global::SistemaGestorDeVentas.Properties.Resources.buscar;
+            this.button4.Location = new System.Drawing.Point(730, 40);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(45, 44);
+            this.button4.TabIndex = 9;
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // txtCartViewDNI
             // 
             this.txtCartViewDNI.Location = new System.Drawing.Point(539, 60);
@@ -168,28 +146,68 @@
             this.label6.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(535, 37);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(76, 20);
+            this.label6.Size = new System.Drawing.Size(66, 20);
             this.label6.TabIndex = 7;
-            this.label6.Text = "Nro DNI: ";
+            this.label6.Text = "Codigo: ";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(286, 53);
+            this.label1.Font = new System.Drawing.Font("Nirmala UI", 14.8F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(270, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(234, 31);
+            this.label1.Size = new System.Drawing.Size(259, 35);
             this.label1.TabIndex = 0;
             this.label1.Text = "Lista de Proveedores";
             // 
-            // button4
+            // detalleClienteDni
             // 
-            this.button4.Image = global::SistemaGestorDeVentas.Properties.Resources.buscar;
-            this.button4.Location = new System.Drawing.Point(730, 40);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(45, 44);
-            this.button4.TabIndex = 9;
-            this.button4.UseVisualStyleBackColor = true;
+            this.detalleClienteDni.HeaderText = "Codigo";
+            this.detalleClienteDni.MinimumWidth = 6;
+            this.detalleClienteDni.Name = "detalleClienteDni";
+            this.detalleClienteDni.Width = 125;
+            // 
+            // detalleClienteNombre
+            // 
+            this.detalleClienteNombre.HeaderText = "Nombre";
+            this.detalleClienteNombre.MinimumWidth = 6;
+            this.detalleClienteNombre.Name = "detalleClienteNombre";
+            this.detalleClienteNombre.Width = 125;
+            // 
+            // detalleClienteCorreo
+            // 
+            this.detalleClienteCorreo.HeaderText = "Correo";
+            this.detalleClienteCorreo.MinimumWidth = 6;
+            this.detalleClienteCorreo.Name = "detalleClienteCorreo";
+            this.detalleClienteCorreo.Width = 125;
+            // 
+            // detalleClienteTelefono
+            // 
+            this.detalleClienteTelefono.HeaderText = "Telefono";
+            this.detalleClienteTelefono.MinimumWidth = 6;
+            this.detalleClienteTelefono.Name = "detalleClienteTelefono";
+            this.detalleClienteTelefono.Width = 125;
+            // 
+            // direccion
+            // 
+            this.direccion.HeaderText = "Direccion";
+            this.direccion.MinimumWidth = 6;
+            this.direccion.Name = "direccion";
+            this.direccion.Width = 125;
+            // 
+            // sitioWeb
+            // 
+            this.sitioWeb.HeaderText = "Sitio Web";
+            this.sitioWeb.MinimumWidth = 6;
+            this.sitioWeb.Name = "sitioWeb";
+            this.sitioWeb.Width = 125;
+            // 
+            // detalleClienteEstado
+            // 
+            this.detalleClienteEstado.HeaderText = "Estado";
+            this.detalleClienteEstado.MinimumWidth = 6;
+            this.detalleClienteEstado.Name = "detalleClienteEstado";
+            this.detalleClienteEstado.Width = 125;
             // 
             // buscarProveedor
             // 
@@ -214,16 +232,18 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn detalleClienteDni;
-        private System.Windows.Forms.DataGridViewTextBoxColumn detalleClienteNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn detalleClienteEstado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn detalleClienteTelefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn detalleClienteCorreo;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox txtCartViewDNI;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn detalleClienteDni;
+        private System.Windows.Forms.DataGridViewTextBoxColumn detalleClienteNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn detalleClienteCorreo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn detalleClienteTelefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn direccion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sitioWeb;
+        private System.Windows.Forms.DataGridViewTextBoxColumn detalleClienteEstado;
     }
 }
