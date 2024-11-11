@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SistemaGestorDeVentas.api.cliente;
 using SistemaGestorDeVentas.db;
 
 namespace SistemaGestorDeVentas.api.proveedor
@@ -69,6 +70,19 @@ namespace SistemaGestorDeVentas.api.proveedor
             } catch (Exception ex)
             {
                 throw new Exception("Error al intenat obtener todos los proveedores: " + ex.Message);
+            }
+        }
+
+        public List<Proveedor> getProveedorByName(string name)
+        {
+            try
+            {
+                var proveedores = proveedorDao.getProveedorByNameDao(name);
+                return proveedores;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al buscar proveedores: " + ex.Message);
             }
         }
     }

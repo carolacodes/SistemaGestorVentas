@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace SistemaGestorDeVentas.api.product
 {
@@ -75,6 +76,45 @@ namespace SistemaGestorDeVentas.api.product
             catch (Exception ex)
             {
                 throw new Exception("error al eliminar el producto: " + ex.Message);
+            }
+        }
+
+        public List<Producto> getProductByCategory(string category)
+        {
+            try
+            {
+                var producto = productDao.getProductByCategoryDao(category);
+                return producto;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("error al encontrar el productos: " + ex.Message);
+            }
+        }
+
+        public List<Producto> getProductByName(string name)
+        {
+            try
+            {
+                var producto = productDao.getProductByNameDao(name);
+                return producto;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("error al encontrar el productos: " + ex.Message);
+            }
+        }
+
+        public List<Producto> getProductByCode(int codigo)
+        {
+            try
+            {
+                var producto = productDao.getProductByCodeDao(codigo);
+                return producto;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("error al encontrar el productos: " + ex.Message);
             }
         }
 

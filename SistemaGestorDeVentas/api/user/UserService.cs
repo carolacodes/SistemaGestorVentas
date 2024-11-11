@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SistemaGestorDeVentas.api.user;
+using SistemaGestorDeVentas.api.cliente;
 
 namespace SistemaGestorDeVentas.api.user
 {
@@ -71,6 +72,19 @@ namespace SistemaGestorDeVentas.api.user
             catch (Exception ex)
             {
                 throw new Exception("error al eliminar los usuarios: " + ex.Message);
+            }
+        }
+
+        public List<Usuario> getUserByName(string name)
+        {
+            try
+            {
+                var usuarios = userDao.getUserByNameDao(name);
+                return usuarios;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al buscar usuarios: " + ex.Message);
             }
         }
     }

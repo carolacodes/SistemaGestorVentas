@@ -76,5 +76,28 @@ namespace SistemaGestorDeVentas.api.category
                 throw new Exception("error al actualizar la categoria: " + ex.Message);
             }
         }
+
+        public Categoria getCategoriaByNameDao(string name)
+        {
+            try
+            {
+                using (var context = new sistema_de_ventas_taller_Entities())
+                {
+                    var categoria = context.Categoria.FirstOrDefault(c=> c.nombre.Contains(name));
+
+                    if (categoria == null)
+                    {
+                        throw new Exception("La categoría no existe.");
+                    }
+                    else { 
+                        return categoria;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("no se encuentra la categoria: " + ex.Message);
+            }
+        }
     }
 }

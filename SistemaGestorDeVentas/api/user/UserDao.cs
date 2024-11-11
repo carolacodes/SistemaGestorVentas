@@ -97,6 +97,23 @@ namespace SistemaGestorDeVentas.api.user
             {
                 throw new Exception("error al eliminar el usuario: " + ex.Message);
             }
+        }
+
+        public List<Usuario> getUserByNameDao(string name)
+        {
+            try
+            {
+                using (var context = new sistema_de_ventas_taller_Entities())
+                {
+                    return context.Usuario
+                    .Where(u => u.nombre.Contains(name))
+                    .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("no se encuentran usuarios: " + ex.Message);
+            }
+        }
     }
-}
 }

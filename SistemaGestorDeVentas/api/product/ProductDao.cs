@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using SistemaGestorDeVentas.api.category;
 
 namespace SistemaGestorDeVentas.api.product
 {
@@ -113,36 +114,62 @@ namespace SistemaGestorDeVentas.api.product
             }
         }
 
-        public List<Producto> getProductByName(string name)
+        public List<Producto> getProductByNameDao(string name)
         {
-            var productos = new List<Producto>();
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                connection.Open();
-                string query = "SELECT Id, Nombre, Precio FROM Productos WHERE Nombre LIKE @name";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (var context = new sistema_de_ventas_taller_Entities())
                 {
-                    command.Parameters.AddWithValue("@name", "%" + name + "%");
-
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            var producto = new Producto
-                            {
-                                id_producto = reader.GetInt32(0),
-                                nombre = reader.GetString(1),
-                                precio_venta = reader.GetFloat(2)
-                            };
-                            productos.Add(producto);
-                        }
-                    }
+                    return context.Producto
+                    .Where(p => p.nombre.Contains(name))
+                    .ToList();
                 }
             }
-            return productos;
+            catch (Exception ex) {
+                throw new Exception("no se encuentran productos: " + ex.Message);
+            }
+
         }
+
+        public List<Producto> getProductByCodeDao(int codigo)
+        {
+            try
+            {
+                using (var context = new sistema_de_ventas_taller_Entities())
+                {
+                    return context.Producto
+                    .Where(p => p.codigo_producto.ToString().Contains(codigo.ToString()))
+                    .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("no se encuentran productos: " + ex.Message);
+            }
+        }
+
+        public List<Producto> getProductByCategoryDao(string category)
+        {
+            try
+            {
+                CategoriaDao categoriaDao = new CategoriaDao();
+                
+                using (var context = new sistema_de_ventas_taller_Entities())
+                {
+                    var categoria = categoriaDao.getCategoriaByNameDao(category);
+                    int idCategoria = categoria.id_categoria;
+                    return context.Producto
+                    .Where(p => p.id_categoria == idCategoria)
+                    .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("no se encuentran productos: " + ex.Message);
+            }
+        }
+
+
     }
 }
 

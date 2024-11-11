@@ -55,7 +55,20 @@ namespace SistemaGestorDeVentas.api.category
                 return categorias;
             } catch(Exception ex)
             {
-                throw new Exception("Error al intentar obtener todas las categorias: " + ex.Message)
+                throw new Exception("Error al intentar obtener todas las categorias: " + ex.Message);
+            }
+        }
+
+        public Categoria getCategoriaByName(string name)
+        {
+            try
+            {
+                var categorias = categoriaDao.getCategoriaByNameDao(name);
+                return categorias;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al intentar obtener la categoria: " + ex.Message);
             }
         }
 
