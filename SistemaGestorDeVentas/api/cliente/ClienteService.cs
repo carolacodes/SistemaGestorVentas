@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using SistemaGestorDeVentas.db;
@@ -17,7 +18,7 @@ namespace SistemaGestorDeVentas.api.cliente
         public Cliente createCliente(Cliente nuevoCliente) {
             try
             {
-                var cliente = clienteDao.CreateClienteDao(nuevoCliente);
+                var cliente = clienteDao.createClienteDao(nuevoCliente);
                 return cliente;
             }catch(Exception ex)
             {
@@ -68,6 +69,19 @@ namespace SistemaGestorDeVentas.api.cliente
             }catch(Exception ex)
             {
                 throw new Exception("Error al intentar obtener el cliente: " + ex.Message);
+            }
+        }
+
+        public List<Cliente> getClienteByName(string name)
+        {
+            try
+            {
+                var clientes = clienteDao.getClienteByNameDao(name);
+                return clientes;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al buscar clientes: " + ex.Message);
             }
         }
     }

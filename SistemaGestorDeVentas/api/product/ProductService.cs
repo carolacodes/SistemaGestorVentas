@@ -83,7 +83,7 @@ namespace SistemaGestorDeVentas.api.product
         {
             try
             {
-                var producto = productDao.getProductByCategory(category);
+                var producto = productDao.getProductByCategoryDao(category);
                 return producto;
             }
             catch (Exception ex)
@@ -96,7 +96,7 @@ namespace SistemaGestorDeVentas.api.product
         {
             try
             {
-                var producto = productDao.getProductByName(name);
+                var producto = productDao.getProductByNameDao(name);
                 return producto;
             }
             catch (Exception ex)
@@ -109,7 +109,7 @@ namespace SistemaGestorDeVentas.api.product
         {
             try
             {
-                var producto = productDao.getProductByCode(codigo);
+                var producto = productDao.getProductByCodeDao(codigo);
                 return producto;
             }
             catch (Exception ex)

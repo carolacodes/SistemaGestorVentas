@@ -1,4 +1,5 @@
-﻿using SistemaGestorDeVentas.db;
+﻿using SistemaGestorDeVentas.api.cliente;
+using SistemaGestorDeVentas.db;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -110,6 +111,23 @@ namespace SistemaGestorDeVentas.api.proveedor
             catch (Exception ex)
             {
                 throw new Exception("Error al intentar eliminar el proveedor: " + ex.Message);
+            }
+        }
+
+        public List<Proveedor> getProveedorByNameDao(string name)
+        {
+            try
+            {
+                using (var context = new sistema_de_ventas_taller_Entities())
+                {
+                    return context.Proveedor
+                    .Where(p => p.nombre.Contains(name))
+                    .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("no se encuentran clientes: " + ex.Message);
             }
         }
     }

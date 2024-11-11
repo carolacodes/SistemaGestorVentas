@@ -114,7 +114,7 @@ namespace SistemaGestorDeVentas.api.product
             }
         }
 
-        public List<Producto> getProductByName(string name)
+        public List<Producto> getProductByNameDao(string name)
         {
             try
             {
@@ -131,7 +131,7 @@ namespace SistemaGestorDeVentas.api.product
 
         }
 
-        public List<Producto> getProductByCode(int codigo)
+        public List<Producto> getProductByCodeDao(int codigo)
         {
             try
             {
@@ -148,7 +148,7 @@ namespace SistemaGestorDeVentas.api.product
             }
         }
 
-        public List<Producto> getProductByCategory(string category)
+        public List<Producto> getProductByCategoryDao(string category)
         {
             try
             {
