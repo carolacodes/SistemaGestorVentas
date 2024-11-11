@@ -32,42 +32,42 @@ namespace SistemaGestorDeVentas.api.cart
         private void InitializeComponent()
         {
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnPdfVenta = new System.Windows.Forms.Button();
+            this.txtMontoTotal = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.txtCartDetalleNroVenta = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataProductosVenta = new System.Windows.Forms.DataGridView();
             this.DetalleCardProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DetalleCardPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DetalleCardCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DetalleCardSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtNombreCliVenta = new System.Windows.Forms.TextBox();
+            this.txtClienteVenta = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dateCartDetalleFecha = new System.Windows.Forms.DateTimePicker();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.txtTipoDocumento = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataProductosVenta)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -76,7 +76,7 @@ namespace SistemaGestorDeVentas.api.cart
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.panel1);
             this.panel3.Controls.Add(this.panel6);
-            this.panel3.Controls.Add(this.dataGridView1);
+            this.panel3.Controls.Add(this.dataProductosVenta);
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.label1);
@@ -85,16 +85,35 @@ namespace SistemaGestorDeVentas.api.cart
             this.panel3.Size = new System.Drawing.Size(1106, 458);
             this.panel3.TabIndex = 12;
             // 
-            // button3
+            // panel1
             // 
-            this.button3.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold);
-            this.button3.Location = new System.Drawing.Point(96, 117);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(174, 42);
-            this.button3.TabIndex = 19;
-            this.button3.Text = "Descargar PDF";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            this.panel1.BackColor = System.Drawing.Color.Azure;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnPdfVenta);
+            this.panel1.Controls.Add(this.txtMontoTotal);
+            this.panel1.Controls.Add(this.label14);
+            this.panel1.Location = new System.Drawing.Point(734, 252);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(360, 193);
+            this.panel1.TabIndex = 20;
+            // 
+            // btnPdfVenta
+            // 
+            this.btnPdfVenta.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold);
+            this.btnPdfVenta.Location = new System.Drawing.Point(96, 117);
+            this.btnPdfVenta.Name = "btnPdfVenta";
+            this.btnPdfVenta.Size = new System.Drawing.Size(174, 42);
+            this.btnPdfVenta.TabIndex = 19;
+            this.btnPdfVenta.Text = "Descargar PDF";
+            this.btnPdfVenta.UseVisualStyleBackColor = true;
+            this.btnPdfVenta.Click += new System.EventHandler(this.button3_Click_1);
+            // 
+            // txtMontoTotal
+            // 
+            this.txtMontoTotal.Location = new System.Drawing.Point(86, 74);
+            this.txtMontoTotal.Name = "txtMontoTotal";
+            this.txtMontoTotal.Size = new System.Drawing.Size(191, 22);
+            this.txtMontoTotal.TabIndex = 17;
             // 
             // label14
             // 
@@ -105,13 +124,6 @@ namespace SistemaGestorDeVentas.api.cart
             this.label14.Size = new System.Drawing.Size(139, 30);
             this.label14.TabIndex = 18;
             this.label14.Text = "Monto Total";
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(86, 74);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(191, 22);
-            this.textBox8.TabIndex = 17;
             // 
             // panel6
             // 
@@ -163,21 +175,21 @@ namespace SistemaGestorDeVentas.api.cart
             this.label9.TabIndex = 20;
             this.label9.Text = "Numero Venta: ";
             // 
-            // dataGridView1
+            // dataProductosVenta
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Azure;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataProductosVenta.BackgroundColor = System.Drawing.Color.Azure;
+            this.dataProductosVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataProductosVenta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DetalleCardProducto,
             this.DetalleCardPrecio,
             this.DetalleCardCantidad,
             this.DetalleCardSubtotal});
-            this.dataGridView1.Location = new System.Drawing.Point(19, 252);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(709, 193);
-            this.dataGridView1.TabIndex = 8;
+            this.dataProductosVenta.Location = new System.Drawing.Point(19, 252);
+            this.dataProductosVenta.Name = "dataProductosVenta";
+            this.dataProductosVenta.RowHeadersWidth = 51;
+            this.dataProductosVenta.RowTemplate.Height = 24;
+            this.dataProductosVenta.Size = new System.Drawing.Size(709, 193);
+            this.dataProductosVenta.TabIndex = 8;
             // 
             // DetalleCardProducto
             // 
@@ -211,8 +223,8 @@ namespace SistemaGestorDeVentas.api.cart
             // 
             this.panel5.BackColor = System.Drawing.Color.Azure;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.textBox3);
-            this.panel5.Controls.Add(this.textBox2);
+            this.panel5.Controls.Add(this.txtNombreCliVenta);
+            this.panel5.Controls.Add(this.txtClienteVenta);
             this.panel5.Controls.Add(this.label5);
             this.panel5.Controls.Add(this.label6);
             this.panel5.Controls.Add(this.label7);
@@ -221,19 +233,19 @@ namespace SistemaGestorDeVentas.api.cart
             this.panel5.Size = new System.Drawing.Size(709, 92);
             this.panel5.TabIndex = 5;
             // 
-            // textBox3
+            // txtNombreCliVenta
             // 
-            this.textBox3.Location = new System.Drawing.Point(208, 51);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(231, 22);
-            this.textBox3.TabIndex = 5;
+            this.txtNombreCliVenta.Location = new System.Drawing.Point(208, 51);
+            this.txtNombreCliVenta.Name = "txtNombreCliVenta";
+            this.txtNombreCliVenta.Size = new System.Drawing.Size(231, 22);
+            this.txtNombreCliVenta.TabIndex = 5;
             // 
-            // textBox2
+            // txtClienteVenta
             // 
-            this.textBox2.Location = new System.Drawing.Point(7, 51);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(185, 22);
-            this.textBox2.TabIndex = 3;
+            this.txtClienteVenta.Location = new System.Drawing.Point(7, 51);
+            this.txtClienteVenta.Name = "txtClienteVenta";
+            this.txtClienteVenta.Size = new System.Drawing.Size(185, 22);
+            this.txtClienteVenta.TabIndex = 3;
             // 
             // label5
             // 
@@ -269,10 +281,10 @@ namespace SistemaGestorDeVentas.api.cart
             // 
             this.panel4.BackColor = System.Drawing.Color.Azure;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.txtTipoDocumento);
             this.panel4.Controls.Add(this.dateCartDetalleFecha);
-            this.panel4.Controls.Add(this.textBox4);
+            this.panel4.Controls.Add(this.txtUsuario);
             this.panel4.Controls.Add(this.label8);
-            this.panel4.Controls.Add(this.comboBox1);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.label2);
@@ -289,13 +301,13 @@ namespace SistemaGestorDeVentas.api.cart
             this.dateCartDetalleFecha.TabIndex = 7;
             this.dateCartDetalleFecha.ValueChanged += new System.EventHandler(this.dateCartDetalleFecha_ValueChanged);
             // 
-            // textBox4
+            // txtUsuario
             // 
-            this.textBox4.Location = new System.Drawing.Point(354, 54);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(194, 22);
-            this.textBox4.TabIndex = 6;
-            this.textBox4.Validating += new System.ComponentModel.CancelEventHandler(this.textBox4_Validating);
+            this.txtUsuario.Location = new System.Drawing.Point(354, 54);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(194, 22);
+            this.txtUsuario.TabIndex = 6;
+            this.txtUsuario.Validating += new System.ComponentModel.CancelEventHandler(this.textBox4_Validating);
             // 
             // label8
             // 
@@ -306,17 +318,6 @@ namespace SistemaGestorDeVentas.api.cart
             this.label8.Size = new System.Drawing.Size(71, 20);
             this.label8.TabIndex = 5;
             this.label8.Text = "Usuario: ";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Boleta",
-            "Factura"});
-            this.comboBox1.Location = new System.Drawing.Point(158, 52);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(178, 24);
-            this.comboBox1.TabIndex = 4;
             // 
             // label4
             // 
@@ -367,17 +368,12 @@ namespace SistemaGestorDeVentas.api.cart
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.Width = 125;
             // 
-            // panel1
+            // txtTipoDocumento
             // 
-            this.panel1.BackColor = System.Drawing.Color.Azure;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.textBox8);
-            this.panel1.Controls.Add(this.label14);
-            this.panel1.Location = new System.Drawing.Point(734, 252);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(360, 193);
-            this.panel1.TabIndex = 20;
+            this.txtTipoDocumento.Location = new System.Drawing.Point(158, 54);
+            this.txtTipoDocumento.Name = "txtTipoDocumento";
+            this.txtTipoDocumento.Size = new System.Drawing.Size(180, 22);
+            this.txtTipoDocumento.TabIndex = 8;
             // 
             // detalleVenta
             // 
@@ -391,15 +387,15 @@ namespace SistemaGestorDeVentas.api.cart
             this.Load += new System.EventHandler(this.detalleVenta_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataProductosVenta)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -407,21 +403,20 @@ namespace SistemaGestorDeVentas.api.cart
         #endregion
 
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataProductosVenta;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtNombreCliVenta;
+        private System.Windows.Forms.TextBox txtClienteVenta;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button button5;
@@ -429,13 +424,14 @@ namespace SistemaGestorDeVentas.api.cart
         private System.Windows.Forms.TextBox txtCartDetalleNroVenta;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker dateCartDetalleFecha;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnPdfVenta;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtMontoTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn DetalleCardProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn DetalleCardPrecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn DetalleCardCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn DetalleCardSubtotal;
         private Panel panel1;
+        private TextBox txtTipoDocumento;
     }
 }
