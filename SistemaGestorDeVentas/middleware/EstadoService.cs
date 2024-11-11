@@ -11,7 +11,7 @@ namespace SistemaGestorDeVentas.middleware
     {
         public List<Estado> getEstados()
         {
-            using(var Context = new sistema_de_ventas_Entities())
+            using(var Context = new sistema_de_ventas_taller_Entities())
             {
                 return Context.Estado.ToList();
             }
@@ -19,7 +19,7 @@ namespace SistemaGestorDeVentas.middleware
 
         public Estado getEstado(int id)
         {
-            using (var context = new sistema_de_ventas_Entities())
+            using (var context = new sistema_de_ventas_taller_Entities())
             {
                 return context.Estado.Find(id);
             }
@@ -27,7 +27,7 @@ namespace SistemaGestorDeVentas.middleware
 
         public int? GetEstadoIdByNombre(string nombreEstado)
         {
-            using (var context = new sistema_de_ventas_Entities())
+            using (var context = new sistema_de_ventas_taller_Entities())
             {
                 // Buscar el estado por el nombre
                 var estado = context.Estado

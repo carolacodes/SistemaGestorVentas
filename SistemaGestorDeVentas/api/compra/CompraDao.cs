@@ -34,7 +34,7 @@ namespace SistemaGestorDeVentas.api.compra
                     var compraExiste = context.Compra.Find(compraActualizada.id_compra);
                     if(compraExiste != null)
                     {
-                        compraExiste.fecha = compraActualizada.fecha;
+                        compraExiste.fecha_compra = compraActualizada.fecha_compra;
                         compraExiste.DNI_usuario = compraActualizada.DNI_usuario;
                         context.SaveChanges();
                         return compraExiste;
@@ -57,7 +57,7 @@ namespace SistemaGestorDeVentas.api.compra
                     return compras;
                 } catch(Exception ex)
                 {
-                    throw new Exception ("Error al intentar obtener todos las compras: "+ ex.Message)
+                    throw new Exception("Error al intentar obtener todos las compras: " + ex.Message);
                 }
             }
         }

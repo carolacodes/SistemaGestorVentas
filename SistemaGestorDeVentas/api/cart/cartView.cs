@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using SistemaGestorDeVentas.api.product;
 namespace SistemaGestorDeVentas.api.cart
 {
     public partial class cartView : Form
@@ -187,6 +187,18 @@ namespace SistemaGestorDeVentas.api.cart
             //    MessageBox.Show("La dirección no puede estar vacía.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //    e.Cancel = true;
             //}
+        }
+
+        private void btnBuscarClienteVenta_Click(object sender, EventArgs e)
+        {
+            Form buscarClienteForm = new buscarCliente();
+            buscarClienteForm.Show();
+        }
+
+        private void btnBuscarProductVenta_Click(object sender, EventArgs e)
+        {
+            Form buscarProductoForm = new buscarProducto();
+            buscarProductoForm.Show();
         }
     }
 }

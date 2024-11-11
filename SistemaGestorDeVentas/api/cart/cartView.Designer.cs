@@ -51,12 +51,12 @@ namespace SistemaGestorDeVentas.api.cart
             this.label11 = new System.Windows.Forms.Label();
             this.txtCartProducto = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnBuscarProductVenta = new System.Windows.Forms.Button();
             this.txtCartCodProduct = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnBuscarClienteVenta = new System.Windows.Forms.Button();
             this.txtCartNombreCliente = new System.Windows.Forms.TextBox();
             this.txtCartViewDNI = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -86,7 +86,6 @@ namespace SistemaGestorDeVentas.api.cart
             this.panel3.Controls.Add(this.label14);
             this.panel3.Controls.Add(this.textBox8);
             this.panel3.Controls.Add(this.dataGridCartView);
-            this.panel3.Controls.Add(this.btnAgregarCartView);
             this.panel3.Controls.Add(this.panel6);
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.panel4);
@@ -99,9 +98,9 @@ namespace SistemaGestorDeVentas.api.cart
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(995, 326);
+            this.button1.Location = new System.Drawing.Point(841, 390);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 53);
+            this.button1.Size = new System.Drawing.Size(114, 42);
             this.button1.TabIndex = 16;
             this.button1.Text = "Realizar Pago";
             this.button1.UseVisualStyleBackColor = true;
@@ -109,7 +108,7 @@ namespace SistemaGestorDeVentas.api.cart
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(995, 400);
+            this.button3.Location = new System.Drawing.Point(964, 390);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(106, 42);
             this.button3.TabIndex = 15;
@@ -119,8 +118,9 @@ namespace SistemaGestorDeVentas.api.cart
             // label14
             // 
             this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Azure;
             this.label14.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(995, 257);
+            this.label14.Location = new System.Drawing.Point(729, 387);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(99, 20);
             this.label14.TabIndex = 10;
@@ -128,7 +128,7 @@ namespace SistemaGestorDeVentas.api.cart
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(995, 280);
+            this.textBox8.Location = new System.Drawing.Point(726, 410);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(106, 22);
             this.textBox8.TabIndex = 9;
@@ -147,7 +147,7 @@ namespace SistemaGestorDeVentas.api.cart
             this.dataGridCartView.Name = "dataGridCartView";
             this.dataGridCartView.RowHeadersWidth = 51;
             this.dataGridCartView.RowTemplate.Height = 24;
-            this.dataGridCartView.Size = new System.Drawing.Size(970, 189);
+            this.dataGridCartView.Size = new System.Drawing.Size(1062, 189);
             this.dataGridCartView.TabIndex = 8;
             this.dataGridCartView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
@@ -191,9 +191,9 @@ namespace SistemaGestorDeVentas.api.cart
             // btnAgregarCartView
             // 
             this.btnAgregarCartView.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarCartView.Location = new System.Drawing.Point(1006, 161);
+            this.btnAgregarCartView.Location = new System.Drawing.Point(870, 61);
             this.btnAgregarCartView.Name = "btnAgregarCartView";
-            this.btnAgregarCartView.Size = new System.Drawing.Size(75, 72);
+            this.btnAgregarCartView.Size = new System.Drawing.Size(75, 27);
             this.btnAgregarCartView.TabIndex = 7;
             this.btnAgregarCartView.Text = "Agregar";
             this.btnAgregarCartView.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -206,22 +206,23 @@ namespace SistemaGestorDeVentas.api.cart
             this.panel6.Controls.Add(this.txtCartStock);
             this.panel6.Controls.Add(this.label12);
             this.panel6.Controls.Add(this.txtCartPrecio);
+            this.panel6.Controls.Add(this.btnAgregarCartView);
             this.panel6.Controls.Add(this.label11);
             this.panel6.Controls.Add(this.txtCartProducto);
             this.panel6.Controls.Add(this.label10);
-            this.panel6.Controls.Add(this.button2);
+            this.panel6.Controls.Add(this.btnBuscarProductVenta);
             this.panel6.Controls.Add(this.txtCartCodProduct);
             this.panel6.Controls.Add(this.label9);
             this.panel6.Controls.Add(this.label8);
             this.panel6.Location = new System.Drawing.Point(19, 146);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(970, 100);
+            this.panel6.Size = new System.Drawing.Size(1062, 100);
             this.panel6.TabIndex = 6;
             // 
             // domainUpDown1
             // 
             this.domainUpDown1.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.domainUpDown1.Location = new System.Drawing.Point(735, 63);
+            this.domainUpDown1.Location = new System.Drawing.Point(740, 64);
             this.domainUpDown1.Name = "domainUpDown1";
             this.domainUpDown1.Size = new System.Drawing.Size(120, 25);
             this.domainUpDown1.TabIndex = 16;
@@ -231,7 +232,7 @@ namespace SistemaGestorDeVentas.api.cart
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(731, 43);
+            this.label13.Location = new System.Drawing.Point(736, 43);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(63, 17);
             this.label13.TabIndex = 14;
@@ -297,14 +298,15 @@ namespace SistemaGestorDeVentas.api.cart
             this.label10.TabIndex = 8;
             this.label10.Text = "Producto";
             // 
-            // button2
+            // btnBuscarProductVenta
             // 
-            this.button2.Image = global::SistemaGestorDeVentas.Properties.Resources.buscar;
-            this.button2.Location = new System.Drawing.Point(166, 47);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(45, 44);
-            this.button2.TabIndex = 7;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnBuscarProductVenta.Image = global::SistemaGestorDeVentas.Properties.Resources.buscar;
+            this.btnBuscarProductVenta.Location = new System.Drawing.Point(166, 47);
+            this.btnBuscarProductVenta.Name = "btnBuscarProductVenta";
+            this.btnBuscarProductVenta.Size = new System.Drawing.Size(45, 44);
+            this.btnBuscarProductVenta.TabIndex = 7;
+            this.btnBuscarProductVenta.UseVisualStyleBackColor = true;
+            this.btnBuscarProductVenta.Click += new System.EventHandler(this.btnBuscarProductVenta_Click);
             // 
             // txtCartCodProduct
             // 
@@ -340,7 +342,7 @@ namespace SistemaGestorDeVentas.api.cart
             // 
             this.panel5.BackColor = System.Drawing.Color.Azure;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.button4);
+            this.panel5.Controls.Add(this.btnBuscarClienteVenta);
             this.panel5.Controls.Add(this.txtCartNombreCliente);
             this.panel5.Controls.Add(this.txtCartViewDNI);
             this.panel5.Controls.Add(this.label5);
@@ -351,14 +353,15 @@ namespace SistemaGestorDeVentas.api.cart
             this.panel5.Size = new System.Drawing.Size(616, 92);
             this.panel5.TabIndex = 5;
             // 
-            // button4
+            // btnBuscarClienteVenta
             // 
-            this.button4.Image = global::SistemaGestorDeVentas.Properties.Resources.buscar;
-            this.button4.Location = new System.Drawing.Point(198, 31);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(45, 44);
-            this.button4.TabIndex = 6;
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnBuscarClienteVenta.Image = global::SistemaGestorDeVentas.Properties.Resources.buscar;
+            this.btnBuscarClienteVenta.Location = new System.Drawing.Point(198, 31);
+            this.btnBuscarClienteVenta.Name = "btnBuscarClienteVenta";
+            this.btnBuscarClienteVenta.Size = new System.Drawing.Size(45, 44);
+            this.btnBuscarClienteVenta.TabIndex = 6;
+            this.btnBuscarClienteVenta.UseVisualStyleBackColor = true;
+            this.btnBuscarClienteVenta.Click += new System.EventHandler(this.btnBuscarClienteVenta_Click);
             // 
             // txtCartNombreCliente
             // 
@@ -531,14 +534,14 @@ namespace SistemaGestorDeVentas.api.cart
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtCartNombreCliente;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnBuscarClienteVenta;
         private System.Windows.Forms.Button btnAgregarCartView;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TextBox txtCartPrecio;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtCartProducto;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnBuscarProductVenta;
         private System.Windows.Forms.TextBox txtCartCodProduct;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;

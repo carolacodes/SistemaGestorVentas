@@ -9,6 +9,7 @@ namespace SistemaGestorDeVentas.api.Negocio
 {
     internal class NegocioDao
     {
+        /**
         public Negocio createNegocioDao(Negocio nuevoNegocio)
         {
             try
@@ -33,12 +34,11 @@ namespace SistemaGestorDeVentas.api.Negocio
             {
                 using (var context = new sistema_de_ventas_taller_Entities())
                 {
-                    var negocioExiste = context.Negocio.Find(negocioActualizado)
+                    var negocioExiste = context.Negocio.Find(negocioActualizado);
                 }
             }
         }
-        {
-
-        }
+        **/
+        
     }
 }

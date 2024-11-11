@@ -10,7 +10,8 @@ namespace SistemaGestorDeVentas.api.cart
 {
     internal class VentaDao
     {
-        public Venta crearVenta(Venta nuevaVenta) { 
+        public Venta crearVenta(Venta nuevaVenta)
+        {
             try
             {
                 using (var context = new sistema_de_ventas_taller_Entities())
@@ -18,10 +19,11 @@ namespace SistemaGestorDeVentas.api.cart
                     var venta = context.Venta.Add(nuevaVenta);
                     context.SaveChanges();
                     return venta;
-                 }
+                }
             }
-            catch (Exception ex) {
-                throw new Exception("Error al insertar la venta: " + ex.Message)
+            catch (Exception ex)
+            {
+                throw new Exception("Error al insertar la venta: " + ex.Message);
             }
         }
 
@@ -29,7 +31,7 @@ namespace SistemaGestorDeVentas.api.cart
         {
             try
             {
-                using(var context = new sistema_de_ventas_taller_Entities())
+                using (var context = new sistema_de_ventas_taller_Entities())
                 {
                     var venta = context.Venta.Find(codigo_venta);
                     return venta;
@@ -41,7 +43,8 @@ namespace SistemaGestorDeVentas.api.cart
             }
         }
 
-        public List <Venta> getVentas() {
+        public List<Venta> getVentas()
+        {
             try
             {
                 using (var context = new sistema_de_ventas_taller_Entities())
@@ -54,5 +57,6 @@ namespace SistemaGestorDeVentas.api.cart
             {
                 throw new Exception("Error al insertar la venta: " + ex.Message);
             }
+        }
     }
 }
