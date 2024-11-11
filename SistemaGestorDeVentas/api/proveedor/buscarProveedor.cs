@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SistemaGestorDeVentas.api.compra
+namespace SistemaGestorDeVentas.api.proveedor
 {
-    public partial class buscarCompra : Form
+    public partial class buscarProveedor : Form
     {
-        public buscarCompra()
+        public buscarProveedor()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

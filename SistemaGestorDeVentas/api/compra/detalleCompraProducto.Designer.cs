@@ -61,22 +61,20 @@ namespace SistemaGestorDeVentas.api.compra
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.label10);
-            this.panel3.Controls.Add(this.textBox1);
-            this.panel3.Controls.Add(this.button3);
-            this.panel3.Controls.Add(this.label14);
-            this.panel3.Controls.Add(this.textBox8);
+            this.panel3.Controls.Add(this.panel1);
             this.panel3.Controls.Add(this.panel6);
             this.panel3.Controls.Add(this.dataGridView1);
             this.panel3.Controls.Add(this.panel5);
@@ -90,25 +88,25 @@ namespace SistemaGestorDeVentas.api.compra
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(857, 268);
+            this.label10.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(102, 44);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(115, 20);
+            this.label10.Size = new System.Drawing.Size(154, 28);
             this.label10.TabIndex = 21;
             this.label10.Text = "Estado Compra";
             this.label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(845, 291);
+            this.textBox1.Location = new System.Drawing.Point(77, 82);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(142, 22);
+            this.textBox1.Size = new System.Drawing.Size(211, 22);
             this.textBox1.TabIndex = 20;
             // 
             // button3
             // 
-            this.button3.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(835, 401);
+            this.button3.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold);
+            this.button3.Location = new System.Drawing.Point(105, 215);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(163, 44);
             this.button3.TabIndex = 19;
@@ -119,19 +117,19 @@ namespace SistemaGestorDeVentas.api.compra
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(869, 332);
+            this.label14.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label14.Location = new System.Drawing.Point(117, 129);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(94, 20);
+            this.label14.Size = new System.Drawing.Size(128, 28);
             this.label14.TabIndex = 18;
             this.label14.Text = "Monto Total";
             this.label14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(845, 355);
+            this.textBox8.Location = new System.Drawing.Point(77, 163);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(142, 22);
+            this.textBox8.Size = new System.Drawing.Size(211, 22);
             this.textBox8.TabIndex = 17;
             // 
             // panel6
@@ -375,6 +373,20 @@ namespace SistemaGestorDeVentas.api.compra
             this.label1.TabIndex = 0;
             this.label1.Text = "Detalle Compra";
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Azure;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.textBox8);
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.label14);
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Location = new System.Drawing.Point(734, 143);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(360, 302);
+            this.panel1.TabIndex = 22;
+            // 
             // detalleCompraProducto
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -393,6 +405,8 @@ namespace SistemaGestorDeVentas.api.compra
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -430,5 +444,6 @@ namespace SistemaGestorDeVentas.api.compra
         private System.Windows.Forms.DataGridViewTextBoxColumn DetalleCompraProvSubtotal;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox1;
+        private Panel panel1;
     }
 }

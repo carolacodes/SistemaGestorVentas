@@ -149,8 +149,20 @@
     </Compile>
     <Compile Include="api\product\ProductDao.cs" />
     <Compile Include="api\product\ProductService.cs" />
+    <Compile Include="api\proveedor\buscarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="api\proveedor\buscarProveedor.Designer.cs">
+      <DependentUpon>buscarProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="api\proveedor\ProveedorDao.cs" />
     <Compile Include="api\proveedor\ProveedorServices.cs" />
+    <Compile Include="api\user\buscarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="api\user\buscarUsuario.Designer.cs">
+      <DependentUpon>buscarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="api\user\controller.cs" />
     <Compile Include="api\user\UserDao.cs" />
     <Compile Include="api\user\UserService.cs" />
@@ -285,6 +297,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="api\product\buscarProducto.resx">
       <DependentUpon>buscarProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="api\proveedor\buscarProveedor.resx">
+      <DependentUpon>buscarProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="api\user\buscarUsuario.resx">
+      <DependentUpon>buscarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="components\navegador.resx">
       <DependentUpon>navegador.cs</DependentUpon>

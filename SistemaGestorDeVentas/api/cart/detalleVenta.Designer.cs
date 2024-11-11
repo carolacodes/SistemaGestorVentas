@@ -61,20 +61,20 @@ namespace SistemaGestorDeVentas.api.cart
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.button3);
-            this.panel3.Controls.Add(this.label14);
-            this.panel3.Controls.Add(this.textBox8);
+            this.panel3.Controls.Add(this.panel1);
             this.panel3.Controls.Add(this.panel6);
             this.panel3.Controls.Add(this.dataGridView1);
             this.panel3.Controls.Add(this.panel5);
@@ -87,29 +87,30 @@ namespace SistemaGestorDeVentas.api.cart
             // 
             // button3
             // 
-            this.button3.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(940, 403);
+            this.button3.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold);
+            this.button3.Location = new System.Drawing.Point(96, 117);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(154, 42);
+            this.button3.Size = new System.Drawing.Size(174, 42);
             this.button3.TabIndex = 19;
             this.button3.Text = "Descargar PDF";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(730, 400);
+            this.label14.Font = new System.Drawing.Font("Nirmala UI", 12.8F, System.Drawing.FontStyle.Bold);
+            this.label14.Location = new System.Drawing.Point(114, 32);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(98, 20);
+            this.label14.Size = new System.Drawing.Size(139, 30);
             this.label14.TabIndex = 18;
-            this.label14.Text = "Monto Total:";
+            this.label14.Text = "Monto Total";
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(734, 423);
+            this.textBox8.Location = new System.Drawing.Point(86, 74);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(106, 22);
+            this.textBox8.Size = new System.Drawing.Size(191, 22);
             this.textBox8.TabIndex = 17;
             // 
             // panel6
@@ -351,7 +352,7 @@ namespace SistemaGestorDeVentas.api.cart
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Nirmala UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(484, 4);
+            this.label1.Location = new System.Drawing.Point(463, 4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(193, 38);
             this.label1.TabIndex = 0;
@@ -365,6 +366,18 @@ namespace SistemaGestorDeVentas.api.cart
             this.dataGridViewImageColumn1.MinimumWidth = 6;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.Width = 125;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Azure;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.textBox8);
+            this.panel1.Controls.Add(this.label14);
+            this.panel1.Location = new System.Drawing.Point(734, 252);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(360, 193);
+            this.panel1.TabIndex = 20;
             // 
             // detalleVenta
             // 
@@ -385,6 +398,8 @@ namespace SistemaGestorDeVentas.api.cart
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -421,5 +436,6 @@ namespace SistemaGestorDeVentas.api.cart
         private System.Windows.Forms.DataGridViewTextBoxColumn DetalleCardPrecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn DetalleCardCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn DetalleCardSubtotal;
+        private Panel panel1;
     }
 }

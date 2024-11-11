@@ -16,5 +16,10 @@ namespace SistemaGestorDeVentas.api.cart
         {
             InitializeComponent();
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

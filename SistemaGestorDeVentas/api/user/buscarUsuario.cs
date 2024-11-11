@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SistemaGestorDeVentas.api.compra
+namespace SistemaGestorDeVentas.api.user
 {
-    public partial class buscarCompra : Form
+    public partial class buscarUsuario : Form
     {
-        public buscarCompra()
+        public buscarUsuario()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
