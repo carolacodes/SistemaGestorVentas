@@ -13,7 +13,7 @@ namespace SistemaGestorDeVentas.api.Negocio
         {
             try
             {
-                using (var context = new sistema_de_ventas_Entities())
+                using (var context = new sistema_de_ventas_taller_Entities())
                 {
 
                     var negocio = context.Negocio.Add(nuevoNegocio);
@@ -31,7 +31,7 @@ namespace SistemaGestorDeVentas.api.Negocio
         {
             try
             {
-                using (var context = new sistema_de_ventas_Entities())
+                using (var context = new sistema_de_ventas_taller_Entities())
                 {
                     var negocioExiste = context.Negocio.Find(negocioActualizado)
                 }

@@ -32,12 +32,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.txtCartViewDNI = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.detalleClienteDni = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.detalleClienteNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.detalleClienteCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +39,12 @@
             this.direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sitioWeb = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.detalleClienteEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtCartViewDNI = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -101,65 +101,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(734, 223);
             this.dataGridView1.TabIndex = 11;
             // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(316, 256);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 40);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Seleccionar";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.txtCartViewDNI);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 100);
-            this.panel1.TabIndex = 6;
-            // 
-            // button4
-            // 
-            this.button4.Image = global::SistemaGestorDeVentas.Properties.Resources.buscar;
-            this.button4.Location = new System.Drawing.Point(730, 40);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(45, 44);
-            this.button4.TabIndex = 9;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // txtCartViewDNI
-            // 
-            this.txtCartViewDNI.Location = new System.Drawing.Point(539, 60);
-            this.txtCartViewDNI.Name = "txtCartViewDNI";
-            this.txtCartViewDNI.Size = new System.Drawing.Size(185, 22);
-            this.txtCartViewDNI.TabIndex = 8;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(535, 37);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(66, 20);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Codigo: ";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Nirmala UI", 14.8F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(270, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(259, 35);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Lista de Proveedores";
-            // 
             // detalleClienteDni
             // 
             this.detalleClienteDni.HeaderText = "Codigo";
@@ -209,6 +150,64 @@
             this.detalleClienteEstado.Name = "detalleClienteEstado";
             this.detalleClienteEstado.Width = 125;
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
+            this.button1.Location = new System.Drawing.Point(316, 256);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(130, 40);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Seleccionar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.txtCartViewDNI);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(800, 100);
+            this.panel1.TabIndex = 6;
+            // 
+            // button4
+            // 
+            this.button4.Image = global::SistemaGestorDeVentas.Properties.Resources.buscar;
+            this.button4.Location = new System.Drawing.Point(730, 40);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(45, 44);
+            this.button4.TabIndex = 9;
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Nirmala UI", 14.8F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(120, 47);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(259, 35);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Lista de Proveedores";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(413, 59);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(120, 24);
+            this.comboBox1.TabIndex = 10;
+            this.comboBox1.Text = "Nombre";
+            // 
+            // txtCartViewDNI
+            // 
+            this.txtCartViewDNI.Location = new System.Drawing.Point(539, 60);
+            this.txtCartViewDNI.Name = "txtCartViewDNI";
+            this.txtCartViewDNI.Size = new System.Drawing.Size(185, 22);
+            this.txtCartViewDNI.TabIndex = 8;
+            // 
             // buscarProveedor
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -235,8 +234,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox txtCartViewDNI;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn detalleClienteDni;
         private System.Windows.Forms.DataGridViewTextBoxColumn detalleClienteNombre;
@@ -245,5 +242,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn direccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn sitioWeb;
         private System.Windows.Forms.DataGridViewTextBoxColumn detalleClienteEstado;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txtCartViewDNI;
     }
 }

@@ -13,7 +13,7 @@ namespace SistemaGestorDeVentas.api.category
         {
             try
             {
-                using (var context = new sistema_de_ventas_Entities())
+                using (var context = new sistema_de_ventas_taller_Entities())
                 {
                     var categoria = context.Categoria.Add(nuevaCategoria);
                     context.SaveChanges();
@@ -30,7 +30,7 @@ namespace SistemaGestorDeVentas.api.category
         {
             try
             {
-                using (var context = new sistema_de_ventas_Entities())
+                using (var context = new sistema_de_ventas_taller_Entities())
                 {
                     var categoria = context.Categoria.Find(codigoCategoria);
                     return categoria;
@@ -45,7 +45,7 @@ namespace SistemaGestorDeVentas.api.category
         {
             try
             {
-                using (var context = new sistema_de_ventas_Entities())
+                using (var context = new sistema_de_ventas_taller_Entities())
                 {
                     return context.Categoria.ToList();
                 }
@@ -60,7 +60,7 @@ namespace SistemaGestorDeVentas.api.category
         {
             try
             {
-                using (var context = new sistema_de_ventas_Entities())
+                using (var context = new sistema_de_ventas_taller_Entities())
                 {
                     var categoria = context.Categoria.Find(categoriaActualizada.id_categoria);
                     if (categoria != null)

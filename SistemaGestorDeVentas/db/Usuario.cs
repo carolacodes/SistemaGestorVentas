@@ -25,6 +25,8 @@ namespace SistemaGestorDeVentas.db
         public string nombre { get; set; }
         public string email { get; set; }
         public string pass { get; set; }
+        public System.DateTime fecha_nacimiento { get; set; }
+        public string imagen_usuario { get; set; }
         public int id_rol { get; set; }
         public int id_estado { get; set; }
     

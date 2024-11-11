@@ -21,12 +21,12 @@ namespace SistemaGestorDeVentas.db
             this.Producto_Venta = new HashSet<Producto_Venta>();
         }
     
-        public int id_producto { get; set; }
+        public int codigo_producto { get; set; }
         public string nombre { get; set; }
         public string descripcion { get; set; }
-        public double precio_compra { get; set; }
+        public decimal precio_compra { get; set; }
         public int stock { get; set; }
-        public Nullable<double> precio_venta { get; set; }
+        public Nullable<decimal> precio_venta { get; set; }
         public int id_proveedor { get; set; }
         public int id_categoria { get; set; }
         public int id_estado { get; set; }

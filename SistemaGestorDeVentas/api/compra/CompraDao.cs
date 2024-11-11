@@ -11,7 +11,7 @@ namespace SistemaGestorDeVentas.api.compra
     {
         public Compra crearCompraDao(Compra compraNueva)
         {
-            using (var context = new sistema_de_ventas_Entities())
+            using (var context = new sistema_de_ventas_taller_Entities())
             {
                 try
                 {
@@ -27,7 +27,7 @@ namespace SistemaGestorDeVentas.api.compra
 
         public Compra updateCompraDao(Compra compraActualizada)
         {
-            using (var context = new sistema_de_ventas_Entities())
+            using (var context = new sistema_de_ventas_taller_Entities())
             {
                 try
                 {
@@ -49,7 +49,7 @@ namespace SistemaGestorDeVentas.api.compra
 
         public List<Compra> getComprasDao()
         {
-            using (var context = new sistema_de_ventas_Entities())
+            using (var context = new sistema_de_ventas_taller_Entities())
             {
                 try
                 {
@@ -64,7 +64,7 @@ namespace SistemaGestorDeVentas.api.compra
 
         public Compra getCompraDao(int id_compra)
         {
-            using (var context = new sistema_de_ventas_Entities())
+            using (var context = new sistema_de_ventas_taller_Entities())
             {
                 try
                 {
@@ -81,26 +81,6 @@ namespace SistemaGestorDeVentas.api.compra
             }
         }
 
-        public Compra deleteCompraDao(int id_compra)
-        {
-            using (var context = new sistema_de_ventas_Entities())
-            {
-                try
-                {
-                    var compra = context.Compra.Find(id_compra);
-                    if (compra != null)
-                    {
-                        compra.id_estado_compra = 0;
-                        context.SaveChanges();
-                        return compra;
-                    }
-                    return null; // agreguar mjs en la interfaz if null...
-                }catch (Exception ex)
-                {
-                    throw new Exception("Error al intentar eliminar una compra: "+ ex.Message);
-                }
-            }
-        }
 
     }
 }

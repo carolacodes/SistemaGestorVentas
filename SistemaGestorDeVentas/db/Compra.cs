@@ -17,16 +17,17 @@ namespace SistemaGestorDeVentas.db
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Compra()
         {
+            this.Historial_Estado = new HashSet<Historial_Estado>();
             this.Producto_Compra = new HashSet<Producto_Compra>();
         }
     
         public int id_compra { get; set; }
-        public System.DateTime fecha { get; set; }
+        public System.DateTime fecha_compra { get; set; }
         public string DNI_usuario { get; set; }
-        public int id_estado_compra { get; set; }
     
-        public virtual Estado_Compra Estado_Compra { get; set; }
         public virtual Usuario Usuario { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Historial_Estado> Historial_Estado { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Producto_Compra> Producto_Compra { get; set; }
     }

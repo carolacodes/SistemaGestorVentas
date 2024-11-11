@@ -12,7 +12,7 @@ namespace SistemaGestorDeVentas.api.user
         public Usuario createUserDao(Usuario nuevoUsuario)
         {   
             try{
-                using (var context = new sistema_de_ventas_Entities())
+                using (var context = new sistema_de_ventas_taller_Entities())
                 {
                 var usuario = context.Usuario.Add(nuevoUsuario);
                 context.SaveChanges();
@@ -27,7 +27,7 @@ namespace SistemaGestorDeVentas.api.user
         public Usuario getUserDao(string dni)
         {
             try{
-                using (var context = new sistema_de_ventas_Entities())
+                using (var context = new sistema_de_ventas_taller_Entities())
             {
                 var usuario = context.Usuario.Find(dni);
                 return usuario;
@@ -42,7 +42,7 @@ namespace SistemaGestorDeVentas.api.user
         {
             try
             {
-                using (var context = new sistema_de_ventas_Entities())
+                using (var context = new sistema_de_ventas_taller_Entities())
             {
                 return context.Usuario.ToList();
             }
@@ -56,7 +56,7 @@ namespace SistemaGestorDeVentas.api.user
         {
             try
             {
-                using (var context = new sistema_de_ventas_Entities())
+                using (var context = new sistema_de_ventas_taller_Entities())
             {
                 var user = context.Usuario.Find(userActualizado.DNI_usuario);
                 if(user != null)
@@ -80,7 +80,7 @@ namespace SistemaGestorDeVentas.api.user
         {
             try
             {
-                using (var context = new sistema_de_ventas_Entities())
+                using (var context = new sistema_de_ventas_taller_Entities())
             {
                     var usuario = context.Usuario.Find(dni);
                     if (usuario != null)

@@ -22,7 +22,7 @@ namespace SistemaGestorDeVentas.db
     
         public int id_negocio { get; set; }
         public string nombre { get; set; }
-        public string ruc { get; set; }
+        public string rut { get; set; }
         public string direccion { get; set; }
         public string imagen { get; set; }
     

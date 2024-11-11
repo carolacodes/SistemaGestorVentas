@@ -13,7 +13,7 @@ namespace SistemaGestorDeVentas.api.cliente
         {
             try
             {
-                using (var context = new sistema_de_ventas_Entities())
+                using (var context = new sistema_de_ventas_taller_Entities())
                 {
 
                     var cliente = context.Cliente.Add(nuevoCliente);
@@ -30,7 +30,7 @@ namespace SistemaGestorDeVentas.api.cliente
         {
             try
             {
-                using (var context = new sistema_de_ventas_Entities())
+                using (var context = new sistema_de_ventas_taller_Entities())
             {
                 var clienteExistente = context.Cliente.Find(clienteActualizado.DNI_cliente);
                 if (clienteExistente != null)
@@ -56,7 +56,7 @@ namespace SistemaGestorDeVentas.api.cliente
         {
             try
             {
-                using (var context = new sistema_de_ventas_Entities())
+                using (var context = new sistema_de_ventas_taller_Entities())
                 {
 
                     var cliente = context.Cliente.Find(DNI_cliente);
@@ -81,7 +81,7 @@ namespace SistemaGestorDeVentas.api.cliente
         {
             try
             {
-                using (var context = new sistema_de_ventas_Entities())
+                using (var context = new sistema_de_ventas_taller_Entities())
                 {
                     return context.Cliente.ToList();
                 }
@@ -95,7 +95,7 @@ namespace SistemaGestorDeVentas.api.cliente
         {
             try
             {
-                using (var context = new sistema_de_ventas_Entities())
+                using (var context = new sistema_de_ventas_taller_Entities())
                 {
                     var cliente = context.Cliente.Find(dni);
                     return cliente;

@@ -14,7 +14,7 @@ namespace SistemaGestorDeVentas.api.proveedor
         {
             try
             {
-                using (var context = new sistema_de_ventas_Entities())
+                using (var context = new sistema_de_ventas_taller_Entities())
                 {
 
                     var proveedor = context.Proveedor.Add(nuevoProveedor);
@@ -32,7 +32,7 @@ namespace SistemaGestorDeVentas.api.proveedor
         {
             try
             {
-                using (var context = new sistema_de_ventas_Entities())
+                using (var context = new sistema_de_ventas_taller_Entities())
                 {
                     var proveedor = context.Proveedor.Find(codigo);
                     return proveedor;
@@ -48,7 +48,7 @@ namespace SistemaGestorDeVentas.api.proveedor
         {
             try
             {
-                using (var context = new sistema_de_ventas_Entities())
+                using (var context = new sistema_de_ventas_taller_Entities())
                 {
                     var proveedorExistente = context.Proveedor.Find(proveedorActualizado.id_proveedor);
                     if (proveedorExistente != null)
@@ -76,7 +76,7 @@ namespace SistemaGestorDeVentas.api.proveedor
 
             try
             {
-                using (var context = new sistema_de_ventas_Entities())
+                using (var context = new sistema_de_ventas_taller_Entities())
                 {
                     return context.Proveedor.ToList();
                 }
@@ -91,7 +91,7 @@ namespace SistemaGestorDeVentas.api.proveedor
         {
             try
             {
-                using (var context = new sistema_de_ventas_Entities())
+                using (var context = new sistema_de_ventas_taller_Entities())
                 {
 
                     var proveedor = context.Proveedor.Find(codigo);

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="sistema_de_ventas_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="sistema_de_ventas_taller_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categoria">
           <Key>
             <PropertyRef Name="id_categoria" />
@@ -20,6 +20,7 @@
           <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="correo" Type="varchar" MaxLength="200" />
           <Property Name="telefono" Type="varchar" MaxLength="200" />
+          <Property Name="fecha_nacimiento" Type="date" Nullable="false" />
           <Property Name="id_estado" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Compra">
@@ -27,9 +28,8 @@
             <PropertyRef Name="id_compra" />
           </Key>
           <Property Name="id_compra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="fecha" Type="date" Nullable="false" />
+          <Property Name="fecha_compra" Type="date" Nullable="false" />
           <Property Name="DNI_usuario" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="id_estado_compra" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Estado">
           <Key>
@@ -53,6 +53,15 @@
           <Property Name="cod_venta" Type="int" Nullable="false" />
           <Property Name="id_negocio" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="Historial_Estado">
+          <Key>
+            <PropertyRef Name="id_estado_compra" />
+            <PropertyRef Name="id_compra" />
+          </Key>
+          <Property Name="fecha_estado" Type="date" Nullable="false" />
+          <Property Name="id_estado_compra" Type="int" Nullable="false" />
+          <Property Name="id_compra" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Metodo_Pago">
           <Key>
             <PropertyRef Name="id_metodo" />
@@ -66,28 +75,28 @@
           </Key>
           <Property Name="id_negocio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="ruc" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="rut" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="direccion" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="imagen" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="imagen" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="Pago">
           <Key>
             <PropertyRef Name="id_pago" />
           </Key>
           <Property Name="id_pago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="total" Type="float" Nullable="false" />
+          <Property Name="total" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="id_metodo" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Producto">
           <Key>
-            <PropertyRef Name="id_producto" />
+            <PropertyRef Name="codigo_producto" />
           </Key>
-          <Property Name="id_producto" Type="int" Nullable="false" />
+          <Property Name="codigo_producto" Type="int" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="descripcion" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="precio_compra" Type="float" Nullable="false" />
+          <Property Name="precio_compra" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="stock" Type="int" Nullable="false" />
-          <Property Name="precio_venta" Type="float" />
+          <Property Name="precio_venta" Type="decimal" Precision="10" Scale="2" />
           <Property Name="id_proveedor" Type="int" Nullable="false" />
           <Property Name="id_categoria" Type="int" Nullable="false" />
           <Property Name="id_estado" Type="int" Nullable="false" />
@@ -144,6 +153,8 @@
           <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="pass" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="fecha_nacimiento" Type="date" Nullable="false" />
+          <Property Name="imagen_usuario" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="id_rol" Type="int" Nullable="false" />
           <Property Name="id_estado" Type="int" Nullable="false" />
         </EntityType>
@@ -152,7 +163,7 @@
             <PropertyRef Name="cod_venta" />
           </Key>
           <Property Name="cod_venta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="fecha" Type="date" Nullable="false" />
+          <Property Name="fecha_venta" Type="date" Nullable="false" />
           <Property Name="DNI_usuario" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="DNI_cliente" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="id_pago" Type="int" Nullable="false" />
@@ -166,18 +177,6 @@
             </Principal>
             <Dependent Role="Cliente">
               <PropertyRef Name="id_estado" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_compra_estado_compra">
-          <End Role="Estado_Compra" Type="Self.Estado_Compra" Multiplicity="1" />
-          <End Role="Compra" Type="Self.Compra" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Estado_Compra">
-              <PropertyRef Name="id_estado_compra" />
-            </Principal>
-            <Dependent Role="Compra">
-              <PropertyRef Name="id_estado_compra" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -214,6 +213,30 @@
             </Principal>
             <Dependent Role="Factura">
               <PropertyRef Name="cod_venta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Historial_Estado_Compra">
+          <End Role="Compra" Type="Self.Compra" Multiplicity="1" />
+          <End Role="Historial_Estado" Type="Self.Historial_Estado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Compra">
+              <PropertyRef Name="id_compra" />
+            </Principal>
+            <Dependent Role="Historial_Estado">
+              <PropertyRef Name="id_compra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Historial_Estado_Estado_Compra">
+          <End Role="Estado_Compra" Type="Self.Estado_Compra" Multiplicity="1" />
+          <End Role="Historial_Estado" Type="Self.Historial_Estado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado_Compra">
+              <PropertyRef Name="id_estado_compra" />
+            </Principal>
+            <Dependent Role="Historial_Estado">
+              <PropertyRef Name="id_estado_compra" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -258,7 +281,7 @@
           <End Role="Producto_Compra" Type="Self.Producto_Compra" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Producto">
-              <PropertyRef Name="id_producto" />
+              <PropertyRef Name="codigo_producto" />
             </Principal>
             <Dependent Role="Producto_Compra">
               <PropertyRef Name="id_producto" />
@@ -294,7 +317,7 @@
           <End Role="Producto_Venta" Type="Self.Producto_Venta" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Producto">
-              <PropertyRef Name="id_producto" />
+              <PropertyRef Name="codigo_producto" />
             </Principal>
             <Dependent Role="Producto_Venta">
               <PropertyRef Name="id_producto" />
@@ -397,13 +420,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="sistema_de_ventas_ModelStoreContainer">
+        <EntityContainer Name="sistema_de_ventas_taller_ModelStoreContainer">
           <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Compra" EntityType="Self.Compra" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Estado_Compra" EntityType="Self.Estado_Compra" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Factura" EntityType="Self.Factura" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Historial_Estado" EntityType="Self.Historial_Estado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Metodo_Pago" EntityType="Self.Metodo_Pago" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Negocio" EntityType="Self.Negocio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pago" EntityType="Self.Pago" Schema="dbo" store:Type="Tables" />
@@ -419,10 +443,6 @@
             <End Role="Estado" EntitySet="Estado" />
             <End Role="Cliente" EntitySet="Cliente" />
           </AssociationSet>
-          <AssociationSet Name="FK_compra_estado_compra" Association="Self.FK_compra_estado_compra">
-            <End Role="Estado_Compra" EntitySet="Estado_Compra" />
-            <End Role="Compra" EntitySet="Compra" />
-          </AssociationSet>
           <AssociationSet Name="FK_compra_usuario" Association="Self.FK_compra_usuario">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Compra" EntitySet="Compra" />
@@ -434,6 +454,14 @@
           <AssociationSet Name="FK_factura_venta" Association="Self.FK_factura_venta">
             <End Role="Venta" EntitySet="Venta" />
             <End Role="Factura" EntitySet="Factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Historial_Estado_Compra" Association="Self.FK_Historial_Estado_Compra">
+            <End Role="Compra" EntitySet="Compra" />
+            <End Role="Historial_Estado" EntitySet="Historial_Estado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Historial_Estado_Estado_Compra" Association="Self.FK_Historial_Estado_Estado_Compra">
+            <End Role="Estado_Compra" EntitySet="Estado_Compra" />
+            <End Role="Historial_Estado" EntitySet="Historial_Estado" />
           </AssociationSet>
           <AssociationSet Name="FK_pago_metodoPago" Association="Self.FK_pago_metodoPago">
             <End Role="Metodo_Pago" EntitySet="Metodo_Pago" />
@@ -500,7 +528,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="sistema_de_ventas_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="sistema_de_ventas_taller_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Categoria">
           <Key>
             <PropertyRef Name="id_categoria" />
@@ -517,6 +545,7 @@
           <Property Name="nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="correo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="telefono" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_nacimiento" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="id_estado" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Estado" Relationship="Self.FK_cliente_estado" FromRole="Cliente" ToRole="Estado" />
           <NavigationProperty Name="Venta" Relationship="Self.FK_venta_cliente" FromRole="Cliente" ToRole="Venta" />
@@ -526,11 +555,10 @@
             <PropertyRef Name="id_compra" />
           </Key>
           <Property Name="id_compra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="fecha_compra" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DNI_usuario" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="id_estado_compra" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Estado_Compra" Relationship="Self.FK_compra_estado_compra" FromRole="Compra" ToRole="Estado_Compra" />
           <NavigationProperty Name="Usuario" Relationship="Self.FK_compra_usuario" FromRole="Compra" ToRole="Usuario" />
+          <NavigationProperty Name="Historial_Estado" Relationship="Self.FK_Historial_Estado_Compra" FromRole="Compra" ToRole="Historial_Estado" />
           <NavigationProperty Name="Producto_Compra" Relationship="Self.FK_producto_compra_compra" FromRole="Compra" ToRole="Producto_Compra" />
         </EntityType>
         <EntityType Name="Estado">
@@ -550,7 +578,7 @@
           </Key>
           <Property Name="id_estado_compra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Compra" Relationship="Self.FK_compra_estado_compra" FromRole="Estado_Compra" ToRole="Compra" />
+          <NavigationProperty Name="Historial_Estado" Relationship="Self.FK_Historial_Estado_Estado_Compra" FromRole="Estado_Compra" ToRole="Historial_Estado" />
         </EntityType>
         <EntityType Name="Factura">
           <Key>
@@ -561,6 +589,17 @@
           <Property Name="id_negocio" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Negocio" Relationship="Self.FK_factura_negocio" FromRole="Factura" ToRole="Negocio" />
           <NavigationProperty Name="Venta" Relationship="Self.FK_factura_venta" FromRole="Factura" ToRole="Venta" />
+        </EntityType>
+        <EntityType Name="Historial_Estado">
+          <Key>
+            <PropertyRef Name="id_estado_compra" />
+            <PropertyRef Name="id_compra" />
+          </Key>
+          <Property Name="fecha_estado" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="id_estado_compra" Type="Int32" Nullable="false" />
+          <Property Name="id_compra" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Compra" Relationship="Self.FK_Historial_Estado_Compra" FromRole="Historial_Estado" ToRole="Compra" />
+          <NavigationProperty Name="Estado_Compra" Relationship="Self.FK_Historial_Estado_Estado_Compra" FromRole="Historial_Estado" ToRole="Estado_Compra" />
         </EntityType>
         <EntityType Name="Metodo_Pago">
           <Key>
@@ -576,9 +615,9 @@
           </Key>
           <Property Name="id_negocio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ruc" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rut" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="imagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Factura" Relationship="Self.FK_factura_negocio" FromRole="Negocio" ToRole="Factura" />
         </EntityType>
         <EntityType Name="Pago">
@@ -586,21 +625,21 @@
             <PropertyRef Name="id_pago" />
           </Key>
           <Property Name="id_pago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="total" Type="Double" Nullable="false" />
+          <Property Name="total" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="id_metodo" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Metodo_Pago" Relationship="Self.FK_pago_metodoPago" FromRole="Pago" ToRole="Metodo_Pago" />
           <NavigationProperty Name="Venta" Relationship="Self.FK_venta_pago" FromRole="Pago" ToRole="Venta" />
         </EntityType>
         <EntityType Name="Producto">
           <Key>
-            <PropertyRef Name="id_producto" />
+            <PropertyRef Name="codigo_producto" />
           </Key>
-          <Property Name="id_producto" Type="Int32" Nullable="false" />
+          <Property Name="codigo_producto" Type="Int32" Nullable="false" />
           <Property Name="nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="precio_compra" Type="Double" Nullable="false" />
+          <Property Name="precio_compra" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="stock" Type="Int32" Nullable="false" />
-          <Property Name="precio_venta" Type="Double" />
+          <Property Name="precio_venta" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="id_proveedor" Type="Int32" Nullable="false" />
           <Property Name="id_categoria" Type="Int32" Nullable="false" />
           <Property Name="id_estado" Type="Int32" Nullable="false" />
@@ -670,6 +709,8 @@
           <Property Name="nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="pass" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha_nacimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="imagen_usuario" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="id_rol" Type="Int32" Nullable="false" />
           <Property Name="id_estado" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Compra" Relationship="Self.FK_compra_usuario" FromRole="Usuario" ToRole="Compra" />
@@ -682,7 +723,7 @@
             <PropertyRef Name="cod_venta" />
           </Key>
           <Property Name="cod_venta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="fecha_venta" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DNI_usuario" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DNI_cliente" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="id_pago" Type="Int32" Nullable="false" />
@@ -729,18 +770,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_compra_estado_compra">
-          <End Role="Estado_Compra" Type="Self.Estado_Compra" Multiplicity="1" />
-          <End Role="Compra" Type="Self.Compra" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Estado_Compra">
-              <PropertyRef Name="id_estado_compra" />
-            </Principal>
-            <Dependent Role="Compra">
-              <PropertyRef Name="id_estado_compra" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_compra_usuario">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
           <End Role="Compra" Type="Self.Compra" Multiplicity="*" />
@@ -750,6 +779,18 @@
             </Principal>
             <Dependent Role="Compra">
               <PropertyRef Name="DNI_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Historial_Estado_Compra">
+          <End Role="Compra" Type="Self.Compra" Multiplicity="1" />
+          <End Role="Historial_Estado" Type="Self.Historial_Estado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Compra">
+              <PropertyRef Name="id_compra" />
+            </Principal>
+            <Dependent Role="Historial_Estado">
+              <PropertyRef Name="id_compra" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -798,6 +839,18 @@
             </Principal>
             <Dependent Role="Usuario">
               <PropertyRef Name="id_estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Historial_Estado_Estado_Compra">
+          <End Role="Estado_Compra" Type="Self.Estado_Compra" Multiplicity="1" />
+          <End Role="Historial_Estado" Type="Self.Historial_Estado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado_Compra">
+              <PropertyRef Name="id_estado_compra" />
+            </Principal>
+            <Dependent Role="Historial_Estado">
+              <PropertyRef Name="id_estado_compra" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -854,7 +907,7 @@
           <End Role="Producto_Compra" Type="Self.Producto_Compra" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Producto">
-              <PropertyRef Name="id_producto" />
+              <PropertyRef Name="codigo_producto" />
             </Principal>
             <Dependent Role="Producto_Compra">
               <PropertyRef Name="id_producto" />
@@ -878,7 +931,7 @@
           <End Role="Producto_Venta" Type="Self.Producto_Venta" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Producto">
-              <PropertyRef Name="id_producto" />
+              <PropertyRef Name="codigo_producto" />
             </Principal>
             <Dependent Role="Producto_Venta">
               <PropertyRef Name="id_producto" />
@@ -933,13 +986,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="sistema_de_ventas_Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="sistema_de_ventas_taller_Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categoria" EntityType="Self.Categoria" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" />
           <EntitySet Name="Compra" EntityType="Self.Compra" />
           <EntitySet Name="Estado" EntityType="Self.Estado" />
           <EntitySet Name="Estado_Compra" EntityType="Self.Estado_Compra" />
           <EntitySet Name="Factura" EntityType="Self.Factura" />
+          <EntitySet Name="Historial_Estado" EntityType="Self.Historial_Estado" />
           <EntitySet Name="Metodo_Pago" EntityType="Self.Metodo_Pago" />
           <EntitySet Name="Negocio" EntityType="Self.Negocio" />
           <EntitySet Name="Pago" EntityType="Self.Pago" />
@@ -963,13 +1017,13 @@
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="Venta" EntitySet="Venta" />
           </AssociationSet>
-          <AssociationSet Name="FK_compra_estado_compra" Association="Self.FK_compra_estado_compra">
-            <End Role="Estado_Compra" EntitySet="Estado_Compra" />
-            <End Role="Compra" EntitySet="Compra" />
-          </AssociationSet>
           <AssociationSet Name="FK_compra_usuario" Association="Self.FK_compra_usuario">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Compra" EntitySet="Compra" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Historial_Estado_Compra" Association="Self.FK_Historial_Estado_Compra">
+            <End Role="Compra" EntitySet="Compra" />
+            <End Role="Historial_Estado" EntitySet="Historial_Estado" />
           </AssociationSet>
           <AssociationSet Name="FK_producto_compra_compra" Association="Self.FK_producto_compra_compra">
             <End Role="Compra" EntitySet="Compra" />
@@ -986,6 +1040,10 @@
           <AssociationSet Name="FK_usuario_estado" Association="Self.FK_usuario_estado">
             <End Role="Estado" EntitySet="Estado" />
             <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Historial_Estado_Estado_Compra" Association="Self.FK_Historial_Estado_Estado_Compra">
+            <End Role="Estado_Compra" EntitySet="Estado_Compra" />
+            <End Role="Historial_Estado" EntitySet="Historial_Estado" />
           </AssociationSet>
           <AssociationSet Name="FK_factura_negocio" Association="Self.FK_factura_negocio">
             <End Role="Negocio" EntitySet="Negocio" />
@@ -1037,9 +1095,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="sistema_de_ventas_ModelStoreContainer" CdmEntityContainer="sistema_de_ventas_Entities">
+        <EntityContainerMapping StorageEntityContainer="sistema_de_ventas_taller_ModelStoreContainer" CdmEntityContainer="sistema_de_ventas_taller_Entities">
           <EntitySetMapping Name="Categoria">
-            <EntityTypeMapping TypeName="sistema_de_ventas_Model.Categoria">
+            <EntityTypeMapping TypeName="sistema_de_ventas_taller_Model.Categoria">
               <MappingFragment StoreEntitySet="Categoria">
                 <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -1047,28 +1105,28 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Cliente">
-            <EntityTypeMapping TypeName="sistema_de_ventas_Model.Cliente">
+            <EntityTypeMapping TypeName="sistema_de_ventas_taller_Model.Cliente">
               <MappingFragment StoreEntitySet="Cliente">
                 <ScalarProperty Name="DNI_cliente" ColumnName="DNI_cliente" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="correo" ColumnName="correo" />
                 <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
                 <ScalarProperty Name="id_estado" ColumnName="id_estado" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Compra">
-            <EntityTypeMapping TypeName="sistema_de_ventas_Model.Compra">
+            <EntityTypeMapping TypeName="sistema_de_ventas_taller_Model.Compra">
               <MappingFragment StoreEntitySet="Compra">
                 <ScalarProperty Name="id_compra" ColumnName="id_compra" />
-                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="fecha_compra" ColumnName="fecha_compra" />
                 <ScalarProperty Name="DNI_usuario" ColumnName="DNI_usuario" />
-                <ScalarProperty Name="id_estado_compra" ColumnName="id_estado_compra" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Estado">
-            <EntityTypeMapping TypeName="sistema_de_ventas_Model.Estado">
+            <EntityTypeMapping TypeName="sistema_de_ventas_taller_Model.Estado">
               <MappingFragment StoreEntitySet="Estado">
                 <ScalarProperty Name="id_estado" ColumnName="id_estado" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -1076,7 +1134,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Estado_Compra">
-            <EntityTypeMapping TypeName="sistema_de_ventas_Model.Estado_Compra">
+            <EntityTypeMapping TypeName="sistema_de_ventas_taller_Model.Estado_Compra">
               <MappingFragment StoreEntitySet="Estado_Compra">
                 <ScalarProperty Name="id_estado_compra" ColumnName="id_estado_compra" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -1084,7 +1142,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Factura">
-            <EntityTypeMapping TypeName="sistema_de_ventas_Model.Factura">
+            <EntityTypeMapping TypeName="sistema_de_ventas_taller_Model.Factura">
               <MappingFragment StoreEntitySet="Factura">
                 <ScalarProperty Name="numero_factura" ColumnName="numero_factura" />
                 <ScalarProperty Name="cod_venta" ColumnName="cod_venta" />
@@ -1092,8 +1150,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Historial_Estado">
+            <EntityTypeMapping TypeName="sistema_de_ventas_taller_Model.Historial_Estado">
+              <MappingFragment StoreEntitySet="Historial_Estado">
+                <ScalarProperty Name="fecha_estado" ColumnName="fecha_estado" />
+                <ScalarProperty Name="id_estado_compra" ColumnName="id_estado_compra" />
+                <ScalarProperty Name="id_compra" ColumnName="id_compra" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Metodo_Pago">
-            <EntityTypeMapping TypeName="sistema_de_ventas_Model.Metodo_Pago">
+            <EntityTypeMapping TypeName="sistema_de_ventas_taller_Model.Metodo_Pago">
               <MappingFragment StoreEntitySet="Metodo_Pago">
                 <ScalarProperty Name="id_metodo" ColumnName="id_metodo" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -1101,18 +1168,18 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Negocio">
-            <EntityTypeMapping TypeName="sistema_de_ventas_Model.Negocio">
+            <EntityTypeMapping TypeName="sistema_de_ventas_taller_Model.Negocio">
               <MappingFragment StoreEntitySet="Negocio">
                 <ScalarProperty Name="id_negocio" ColumnName="id_negocio" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="ruc" ColumnName="ruc" />
+                <ScalarProperty Name="rut" ColumnName="rut" />
                 <ScalarProperty Name="direccion" ColumnName="direccion" />
                 <ScalarProperty Name="imagen" ColumnName="imagen" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Pago">
-            <EntityTypeMapping TypeName="sistema_de_ventas_Model.Pago">
+            <EntityTypeMapping TypeName="sistema_de_ventas_taller_Model.Pago">
               <MappingFragment StoreEntitySet="Pago">
                 <ScalarProperty Name="id_pago" ColumnName="id_pago" />
                 <ScalarProperty Name="total" ColumnName="total" />
@@ -1121,9 +1188,9 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Producto">
-            <EntityTypeMapping TypeName="sistema_de_ventas_Model.Producto">
+            <EntityTypeMapping TypeName="sistema_de_ventas_taller_Model.Producto">
               <MappingFragment StoreEntitySet="Producto">
-                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+                <ScalarProperty Name="codigo_producto" ColumnName="codigo_producto" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
                 <ScalarProperty Name="precio_compra" ColumnName="precio_compra" />
@@ -1136,7 +1203,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Producto_Compra">
-            <EntityTypeMapping TypeName="sistema_de_ventas_Model.Producto_Compra">
+            <EntityTypeMapping TypeName="sistema_de_ventas_taller_Model.Producto_Compra">
               <MappingFragment StoreEntitySet="Producto_Compra">
                 <ScalarProperty Name="cantidad" ColumnName="cantidad" />
                 <ScalarProperty Name="id_compra" ColumnName="id_compra" />
@@ -1145,7 +1212,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Producto_Venta">
-            <EntityTypeMapping TypeName="sistema_de_ventas_Model.Producto_Venta">
+            <EntityTypeMapping TypeName="sistema_de_ventas_taller_Model.Producto_Venta">
               <MappingFragment StoreEntitySet="Producto_Venta">
                 <ScalarProperty Name="cantidad" ColumnName="cantidad" />
                 <ScalarProperty Name="id_producto" ColumnName="id_producto" />
@@ -1154,7 +1221,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Proveedor">
-            <EntityTypeMapping TypeName="sistema_de_ventas_Model.Proveedor">
+            <EntityTypeMapping TypeName="sistema_de_ventas_taller_Model.Proveedor">
               <MappingFragment StoreEntitySet="Proveedor">
                 <ScalarProperty Name="id_proveedor" ColumnName="id_proveedor" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -1167,7 +1234,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Rol">
-            <EntityTypeMapping TypeName="sistema_de_ventas_Model.Rol">
+            <EntityTypeMapping TypeName="sistema_de_ventas_taller_Model.Rol">
               <MappingFragment StoreEntitySet="Rol">
                 <ScalarProperty Name="id_rol" ColumnName="id_rol" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -1175,7 +1242,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Ticket">
-            <EntityTypeMapping TypeName="sistema_de_ventas_Model.Ticket">
+            <EntityTypeMapping TypeName="sistema_de_ventas_taller_Model.Ticket">
               <MappingFragment StoreEntitySet="Ticket">
                 <ScalarProperty Name="id_ticket" ColumnName="id_ticket" />
                 <ScalarProperty Name="cod_venta" ColumnName="cod_venta" />
@@ -1183,22 +1250,24 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Usuario">
-            <EntityTypeMapping TypeName="sistema_de_ventas_Model.Usuario">
+            <EntityTypeMapping TypeName="sistema_de_ventas_taller_Model.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
                 <ScalarProperty Name="DNI_usuario" ColumnName="DNI_usuario" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+                <ScalarProperty Name="imagen_usuario" ColumnName="imagen_usuario" />
                 <ScalarProperty Name="id_rol" ColumnName="id_rol" />
                 <ScalarProperty Name="id_estado" ColumnName="id_estado" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Venta">
-            <EntityTypeMapping TypeName="sistema_de_ventas_Model.Venta">
+            <EntityTypeMapping TypeName="sistema_de_ventas_taller_Model.Venta">
               <MappingFragment StoreEntitySet="Venta">
                 <ScalarProperty Name="cod_venta" ColumnName="cod_venta" />
-                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="fecha_venta" ColumnName="fecha_venta" />
                 <ScalarProperty Name="DNI_usuario" ColumnName="DNI_usuario" />
                 <ScalarProperty Name="DNI_cliente" ColumnName="DNI_cliente" />
                 <ScalarProperty Name="id_pago" ColumnName="id_pago" />

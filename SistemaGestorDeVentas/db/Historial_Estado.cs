@@ -12,18 +12,13 @@ namespace SistemaGestorDeVentas.db
     using System;
     using System.Collections.Generic;
     
-    public partial class Estado_Compra
+    public partial class Historial_Estado
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Estado_Compra()
-        {
-            this.Historial_Estado = new HashSet<Historial_Estado>();
-        }
-    
+        public System.DateTime fecha_estado { get; set; }
         public int id_estado_compra { get; set; }
-        public string nombre { get; set; }
+        public int id_compra { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Historial_Estado> Historial_Estado { get; set; }
+        public virtual Compra Compra { get; set; }
+        public virtual Estado_Compra Estado_Compra { get; set; }
     }
 }

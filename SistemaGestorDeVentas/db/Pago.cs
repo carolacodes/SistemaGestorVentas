@@ -21,7 +21,7 @@ namespace SistemaGestorDeVentas.db
         }
     
         public int id_pago { get; set; }
-        public double total { get; set; }
+        public decimal total { get; set; }
         public int id_metodo { get; set; }
     
         public virtual Metodo_Pago Metodo_Pago { get; set; }

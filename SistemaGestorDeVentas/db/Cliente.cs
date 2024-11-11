@@ -24,6 +24,7 @@ namespace SistemaGestorDeVentas.db
         public string nombre { get; set; }
         public string correo { get; set; }
         public string telefono { get; set; }
+        public System.DateTime fecha_nacimiento { get; set; }
         public int id_estado { get; set; }
     
         public virtual Estado Estado { get; set; }

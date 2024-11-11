@@ -13,7 +13,7 @@ namespace SistemaGestorDeVentas.api.cart
         public Venta crearVenta(Venta nuevaVenta) { 
             try
             {
-                using (var context = new sistema_de_ventas_Entities())
+                using (var context = new sistema_de_ventas_taller_Entities())
                 {
                     var venta = context.Venta.Add(nuevaVenta);
                     context.SaveChanges();
@@ -29,7 +29,7 @@ namespace SistemaGestorDeVentas.api.cart
         {
             try
             {
-                using(var context = new sistema_de_ventas_Entities())
+                using(var context = new sistema_de_ventas_taller_Entities())
                 {
                     var venta = context.Venta.Find(codigo_venta);
                     return venta;
@@ -44,7 +44,7 @@ namespace SistemaGestorDeVentas.api.cart
         public List <Venta> getVentas() {
             try
             {
-                using (var context = new sistema_de_ventas_Entities())
+                using (var context = new sistema_de_ventas_taller_Entities())
                 {
                     var ventas = context.Venta.ToList();
                     return ventas;

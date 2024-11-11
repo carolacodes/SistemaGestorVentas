@@ -13,10 +13,10 @@ namespace SistemaGestorDeVentas.db
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class sistema_de_ventas_Entities : DbContext
+    public partial class sistema_de_ventas_taller_Entities : DbContext
     {
-        public sistema_de_ventas_Entities()
-            : base("name=sistema_de_ventas_Entities")
+        public sistema_de_ventas_taller_Entities()
+            : base("name=sistema_de_ventas_taller_Entities")
         {
         }
     
@@ -31,6 +31,7 @@ namespace SistemaGestorDeVentas.db
         public virtual DbSet<Estado> Estado { get; set; }
         public virtual DbSet<Estado_Compra> Estado_Compra { get; set; }
         public virtual DbSet<Factura> Factura { get; set; }
+        public virtual DbSet<Historial_Estado> Historial_Estado { get; set; }
         public virtual DbSet<Metodo_Pago> Metodo_Pago { get; set; }
         public virtual DbSet<Negocio> Negocio { get; set; }
         public virtual DbSet<Pago> Pago { get; set; }

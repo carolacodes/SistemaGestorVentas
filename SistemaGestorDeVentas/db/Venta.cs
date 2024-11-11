@@ -23,7 +23,7 @@ namespace SistemaGestorDeVentas.db
         }
     
         public int cod_venta { get; set; }
-        public System.DateTime fecha { get; set; }
+        public System.DateTime fecha_venta { get; set; }
         public string DNI_usuario { get; set; }
         public string DNI_cliente { get; set; }
         public int id_pago { get; set; }

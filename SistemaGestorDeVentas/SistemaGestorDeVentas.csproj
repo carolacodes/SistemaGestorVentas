@@ -211,6 +211,9 @@
     <Compile Include="db\Factura.cs">
       <DependentUpon>DB_Connect.tt</DependentUpon>
     </Compile>
+    <Compile Include="db\Historial_Estado.cs">
+      <DependentUpon>DB_Connect.tt</DependentUpon>
+    </Compile>
     <Compile Include="db\Metodo_Pago.cs">
       <DependentUpon>DB_Connect.tt</DependentUpon>
     </Compile>
