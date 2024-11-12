@@ -10,7 +10,12 @@ namespace SistemaGestorDeVentas.api.cart
 {
     internal class VentaDao
     {
+<<<<<<< HEAD
         public Venta crearVenta(Venta nuevaVenta) {
+=======
+        public Venta crearVenta(Venta nuevaVenta)
+        {
+>>>>>>> 784cba6d409d8485cef17935291b2708d0fc618e
             try
             {
                 using (var context = new sistema_de_ventas_taller_Entities())
@@ -20,8 +25,9 @@ namespace SistemaGestorDeVentas.api.cart
                     return venta;
                 }
             }
-            catch (Exception ex) {
-                throw new Exception("Error al insertar la venta: " + ex.Message)
+            catch (Exception ex)
+            {
+                throw new Exception("Error al insertar la venta: " + ex.Message);
             }
         }
 
@@ -41,7 +47,12 @@ namespace SistemaGestorDeVentas.api.cart
             }
         }
 
+<<<<<<< HEAD
         public List<Venta> getVentas() {
+=======
+        public List<Venta> getVentas()
+        {
+>>>>>>> 784cba6d409d8485cef17935291b2708d0fc618e
             try
             {
                 using (var context = new sistema_de_ventas_taller_Entities())

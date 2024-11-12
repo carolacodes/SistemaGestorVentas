@@ -62,10 +62,7 @@ namespace SistemaGestorDeVentas.api.factura
             }
         }
 
-        public Factura getFacturaUltimaVenta()
-        {
-
-        }
+        
 
     }
 }

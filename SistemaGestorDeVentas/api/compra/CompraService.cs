@@ -35,18 +35,18 @@ namespace SistemaGestorDeVentas.api.compra
             }
         }
         
-        public Compra deleteCompra(int id_compra)
-        {
-            try
-            {
-                var compra = compraDao.deleteCompraDao(id_compra);
-                return compra;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al intentar Eliminar la compra: " + ex.Message);
-            }
-        }
+        //public Compra deleteCompra(int id_compra)
+        //{
+        //    try
+        //    {
+        //        var compra = compraDao.deleteCompraDao(id_compra);
+        //        return compra;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception("Error al intentar Eliminar la compra: " + ex.Message);
+        //    }
+        //}
 
         public Compra GetCompra(int id_compra)
         {

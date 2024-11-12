@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using SistemaGestorDeVentas.api.cliente;
+using SistemaGestorDeVentas.api.product;
+using SistemaGestorDeVentas.db;
 namespace SistemaGestorDeVentas.api.cart
 {
     public partial class cartView : Form
     {
+        
         public cartView()
         {
             InitializeComponent();
@@ -187,6 +190,114 @@ namespace SistemaGestorDeVentas.api.cart
             //    MessageBox.Show("La dirección no puede estar vacía.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //    e.Cancel = true;
             //}
+        }
+
+        private void btnBuscarClienteVenta_Click(object sender, EventArgs e)
+        {
+            var nro_dni = txtCartViewDNI.Text;
+            
+
+            //MessageBox.Show("Por favor, ingrese un DNI.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            if (string.IsNullOrEmpty(nro_dni))
+            {
+                buscarCliente buscarClienteForm = new buscarCliente(this);
+                buscarClienteForm.Show();
+            }else
+            {
+                try
+                {
+                    ClienteService clienteService = new ClienteService();
+                    Cliente clienteExiste = clienteService.getCliente(nro_dni);
+                    if(clienteExiste != null)
+                    {
+                        txtCartNombreCliente.Text = clienteExiste.nombre;
+                    }
+                    else
+                    {
+                        MessageBox.Show("DNI no existente", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show($"Error al intentar obtener el cliente: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+           
+        }
+
+        private void btnBuscarProductVenta_Click(object sender, EventArgs e)
+        {
+            
+
+
+            var cod_producto = txtCartCodProduct.Text;
+
+
+            //MessageBox.Show("Por favor, ingrese un DNI.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            if (string.IsNullOrEmpty(cod_producto))
+            {
+                Form buscarProductoForm = new buscarProducto(this);
+                buscarProductoForm.Show();
+            }
+            else
+            {
+                try
+                {
+                    //ClienteService clienteService = new ClienteService();
+                    //Cliente clienteExiste = clienteService.getCliente(nro_dni);
+
+                    ProductService productService = new ProductService();
+                    Producto productoExiste = productService.getProductService(int.Parse(cod_producto));
+
+                    if (productoExiste != null)
+                    {
+                        txtCartProducto.Text = productoExiste.nombre;
+                        txtCartPrecio.Text = (productoExiste.precio_venta).ToString();
+                        txtCartStock.Text = (productoExiste.stock).ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Codigo de producto no existente", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al intentar obtener el producto: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+        }
+
+        private void btnAgregarCartView_Click(object sender, EventArgs e)
+        {
+
+            var cod_product = int.Parse(txtCartCodProduct.Text);
+            var nombre_product = txtCartProducto.Text;
+            var precio = int.Parse(txtCartPrecio.Text);
+            var cantidad = int.Parse(dpCantidad.Text);
+
+            var subtotal = precio * cantidad;
+
+            //var nuevoProducto = new Producto
+            //{
+            //    codigo_producto = cod_product,
+            //    nombre = nombre_product,
+            //    precio_venta = precio,
+            //};
+
+            dataGridCartView.Rows.Add(nombre_product, cod_product, cantidad, subtotal);
+
+            //ProductService productService = new ProductService();
+
+            //List<Producto> productos = productService.getProductsService();
+
+            //foreach (var prod in productos)
+            //{
+            //    dataGridCartView.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, prod.id_categoria, prod.stock, prod.id_estado);
+            //}
+
         }
     }
 }

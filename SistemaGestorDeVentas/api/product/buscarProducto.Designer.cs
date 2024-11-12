@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button3 = new System.Windows.Forms.Button();
+            this.btnNewProd = new System.Windows.Forms.Button();
+            this.dataGridBuscarProd = new System.Windows.Forms.DataGridView();
             this.detalleProductoNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.detalleProductoCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.detalleProductoDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,17 +40,14 @@
             this.detalleProductoStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.detalleProductoEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.btnLimpiarBP = new System.Windows.Forms.Button();
+            this.btnBuscarProd = new System.Windows.Forms.Button();
+            this.txtBuscarProd = new System.Windows.Forms.TextBox();
+            this.cbBuscarProd = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridBuscarProd)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,19 +55,39 @@
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Controls.Add(this.btnNewProd);
+            this.panel2.Controls.Add(this.dataGridBuscarProd);
             this.panel2.Location = new System.Drawing.Point(12, 128);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(776, 310);
             this.panel2.TabIndex = 9;
             // 
-            // dataGridView1
+            // button3
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Azure;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.button3.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
+            this.button3.Location = new System.Drawing.Point(600, 255);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(158, 40);
+            this.button3.TabIndex = 16;
+            this.button3.Text = "Volver";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // btnNewProd
+            // 
+            this.btnNewProd.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnNewProd.Location = new System.Drawing.Point(436, 255);
+            this.btnNewProd.Name = "btnNewProd";
+            this.btnNewProd.Size = new System.Drawing.Size(158, 40);
+            this.btnNewProd.TabIndex = 15;
+            this.btnNewProd.Text = "Nuevo Producto";
+            this.btnNewProd.UseVisualStyleBackColor = true;
+            this.btnNewProd.Click += new System.EventHandler(this.btnNewProd_Click);
+            // 
+            // dataGridBuscarProd
+            // 
+            this.dataGridBuscarProd.BackgroundColor = System.Drawing.Color.Azure;
+            this.dataGridBuscarProd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridBuscarProd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.detalleProductoNombre,
             this.detalleProductoCodigo,
             this.detalleProductoDescripcion,
@@ -76,12 +95,13 @@
             this.detalleProductoPrecio,
             this.detalleProductoStock,
             this.detalleProductoEstado});
-            this.dataGridView1.Location = new System.Drawing.Point(18, 17);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(740, 221);
-            this.dataGridView1.TabIndex = 1;
+            this.dataGridBuscarProd.Location = new System.Drawing.Point(18, 17);
+            this.dataGridBuscarProd.Name = "dataGridBuscarProd";
+            this.dataGridBuscarProd.RowHeadersWidth = 51;
+            this.dataGridBuscarProd.RowTemplate.Height = 24;
+            this.dataGridBuscarProd.Size = new System.Drawing.Size(740, 221);
+            this.dataGridBuscarProd.TabIndex = 1;
+            this.dataGridBuscarProd.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridBuscarProd_CellClick);
             // 
             // detalleProductoNombre
             // 
@@ -135,10 +155,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.btnLimpiarBP);
+            this.panel1.Controls.Add(this.btnBuscarProd);
+            this.panel1.Controls.Add(this.txtBuscarProd);
+            this.panel1.Controls.Add(this.cbBuscarProd);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -147,39 +167,43 @@
             this.panel1.Size = new System.Drawing.Size(800, 100);
             this.panel1.TabIndex = 8;
             // 
-            // button5
+            // btnLimpiarBP
             // 
-            this.button5.Image = global::SistemaGestorDeVentas.Properties.Resources.limpiar;
-            this.button5.Location = new System.Drawing.Point(627, 37);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(45, 44);
-            this.button5.TabIndex = 25;
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnLimpiarBP.Image = global::SistemaGestorDeVentas.Properties.Resources.limpiar;
+            this.btnLimpiarBP.Location = new System.Drawing.Point(627, 37);
+            this.btnLimpiarBP.Name = "btnLimpiarBP";
+            this.btnLimpiarBP.Size = new System.Drawing.Size(45, 44);
+            this.btnLimpiarBP.TabIndex = 25;
+            this.btnLimpiarBP.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnBuscarProd
             // 
-            this.button4.Image = global::SistemaGestorDeVentas.Properties.Resources.buscar;
-            this.button4.Location = new System.Drawing.Point(576, 37);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(45, 44);
-            this.button4.TabIndex = 24;
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnBuscarProd.Image = global::SistemaGestorDeVentas.Properties.Resources.buscar;
+            this.btnBuscarProd.Location = new System.Drawing.Point(576, 37);
+            this.btnBuscarProd.Name = "btnBuscarProd";
+            this.btnBuscarProd.Size = new System.Drawing.Size(45, 44);
+            this.btnBuscarProd.TabIndex = 24;
+            this.btnBuscarProd.UseVisualStyleBackColor = true;
+            this.btnBuscarProd.Click += new System.EventHandler(this.btnBuscarProd_Click);
             // 
-            // textBox1
+            // txtBuscarProd
             // 
-            this.textBox1.Location = new System.Drawing.Point(384, 59);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(177, 22);
-            this.textBox1.TabIndex = 3;
+            this.txtBuscarProd.Location = new System.Drawing.Point(384, 59);
+            this.txtBuscarProd.Name = "txtBuscarProd";
+            this.txtBuscarProd.Size = new System.Drawing.Size(177, 22);
+            this.txtBuscarProd.TabIndex = 3;
             // 
-            // comboBox1
+            // cbBuscarProd
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(250, 56);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 2;
-            this.comboBox1.Text = "Cod Producto";
+            this.cbBuscarProd.FormattingEnabled = true;
+            this.cbBuscarProd.Items.AddRange(new object[] {
+            "Cod Producto",
+            "Nombre Producto"});
+            this.cbBuscarProd.Location = new System.Drawing.Point(250, 56);
+            this.cbBuscarProd.Name = "cbBuscarProd";
+            this.cbBuscarProd.Size = new System.Drawing.Size(121, 24);
+            this.cbBuscarProd.TabIndex = 2;
+            this.cbBuscarProd.Text = "Cod Producto";
             // 
             // label2
             // 
@@ -201,36 +225,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Lista de Productos";
             // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
-            this.button3.Location = new System.Drawing.Point(600, 255);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(158, 40);
-            this.button3.TabIndex = 16;
-            this.button3.Text = "Volver";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
-            this.button2.Location = new System.Drawing.Point(436, 255);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(158, 40);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Nuevo Producto";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(272, 255);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(158, 40);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Seleccionar";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // buscarProducto
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -240,8 +234,9 @@
             this.Controls.Add(this.panel1);
             this.Name = "buscarProducto";
             this.Text = "buscarProducto";
+            this.Load += new System.EventHandler(this.buscarProducto_Load);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridBuscarProd)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -252,13 +247,13 @@
 
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button btnLimpiarBP;
+        private System.Windows.Forms.Button btnBuscarProd;
+        private System.Windows.Forms.TextBox txtBuscarProd;
+        private System.Windows.Forms.ComboBox cbBuscarProd;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridBuscarProd;
         private System.Windows.Forms.DataGridViewTextBoxColumn detalleProductoNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn detalleProductoCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn detalleProductoDescripcion;
@@ -267,7 +262,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn detalleProductoStock;
         private System.Windows.Forms.DataGridViewTextBoxColumn detalleProductoEstado;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnNewProd;
     }
 }

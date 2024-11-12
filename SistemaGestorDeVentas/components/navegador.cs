@@ -92,7 +92,7 @@ namespace SistemaGestorDeVentas.components
             //cartView.Dock = DockStyle.Fill
         }
 
-        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        public void productosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Verificar si el formulario cartView ya está abierto
             Form existingForm = Application.OpenForms.Cast<Form>().FirstOrDefault(form => form is adminGestionProduct);
@@ -150,7 +150,7 @@ namespace SistemaGestorDeVentas.components
             //cartView.Dock = DockStyle.Fill
         }
 
-        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        public void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Verificar si el formulario cartView ya está abierto
             Form existingForm = Application.OpenForms.Cast<Form>().FirstOrDefault(form => form is detalleCliente);

@@ -56,7 +56,7 @@ namespace SistemaGestorDeVentas.api.product
         {
             try
             {
-                productoActualizado.precio_venta = productoActualizado.precio_compra * 1.20;
+                productoActualizado.precio_venta = productoActualizado.precio_venta;
                 var producto = productDao.updateProductDao(productoActualizado);
                 return producto;
             }
