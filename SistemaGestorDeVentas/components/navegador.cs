@@ -7,6 +7,7 @@ using SistemaGestorDeVentas.api.product;
 using SistemaGestorDeVentas.api.proveedor;
 using SistemaGestorDeVentas.api.report;
 using SistemaGestorDeVentas.api.user;
+using SistemaGestorDeVentas.backup;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -381,6 +382,7 @@ namespace SistemaGestorDeVentas.components
             reportesToolStripMenuItem.Visible=false;
             negocioToolStripMenuItem.Visible = false;
             usuariosToolStripMenuItem.Visible = false;
+            backupToolStripMenuItem.Visible = false;
         }
 
         public void MostrarMenuAdministrador()
@@ -388,6 +390,26 @@ namespace SistemaGestorDeVentas.components
             reportesToolStripMenuItem.Visible = false;
             negocioToolStripMenuItem.Visible = false;
             usuariosToolStripMenuItem.Visible = false;
+
+            backupToolStripMenuItem.Visible = false;
+        }
+
+        private void backupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form existingForm = Application.OpenForms.Cast<Form>().FirstOrDefault(form => form is Backup_view);
+            if (existingForm != null)
+            {
+                // Si ya está abierto, traerlo al frente
+                existingForm.BringToFront();
+            }
+            else
+            {
+                // Si no está abierto, crear una nueva instancia
+                Backup_view backup = new Backup_view();
+                backup.MdiParent = this;
+                backup.Dock = DockStyle.Fill; // Ajustar al tamaño del contenedor
+                backup.Show();
+            }
         }
     }
 }
