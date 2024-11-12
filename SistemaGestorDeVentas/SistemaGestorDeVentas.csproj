@@ -198,6 +198,13 @@
     <Compile Include="api\user\usuarioView.Designer.cs">
       <DependentUpon>usuarioView.cs</DependentUpon>
     </Compile>
+    <Compile Include="backup\Backup.cs" />
+    <Compile Include="backup\Backup_view.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="backup\Backup_view.Designer.cs">
+      <DependentUpon>Backup_view.cs</DependentUpon>
+    </Compile>
     <Compile Include="components\navegador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -332,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="api\user\buscarUsuario.resx">
       <DependentUpon>buscarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="backup\Backup_view.resx">
+      <DependentUpon>Backup_view.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="components\navegador.resx">
       <DependentUpon>navegador.cs</DependentUpon>
