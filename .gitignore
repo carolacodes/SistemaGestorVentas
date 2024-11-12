@@ -32,6 +32,12 @@ bld/
 [Ll]og/
 [Ll]ogs/
 
+# Incluir específicamente la carpeta backup en bin/Debug
+!SistemaGestorDeVentas/bin/Debug/backup/
+!bin/Debug/backup/
+!bin/Debug/backup/*.bak
+!SistemaGestorDeVentas/bin/Debug/backup/*.bak
+
 # Visual Studio 2015/2017 cache/options directory
 .vs/
 ../.vs/
