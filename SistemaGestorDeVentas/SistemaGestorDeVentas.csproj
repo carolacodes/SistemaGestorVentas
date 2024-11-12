@@ -184,6 +184,7 @@
     </Compile>
     <Compile Include="api\proveedor\ProveedorDao.cs" />
     <Compile Include="api\proveedor\ProveedorServices.cs" />
+    <Compile Include="api\report\reportes.cs" />
     <Compile Include="api\user\buscarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
