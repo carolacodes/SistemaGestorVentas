@@ -13,7 +13,21 @@ namespace SistemaGestorDeVentas.api.cart
     {
         VentaDao ventaDao = new VentaDao();
         ProductDao productoDao = new ProductDao();
-        
+
+
+        public Venta crearVenta(Venta nuevaVenta)
+        {
+            try
+            {
+                var venta = ventaDao.crearVenta(nuevaVenta);
+
+                return venta;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al intentar crear una venta" + ex.Message);
+            }
+        }
 
         public Venta crearVenta(Venta nuevaVenta, Producto producto, Producto_Venta productoVenta)
         {

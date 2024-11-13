@@ -115,5 +115,38 @@ namespace SistemaGestorDeVentas.api.user
                 throw new Exception("no se encuentran usuarios: " + ex.Message);
             }
         }
+
+        public Usuario getUserDaoByEmail(string email)
+        {
+            try
+            {
+                using (var context = new sistema_de_ventas_taller_Entities())
+                {
+                    var usuario = context.Usuario.FirstOrDefault(p => p.email.Contains(email));
+                    return usuario;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("error al buscar el usuario: " + ex.Message);
+            }
+        }
+
+        //public Metodo_Pago getMetodoPagoDaoByName(string nombre_metodo)
+        //{
+        //    try
+        //    {
+        //        using (var context = new sistema_de_ventas_taller_Entities())
+        //        {
+        //            // Utilizamos FirstOrDefault para obtener un solo resultado o null si no encuentra coincidencias
+        //            var metodoExiste = context.Metodo_Pago.FirstOrDefault(p => p.nombre.Contains(nombre_metodo));
+        //            return metodoExiste;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception("Error al intentar obtener el método de pago: " + ex.Message);
+        //    }
+        //}
     }
 }

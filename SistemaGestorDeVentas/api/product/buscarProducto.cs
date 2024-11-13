@@ -93,7 +93,7 @@ namespace SistemaGestorDeVentas.api.product
                     {
                         foreach (var prod in productos)
                         {
-                            dataGridBuscarProd.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, prod.id_categoria, prod.stock, prod.id_estado);
+                            dataGridBuscarProd.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, prod.id_categoria, prod.stock, prod.precio_venta);
                         }
 
                     }
@@ -103,7 +103,7 @@ namespace SistemaGestorDeVentas.api.product
 
                         foreach (var prod in productos)
                         {
-                            dataGridBuscarProd.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, prod.id_categoria, prod.stock, prod.id_estado);
+                            dataGridBuscarProd.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, prod.id_categoria, prod.stock, prod.precio_venta);
                         }
                     }
                 }
@@ -127,7 +127,8 @@ namespace SistemaGestorDeVentas.api.product
 
                 foreach (var prod in productos)
                 {
-                    dataGridBuscarProd.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, prod.id_categoria, prod.stock, prod.id_estado);
+                    Console.WriteLine("stock: " + prod.stock);
+                    dataGridBuscarProd.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, prod.id_categoria, prod.stock, prod.precio_venta);
                 }
 
                 //dataGridBuscarCliente.DataSource = clientes;
@@ -205,6 +206,11 @@ namespace SistemaGestorDeVentas.api.product
 
                 this.Close();
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

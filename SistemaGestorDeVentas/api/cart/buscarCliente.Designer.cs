@@ -38,11 +38,11 @@
             this.detalleClienteTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.detalleClienteCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbBuscarCliente = new System.Windows.Forms.ComboBox();
             this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.txtCartViewDNI = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbBuscarCliente = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBuscarCliente)).BeginInit();
             this.panel1.SuspendLayout();
@@ -69,6 +69,7 @@
             this.button3.TabIndex = 13;
             this.button3.Text = "Volver";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -149,6 +150,28 @@
             this.panel1.Size = new System.Drawing.Size(800, 100);
             this.panel1.TabIndex = 4;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(411, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 23);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Buscar Por:";
+            // 
+            // cbBuscarCliente
+            // 
+            this.cbBuscarCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBuscarCliente.FormattingEnabled = true;
+            this.cbBuscarCliente.Items.AddRange(new object[] {
+            "Nro Dni",
+            "Nombre Cliente"});
+            this.cbBuscarCliente.Location = new System.Drawing.Point(415, 43);
+            this.cbBuscarCliente.Name = "cbBuscarCliente";
+            this.cbBuscarCliente.Size = new System.Drawing.Size(121, 24);
+            this.cbBuscarCliente.TabIndex = 10;
+            // 
             // btnBuscarCliente
             // 
             this.btnBuscarCliente.Image = global::SistemaGestorDeVentas.Properties.Resources.buscar;
@@ -176,28 +199,6 @@
             this.label1.Size = new System.Drawing.Size(206, 35);
             this.label1.TabIndex = 0;
             this.label1.Text = "Lista de Clientes";
-            // 
-            // cbBuscarCliente
-            // 
-            this.cbBuscarCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbBuscarCliente.FormattingEnabled = true;
-            this.cbBuscarCliente.Items.AddRange(new object[] {
-            "Nro Dni",
-            "Nombre Cliente"});
-            this.cbBuscarCliente.Location = new System.Drawing.Point(415, 43);
-            this.cbBuscarCliente.Name = "cbBuscarCliente";
-            this.cbBuscarCliente.Size = new System.Drawing.Size(121, 24);
-            this.cbBuscarCliente.TabIndex = 10;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(411, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 23);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Buscar Por:";
             // 
             // buscarCliente
             // 

@@ -87,5 +87,18 @@ namespace SistemaGestorDeVentas.api.user
                 throw new Exception("Error al buscar usuarios: " + ex.Message);
             }
         }
+
+        public Usuario getUserByEmail(string email)
+        {
+            try
+            {
+                var user = userDao.getUserDaoByEmail(email);
+                return user;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("error al obtener el usuario: " + ex.Message);
+            }
+        }
     }
 }

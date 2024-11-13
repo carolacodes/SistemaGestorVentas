@@ -32,16 +32,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.btnVolver = new System.Windows.Forms.Button();
+            this.btnRegiVenta = new System.Windows.Forms.Button();
+            this.cbMetodoPago = new System.Windows.Forms.ComboBox();
+            this.txtPago = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtVuelto = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.totalPagoMetodo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -77,15 +77,15 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel3.Controls.Add(this.button2);
-            this.panel3.Controls.Add(this.button1);
-            this.panel3.Controls.Add(this.comboBox1);
-            this.panel3.Controls.Add(this.textBox4);
+            this.panel3.Controls.Add(this.btnVolver);
+            this.panel3.Controls.Add(this.btnRegiVenta);
+            this.panel3.Controls.Add(this.cbMetodoPago);
+            this.panel3.Controls.Add(this.txtPago);
             this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.textBox3);
+            this.panel3.Controls.Add(this.txtVuelto);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.totalPagoMetodo);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Location = new System.Drawing.Point(12, 142);
             this.panel3.Name = "panel3";
@@ -93,31 +93,44 @@
             this.panel3.TabIndex = 2;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
-            // button1
+            // btnVolver
             // 
-            this.button1.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(511, 178);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(182, 40);
-            this.button1.TabIndex = 31;
-            this.button1.Text = "Realizar Compra";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnVolver.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold);
+            this.btnVolver.Location = new System.Drawing.Point(43, 178);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(122, 40);
+            this.btnVolver.TabIndex = 32;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
-            // comboBox1
+            // btnRegiVenta
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(501, 44);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 24);
-            this.comboBox1.TabIndex = 30;
+            this.btnRegiVenta.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold);
+            this.btnRegiVenta.Location = new System.Drawing.Point(511, 178);
+            this.btnRegiVenta.Name = "btnRegiVenta";
+            this.btnRegiVenta.Size = new System.Drawing.Size(182, 40);
+            this.btnRegiVenta.TabIndex = 31;
+            this.btnRegiVenta.Text = "Registrar Venta";
+            this.btnRegiVenta.UseVisualStyleBackColor = true;
+            this.btnRegiVenta.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox4
+            // cbMetodoPago
             // 
-            this.textBox4.Location = new System.Drawing.Point(501, 89);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(200, 22);
-            this.textBox4.TabIndex = 29;
+            this.cbMetodoPago.FormattingEnabled = true;
+            this.cbMetodoPago.Location = new System.Drawing.Point(501, 44);
+            this.cbMetodoPago.Name = "cbMetodoPago";
+            this.cbMetodoPago.Size = new System.Drawing.Size(200, 24);
+            this.cbMetodoPago.TabIndex = 30;
+            this.cbMetodoPago.SelectedIndexChanged += new System.EventHandler(this.cbMetodoPago_SelectedIndexChanged);
+            // 
+            // txtPago
+            // 
+            this.txtPago.Location = new System.Drawing.Point(501, 89);
+            this.txtPago.Name = "txtPago";
+            this.txtPago.Size = new System.Drawing.Size(200, 22);
+            this.txtPago.TabIndex = 29;
+            this.txtPago.TextChanged += new System.EventHandler(this.txtPago_TextChanged);
             // 
             // label7
             // 
@@ -129,12 +142,13 @@
             this.label7.TabIndex = 28;
             this.label7.Text = "Pago";
             // 
-            // textBox3
+            // txtVuelto
             // 
-            this.textBox3.Location = new System.Drawing.Point(501, 129);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(200, 22);
-            this.textBox3.TabIndex = 27;
+            this.txtVuelto.Location = new System.Drawing.Point(501, 129);
+            this.txtVuelto.Name = "txtVuelto";
+            this.txtVuelto.ReadOnly = true;
+            this.txtVuelto.Size = new System.Drawing.Size(200, 22);
+            this.txtVuelto.TabIndex = 27;
             // 
             // label6
             // 
@@ -156,16 +170,17 @@
             this.label4.TabIndex = 2;
             this.label4.Text = "Forma de Pago";
             // 
-            // label3
+            // totalPagoMetodo
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Nirmala UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(146, 27);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(137, 38);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "$ 000000";
+            this.totalPagoMetodo.AutoSize = true;
+            this.totalPagoMetodo.Font = new System.Drawing.Font("Nirmala UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalPagoMetodo.ForeColor = System.Drawing.Color.Red;
+            this.totalPagoMetodo.Location = new System.Drawing.Point(146, 27);
+            this.totalPagoMetodo.Name = "totalPagoMetodo";
+            this.totalPagoMetodo.Size = new System.Drawing.Size(137, 38);
+            this.totalPagoMetodo.TabIndex = 1;
+            this.totalPagoMetodo.Text = "$ 000000";
+            this.totalPagoMetodo.Click += new System.EventHandler(this.totalPagoMetodo_Click);
             // 
             // label2
             // 
@@ -177,16 +192,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Total: ";
             // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold);
-            this.button2.Location = new System.Drawing.Point(43, 178);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(122, 40);
-            this.button2.TabIndex = 32;
-            this.button2.Text = "Volver";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // metodoPago
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -197,6 +202,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "metodoPago";
             this.Text = "metodoPago";
+            this.Load += new System.EventHandler(this.metodoPago_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -212,14 +218,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label totalPagoMetodo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtPago;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtVuelto;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnRegiVenta;
+        private System.Windows.Forms.ComboBox cbMetodoPago;
+        private System.Windows.Forms.Button btnVolver;
     }
 }

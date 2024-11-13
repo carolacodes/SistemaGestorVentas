@@ -36,9 +36,8 @@
             this.detalleProductoCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.detalleProductoDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.detalleProductoCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleProductoPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.detalleProductoStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleProductoEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleProductoPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnLimpiarBP = new System.Windows.Forms.Button();
             this.btnBuscarProd = new System.Windows.Forms.Button();
@@ -71,6 +70,7 @@
             this.button3.TabIndex = 16;
             this.button3.Text = "Volver";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnNewProd
             // 
@@ -92,9 +92,8 @@
             this.detalleProductoCodigo,
             this.detalleProductoDescripcion,
             this.detalleProductoCategoria,
-            this.detalleProductoPrecio,
             this.detalleProductoStock,
-            this.detalleProductoEstado});
+            this.detalleProductoPrecio});
             this.dataGridBuscarProd.Location = new System.Drawing.Point(18, 17);
             this.dataGridBuscarProd.Name = "dataGridBuscarProd";
             this.dataGridBuscarProd.RowHeadersWidth = 51;
@@ -131,13 +130,6 @@
             this.detalleProductoCategoria.Name = "detalleProductoCategoria";
             this.detalleProductoCategoria.Width = 125;
             // 
-            // detalleProductoPrecio
-            // 
-            this.detalleProductoPrecio.HeaderText = "Precio";
-            this.detalleProductoPrecio.MinimumWidth = 6;
-            this.detalleProductoPrecio.Name = "detalleProductoPrecio";
-            this.detalleProductoPrecio.Width = 125;
-            // 
             // detalleProductoStock
             // 
             this.detalleProductoStock.HeaderText = "Stock";
@@ -145,12 +137,12 @@
             this.detalleProductoStock.Name = "detalleProductoStock";
             this.detalleProductoStock.Width = 125;
             // 
-            // detalleProductoEstado
+            // detalleProductoPrecio
             // 
-            this.detalleProductoEstado.HeaderText = "Estado";
-            this.detalleProductoEstado.MinimumWidth = 6;
-            this.detalleProductoEstado.Name = "detalleProductoEstado";
-            this.detalleProductoEstado.Width = 125;
+            this.detalleProductoPrecio.HeaderText = "Precio";
+            this.detalleProductoPrecio.MinimumWidth = 6;
+            this.detalleProductoPrecio.Name = "detalleProductoPrecio";
+            this.detalleProductoPrecio.Width = 125;
             // 
             // panel1
             // 
@@ -254,14 +246,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridBuscarProd;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnNewProd;
         private System.Windows.Forms.DataGridViewTextBoxColumn detalleProductoNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn detalleProductoCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn detalleProductoDescripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn detalleProductoCategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn detalleProductoPrecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn detalleProductoStock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn detalleProductoEstado;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button btnNewProd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn detalleProductoPrecio;
     }
 }

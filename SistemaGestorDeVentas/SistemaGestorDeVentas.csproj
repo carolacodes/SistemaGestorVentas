@@ -162,6 +162,10 @@
     </Compile>
     <Compile Include="api\negocio\NegocioDao.cs" />
     <Compile Include="api\negocio\NegocioService.cs" />
+    <Compile Include="api\pago\MetodoPagoDao.cs" />
+    <Compile Include="api\pago\MetodoPagoServices.cs" />
+    <Compile Include="api\pago\PagoDao.cs" />
+    <Compile Include="api\pago\PagoService.cs" />
     <Compile Include="api\product\buscarProducto.cs">
       <SubType>Form</SubType>
     </Compile>

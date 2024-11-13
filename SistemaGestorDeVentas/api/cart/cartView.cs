@@ -27,7 +27,37 @@ namespace SistemaGestorDeVentas.api.cart
 
         private void cartView_Load(object sender, EventArgs e)
         {
+            var cod_product = txtCartCodProduct.Text;
+            var nombre_product = txtCartProducto.Text;
+            var precio = txtCartPrecio.Text;
+            var cantidad = dpCantidad.Text;
 
+            
+
+            if (!string.IsNullOrEmpty(cod_product) && !string.IsNullOrEmpty(nombre_product) &&
+                !string.IsNullOrEmpty(precio) && !string.IsNullOrEmpty(cantidad))
+            {
+                var subtotal = int.Parse(precio) * int.Parse(cantidad);
+                dataGridCartView.Rows.Add(nombre_product, cod_product, cantidad, subtotal);
+            }
+
+            //var nuevoProducto = new Producto
+            //{
+            //    codigo_producto = cod_product,
+            //    nombre = nombre_product,
+            //    precio_venta = precio,
+            //};
+
+            
+
+            //ProductService productService = new ProductService();
+
+            //List<Producto> productos = productService.getProductsService();
+
+            //foreach (var prod in productos)
+            //{
+            //    dataGridCartView.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, prod.id_categoria, prod.stock, prod.id_estado);
+            //}
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -47,7 +77,21 @@ namespace SistemaGestorDeVentas.api.cart
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
+            // Verifica si el índice de columna coincide con la columna del botón "cartEliminar"
+            if (dataGridCartView.Columns[e.ColumnIndex].Name == "cartEliminar")
+            {
+                // Muestra un mensaje de confirmación
+                var confirmResult = MessageBox.Show("¿Estás seguro de que deseas eliminar este producto?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+                if (confirmResult == DialogResult.Yes)
+                {
+                    // Elimina la fila actual
+                    dataGridCartView.Rows.RemoveAt(e.RowIndex);
+
+                    // Llama a la función para recalcular el total después de eliminar un producto
+                    CalcularTotal();
+                }
+            }
         }
 
         private void dateCartViewFecha_ValueChanged(object sender, EventArgs e)
@@ -273,21 +317,26 @@ namespace SistemaGestorDeVentas.api.cart
         private void btnAgregarCartView_Click(object sender, EventArgs e)
         {
 
-            var cod_product = int.Parse(txtCartCodProduct.Text);
+            var cod_product = txtCartCodProduct.Text;
             var nombre_product = txtCartProducto.Text;
-            var precio = int.Parse(txtCartPrecio.Text);
-            var cantidad = int.Parse(dpCantidad.Text);
+            var precio = txtCartPrecio.Text;
+            var cantidad =dpCantidad.Text;
 
-            var subtotal = precio * cantidad;
+            if (!string.IsNullOrEmpty(cod_product) && !string.IsNullOrEmpty(nombre_product) &&
+                !string.IsNullOrEmpty(precio) && !string.IsNullOrEmpty(cantidad))
+            {
+                var subtotal = float.Parse(precio) * int.Parse(cantidad);
+                dataGridCartView.Rows.Add(nombre_product, precio, cantidad, subtotal);
+                txtCartCodProduct.Text = "";
+                txtCartProducto.Text = "";
+                txtCartPrecio.Text = "";
+                txtCartStock.Text = "";
+            }
 
-            //var nuevoProducto = new Producto
-            //{
-            //    codigo_producto = cod_product,
-            //    nombre = nombre_product,
-            //    precio_venta = precio,
-            //};
+            CalcularTotal();
+            
 
-            dataGridCartView.Rows.Add(nombre_product, cod_product, cantidad, subtotal);
+
 
             //ProductService productService = new ProductService();
 
@@ -298,6 +347,47 @@ namespace SistemaGestorDeVentas.api.cart
             //    dataGridCartView.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, prod.id_categoria, prod.stock, prod.id_estado);
             //}
 
+        }
+
+        private void txtTotal_TextChanged(object sender, EventArgs e)
+        {
+            Form metodoPago = new metodoPago(this);
+        }
+
+        public void CalcularTotal()
+        {
+            decimal total = 0;
+
+            // Recorre todas las filas del DataGridView
+            foreach (DataGridViewRow row in dataGridCartView.Rows)
+            {
+                // Verifica que la fila no sea la fila vacía al final del DataGridView
+                if (row.Cells["cartSubtotal"].Value != null)
+                {
+                    // Intenta convertir el valor de la columna 'cartSubtotal' a decimal y acumularlo
+                    decimal subtotal;
+                    if (decimal.TryParse(row.Cells["cartSubtotal"].Value.ToString(), out subtotal))
+                    {
+                        total += subtotal;
+                    }
+                }
+            }
+
+            // Asigna el total calculado al TextBox txtTotal
+            txtTotal.Text = total.ToString(); // Formato de dos decimales
+        }
+
+        private void btnPago_Click(object sender, EventArgs e)
+        {
+            if(string.IsNullOrEmpty(txtTotal.Text))
+            {
+                MessageBox.Show("Debes cargar productos al carrito para realizar el pago", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                metodoPago metodoPagoForm = new metodoPago(this);
+                metodoPagoForm.Show();
+            }
         }
     }
 }
