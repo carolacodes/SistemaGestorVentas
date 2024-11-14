@@ -1,4 +1,7 @@
-﻿using SistemaGestorDeVentas.components;
+﻿using SistemaGestorDeVentas.api.cart;
+using SistemaGestorDeVentas.api.user;
+using SistemaGestorDeVentas.components;
+using SistemaGestorDeVentas.db;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +16,7 @@ namespace SistemaGestorDeVentas
 {
     public partial class paginaInicio : Form
     {
+        public Usuario UsuarioLogueado { get; private set; }
 
         private Dictionary<string, string> contraseñas = new Dictionary<string, string>
         {
@@ -53,44 +57,45 @@ namespace SistemaGestorDeVentas
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Usuario usuario = obtengoUsuario();
+
+            // Si el usuario fue encontrado, se abre el formulario navegador
+            if (usuario != null)
+            {
+                metodoPago metodoPagoForm = new metodoPago(pagInicioForm: this);
+                navegador navForm = new navegador();
+                navForm.Show();
+                this.Hide();
+            }
+        }
+
+        public Usuario obtengoUsuario()
+        {
             string nombreUsuario = txtNombreUsuario.Text;
             string contraseñaUsuario = txtContraseñaUsuario.Text;
 
-            
-            if (contraseñas.ContainsKey(nombreUsuario) && contraseñas[nombreUsuario] == contraseñaUsuario)
+            UserService userService = new UserService();
+            var usuarioEncontrado = userService.getUserByEmail(nombreUsuario);
+
+            if (usuarioEncontrado != null)
             {
-              
-                navegador navForm = new navegador();
-
-                
-                string rolUsuario = roles[nombreUsuario];
-
-                
-                switch (rolUsuario)
+                if (contraseñaUsuario == usuarioEncontrado.pass)
                 {
-                    case "Administrador":
-                        navForm.MostrarMenuAdministrador(); // Mostrar menú para Administrador
-                        break;
-                    case "Vendedor":
-                        navForm.MostrarMenuVendedor(); // Mostrar menú para Vendedor
-                        break;
-                    case "Supervisor":
-                        navForm.Show(); // Mostrar menú para Supervisor
-                        break;
+                    UsuarioLogueado = usuarioEncontrado; // Almacena el usuario encontrado
+                    return usuarioEncontrado; // Retorna el usuario encontrado
                 }
-
-                
-                navForm.Show();
-
-                
-                this.Hide();
+                else
+                {
+                    MessageBox.Show("Contraseña incorrecta.", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                
-                MessageBox.Show("Nombre de usuario o contraseña incorrectos.", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Nombre de usuario incorrecto.", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
+            // Retorna null si no se encuentra el usuario
+            return null;
         }
 
     }

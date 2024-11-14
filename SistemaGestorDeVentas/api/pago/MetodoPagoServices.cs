@@ -34,7 +34,7 @@ namespace SistemaGestorDeVentas.api.pago
             }
         }
 
-        public Metodo_Pago getMetodoPagoByName(string nomre_metodo)
+        public Metodo_Pago getMetodoPagoByName(string nombre_metodo)
         {
             try
             {

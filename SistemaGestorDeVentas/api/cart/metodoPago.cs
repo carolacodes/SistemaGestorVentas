@@ -16,12 +16,15 @@ namespace SistemaGestorDeVentas.api.cart
     public partial class metodoPago : Form
     {
         private cartView _carritoForm;
-        public metodoPago(cartView cartViewForm)
+        private paginaInicio _paginaInicio;
+
+        // Constructor modificado para aceptar ambas referencias opcionalmente
+        public metodoPago(cartView cartViewForm = null, paginaInicio pagInicioForm = null)
         {
             InitializeComponent();
             _carritoForm = cartViewForm;
+            _paginaInicio = pagInicioForm;
         }
-
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
@@ -59,32 +62,14 @@ namespace SistemaGestorDeVentas.api.cart
                 return;
             }
 
-
-            //DNI_usuario VARCHAR(200) NOT NULL,
-            //nombre VARCHAR(200) NOT NULL,
-            //email VARCHAR(200) NOT NULL,
-            //pass VARCHAR(200) NOT NULL,
-            //fecha_nacimiento DATE NOT NULL,
-            //imagen_usuario VARCHAR(200) NOT NULL,
-            //id_rol INT NOT NULL,
-            //id_estado INT NOT NULL,
-
-            //busco usuario por el email
-
-            var email = "juanperez";
-
-            Usuario usuarioEncontrado = userService.getUserByEmail(email);
-
-            Usuario usuario = new Usuario
+            // Validar que `_paginaInicio` no sea nulo antes de intentar acceder a `UsuarioLogueado`
+            if (_paginaInicio == null || _paginaInicio.UsuarioLogueado == null)
             {
-                DNI_usuario = usuarioEncontrado.DNI_usuario,
-                nombre = usuarioEncontrado.nombre,
-                email = usuarioEncontrado.email,
-                fecha_nacimiento = usuarioEncontrado.fecha_nacimiento,
-                imagen_usuario = usuarioEncontrado.imagen_usuario, //agregar un varchar vacio
-                id_rol = usuarioEncontrado.id_rol,
-                id_estado = usuarioEncontrado.id_estado
-            };
+                MessageBox.Show("El usuario no está logueado o no se pudo obtener la referencia de inicio de sesión.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            Usuario usuarioEncontrado = _paginaInicio.UsuarioLogueado;
 
             Pago pago = new Pago
             {
@@ -92,17 +77,19 @@ namespace SistemaGestorDeVentas.api.cart
                 id_metodo = metodoObtenido.id_metodo,
             };
 
+            pagoService.crearPago(pago);
+
             var venta = new Venta
             {
                 fecha_venta = _carritoForm.dateCartViewFecha.Value,
-                DNI_usuario = usuario.DNI_usuario,
+                DNI_usuario = usuarioEncontrado.DNI_usuario,
                 DNI_cliente = _carritoForm.txtCartViewDNI.Text,
                 id_pago = pago.id_pago,
             };
 
             ventaService.crearVenta(venta);
 
-            MessageBox.Show("La venta se registro exitosamente!", "Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Exclamations);
+            MessageBox.Show("La venta se registro exitosamente!", "Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
 
         }
