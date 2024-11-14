@@ -15,6 +15,8 @@ namespace SistemaGestorDeVentas.api.cart
 {
     public partial class metodoPago : Form
     {
+        // Propiedad pública para almacenar el email
+        public static string UsuarioEmail { get; set; }
         private cartView _carritoForm;
         private paginaInicio _paginaInicio;
 
@@ -62,14 +64,10 @@ namespace SistemaGestorDeVentas.api.cart
                 return;
             }
 
-            // Validar que `_paginaInicio` no sea nulo antes de intentar acceder a `UsuarioLogueado`
-            if (_paginaInicio == null || _paginaInicio.UsuarioLogueado == null)
-            {
-                MessageBox.Show("El usuario no está logueado o no se pudo obtener la referencia de inicio de sesión.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            
 
-            Usuario usuarioEncontrado = _paginaInicio.UsuarioLogueado;
+            Usuario usuarioEncontrado = userService.getUserByEmail(UsuarioEmail);
+
 
             Pago pago = new Pago
             {
@@ -89,10 +87,15 @@ namespace SistemaGestorDeVentas.api.cart
 
             ventaService.crearVenta(venta);
 
-            MessageBox.Show("La venta se registro exitosamente!", "Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            DialogResult result = MessageBox.Show("La venta se registro exitosamente!", "Exitoso", MessageBoxButtons.OK, MessageBoxIcon.None);
 
-
+            if (result == DialogResult.OK)
+            {
+                this.Close();
+                _carritoForm.clearPantalla();
+            }
         }
+
 
         private void cbMetodoPago_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -101,6 +104,7 @@ namespace SistemaGestorDeVentas.api.cart
 
         private void LoadMetodosPago()
         {
+            Console.WriteLine("VALOR EMAIL DESDE METODO PAGO: " + UsuarioEmail);
 
             MetodoPagoServices metodoPagoServices = new MetodoPagoServices();
 

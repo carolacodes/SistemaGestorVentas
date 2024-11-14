@@ -16,23 +16,7 @@ namespace SistemaGestorDeVentas
 {
     public partial class paginaInicio : Form
     {
-        public Usuario UsuarioLogueado { get; private set; }
-
-        private Dictionary<string, string> contraseñas = new Dictionary<string, string>
-        {
-            //clave: nombre usuario valor: contraseña
-            { "admin@gmail.com", "admin123" },
-            { "vendedor@gmail.com", "vendedor123" },
-            { "supervisor@gmail.com", "supervisor123" }
-        };
-
-        private Dictionary<string, string> roles = new Dictionary<string, string>
-        {
-            //clave: nombre usuario valor: rol
-            { "admin@gmail.com", "Administrador" },
-            { "vendedor@gmail.com", "Vendedor" },
-            { "supervisor@gmail.com", "Supervisor" }
-        };
+        //public Usuario UsuarioLogueado { get; set; }
 
         public paginaInicio()
         {
@@ -57,32 +41,26 @@ namespace SistemaGestorDeVentas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Usuario usuario = obtengoUsuario();
-
-            // Si el usuario fue encontrado, se abre el formulario navegador
-            if (usuario != null)
-            {
-                metodoPago metodoPagoForm = new metodoPago(pagInicioForm: this);
-                navegador navForm = new navegador();
-                navForm.Show();
-                this.Hide();
-            }
-        }
-
-        public Usuario obtengoUsuario()
-        {
-            string nombreUsuario = txtNombreUsuario.Text;
-            string contraseñaUsuario = txtContraseñaUsuario.Text;
+            var email = txtNombreUsuario.Text;
+            var pass = txtContraseñaUsuario.Text;
+            Usuario usuario;
 
             UserService userService = new UserService();
-            var usuarioEncontrado = userService.getUserByEmail(nombreUsuario);
 
-            if (usuarioEncontrado != null)
+            usuario = userService.getUserByEmail(email);
+
+            if(usuario != null)
             {
-                if (contraseñaUsuario == usuarioEncontrado.pass)
+                if(usuario.pass == pass)
                 {
-                    UsuarioLogueado = usuarioEncontrado; // Almacena el usuario encontrado
-                    return usuarioEncontrado; // Retorna el usuario encontrado
+                    metodoPago.UsuarioEmail = email; // Asigna el email como propiedad estática
+                    metodoPago metodoPagoForm = new metodoPago();
+                    //metodoPago metodoPagoForm = new metodoPago(null, this);
+                    //metodoPagoForm.UsuarioEmail = email; // Guarda el email en metodoPago
+                    navegador navForm = new navegador();
+                    navForm.Show();
+                    this.Hide();
+                    Console.WriteLine("email desde login" + (metodoPago.UsuarioEmail = email));
                 }
                 else
                 {
@@ -93,10 +71,8 @@ namespace SistemaGestorDeVentas
             {
                 MessageBox.Show("Nombre de usuario incorrecto.", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            // Retorna null si no se encuentra el usuario
-            return null;
         }
+
 
     }
 }

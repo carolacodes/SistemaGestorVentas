@@ -389,5 +389,20 @@ namespace SistemaGestorDeVentas.api.cart
                 metodoPagoForm.Show();
             }
         }
+
+        public void clearPantalla()
+        {
+            txtCartNombreCliente.Text = "";
+            txtCartViewDNI.Text = "";
+
+            txtCartStock.Text = "";
+            txtCartProducto.Text = "";
+            txtCartPrecio.Text = "";
+            txtCartCodProduct.Text = "";
+
+            txtTotal.Text = "";
+
+            dataGridCartView.Rows.Clear();
+        }
     }
 }
