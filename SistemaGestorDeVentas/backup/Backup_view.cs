@@ -52,6 +52,7 @@ namespace SistemaGestorDeVentas.backup
              
                 // Llamar a la función de backup
                 backup.BackupDatabase();
+                Backup_view_Load(sender, e);
             }
             else
             {
