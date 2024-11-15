@@ -1,4 +1,5 @@
-﻿using SistemaGestorDeVentas.db;
+﻿using SistemaGestorDeVentas.api.product;
+using SistemaGestorDeVentas.db;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace SistemaGestorDeVentas.api.compra
     internal class CompraService
     {
         CompraDao compraDao = new CompraDao();
-
+        
         public Compra crearCompra(Compra compraNueva)
         {
             try

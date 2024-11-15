@@ -25,7 +25,7 @@ namespace SistemaGestorDeVentas.api.cart
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al intentar crear una venta" + ex.Message);
+                throw new Exception("Error al intentar crear una venta: " + ex.InnerException?.Message ?? ex.Message);
             }
         }
 

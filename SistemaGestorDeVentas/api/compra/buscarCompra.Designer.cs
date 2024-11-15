@@ -29,95 +29,54 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.BuscarCompraNroCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BuscarCompraFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BuscarCompraProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BuscarCompraTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buscarCompraEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BuscarCompraSeleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.txtVolver = new System.Windows.Forms.Button();
+            this.dataGridBuscarCompras = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BuscarCompraNroCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BuscarCompraFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BuscarCompraDniUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridBuscarCompras)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Controls.Add(this.txtVolver);
+            this.panel2.Controls.Add(this.dataGridBuscarCompras);
             this.panel2.Location = new System.Drawing.Point(12, 128);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(776, 313);
             this.panel2.TabIndex = 3;
             // 
-            // dataGridView1
+            // txtVolver
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Azure;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.txtVolver.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
+            this.txtVolver.Location = new System.Drawing.Point(588, 244);
+            this.txtVolver.Name = "txtVolver";
+            this.txtVolver.Size = new System.Drawing.Size(154, 42);
+            this.txtVolver.TabIndex = 12;
+            this.txtVolver.Text = "Volver";
+            this.txtVolver.UseVisualStyleBackColor = true;
+            this.txtVolver.Click += new System.EventHandler(this.txtVolver_Click);
+            // 
+            // dataGridBuscarCompras
+            // 
+            this.dataGridBuscarCompras.BackgroundColor = System.Drawing.Color.Azure;
+            this.dataGridBuscarCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridBuscarCompras.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.BuscarCompraNroCompra,
             this.BuscarCompraFecha,
-            this.BuscarCompraProveedor,
-            this.BuscarCompraTotal,
-            this.buscarCompraEstado,
-            this.BuscarCompraSeleccionar});
-            this.dataGridView1.Location = new System.Drawing.Point(33, 25);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(709, 213);
-            this.dataGridView1.TabIndex = 9;
-            // 
-            // BuscarCompraNroCompra
-            // 
-            this.BuscarCompraNroCompra.HeaderText = "Nro Compra";
-            this.BuscarCompraNroCompra.MinimumWidth = 6;
-            this.BuscarCompraNroCompra.Name = "BuscarCompraNroCompra";
-            this.BuscarCompraNroCompra.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.BuscarCompraNroCompra.Width = 125;
-            // 
-            // BuscarCompraFecha
-            // 
-            this.BuscarCompraFecha.HeaderText = "Fecha";
-            this.BuscarCompraFecha.MinimumWidth = 6;
-            this.BuscarCompraFecha.Name = "BuscarCompraFecha";
-            this.BuscarCompraFecha.Width = 125;
-            // 
-            // BuscarCompraProveedor
-            // 
-            this.BuscarCompraProveedor.HeaderText = "Proveedor";
-            this.BuscarCompraProveedor.MinimumWidth = 6;
-            this.BuscarCompraProveedor.Name = "BuscarCompraProveedor";
-            this.BuscarCompraProveedor.Width = 125;
-            // 
-            // BuscarCompraTotal
-            // 
-            this.BuscarCompraTotal.HeaderText = "Total";
-            this.BuscarCompraTotal.MinimumWidth = 6;
-            this.BuscarCompraTotal.Name = "BuscarCompraTotal";
-            this.BuscarCompraTotal.Width = 125;
-            // 
-            // buscarCompraEstado
-            // 
-            this.buscarCompraEstado.HeaderText = "Estado";
-            this.buscarCompraEstado.MinimumWidth = 6;
-            this.buscarCompraEstado.Name = "buscarCompraEstado";
-            this.buscarCompraEstado.Width = 125;
-            // 
-            // BuscarCompraSeleccionar
-            // 
-            this.BuscarCompraSeleccionar.HeaderText = "Seleccionar";
-            this.BuscarCompraSeleccionar.MinimumWidth = 6;
-            this.BuscarCompraSeleccionar.Name = "BuscarCompraSeleccionar";
-            this.BuscarCompraSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.BuscarCompraSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.BuscarCompraSeleccionar.Width = 125;
+            this.BuscarCompraDniUsuario});
+            this.dataGridBuscarCompras.Location = new System.Drawing.Point(33, 25);
+            this.dataGridBuscarCompras.Name = "dataGridBuscarCompras";
+            this.dataGridBuscarCompras.RowHeadersWidth = 51;
+            this.dataGridBuscarCompras.RowTemplate.Height = 24;
+            this.dataGridBuscarCompras.Size = new System.Drawing.Size(709, 213);
+            this.dataGridBuscarCompras.TabIndex = 9;
+            this.dataGridBuscarCompras.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridBuscarCompras_CellContentClick);
             // 
             // panel1
             // 
@@ -139,25 +98,27 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Lista de Compras";
             // 
-            // button2
+            // BuscarCompraNroCompra
             // 
-            this.button2.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
-            this.button2.Location = new System.Drawing.Point(428, 244);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(154, 42);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Ver Detalle";
-            this.button2.UseVisualStyleBackColor = true;
+            this.BuscarCompraNroCompra.HeaderText = "Nro Compra";
+            this.BuscarCompraNroCompra.MinimumWidth = 6;
+            this.BuscarCompraNroCompra.Name = "BuscarCompraNroCompra";
+            this.BuscarCompraNroCompra.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.BuscarCompraNroCompra.Width = 125;
             // 
-            // button1
+            // BuscarCompraFecha
             // 
-            this.button1.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(588, 244);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(154, 42);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Volver";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BuscarCompraFecha.HeaderText = "Fecha";
+            this.BuscarCompraFecha.MinimumWidth = 6;
+            this.BuscarCompraFecha.Name = "BuscarCompraFecha";
+            this.BuscarCompraFecha.Width = 125;
+            // 
+            // BuscarCompraDniUsuario
+            // 
+            this.BuscarCompraDniUsuario.HeaderText = "Dni Usuario";
+            this.BuscarCompraDniUsuario.MinimumWidth = 6;
+            this.BuscarCompraDniUsuario.Name = "BuscarCompraDniUsuario";
+            this.BuscarCompraDniUsuario.Width = 125;
             // 
             // buscarCompra
             // 
@@ -168,8 +129,9 @@
             this.Controls.Add(this.panel1);
             this.Name = "buscarCompra";
             this.Text = "buscarCompra";
+            this.Load += new System.EventHandler(this.buscarCompra_Load);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridBuscarCompras)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -181,14 +143,10 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridBuscarCompras;
+        private System.Windows.Forms.Button txtVolver;
         private System.Windows.Forms.DataGridViewTextBoxColumn BuscarCompraNroCompra;
         private System.Windows.Forms.DataGridViewTextBoxColumn BuscarCompraFecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BuscarCompraProveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BuscarCompraTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn buscarCompraEstado;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn BuscarCompraSeleccionar;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BuscarCompraDniUsuario;
     }
 }

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SistemaGestorDeVentas;
+using SistemaGestorDeVentas.db;
+using SistemaGestorDeVentas.middleware;
 
 namespace SistemaGestorDeVentas.api.proveedor
 {
@@ -36,6 +38,14 @@ namespace SistemaGestorDeVentas.api.proveedor
 
         private void gestionProveedores_Load(object sender, EventArgs e)
         {
+            ProveedorServices proveedorServices = new ProveedorServices();
+            List<Proveedor> proveedores = proveedorServices.getProveedores();
+
+            foreach(var proveedor in proveedores)
+            {
+                dataGridView1.Rows.Add(proveedor.nombre, proveedor.id_proveedor, proveedor.direccion,
+                    proveedor.telefono, proveedor.email, proveedor.web);
+            }
 
         }
 
@@ -121,6 +131,33 @@ namespace SistemaGestorDeVentas.api.proveedor
         private void txtProveedorNombre_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var estadoService = new EstadoService();
+                // Obtener la fila seleccionada
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+                // Rellenar los TextBox con los datos de la fila
+                txtProveedorCodigo.Text = row.Cells["CodigoProveedor"].Value.ToString();
+                txtProveedorNombre.Text = row.Cells["nombreProveedor"].Value.ToString(); // Cambia "Nombre" por el nombre de la columna correspondiente
+                txtProveedorSitioWeb.Text = row.Cells["sitioWebProveedor"].Value.ToString();
+                txtProveedorTelefono.Text = row.Cells["telefonoProveedor"].Value.ToString();
+                txtProveedorDireccion.Text = row.Cells["direccionProveedor"].Value.ToString();
+                txtProveedorEmail.Text = row.Cells["emailProveedor"].Value.ToString();
+
+                cboxProveedorEstado.Text =
+
+                string nombreEstado = row.Cells["detalleClienteEstado"].Value.ToString();
+                int? estadoID = estadoService.GetEstadoIdByNombre(nombreEstado);
+
+                cbClienteEstado.SelectedValue = estadoID;
+
+
+            }
         }
     }
 }

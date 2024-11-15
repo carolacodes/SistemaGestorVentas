@@ -215,7 +215,7 @@ namespace SistemaGestorDeVentas.api.product
                     _carritoForm.txtCartCodProduct.Text = row.Cells["detalleProductoCodigo"].Value.ToString();
                     _carritoForm.txtCartProducto.Text = row.Cells["detalleProductoNombre"].Value.ToString();
                     _carritoForm.txtCartPrecio.Text = row.Cells["detalleProductoPrecio"].Value.ToString();
-                    _carritoForm.txtCartStock.Text = row.Cells["detalleProductoStock"].Value.ToString();
+                    //_carritoForm.txtCartStock.Text = row.Cells["detalleProductoStock"].Value.ToString();
                 }
                 //_compraProductoForm
                 // Verifico si _compraProductoForm no es nulo y está visible antes de asignar los valores
