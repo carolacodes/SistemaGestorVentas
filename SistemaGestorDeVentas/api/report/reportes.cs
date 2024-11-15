@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace SistemaGestorDeVentas.api.report
 {
     internal class reportes
-    {
+    {/*
         public List<Venta> filtrarVentasPorVendedorYFecha(string id_vendedor, DateTime fechaInicio, DateTime fechaFin)
         {
             using (var context = new sistema_de_ventas_taller_Entities())
@@ -27,12 +27,36 @@ namespace SistemaGestorDeVentas.api.report
             using (var context = new sistema_de_ventas_taller_Entities())
             {
                 var ventas = context.Venta
+                    .Include(v => v.Pago) // Incluye la entidad Pago para acceder al total
                     .Where(v => v.fecha_venta >= fechaInicio && v.fecha_venta <= fechaFin)
                     .ToList();
+
                 return ventas;
             }
         }
+        */
 
+        public List<Venta> filtrarVentasPorFecha(DateTime fechaDesde, DateTime fechaHasta)
+        {
+            using (var context = new sistema_de_ventas_taller_Entities())
+            {
+                return context.Venta
+                    .Include(v => v.Pago) // Incluye la entidad Pago si tiene una relación
+                    .Where(v => v.fecha_venta >= fechaDesde && v.fecha_venta <= fechaHasta)
+                    .ToList();
+            }
+        }
+
+        public List<Venta> filtrarVentasPorVendedorYFecha(string usuarioId, DateTime fechaDesde, DateTime fechaHasta)
+        {
+            using (var context = new sistema_de_ventas_taller_Entities())
+            {
+                return context.Venta
+                    .Include(v => v.Pago) // Incluye la entidad Pago si tiene una relación
+                    .Where(v => v.DNI_usuario == usuarioId && v.fecha_venta >= fechaDesde && v.fecha_venta <= fechaHasta)
+                    .ToList();
+            }
+        }
         public List<ProductoMasVendido> ObtenerProductosMasVendidos(int topN)
         {
             using (var context = new sistema_de_ventas_taller_Entities())

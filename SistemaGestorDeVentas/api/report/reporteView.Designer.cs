@@ -35,9 +35,15 @@ namespace SistemaGestorDeVentas.api.report
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridReportes = new System.Windows.Forms.DataGridView();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.nroVenta_informe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaVenta_reporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cliente_reporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vendedor_reporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total_reporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chartTortaReport = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_generar_reporte = new System.Windows.Forms.Button();
+            this.btn_limpiar_reporte = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.cboxReportEmpleado = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,7 +52,7 @@ namespace SistemaGestorDeVentas.api.report
             this.dateTimeReportDesde = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_limpiar_grafico = new System.Windows.Forms.Button();
             this.btn_generar_grafico = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.cbox_grafico = new System.Windows.Forms.ComboBox();
@@ -55,15 +61,9 @@ namespace SistemaGestorDeVentas.api.report
             this.dateTimeGraficoHasta = new System.Windows.Forms.DateTimePicker();
             this.dateTimeGradicoDesde = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
-            this.btn_generar_reporte = new System.Windows.Forms.Button();
-            this.nroVenta_informe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaVenta_reporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cliente_reporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vendedor_reporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total_reporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridReportes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTortaReport)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -73,7 +73,7 @@ namespace SistemaGestorDeVentas.api.report
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.dataGridReportes);
-            this.panel2.Controls.Add(this.chart1);
+            this.panel2.Controls.Add(this.chartTortaReport);
             this.panel2.Location = new System.Drawing.Point(318, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
@@ -98,30 +98,61 @@ namespace SistemaGestorDeVentas.api.report
             this.dataGridReportes.TabIndex = 1;
             this.dataGridReportes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridReportes_CellContentClick);
             // 
-            // chart1
+            // nroVenta_informe
+            // 
+            this.nroVenta_informe.HeaderText = "Nro Venta";
+            this.nroVenta_informe.MinimumWidth = 6;
+            this.nroVenta_informe.Name = "nroVenta_informe";
+            this.nroVenta_informe.Width = 125;
+            // 
+            // FechaVenta_reporte
+            // 
+            this.FechaVenta_reporte.HeaderText = "Fecha";
+            this.FechaVenta_reporte.MinimumWidth = 6;
+            this.FechaVenta_reporte.Name = "FechaVenta_reporte";
+            this.FechaVenta_reporte.Width = 125;
+            // 
+            // Cliente_reporte
+            // 
+            this.Cliente_reporte.HeaderText = "Cliente";
+            this.Cliente_reporte.MinimumWidth = 6;
+            this.Cliente_reporte.Name = "Cliente_reporte";
+            this.Cliente_reporte.Width = 125;
+            // 
+            // vendedor_reporte
+            // 
+            this.vendedor_reporte.HeaderText = "Vendedor";
+            this.vendedor_reporte.Name = "vendedor_reporte";
+            // 
+            // total_reporte
+            // 
+            this.total_reporte.HeaderText = "Total";
+            this.total_reporte.Name = "total_reporte";
+            // 
+            // chartTortaReport
             // 
             chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            this.chartTortaReport.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(16, 286);
-            this.chart1.Margin = new System.Windows.Forms.Padding(4);
-            this.chart1.Name = "chart1";
+            this.chartTortaReport.Legends.Add(legend1);
+            this.chartTortaReport.Location = new System.Drawing.Point(16, 286);
+            this.chartTortaReport.Margin = new System.Windows.Forms.Padding(4);
+            this.chartTortaReport.Name = "chartTortaReport";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series1.Legend = "Legend1";
             series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(354, 189);
-            this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
+            this.chartTortaReport.Series.Add(series1);
+            this.chartTortaReport.Size = new System.Drawing.Size(354, 189);
+            this.chartTortaReport.TabIndex = 0;
+            this.chartTortaReport.Text = "chart1";
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.btn_generar_reporte);
-            this.panel3.Controls.Add(this.button2);
+            this.panel3.Controls.Add(this.btn_limpiar_reporte);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.cboxReportEmpleado);
             this.panel3.Controls.Add(this.label3);
@@ -136,17 +167,31 @@ namespace SistemaGestorDeVentas.api.report
             this.panel3.TabIndex = 11;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
-            // button2
+            // btn_generar_reporte
             // 
-            this.button2.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button2.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(69, 190);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(152, 36);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Limpiar";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btn_generar_reporte.BackColor = System.Drawing.Color.LimeGreen;
+            this.btn_generar_reporte.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_generar_reporte.Location = new System.Drawing.Point(69, 150);
+            this.btn_generar_reporte.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_generar_reporte.Name = "btn_generar_reporte";
+            this.btn_generar_reporte.Size = new System.Drawing.Size(152, 36);
+            this.btn_generar_reporte.TabIndex = 14;
+            this.btn_generar_reporte.Text = "Generar Reporte";
+            this.btn_generar_reporte.UseVisualStyleBackColor = false;
+            this.btn_generar_reporte.Click += new System.EventHandler(this.btn_generar_reporte_Click);
+            // 
+            // btn_limpiar_reporte
+            // 
+            this.btn_limpiar_reporte.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btn_limpiar_reporte.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_limpiar_reporte.Location = new System.Drawing.Point(69, 190);
+            this.btn_limpiar_reporte.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_limpiar_reporte.Name = "btn_limpiar_reporte";
+            this.btn_limpiar_reporte.Size = new System.Drawing.Size(152, 36);
+            this.btn_limpiar_reporte.TabIndex = 13;
+            this.btn_limpiar_reporte.Text = "Limpiar";
+            this.btn_limpiar_reporte.UseVisualStyleBackColor = false;
+            this.btn_limpiar_reporte.Click += new System.EventHandler(this.btn_limpiar_reporte_Click);
             // 
             // label4
             // 
@@ -222,7 +267,7 @@ namespace SistemaGestorDeVentas.api.report
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.btn_limpiar_grafico);
             this.panel1.Controls.Add(this.btn_generar_grafico);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.cbox_grafico);
@@ -237,17 +282,18 @@ namespace SistemaGestorDeVentas.api.report
             this.panel1.Size = new System.Drawing.Size(296, 243);
             this.panel1.TabIndex = 14;
             // 
-            // button3
+            // btn_limpiar_grafico
             // 
-            this.button3.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button3.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(69, 185);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(152, 36);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "Limpiar";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btn_limpiar_grafico.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btn_limpiar_grafico.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_limpiar_grafico.Location = new System.Drawing.Point(69, 185);
+            this.btn_limpiar_grafico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_limpiar_grafico.Name = "btn_limpiar_grafico";
+            this.btn_limpiar_grafico.Size = new System.Drawing.Size(152, 36);
+            this.btn_limpiar_grafico.TabIndex = 13;
+            this.btn_limpiar_grafico.Text = "Limpiar";
+            this.btn_limpiar_grafico.UseVisualStyleBackColor = false;
+            this.btn_limpiar_grafico.Click += new System.EventHandler(this.btn_limpiar_grafico_Click);
             // 
             // btn_generar_grafico
             // 
@@ -258,8 +304,9 @@ namespace SistemaGestorDeVentas.api.report
             this.btn_generar_grafico.Name = "btn_generar_grafico";
             this.btn_generar_grafico.Size = new System.Drawing.Size(152, 36);
             this.btn_generar_grafico.TabIndex = 12;
-            this.btn_generar_grafico.Text = "Generar Reporte";
+            this.btn_generar_grafico.Text = "Generar Grafico";
             this.btn_generar_grafico.UseVisualStyleBackColor = false;
+            this.btn_generar_grafico.Click += new System.EventHandler(this.btn_generar_grafico_Click);
             // 
             // label5
             // 
@@ -331,50 +378,6 @@ namespace SistemaGestorDeVentas.api.report
             this.label9.Text = "Generar Grafico";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
-            // btn_generar_reporte
-            // 
-            this.btn_generar_reporte.BackColor = System.Drawing.Color.LimeGreen;
-            this.btn_generar_reporte.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_generar_reporte.Location = new System.Drawing.Point(69, 150);
-            this.btn_generar_reporte.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_generar_reporte.Name = "btn_generar_reporte";
-            this.btn_generar_reporte.Size = new System.Drawing.Size(152, 36);
-            this.btn_generar_reporte.TabIndex = 14;
-            this.btn_generar_reporte.Text = "Generar Reporte";
-            this.btn_generar_reporte.UseVisualStyleBackColor = false;
-            this.btn_generar_reporte.Click += new System.EventHandler(this.btn_generar_reporte_Click);
-            // 
-            // nroVenta_informe
-            // 
-            this.nroVenta_informe.HeaderText = "Nro Venta";
-            this.nroVenta_informe.MinimumWidth = 6;
-            this.nroVenta_informe.Name = "nroVenta_informe";
-            this.nroVenta_informe.Width = 125;
-            // 
-            // FechaVenta_reporte
-            // 
-            this.FechaVenta_reporte.HeaderText = "Fecha";
-            this.FechaVenta_reporte.MinimumWidth = 6;
-            this.FechaVenta_reporte.Name = "FechaVenta_reporte";
-            this.FechaVenta_reporte.Width = 125;
-            // 
-            // Cliente_reporte
-            // 
-            this.Cliente_reporte.HeaderText = "Cliente";
-            this.Cliente_reporte.MinimumWidth = 6;
-            this.Cliente_reporte.Name = "Cliente_reporte";
-            this.Cliente_reporte.Width = 125;
-            // 
-            // vendedor_reporte
-            // 
-            this.vendedor_reporte.HeaderText = "Vendedor";
-            this.vendedor_reporte.Name = "vendedor_reporte";
-            // 
-            // total_reporte
-            // 
-            this.total_reporte.HeaderText = "Total";
-            this.total_reporte.Name = "total_reporte";
-            // 
             // reporteView
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -390,7 +393,7 @@ namespace SistemaGestorDeVentas.api.report
             this.Load += new System.EventHandler(this.reporteView_Load);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridReportes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTortaReport)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -401,7 +404,7 @@ namespace SistemaGestorDeVentas.api.report
 
         #endregion
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartTortaReport;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
@@ -411,9 +414,9 @@ namespace SistemaGestorDeVentas.api.report
         private System.Windows.Forms.ComboBox cboxReportEmpleado;
         private System.Windows.Forms.DataGridView dataGridReportes;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_limpiar_reporte;
         private Panel panel1;
-        private Button button3;
+        private Button btn_limpiar_grafico;
         private Button btn_generar_grafico;
         private Label label5;
         private ComboBox cbox_grafico;
