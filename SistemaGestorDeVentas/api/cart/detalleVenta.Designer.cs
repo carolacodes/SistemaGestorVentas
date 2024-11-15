@@ -37,8 +37,8 @@ namespace SistemaGestorDeVentas.api.cart
             this.txtMontoTotal = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnBuscarVenta = new System.Windows.Forms.Button();
             this.txtCartDetalleNroVenta = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.dataProductosVenta = new System.Windows.Forms.DataGridView();
@@ -53,6 +53,7 @@ namespace SistemaGestorDeVentas.api.cart
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.txtTipoDocumento = new System.Windows.Forms.TextBox();
             this.dateCartDetalleFecha = new System.Windows.Forms.DateTimePicker();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -61,7 +62,6 @@ namespace SistemaGestorDeVentas.api.cart
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.txtTipoDocumento = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -112,6 +112,7 @@ namespace SistemaGestorDeVentas.api.cart
             // 
             this.txtMontoTotal.Location = new System.Drawing.Point(86, 74);
             this.txtMontoTotal.Name = "txtMontoTotal";
+            this.txtMontoTotal.ReadOnly = true;
             this.txtMontoTotal.Size = new System.Drawing.Size(191, 22);
             this.txtMontoTotal.TabIndex = 17;
             // 
@@ -129,8 +130,8 @@ namespace SistemaGestorDeVentas.api.cart
             // 
             this.panel6.BackColor = System.Drawing.Color.Azure;
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Controls.Add(this.button5);
-            this.panel6.Controls.Add(this.button4);
+            this.panel6.Controls.Add(this.btnClear);
+            this.panel6.Controls.Add(this.btnBuscarVenta);
             this.panel6.Controls.Add(this.txtCartDetalleNroVenta);
             this.panel6.Controls.Add(this.label9);
             this.panel6.Location = new System.Drawing.Point(734, 45);
@@ -138,23 +139,25 @@ namespace SistemaGestorDeVentas.api.cart
             this.panel6.Size = new System.Drawing.Size(360, 92);
             this.panel6.TabIndex = 16;
             // 
-            // button5
+            // btnClear
             // 
-            this.button5.Image = global::SistemaGestorDeVentas.Properties.Resources.limpiar;
-            this.button5.Location = new System.Drawing.Point(306, 20);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(45, 44);
-            this.button5.TabIndex = 23;
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnClear.Image = global::SistemaGestorDeVentas.Properties.Resources.limpiar;
+            this.btnClear.Location = new System.Drawing.Point(306, 20);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(45, 44);
+            this.btnClear.TabIndex = 23;
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // button4
+            // btnBuscarVenta
             // 
-            this.button4.Image = global::SistemaGestorDeVentas.Properties.Resources.buscar;
-            this.button4.Location = new System.Drawing.Point(255, 20);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(45, 44);
-            this.button4.TabIndex = 22;
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnBuscarVenta.Image = global::SistemaGestorDeVentas.Properties.Resources.buscar;
+            this.btnBuscarVenta.Location = new System.Drawing.Point(255, 20);
+            this.btnBuscarVenta.Name = "btnBuscarVenta";
+            this.btnBuscarVenta.Size = new System.Drawing.Size(45, 44);
+            this.btnBuscarVenta.TabIndex = 22;
+            this.btnBuscarVenta.UseVisualStyleBackColor = true;
+            this.btnBuscarVenta.Click += new System.EventHandler(this.btnBuscarVenta_Click);
             // 
             // txtCartDetalleNroVenta
             // 
@@ -237,6 +240,7 @@ namespace SistemaGestorDeVentas.api.cart
             // 
             this.txtNombreCliVenta.Location = new System.Drawing.Point(208, 51);
             this.txtNombreCliVenta.Name = "txtNombreCliVenta";
+            this.txtNombreCliVenta.ReadOnly = true;
             this.txtNombreCliVenta.Size = new System.Drawing.Size(231, 22);
             this.txtNombreCliVenta.TabIndex = 5;
             // 
@@ -244,6 +248,7 @@ namespace SistemaGestorDeVentas.api.cart
             // 
             this.txtClienteVenta.Location = new System.Drawing.Point(7, 51);
             this.txtClienteVenta.Name = "txtClienteVenta";
+            this.txtClienteVenta.ReadOnly = true;
             this.txtClienteVenta.Size = new System.Drawing.Size(185, 22);
             this.txtClienteVenta.TabIndex = 3;
             // 
@@ -293,6 +298,14 @@ namespace SistemaGestorDeVentas.api.cart
             this.panel4.Size = new System.Drawing.Size(709, 92);
             this.panel4.TabIndex = 1;
             // 
+            // txtTipoDocumento
+            // 
+            this.txtTipoDocumento.Location = new System.Drawing.Point(158, 54);
+            this.txtTipoDocumento.Name = "txtTipoDocumento";
+            this.txtTipoDocumento.ReadOnly = true;
+            this.txtTipoDocumento.Size = new System.Drawing.Size(180, 22);
+            this.txtTipoDocumento.TabIndex = 8;
+            // 
             // dateCartDetalleFecha
             // 
             this.dateCartDetalleFecha.Location = new System.Drawing.Point(7, 54);
@@ -305,6 +318,7 @@ namespace SistemaGestorDeVentas.api.cart
             // 
             this.txtUsuario.Location = new System.Drawing.Point(354, 54);
             this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.ReadOnly = true;
             this.txtUsuario.Size = new System.Drawing.Size(194, 22);
             this.txtUsuario.TabIndex = 6;
             this.txtUsuario.Validating += new System.ComponentModel.CancelEventHandler(this.textBox4_Validating);
@@ -368,13 +382,6 @@ namespace SistemaGestorDeVentas.api.cart
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.Width = 125;
             // 
-            // txtTipoDocumento
-            // 
-            this.txtTipoDocumento.Location = new System.Drawing.Point(158, 54);
-            this.txtTipoDocumento.Name = "txtTipoDocumento";
-            this.txtTipoDocumento.Size = new System.Drawing.Size(180, 22);
-            this.txtTipoDocumento.TabIndex = 8;
-            // 
             // detalleVenta
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -419,8 +426,8 @@ namespace SistemaGestorDeVentas.api.cart
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnBuscarVenta;
         private System.Windows.Forms.TextBox txtCartDetalleNroVenta;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker dateCartDetalleFecha;

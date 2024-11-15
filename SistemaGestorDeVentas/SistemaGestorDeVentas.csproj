@@ -113,6 +113,8 @@
     <Compile Include="api\cart\metodoPago.Designer.cs">
       <DependentUpon>metodoPago.cs</DependentUpon>
     </Compile>
+    <Compile Include="api\cart\ProductoVentaDao.cs" />
+    <Compile Include="api\cart\ProductoVentaService.cs" />
     <Compile Include="api\cart\service.cs" />
     <Compile Include="api\cart\VentaDao.cs" />
     <Compile Include="api\cart\VentaService.cs" />
