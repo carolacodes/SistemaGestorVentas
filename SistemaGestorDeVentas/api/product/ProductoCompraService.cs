@@ -25,5 +25,30 @@ namespace SistemaGestorDeVentas.api.product
             }
         }
 
+        public Producto_Compra getProductoCompraService(int codigo)
+        {
+            try
+            {
+                var producto = prodCompraDao.getProductoCompraDao(codigo);
+                return producto;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("error al buscar el producto: " + ex.Message);
+            }
+        }
+
+        public List<Producto_Compra> getProductosCompraService(int codigo)
+        {
+            try
+            {
+                List<Producto_Compra> productos = prodCompraDao.getProductosCompraDao(codigo);
+                return productos;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("error al buscar el producto: " + ex.Message);
+            }
+        }
     }
 }

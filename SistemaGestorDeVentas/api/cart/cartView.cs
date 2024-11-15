@@ -299,7 +299,7 @@ namespace SistemaGestorDeVentas.api.cart
                     {
                         txtCartProducto.Text = productoExiste.nombre;
                         txtCartPrecio.Text = (productoExiste.precio_venta).ToString();
-                        txtCartStock.Text = (productoExiste.stock).ToString();
+                        //txtCartStock.Text = (productoExiste.stock).ToString();
                     }
                     else
                     {
@@ -330,12 +330,16 @@ namespace SistemaGestorDeVentas.api.cart
                 txtCartCodProduct.Text = "";
                 txtCartProducto.Text = "";
                 txtCartPrecio.Text = "";
-                txtCartStock.Text = "";
+                //txtCartStock.Text = "";
             }
 
             CalcularTotal();
-            
 
+            //ProductService productService = new ProductService();
+            //Producto prodEncontrado = productService.getProductService(int.Parse(cod_product));
+            //prodEncontrado.stock -= int.Parse(cantidad);
+            //productService.updateProductService(prodEncontrado);
+            //Console.WriteLine("Producto modif");
 
 
             //ProductService productService = new ProductService();
@@ -395,7 +399,7 @@ namespace SistemaGestorDeVentas.api.cart
             txtCartNombreCliente.Text = "";
             txtCartViewDNI.Text = "";
 
-            txtCartStock.Text = "";
+            //txtCartStock.Text = "";
             txtCartProducto.Text = "";
             txtCartPrecio.Text = "";
             txtCartCodProduct.Text = "";

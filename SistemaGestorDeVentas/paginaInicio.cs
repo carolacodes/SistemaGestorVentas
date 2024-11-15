@@ -60,7 +60,9 @@ namespace SistemaGestorDeVentas
                     compraProducto compraProductoForm = new compraProducto();
                     //metodoPago metodoPagoForm = new metodoPago(null, this);
                     //metodoPagoForm.UsuarioEmail = email; // Guarda el email en metodoPago
-                    navegador navForm = new navegador();
+                    
+                    // Pasa el usuario al formulario navegador
+                    navegador navForm = new navegador(usuario);
                     navForm.Show();
                     this.Hide();
                     Console.WriteLine("email desde login para metodo pago" + (metodoPago.UsuarioEmail = email));

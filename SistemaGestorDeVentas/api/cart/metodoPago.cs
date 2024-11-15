@@ -1,4 +1,5 @@
 ﻿using SistemaGestorDeVentas.api.pago;
+using SistemaGestorDeVentas.api.product;
 using SistemaGestorDeVentas.api.user;
 using SistemaGestorDeVentas.db;
 using System;
@@ -85,7 +86,7 @@ namespace SistemaGestorDeVentas.api.cart
                 id_pago = pago.id_pago,
             };
 
-            ventaService.crearVenta(venta);
+            Venta ventaCreada = ventaService.crearVenta(venta);
 
             DialogResult result = MessageBox.Show("La venta se registro exitosamente!", "Exitoso", MessageBoxButtons.OK, MessageBoxIcon.None);
 
@@ -94,6 +95,20 @@ namespace SistemaGestorDeVentas.api.cart
                 this.Close();
                 _carritoForm.clearPantalla();
             }
+
+            //ProductoVentaService productoVentaService = new ProductoVentaService();
+            //List<Producto_Venta> productosVendidos = productoVentaService.getProductVentaByCodVenta(ventaCreada.cod_venta);
+            //ProductService productService = new ProductService();
+            //foreach (var prod in productosVendidos)
+            //{
+               
+            //    Producto prodEncotrado = productService.getProductService(prod.id_producto);
+            //    if (prodEncotrado != null)
+            //    {
+            //        prodEncotrado.stock -= prod.cantidad;
+            //        productService.updateProductService(prodEncotrado);
+            //    }
+            //}
         }
 
 

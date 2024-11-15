@@ -8,6 +8,7 @@ using SistemaGestorDeVentas.api.proveedor;
 using SistemaGestorDeVentas.api.report;
 using SistemaGestorDeVentas.api.user;
 using SistemaGestorDeVentas.backup;
+using SistemaGestorDeVentas.db;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,11 +23,15 @@ namespace SistemaGestorDeVentas.components
 {
     public partial class navegador : Form
     {
-        public navegador()
+        private Usuario usuario;
+        public navegador(Usuario usuarioLogueado)
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
-            
+            this.usuario = usuarioLogueado;
+
+            // Configura el menú según el rol
+            ConfigurarMenu();
         }
 
         private void nuevaVentaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -369,6 +374,19 @@ namespace SistemaGestorDeVentas.components
             }*/
 
         }
+
+        private void ConfigurarMenu()
+        {
+            if (usuario.id_rol == 1) // Vendedor
+            {
+                MostrarMenuVendedor();
+            }
+            else if (usuario.id_rol == 2) // Administrador
+            {
+                MostrarMenuAdministrador();
+            }
+        }
+
 
         public void MostrarMenuVendedor()
         {
