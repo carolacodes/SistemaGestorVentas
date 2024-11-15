@@ -14,6 +14,9 @@ using System.Xml.Linq;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using SistemaGestorDeVentas.db;
+using SistemaGestorDeVentas.api.cliente;
+using SistemaGestorDeVentas.api.user;
+using SistemaGestorDeVentas.api.product;
 
 
 namespace SistemaGestorDeVentas.api.cart
@@ -92,7 +95,7 @@ namespace SistemaGestorDeVentas.api.cart
 
         private void detalleVenta_Load(object sender, EventArgs e)
         {
-
+            txtTipoDocumento.Text = "Factura";
         }
 
         private void button3_Click_1(object sender, EventArgs e)
@@ -106,17 +109,26 @@ namespace SistemaGestorDeVentas.api.cart
 
             FacturaService facturaDao = new FacturaService();
 
-            int cod_venta = int.Parse(txtCartDetalleNroVenta.Text);
+            var cod_venta = txtCartDetalleNroVenta.Text;
 
-            Factura facturaEncontrada = facturaDao.getFactura(cod_venta);
+            Factura facturaEncontrada = facturaDao.getFactura(int.Parse(cod_venta));
 
             if (facturaEncontrada is null)
             {
                 throw new Exception("No se encontró la factura con el numero de venta especificado.");
             }
 
+            string rutaCarpeta = @"E:\CAROLA\CAROLA FACULTAD\TERCER AÑO\SEGUNDO CUATRIMESTRE\taller\SistemaGestorVentas\facturas_ventas";
+            if (!Directory.Exists(rutaCarpeta))
+            {
+                Directory.CreateDirectory(rutaCarpeta);
+            }
+
+            // Define la ruta completa con el nombre del archivo
+            string rutaArchivo = Path.Combine(rutaCarpeta, $"Factura_{facturaEncontrada.numero_factura}.pdf");
+
             // Define el nombre y la ruta del archivo PDF
-            string rutaArchivo = $@"C:\Factura_{facturaEncontrada.numero_factura}.pdf";
+            //string rutaArchivo = $@"C:\Factura_{facturaEncontrada.numero_factura}.pdf";
 
             // Crea el documento PDF
             Document doc = new Document(PageSize.A4);
@@ -131,7 +143,7 @@ namespace SistemaGestorDeVentas.api.cart
 
             // Encabezado: Número de factura y fecha
             doc.Add(new Paragraph($"Factura No. {facturaEncontrada.numero_factura}", encabezadoFont));
-            doc.Add(new Paragraph($"Fecha: {dateCartDetalleFecha.Text} \n", textoNormalFont));
+            doc.Add(new Paragraph($"Fecha: {dateCartDetalleFecha.Value} \n", textoNormalFont));
             doc.Add(new Paragraph(" ")); // Espacio
 
             // Título "Factura de Compra"
@@ -144,11 +156,11 @@ namespace SistemaGestorDeVentas.api.cart
             doc.Add(new Paragraph($"DNI Cliente: {txtClienteVenta.Text}", textoNormalFont));
             doc.Add(new Paragraph($"Nombre Cliente: {txtNombreCliVenta.Text}", textoNormalFont));
             doc.Add(new Paragraph($"Documento: {txtTipoDocumento.Text}", textoNormalFont));
-            doc.Add(new Paragraph($"Usuario: {txtUsuario.Text}", textoNormalFont));
+            doc.Add(new Paragraph($"Vendedor: {txtUsuario.Text}", textoNormalFont));
             doc.Add(new Paragraph(" "));
 
             var tituloProductos = new Paragraph("-- Productos Comprados --", subtituloFont);
-            tituloProductos.Alignment = Element.ALIGN_RIGHT;
+            tituloProductos.Alignment = Element.ALIGN_LEFT;
             doc.Add(tituloProductos);
             doc.Add(new Paragraph(" "));
 
@@ -156,22 +168,44 @@ namespace SistemaGestorDeVentas.api.cart
             PdfPTable tabla = new PdfPTable(dataProductosVenta.Columns.Count);
             tabla.WidthPercentage = 100;
 
-            // Agrega el encabezado de la tabla
-            foreach (DataColumn columna in dataProductosVenta.Columns)
+            // Agregar el encabezado de la tabla
+            foreach (DataGridViewColumn columna in dataProductosVenta.Columns)
             {
-                PdfPCell cell = new PdfPCell(new Phrase(columna.ColumnName, encabezadoFont));
-                cell.BackgroundColor = BaseColor.Gray; //LIGHT_GRAY
+                PdfPCell cell = new PdfPCell(new Phrase(columna.HeaderText, encabezadoFont));
+                cell.BackgroundColor = BaseColor.Gray; // Cambiar a gris claro o el color deseado
                 tabla.AddCell(cell);
             }
 
-            // Agrega las filas de datos a la tabla
-            foreach (DataRow fila in dataProductosVenta.Rows)
+            // Agregar las filas de datos a la tabla
+            foreach (DataGridViewRow fila in dataProductosVenta.Rows)
             {
-                foreach (var item in fila.ItemArray)
+                // Verifica si la fila no es una fila nueva para evitar errores
+                if (!fila.IsNewRow)
                 {
-                    tabla.AddCell(new Phrase(item.ToString(), textoNormalFont));
+                    foreach (DataGridViewCell celda in fila.Cells)
+                    {
+                        tabla.AddCell(new Phrase(celda.Value?.ToString() ?? "", textoNormalFont));
+                    }
                 }
             }
+
+
+            //// Agrega el encabezado de la tabla
+            //foreach (DataColumn columna in dataProductosVenta.Columns)
+            //{
+            //    PdfPCell cell = new PdfPCell(new Phrase(columna.ColumnName, encabezadoFont));
+            //    cell.BackgroundColor = BaseColor.Gray; //LIGHT_GRAY
+            //    tabla.AddCell(cell);
+            //}
+
+            //// Agrega las filas de datos a la tabla
+            //foreach (DataRow fila in dataProductosVenta.Rows)
+            //{
+            //    foreach (var item in fila.ItemArray)
+            //    {
+            //        tabla.AddCell(new Phrase(item.ToString(), textoNormalFont));
+            //    }
+            //}
 
             // Agrega la tabla al documento
             doc.Add(tabla);
@@ -285,6 +319,99 @@ namespace SistemaGestorDeVentas.api.cart
             doc.Close();
 
             MessageBox.Show($"El PDF de la factura {facturaEncontrada.numero_factura} se ha generado correctamente en la ruta: {rutaArchivo}");
+        }
+
+        private void btnBuscarVenta_Click(object sender, EventArgs e)
+        {
+            var cod_venta = txtCartDetalleNroVenta.Text;
+            if (string.IsNullOrEmpty(cod_venta))
+            {
+                buscarVenta buscarVenta = new buscarVenta(this);
+                buscarVenta.Show();
+            }
+            else
+            {
+                try
+                {
+                    ProductoVentaService prodVentaService = new ProductoVentaService();
+                    UserService userServices = new UserService();
+                    ClienteService clienteService = new ClienteService();
+                    VentaService ventaService = new VentaService();
+                    ProductService productService = new ProductService();
+                    Venta ventaExiste = ventaService.getVenta(int.Parse(cod_venta));
+                    if (ventaExiste != null)
+                    {
+                        //cargamos la fecha
+                        DateTime dateTime = ventaExiste.fecha_venta;
+                        dateCartDetalleFecha.Value = dateTime;
+
+                        //BUSCAMOS EL USUARIO
+                        var dni_usuario = ventaExiste.DNI_usuario;
+                        Usuario usuarioEncontrado = userServices.getUser(dni_usuario);
+                        txtUsuario.Text = usuarioEncontrado.nombre;
+
+                        //BUSCAMOS EL CLIENTE
+                        var dni_cliente = ventaExiste.DNI_cliente;
+                        Cliente clienteEncontrado = clienteService.getCliente(dni_cliente);
+                        txtClienteVenta.Text = dni_cliente;
+                        txtNombreCliVenta.Text = clienteEncontrado.nombre;
+
+                        //BUSCAMOS EL PRODUCTO-VENTA
+                        //lista de productos_venta con el mismo codigo de venta
+                        List<Producto_Venta> producto_ventas= prodVentaService.getProductVentaByCodVenta(ventaExiste.cod_venta);
+
+                        foreach(var productVenta in producto_ventas)
+                        {
+                            Producto productoEncontrado = productService.getProductService(productVenta.id_producto);
+                            var subtotal = productoEncontrado.precio_venta * productVenta.cantidad;
+                            dataProductosVenta.Rows.Add(productoEncontrado.nombre, productoEncontrado.precio_venta, productVenta.cantidad, subtotal);
+                        }
+
+                        CalcularTotal();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Numero de venta no existe", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al intentar obtener el detalle de la venta: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtCartDetalleNroVenta.Text = "";
+            txtMontoTotal.Text = "";
+            txtClienteVenta.Text = "";
+            txtNombreCliVenta.Text = "";
+            txtUsuario.Text = "";
+            dataProductosVenta.Rows.Clear();
+        }
+
+        public void CalcularTotal()
+        {
+            decimal total = 0;
+
+            // Recorre todas las filas del DataGridView
+            foreach (DataGridViewRow row in dataProductosVenta.Rows)
+            {
+                // Verifica que la fila no sea la fila vacía al final del DataGridView
+                if (row.Cells["DetalleCardSubtotal"].Value != null)
+                {
+                    // Intenta convertir el valor de la columna 'cartSubtotal' a decimal y acumularlo
+                    decimal subtotal;
+                    if (decimal.TryParse(row.Cells["DetalleCardSubtotal"].Value.ToString(), out subtotal))
+                    {
+                        total += subtotal;
+                    }
+                }
+            }
+
+            // Asigna el total calculado al TextBox txtTotal
+            txtMontoTotal.Text = total.ToString(); // Formato de dos decimales
         }
     }
 }
