@@ -516,7 +516,7 @@ namespace SistemaGestorDeVentas.api.cart
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DomainUpDown dpCantidad;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.DataGridView dataGridCartView;
+        public System.Windows.Forms.DataGridView dataGridCartView;
         private System.Windows.Forms.Label label14;
         public System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;

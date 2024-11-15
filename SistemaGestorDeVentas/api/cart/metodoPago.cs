@@ -11,6 +11,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SistemaGestorDeVentas.api.compra.compraProducto;
+using SistemaGestorDeVentas.api.cart;
 
 namespace SistemaGestorDeVentas.api.cart
 {
@@ -33,6 +35,12 @@ namespace SistemaGestorDeVentas.api.cart
 
         }
 
+
+        public class productCantidad
+        {
+            public int ProductoId { get; set; }
+            public int cantidad { get; set; }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             VentaService ventaService = new VentaService();
@@ -43,10 +51,10 @@ namespace SistemaGestorDeVentas.api.cart
 
             UserService userService = new UserService();
 
-
+            List<productCantidad> productosCompraClass = new List<productCantidad>();
             //var totalPago = totalPagoMetodo.Text;
             var metodoElegido = cbMetodoPago.Text;
-            
+
             var metodoObtenido = metodoService.getMetodoPagoByName(metodoElegido);
 
 
@@ -65,7 +73,7 @@ namespace SistemaGestorDeVentas.api.cart
                 return;
             }
 
-            
+
 
             Usuario usuarioEncontrado = userService.getUserByEmail(UsuarioEmail);
 
@@ -88,6 +96,73 @@ namespace SistemaGestorDeVentas.api.cart
 
             Venta ventaCreada = ventaService.crearVenta(venta);
 
+
+            ProductService productService = new ProductService();
+            foreach (DataGridViewRow fila in _carritoForm.dataGridCartView.Rows)
+            {
+                if (fila.IsNewRow) continue;  // Ignora la nueva fila
+
+                var nombreDelProducto = fila.Cells["cartProducto"].Value.ToString();
+                var cantidadProd = fila.Cells["cartCantidad"].Value.ToString();
+
+                //var idProducto = productoEncontrado.codigo_producto;
+
+                if (!string.IsNullOrEmpty(nombreDelProducto) && int.TryParse(cantidadProd, out int cantidadInt))
+                {
+                    Producto productoEncontrado = productService.getProductServiceByName(nombreDelProducto);
+
+                    if (productoEncontrado != null)
+                    {
+                        Producto_Venta productoCompra = new Producto_Venta
+                        {
+
+                            cod_venta = ventaCreada.cod_venta,
+                            id_producto = productoEncontrado.codigo_producto,
+                            cantidad = cantidadInt
+                        };
+
+                        productosCompraClass.Add(new productCantidad
+                        {
+                            ProductoId = productoCompra.id_producto,
+                            cantidad = productoCompra.cantidad
+                        });
+                    }
+                }
+            }
+
+            using (var context = new sistema_de_ventas_taller_Entities())
+            {
+                try
+                {
+                    foreach (var ProductoDatos in productosCompraClass)
+                    {
+                        Producto producto = context.Producto.Find(ProductoDatos.ProductoId);
+                        if (producto != null)
+                        {
+                            producto.stock -= ProductoDatos.cantidad; // Actualiza el stock
+                            context.SaveChanges();  // Guarda los cambios de manera sincrónica
+                        }
+                    }
+
+                    //MessageBox.Show("Se registró la compra de productos correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.None);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al actualizar los productos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+
+
+
+
+
+
+
+
+
+
+
             DialogResult result = MessageBox.Show("La venta se registro exitosamente!", "Exitoso", MessageBoxButtons.OK, MessageBoxIcon.None);
 
             if (result == DialogResult.OK)
@@ -96,19 +171,19 @@ namespace SistemaGestorDeVentas.api.cart
                 _carritoForm.clearPantalla();
             }
 
-            //ProductoVentaService productoVentaService = new ProductoVentaService();
-            //List<Producto_Venta> productosVendidos = productoVentaService.getProductVentaByCodVenta(ventaCreada.cod_venta);
+            ProductoVentaService productoVentaService = new ProductoVentaService();
+            List<Producto_Venta> productosVendidos = productoVentaService.getProductVentaByCodVenta(ventaCreada.cod_venta);
             //ProductService productService = new ProductService();
-            //foreach (var prod in productosVendidos)
-            //{
+            foreach (var prod in productosVendidos)
+            {
                
-            //    Producto prodEncotrado = productService.getProductService(prod.id_producto);
-            //    if (prodEncotrado != null)
-            //    {
-            //        prodEncotrado.stock -= prod.cantidad;
-            //        productService.updateProductService(prodEncotrado);
-            //    }
-            //}
+               Producto prodEncotrado = productService.getProductService(prod.id_producto);
+               if (prodEncotrado != null)
+                {
+                    prodEncotrado.stock -= prod.cantidad;
+                    productService.updateProductService(prodEncotrado);
+                }
+            }
         }
 
 

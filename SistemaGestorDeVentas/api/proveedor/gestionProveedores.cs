@@ -149,12 +149,12 @@ namespace SistemaGestorDeVentas.api.proveedor
                 txtProveedorDireccion.Text = row.Cells["direccionProveedor"].Value.ToString();
                 txtProveedorEmail.Text = row.Cells["emailProveedor"].Value.ToString();
 
-                cboxProveedorEstado.Text =
+                //cboxProveedorEstado.Text =
 
                 string nombreEstado = row.Cells["detalleClienteEstado"].Value.ToString();
                 int? estadoID = estadoService.GetEstadoIdByNombre(nombreEstado);
 
-                cbClienteEstado.SelectedValue = estadoID;
+                //cbClienteEstado.SelectedValue = estadoID;
 
 
             }

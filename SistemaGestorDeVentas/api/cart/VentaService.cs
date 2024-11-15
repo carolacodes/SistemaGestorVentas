@@ -21,6 +21,7 @@ namespace SistemaGestorDeVentas.api.cart
             {
                 var venta = ventaDao.crearVenta(nuevaVenta);
 
+
                 return venta;
             }
             catch (Exception ex)

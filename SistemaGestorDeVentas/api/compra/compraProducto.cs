@@ -356,7 +356,7 @@ namespace SistemaGestorDeVentas.api.compra
                         Producto producto = context.Producto.Find(ProductoDatos.ProductoId);
                         if (producto != null)
                         {
-                            producto.stock -= ProductoDatos.cantidad; // Actualiza el stock
+                            producto.stock += ProductoDatos.cantidad; // Actualiza el stock
                             context.SaveChanges();  // Guarda los cambios de manera sincrónica
                         }
                     }
