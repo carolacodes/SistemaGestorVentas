@@ -32,6 +32,14 @@ namespace SistemaGestorDeVentas.api.product
         {
             this.panel5 = new System.Windows.Forms.Panel();
             this.dataGrid_productos = new System.Windows.Forms.DataGridView();
+            this.detalleProductoNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleProductoCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleProductoDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleProductoCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleProductoPrecio_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleProductoStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleProductoEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -57,14 +65,6 @@ namespace SistemaGestorDeVentas.api.product
             this.txtProductCodigo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.detalleProductoNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleProductoCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleProductoDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleProductoCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleProductoPrecio_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleProductoStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleProductoEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_productos)).BeginInit();
             this.panel4.SuspendLayout();
@@ -100,6 +100,61 @@ namespace SistemaGestorDeVentas.api.product
             this.dataGrid_productos.RowTemplate.Height = 24;
             this.dataGrid_productos.Size = new System.Drawing.Size(766, 334);
             this.dataGrid_productos.TabIndex = 0;
+            this.dataGrid_productos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_productos_CellClick);
+            // 
+            // detalleProductoNombre
+            // 
+            this.detalleProductoNombre.HeaderText = "Nombre";
+            this.detalleProductoNombre.MinimumWidth = 6;
+            this.detalleProductoNombre.Name = "detalleProductoNombre";
+            this.detalleProductoNombre.Width = 125;
+            // 
+            // detalleProductoCodigo
+            // 
+            this.detalleProductoCodigo.HeaderText = "Codigo";
+            this.detalleProductoCodigo.MinimumWidth = 6;
+            this.detalleProductoCodigo.Name = "detalleProductoCodigo";
+            this.detalleProductoCodigo.Width = 125;
+            // 
+            // detalleProductoDescripcion
+            // 
+            this.detalleProductoDescripcion.HeaderText = "Descripcion";
+            this.detalleProductoDescripcion.MinimumWidth = 6;
+            this.detalleProductoDescripcion.Name = "detalleProductoDescripcion";
+            this.detalleProductoDescripcion.Width = 125;
+            // 
+            // detalleProductoCategoria
+            // 
+            this.detalleProductoCategoria.HeaderText = "Categoria";
+            this.detalleProductoCategoria.MinimumWidth = 6;
+            this.detalleProductoCategoria.Name = "detalleProductoCategoria";
+            this.detalleProductoCategoria.Width = 125;
+            // 
+            // detalleProductoPrecio_compra
+            // 
+            this.detalleProductoPrecio_compra.HeaderText = "Precio Compra";
+            this.detalleProductoPrecio_compra.MinimumWidth = 6;
+            this.detalleProductoPrecio_compra.Name = "detalleProductoPrecio_compra";
+            this.detalleProductoPrecio_compra.Width = 125;
+            // 
+            // precio_venta
+            // 
+            this.precio_venta.HeaderText = "Precio Venta";
+            this.precio_venta.Name = "precio_venta";
+            // 
+            // detalleProductoStock
+            // 
+            this.detalleProductoStock.HeaderText = "Stock";
+            this.detalleProductoStock.MinimumWidth = 6;
+            this.detalleProductoStock.Name = "detalleProductoStock";
+            this.detalleProductoStock.Width = 125;
+            // 
+            // detalleProductoEstado
+            // 
+            this.detalleProductoEstado.HeaderText = "Estado";
+            this.detalleProductoEstado.MinimumWidth = 6;
+            this.detalleProductoEstado.Name = "detalleProductoEstado";
+            this.detalleProductoEstado.Width = 125;
             // 
             // panel4
             // 
@@ -363,60 +418,6 @@ namespace SistemaGestorDeVentas.api.product
             this.label1.Size = new System.Drawing.Size(126, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Detalle Producto";
-            // 
-            // detalleProductoNombre
-            // 
-            this.detalleProductoNombre.HeaderText = "Nombre";
-            this.detalleProductoNombre.MinimumWidth = 6;
-            this.detalleProductoNombre.Name = "detalleProductoNombre";
-            this.detalleProductoNombre.Width = 125;
-            // 
-            // detalleProductoCodigo
-            // 
-            this.detalleProductoCodigo.HeaderText = "Codigo";
-            this.detalleProductoCodigo.MinimumWidth = 6;
-            this.detalleProductoCodigo.Name = "detalleProductoCodigo";
-            this.detalleProductoCodigo.Width = 125;
-            // 
-            // detalleProductoDescripcion
-            // 
-            this.detalleProductoDescripcion.HeaderText = "Descripcion";
-            this.detalleProductoDescripcion.MinimumWidth = 6;
-            this.detalleProductoDescripcion.Name = "detalleProductoDescripcion";
-            this.detalleProductoDescripcion.Width = 125;
-            // 
-            // detalleProductoCategoria
-            // 
-            this.detalleProductoCategoria.HeaderText = "Categoria";
-            this.detalleProductoCategoria.MinimumWidth = 6;
-            this.detalleProductoCategoria.Name = "detalleProductoCategoria";
-            this.detalleProductoCategoria.Width = 125;
-            // 
-            // detalleProductoPrecio_compra
-            // 
-            this.detalleProductoPrecio_compra.HeaderText = "Precio Compra";
-            this.detalleProductoPrecio_compra.MinimumWidth = 6;
-            this.detalleProductoPrecio_compra.Name = "detalleProductoPrecio_compra";
-            this.detalleProductoPrecio_compra.Width = 125;
-            // 
-            // precio_venta
-            // 
-            this.precio_venta.HeaderText = "Precio Venta";
-            this.precio_venta.Name = "precio_venta";
-            // 
-            // detalleProductoStock
-            // 
-            this.detalleProductoStock.HeaderText = "Stock";
-            this.detalleProductoStock.MinimumWidth = 6;
-            this.detalleProductoStock.Name = "detalleProductoStock";
-            this.detalleProductoStock.Width = 125;
-            // 
-            // detalleProductoEstado
-            // 
-            this.detalleProductoEstado.HeaderText = "Estado";
-            this.detalleProductoEstado.MinimumWidth = 6;
-            this.detalleProductoEstado.Name = "detalleProductoEstado";
-            this.detalleProductoEstado.Width = 125;
             // 
             // adminGestionProduct
             // 

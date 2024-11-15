@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using SistemaGestorDeVentas.api.category;
+using System.Runtime.Remoting.Contexts;
 
 namespace SistemaGestorDeVentas.api.product
 {
@@ -61,6 +62,35 @@ namespace SistemaGestorDeVentas.api.product
                 throw new Exception("error al obtener los productos: " + ex.Message);
             }
         }
+        /*
+                public Producto updateProductDao(Producto productoActualizado)
+                {
+                    try
+                    {
+                        using (var context = new sistema_de_ventas_taller_Entities())
+                        {
+                            var producto = context.Producto.Find(productoActualizado.codigo_producto);
+                            if (producto != null)
+                            {
+                                producto.nombre = productoActualizado.nombre;
+                                producto.descripcion = productoActualizado.descripcion;
+                                producto.id_categoria = productoActualizado.id_categoria;
+                                producto.precio_compra = productoActualizado.precio_compra;
+                                producto.precio_venta = productoActualizado.precio_venta;
+                                producto.stock = productoActualizado.stock;
+                                producto.Estado = productoActualizado.Estado;
+                                context.SaveChanges();
+                                return producto;
+                            }
+                            return producto;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("error al actualizar el producto: " + ex.Message);
+                    }
+                }
+                */
 
         public Producto updateProductDao(Producto productoActualizado)
         {
@@ -68,6 +98,9 @@ namespace SistemaGestorDeVentas.api.product
             {
                 using (var context = new sistema_de_ventas_taller_Entities())
                 {
+                    // Deshabilitar carga diferida
+                    context.Configuration.LazyLoadingEnabled = false;
+
                     var producto = context.Producto.Find(productoActualizado.codigo_producto);
                     if (producto != null)
                     {
@@ -78,18 +111,19 @@ namespace SistemaGestorDeVentas.api.product
                         producto.precio_venta = productoActualizado.precio_venta;
                         producto.stock = productoActualizado.stock;
                         producto.Estado = productoActualizado.Estado;
+
                         context.SaveChanges();
-                        return producto;
                     }
+
+                    // Devolver el producto actualizado
                     return producto;
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception("error al actualizar el producto: " + ex.Message);
+                throw new Exception("Error al actualizar el producto: " + ex.Message);
             }
         }
-
         public Producto deleteProductDao(int codigo)
         {
             try

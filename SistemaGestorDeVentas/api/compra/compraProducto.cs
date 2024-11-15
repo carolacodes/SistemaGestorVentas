@@ -1,16 +1,20 @@
-﻿using SistemaGestorDeVentas.api.product;
+﻿using SistemaGestorDeVentas.api.cart;
+using SistemaGestorDeVentas.api.product;
 using SistemaGestorDeVentas.api.proveedor;
 using SistemaGestorDeVentas.api.user;
 using SistemaGestorDeVentas.db;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Design;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SistemaGestorDeVentas.api.compra.compraProducto;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace SistemaGestorDeVentas.api.compra
@@ -23,6 +27,7 @@ namespace SistemaGestorDeVentas.api.compra
             InitializeComponent();
         }
 
+        private string email = metodoPago.UsuarioEmail;
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
@@ -124,7 +129,6 @@ namespace SistemaGestorDeVentas.api.compra
                 txtCartProducto.Text = "";
                 txtCartPrecio.Text = "";
                 //txtCartStock.Text = "";
-                txtPrecioVenta.Text = "";
                 //txtCartStock.Text = "";
             }
 
@@ -175,33 +179,132 @@ namespace SistemaGestorDeVentas.api.compra
             }
         }
 
+        public class productCantidad
+        {
+            public int ProductoId { get; set; }
+            public int cantidad { get; set; }
+        }
+
+        /* private void btnRegistrarCompra_Click(object sender, EventArgs e)
+         {
+             var cod_prod = txtCartCodProduct.Text;
+
+             //if (string.IsNullOrEmpty(cod_prod) || !int.TryParse(cod_prod, out int codigoProducto))
+             //{
+             //    MessageBox.Show("Por favor, ingrese un código de producto válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+             //    return; // Salimos del método si el código de producto no es válido
+             //}
+
+             //var cantidad = dmCantidad.ToString(); 
+             //CompraService compraService = new CompraService();
+
+             ProductService productService = new ProductService();
+             //// Intentamos obtener el producto con el código especificado
+             //Producto productoExiste = productService.getProductService(codigoProducto);
+             //if (productoExiste == null)
+             //{
+             //    MessageBox.Show("El producto no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+             //    return; // Salimos del método si el producto no se encuentra
+             //}
+
+             DateTime fechaCompra = dateCartViewFecha.Value;
+             UserService userService = new UserService();
+
+             Usuario usuario = userService.getUserByEmail(email);
+
+
+             Compra compra = new Compra
+             {
+                 DNI_usuario = usuario.DNI_usuario,
+                 fecha_compra = fechaCompra,
+             };
+
+             CompraService compraService = new CompraService();
+
+             Compra nuevaCompra = compraService.crearCompra(compra);
+
+
+             //List<Producto> productos = new List<Producto>();
+
+             //foreach (DataGridCell dataGrid in dataGridCartView.Rows)
+             //{
+             //    var nombreProduct = productoExiste.nombre;
+             //    var valorCelda = dataGridCartView.Rows[0].Cells["CompraProdutProducto"].Value;
+             //    if (nombreProduct == valorCelda.ToString())
+             //    {
+             //        Producto_Compra producto_Compra = new Producto_Compra
+             //        {
+             //            id_compra = compra.id_compra,
+             //            id_producto = productoExiste.codigo_producto,
+             //            cantidad = int.Parse(cantidad)
+             //        };
+             //    }
+             //}
+
+             // Lista para almacenar los productos_compra
+             //List<Producto_Compra> productosCompra = new List<Producto_Compra>();
+             ProductoCompraService productoCompraService = new ProductoCompraService();
+             List<productCantidad> productosCompraClass = new List<productCantidad>();
+             foreach (DataGridViewRow fila in dataGridCartView.Rows)
+             {
+                 // Asegúrate de que la fila no esté vacía (por ejemplo, si la fila es la nueva fila al final de un DataGridView)
+                 if (fila.IsNewRow) continue;
+
+                 // Obtiene los valores de las celdas correspondientes en la fila
+                 var valorCeldaProducto = fila.Cells["CompraProdutProducto"].Value.ToString();
+                 var cantidadProd = fila.Cells["CompraProdutCantidad"].Value.ToString();
+
+                 //var cantidad = Convert.ToString(fila.Cells["CompraProdutCantidad"].Value);
+
+                 if (!string.IsNullOrEmpty(valorCeldaProducto) && int.TryParse(cantidadProd, out int cantidadInt))
+                 {
+                     // Obtén el producto usando el nombre u otro identificador, según cómo obtienes el producto.
+                     //Producto productoExiste = productService.getProductServiceByName(valorCeldaProducto);
+
+                     Producto produc = productService.getProductServiceByName(valorCeldaProducto);
+
+                     if (produc != null)
+                     {
+                         Producto_Compra productoCompra = new Producto_Compra
+                         {
+                             id_compra = nuevaCompra.id_compra,
+                             id_producto = produc.codigo_producto,
+                             cantidad = cantidadInt
+                         };
+                         productosCompraClass.Add(new productCantidad
+                         {
+                             ProductoId = productoCompra.id_producto,
+                             cantidad = productoCompra.cantidad
+                         });
+                         // Añade el producto a la lista de productos de compra
+                         //productosCompra.Add(productoCompra);
+
+                     }
+                 }
+             }
+
+             foreach (var ProductoDatos in productosCompraClass)
+             {
+                 ProductService productoService = new ProductService();
+
+                 Producto producto = productService.getProductService(ProductoDatos.ProductoId);
+                 producto.stock = producto.stock - ProductoDatos.cantidad;
+                 productService.updateProductService(producto);
+             }
+             MessageBox.Show("Se registros la compra de productos correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.None);
+         }*/
+
         private void btnRegistrarCompra_Click(object sender, EventArgs e)
         {
             var cod_prod = txtCartCodProduct.Text;
 
-            //if (string.IsNullOrEmpty(cod_prod) || !int.TryParse(cod_prod, out int codigoProducto))
-            //{
-            //    MessageBox.Show("Por favor, ingrese un código de producto válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return; // Salimos del método si el código de producto no es válido
-            //}
-
-            //var cantidad = dmCantidad.ToString(); 
-            //CompraService compraService = new CompraService();
-
-            ProductService productService = new ProductService();
-            //// Intentamos obtener el producto con el código especificado
-            //Producto productoExiste = productService.getProductService(codigoProducto);
-            //if (productoExiste == null)
-            //{
-            //    MessageBox.Show("El producto no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return; // Salimos del método si el producto no se encuentra
-            //}
+            // Reemplaza la validación de código de producto si es necesario
+            // Si el producto existe o no, realiza las verificaciones necesarias
 
             DateTime fechaCompra = dateCartViewFecha.Value;
             UserService userService = new UserService();
-            Usuario usuario = userService.getUserByEmail(UsuarioEmail);
-
-
+            Usuario usuario = userService.getUserByEmail(email);
+            ProductService productService = new ProductService();
             Compra compra = new Compra
             {
                 DNI_usuario = usuario.DNI_usuario,
@@ -209,45 +312,20 @@ namespace SistemaGestorDeVentas.api.compra
             };
 
             CompraService compraService = new CompraService();
-
             Compra nuevaCompra = compraService.crearCompra(compra);
-            //List<Producto> productos = new List<Producto>();
 
-            //foreach (DataGridCell dataGrid in dataGridCartView.Rows)
-            //{
-            //    var nombreProduct = productoExiste.nombre;
-            //    var valorCelda = dataGridCartView.Rows[0].Cells["CompraProdutProducto"].Value;
-            //    if (nombreProduct == valorCelda.ToString())
-            //    {
-            //        Producto_Compra producto_Compra = new Producto_Compra
-            //        {
-            //            id_compra = compra.id_compra,
-            //            id_producto = productoExiste.codigo_producto,
-            //            cantidad = int.Parse(cantidad)
-            //        };
-            //    }
-            //}
-
-            // Lista para almacenar los productos_compra
-            //List<Producto_Compra> productosCompra = new List<Producto_Compra>();
             ProductoCompraService productoCompraService = new ProductoCompraService();
+            List<productCantidad> productosCompraClass = new List<productCantidad>();
 
             foreach (DataGridViewRow fila in dataGridCartView.Rows)
             {
-                // Asegúrate de que la fila no esté vacía (por ejemplo, si la fila es la nueva fila al final de un DataGridView)
-                if (fila.IsNewRow) continue;
+                if (fila.IsNewRow) continue;  // Ignora la nueva fila
 
-                // Obtiene los valores de las celdas correspondientes en la fila
                 var valorCeldaProducto = fila.Cells["CompraProdutProducto"].Value.ToString();
                 var cantidadProd = fila.Cells["CompraProdutCantidad"].Value.ToString();
 
-                //var cantidad = Convert.ToString(fila.Cells["CompraProdutCantidad"].Value);
-
                 if (!string.IsNullOrEmpty(valorCeldaProducto) && int.TryParse(cantidadProd, out int cantidadInt))
                 {
-                    // Obtén el producto usando el nombre u otro identificador, según cómo obtienes el producto.
-                    //Producto productoExiste = productService.getProductServiceByName(valorCeldaProducto);
-
                     Producto produc = productService.getProductServiceByName(valorCeldaProducto);
 
                     if (produc != null)
@@ -259,13 +337,37 @@ namespace SistemaGestorDeVentas.api.compra
                             cantidad = cantidadInt
                         };
 
-                        // Añade el producto a la lista de productos de compra
-                        //productosCompra.Add(productoCompra);
-                        productoCompraService.createProductoCompraService(productoCompra);
+                        productosCompraClass.Add(new productCantidad
+                        {
+                            ProductoId = productoCompra.id_producto,
+                            cantidad = productoCompra.cantidad
+                        });
                     }
                 }
             }
-            MessageBox.Show("Se registros la compra de productos correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+            // Actualiza el stock de los productos en la base de datos
+            using (var context = new sistema_de_ventas_taller_Entities())
+            {
+                try
+                {
+                    foreach (var ProductoDatos in productosCompraClass)
+                    {
+                        Producto producto = context.Producto.Find(ProductoDatos.ProductoId);
+                        if (producto != null)
+                        {
+                            producto.stock -= ProductoDatos.cantidad; // Actualiza el stock
+                            context.SaveChanges();  // Guarda los cambios de manera sincrónica
+                        }
+                    }
+
+                    MessageBox.Show("Se registró la compra de productos correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.None);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al actualizar los productos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

@@ -131,7 +131,16 @@ namespace SistemaGestorDeVentas.api.product
                 foreach (var prod in productos)
                 {
                     Console.WriteLine("stock: " + prod.stock);
-                    dataGridBuscarProd.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, prod.id_categoria, prod.stock, prod.precio_venta);
+                    if(_carritoForm != null && _carritoForm.Visible)
+                    {
+                        dataGridBuscarProd.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, prod.id_categoria, prod.stock, prod.precio_venta);
+                    }
+                    if (_compraProductoForm != null && _compraProductoForm.Visible)
+                    {
+                        dataGridBuscarProd.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, prod.id_categoria, prod.stock, prod.precio_compra);
+
+                    }
+                        
                 }
 
                 //dataGridBuscarCliente.DataSource = clientes;

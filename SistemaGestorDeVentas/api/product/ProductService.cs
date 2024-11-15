@@ -69,7 +69,7 @@ namespace SistemaGestorDeVentas.api.product
         {
             try
             {
-                productoActualizado.precio_venta = productoActualizado.precio_venta;
+                //productoActualizado.precio_venta = productoActualizado.precio_venta;
                 var producto = productDao.updateProductDao(productoActualizado);
                 return producto;
             }
@@ -78,6 +78,8 @@ namespace SistemaGestorDeVentas.api.product
                 throw new Exception("error al actualizar el producto: " + ex.Message);
             }
         }
+        
+    
 
         public Producto deleteProductService(int codigo)
         {
