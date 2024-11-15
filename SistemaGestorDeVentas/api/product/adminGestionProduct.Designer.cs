@@ -31,22 +31,12 @@ namespace SistemaGestorDeVentas.api.product
         private void InitializeComponent()
         {
             this.panel5 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.detalleProductoNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleProductoCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleProductoDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleProductoCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleProductoPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleProductoStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleProductoEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleProductoSeleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGrid_productos = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtProductNombre = new System.Windows.Forms.TextBox();
@@ -67,8 +57,16 @@ namespace SistemaGestorDeVentas.api.product
             this.txtProductCodigo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.detalleProductoNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleProductoCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleProductoDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleProductoCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleProductoPrecio_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleProductoStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleProductoEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_productos)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -77,87 +75,31 @@ namespace SistemaGestorDeVentas.api.product
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.dataGridView1);
+            this.panel5.Controls.Add(this.dataGrid_productos);
             this.panel5.Location = new System.Drawing.Point(318, 91);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(800, 370);
             this.panel5.TabIndex = 8;
             // 
-            // dataGridView1
+            // dataGrid_productos
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Azure;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGrid_productos.BackgroundColor = System.Drawing.Color.Azure;
+            this.dataGrid_productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGrid_productos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.detalleProductoNombre,
             this.detalleProductoCodigo,
             this.detalleProductoDescripcion,
             this.detalleProductoCategoria,
-            this.detalleProductoPrecio,
+            this.detalleProductoPrecio_compra,
+            this.precio_venta,
             this.detalleProductoStock,
-            this.detalleProductoEstado,
-            this.detalleProductoSeleccionar});
-            this.dataGridView1.Location = new System.Drawing.Point(16, 17);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(766, 334);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // detalleProductoNombre
-            // 
-            this.detalleProductoNombre.HeaderText = "Nombre";
-            this.detalleProductoNombre.MinimumWidth = 6;
-            this.detalleProductoNombre.Name = "detalleProductoNombre";
-            this.detalleProductoNombre.Width = 125;
-            // 
-            // detalleProductoCodigo
-            // 
-            this.detalleProductoCodigo.HeaderText = "Codigo";
-            this.detalleProductoCodigo.MinimumWidth = 6;
-            this.detalleProductoCodigo.Name = "detalleProductoCodigo";
-            this.detalleProductoCodigo.Width = 125;
-            // 
-            // detalleProductoDescripcion
-            // 
-            this.detalleProductoDescripcion.HeaderText = "Descripcion";
-            this.detalleProductoDescripcion.MinimumWidth = 6;
-            this.detalleProductoDescripcion.Name = "detalleProductoDescripcion";
-            this.detalleProductoDescripcion.Width = 125;
-            // 
-            // detalleProductoCategoria
-            // 
-            this.detalleProductoCategoria.HeaderText = "Categoria";
-            this.detalleProductoCategoria.MinimumWidth = 6;
-            this.detalleProductoCategoria.Name = "detalleProductoCategoria";
-            this.detalleProductoCategoria.Width = 125;
-            // 
-            // detalleProductoPrecio
-            // 
-            this.detalleProductoPrecio.HeaderText = "Precio";
-            this.detalleProductoPrecio.MinimumWidth = 6;
-            this.detalleProductoPrecio.Name = "detalleProductoPrecio";
-            this.detalleProductoPrecio.Width = 125;
-            // 
-            // detalleProductoStock
-            // 
-            this.detalleProductoStock.HeaderText = "Stock";
-            this.detalleProductoStock.MinimumWidth = 6;
-            this.detalleProductoStock.Name = "detalleProductoStock";
-            this.detalleProductoStock.Width = 125;
-            // 
-            // detalleProductoEstado
-            // 
-            this.detalleProductoEstado.HeaderText = "Estado";
-            this.detalleProductoEstado.MinimumWidth = 6;
-            this.detalleProductoEstado.Name = "detalleProductoEstado";
-            this.detalleProductoEstado.Width = 125;
-            // 
-            // detalleProductoSeleccionar
-            // 
-            this.detalleProductoSeleccionar.HeaderText = "Seleccionar";
-            this.detalleProductoSeleccionar.MinimumWidth = 6;
-            this.detalleProductoSeleccionar.Name = "detalleProductoSeleccionar";
-            this.detalleProductoSeleccionar.Width = 125;
+            this.detalleProductoEstado});
+            this.dataGrid_productos.Location = new System.Drawing.Point(16, 17);
+            this.dataGrid_productos.Name = "dataGrid_productos";
+            this.dataGrid_productos.RowHeadersWidth = 51;
+            this.dataGrid_productos.RowTemplate.Height = 24;
+            this.dataGrid_productos.Size = new System.Drawing.Size(766, 334);
+            this.dataGrid_productos.TabIndex = 0;
             // 
             // panel4
             // 
@@ -166,9 +108,7 @@ namespace SistemaGestorDeVentas.api.product
             this.panel4.Controls.Add(this.button6);
             this.panel4.Controls.Add(this.button5);
             this.panel4.Controls.Add(this.button4);
-            this.panel4.Controls.Add(this.comboBox2);
             this.panel4.Controls.Add(this.textBox2);
-            this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Location = new System.Drawing.Point(315, 15);
             this.panel4.Name = "panel4";
@@ -202,30 +142,12 @@ namespace SistemaGestorDeVentas.api.product
             this.button4.TabIndex = 4;
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(402, 21);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 3;
-            this.comboBox2.Text = "Nombre";
-            // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(529, 23);
+            this.textBox2.Location = new System.Drawing.Point(529, 25);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(169, 20);
             this.textBox2.TabIndex = 2;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(317, 24);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Buscar Por: ";
             // 
             // label4
             // 
@@ -442,6 +364,60 @@ namespace SistemaGestorDeVentas.api.product
             this.label1.TabIndex = 0;
             this.label1.Text = "Detalle Producto";
             // 
+            // detalleProductoNombre
+            // 
+            this.detalleProductoNombre.HeaderText = "Nombre";
+            this.detalleProductoNombre.MinimumWidth = 6;
+            this.detalleProductoNombre.Name = "detalleProductoNombre";
+            this.detalleProductoNombre.Width = 125;
+            // 
+            // detalleProductoCodigo
+            // 
+            this.detalleProductoCodigo.HeaderText = "Codigo";
+            this.detalleProductoCodigo.MinimumWidth = 6;
+            this.detalleProductoCodigo.Name = "detalleProductoCodigo";
+            this.detalleProductoCodigo.Width = 125;
+            // 
+            // detalleProductoDescripcion
+            // 
+            this.detalleProductoDescripcion.HeaderText = "Descripcion";
+            this.detalleProductoDescripcion.MinimumWidth = 6;
+            this.detalleProductoDescripcion.Name = "detalleProductoDescripcion";
+            this.detalleProductoDescripcion.Width = 125;
+            // 
+            // detalleProductoCategoria
+            // 
+            this.detalleProductoCategoria.HeaderText = "Categoria";
+            this.detalleProductoCategoria.MinimumWidth = 6;
+            this.detalleProductoCategoria.Name = "detalleProductoCategoria";
+            this.detalleProductoCategoria.Width = 125;
+            // 
+            // detalleProductoPrecio_compra
+            // 
+            this.detalleProductoPrecio_compra.HeaderText = "Precio Compra";
+            this.detalleProductoPrecio_compra.MinimumWidth = 6;
+            this.detalleProductoPrecio_compra.Name = "detalleProductoPrecio_compra";
+            this.detalleProductoPrecio_compra.Width = 125;
+            // 
+            // precio_venta
+            // 
+            this.precio_venta.HeaderText = "Precio Venta";
+            this.precio_venta.Name = "precio_venta";
+            // 
+            // detalleProductoStock
+            // 
+            this.detalleProductoStock.HeaderText = "Stock";
+            this.detalleProductoStock.MinimumWidth = 6;
+            this.detalleProductoStock.Name = "detalleProductoStock";
+            this.detalleProductoStock.Width = 125;
+            // 
+            // detalleProductoEstado
+            // 
+            this.detalleProductoEstado.HeaderText = "Estado";
+            this.detalleProductoEstado.MinimumWidth = 6;
+            this.detalleProductoEstado.Name = "detalleProductoEstado";
+            this.detalleProductoEstado.Width = 125;
+            // 
             // adminGestionProduct
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -454,8 +430,9 @@ namespace SistemaGestorDeVentas.api.product
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "adminGestionProduct";
             this.Text = "Productos";
+            this.Load += new System.EventHandler(this.adminGestionProduct_Load);
             this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_productos)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -467,13 +444,11 @@ namespace SistemaGestorDeVentas.api.product
         #endregion
 
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGrid_productos;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnProductEliminar;
@@ -495,13 +470,13 @@ namespace SistemaGestorDeVentas.api.product
         private System.Windows.Forms.TextBox txtProductStock;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn detalleProductoNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn detalleProductoCodigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn detalleProductoDescripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn detalleProductoCategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn detalleProductoPrecio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn detalleProductoStock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn detalleProductoEstado;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn detalleProductoSeleccionar;
+        private DataGridViewTextBoxColumn detalleProductoNombre;
+        private DataGridViewTextBoxColumn detalleProductoCodigo;
+        private DataGridViewTextBoxColumn detalleProductoDescripcion;
+        private DataGridViewTextBoxColumn detalleProductoCategoria;
+        private DataGridViewTextBoxColumn detalleProductoPrecio_compra;
+        private DataGridViewTextBoxColumn precio_venta;
+        private DataGridViewTextBoxColumn detalleProductoStock;
+        private DataGridViewTextBoxColumn detalleProductoEstado;
     }
 }

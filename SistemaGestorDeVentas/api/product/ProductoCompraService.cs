@@ -20,7 +20,8 @@ namespace SistemaGestorDeVentas.api.product
             }
             catch (Exception ex)
             {
-                throw new Exception("error al crear el producto: " + ex.Message);
+                throw new Exception("Error al crear el producto: " + ex.Message +
+                            (ex.InnerException != null ? " - Detalle: " + ex.InnerException.Message : ""));
             }
         }
 

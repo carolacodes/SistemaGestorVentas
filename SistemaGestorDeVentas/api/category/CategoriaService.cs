@@ -24,6 +24,18 @@ namespace SistemaGestorDeVentas.api.category
             }
         }
 
+        public Categoria getCategoriaPorNombre(string nombreCategoria)
+        {
+            try
+            {
+                var categoria = categoriaDao.getCategoriaPorNombreDao(nombreCategoria);
+                return categoria;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al buscar la categoria:  " + ex.Message);
+            }
+        }
         public Categoria updateCateoria(Categoria categoriaActualizada)
         {
             try

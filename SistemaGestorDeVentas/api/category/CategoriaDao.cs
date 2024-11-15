@@ -99,5 +99,22 @@ namespace SistemaGestorDeVentas.api.category
                 throw new Exception("no se encuentra la categoria: " + ex.Message);
             }
         }
+
+        public Categoria getCategoriaPorNombreDao(string nombreCategoria)
+        {
+            try
+            {
+                using (var context = new sistema_de_ventas_taller_Entities())
+                {
+                    var categoria = context.Categoria
+                                            .FirstOrDefault(c => c.nombre == nombreCategoria);
+                    return categoria;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al buscar la categoría por nombre: " + ex.Message);
+            }
+        }
     }
 }

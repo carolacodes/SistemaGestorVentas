@@ -1,5 +1,6 @@
 ﻿using SistemaGestorDeVentas.api.product;
 using SistemaGestorDeVentas.api.proveedor;
+using SistemaGestorDeVentas.api.user;
 using SistemaGestorDeVentas.db;
 using System;
 using System.Collections.Generic;
@@ -197,13 +198,19 @@ namespace SistemaGestorDeVentas.api.compra
             //}
 
             DateTime fechaCompra = dateCartViewFecha.Value;
+            UserService userService = new UserService();
+            Usuario usuario = userService.getUserByEmail(UsuarioEmail);
+
 
             Compra compra = new Compra
             {
-                DNI_usuario = UsuarioEmail,
+                DNI_usuario = usuario.DNI_usuario,
                 fecha_compra = fechaCompra,
             };
 
+            CompraService compraService = new CompraService();
+
+            Compra nuevaCompra = compraService.crearCompra(compra);
             //List<Producto> productos = new List<Producto>();
 
             //foreach (DataGridCell dataGrid in dataGridCartView.Rows)
@@ -247,7 +254,7 @@ namespace SistemaGestorDeVentas.api.compra
                     {
                         Producto_Compra productoCompra = new Producto_Compra
                         {
-                            id_compra = compra.id_compra,
+                            id_compra = nuevaCompra.id_compra,
                             id_producto = produc.codigo_producto,
                             cantidad = cantidadInt
                         };

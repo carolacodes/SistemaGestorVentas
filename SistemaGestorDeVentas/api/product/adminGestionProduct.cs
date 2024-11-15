@@ -1,4 +1,7 @@
-﻿using System;
+﻿using SistemaGestorDeVentas.api.category;
+using SistemaGestorDeVentas.db;
+using SistemaGestorDeVentas.middleware;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -169,6 +172,25 @@ namespace SistemaGestorDeVentas.api.product
             if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Space)
             {
                 e.Handled = true; // Bloquear caracteres que no sean letras o espacios
+            }
+        }
+
+        private void adminGestionProduct_Load(object sender, EventArgs e)
+        {
+            EstadoService estadoService = new EstadoService();  
+            ProductService productService = new ProductService();
+            CategoriaService categoriaService = new CategoriaService();
+            var estados = estadoService.getEstados();
+
+            cboxProductEstado.DataSource = estados;
+            cboxProductEstado.DisplayMember = "nombre";
+            cboxProductEstado.ValueMember = "id_estado";
+
+            var productos = productService.getProductsService();
+
+            foreach (var producto in productos)
+            {
+                dataGrid_productos.Rows.Add(producto.nombre, producto.codigo_producto, producto.descripcion,categoriaService.getCategoria(producto.id_categoria).nombre,producto.precio_compra, producto.precio_venta , producto.stock ,estadoService.getEstado(producto.id_estado).nombre);
             }
         }
     }

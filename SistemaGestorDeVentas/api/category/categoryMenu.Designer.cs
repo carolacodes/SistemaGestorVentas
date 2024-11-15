@@ -31,42 +31,31 @@ namespace SistemaGestorDeVentas.api.category
         private void InitializeComponent()
         {
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnEliminarCategoria = new System.Windows.Forms.Button();
             this.btnLimpiarCategoria = new System.Windows.Forms.Button();
             this.btnGuardarCategoria = new System.Windows.Forms.Button();
-            this.cbCategoriaEstado = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtCategoriaNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.txtCategoriaBuscar = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridCategoria = new System.Windows.Forms.DataGridView();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.txtIDCategoria = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.id_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.detalleCategoriaNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleCategoriaEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridCategoria)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.btnEliminarCategoria);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.txtIDCategoria);
             this.panel3.Controls.Add(this.btnLimpiarCategoria);
             this.panel3.Controls.Add(this.btnGuardarCategoria);
-            this.panel3.Controls.Add(this.cbCategoriaEstado);
-            this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.txtCategoriaNombre);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
@@ -74,17 +63,6 @@ namespace SistemaGestorDeVentas.api.category
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(296, 474);
             this.panel3.TabIndex = 0;
-            // 
-            // btnEliminarCategoria
-            // 
-            this.btnEliminarCategoria.BackColor = System.Drawing.Color.Red;
-            this.btnEliminarCategoria.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarCategoria.Location = new System.Drawing.Point(61, 402);
-            this.btnEliminarCategoria.Name = "btnEliminarCategoria";
-            this.btnEliminarCategoria.Size = new System.Drawing.Size(152, 36);
-            this.btnEliminarCategoria.TabIndex = 7;
-            this.btnEliminarCategoria.Text = "Eliminar";
-            this.btnEliminarCategoria.UseVisualStyleBackColor = false;
             // 
             // btnLimpiarCategoria
             // 
@@ -96,6 +74,7 @@ namespace SistemaGestorDeVentas.api.category
             this.btnLimpiarCategoria.TabIndex = 6;
             this.btnLimpiarCategoria.Text = "Limpiar";
             this.btnLimpiarCategoria.UseVisualStyleBackColor = false;
+            this.btnLimpiarCategoria.Click += new System.EventHandler(this.btnLimpiarCategoria_Click);
             // 
             // btnGuardarCategoria
             // 
@@ -109,32 +88,11 @@ namespace SistemaGestorDeVentas.api.category
             this.btnGuardarCategoria.UseVisualStyleBackColor = false;
             this.btnGuardarCategoria.Click += new System.EventHandler(this.btnGuardarCategoria_Click);
             // 
-            // cbCategoriaEstado
-            // 
-            this.cbCategoriaEstado.FormattingEnabled = true;
-            this.cbCategoriaEstado.Items.AddRange(new object[] {
-            "Activo",
-            "Inactivo"});
-            this.cbCategoriaEstado.Location = new System.Drawing.Point(16, 229);
-            this.cbCategoriaEstado.Name = "cbCategoriaEstado";
-            this.cbCategoriaEstado.Size = new System.Drawing.Size(264, 24);
-            this.cbCategoriaEstado.TabIndex = 4;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 186);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 23);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Estado";
-            // 
             // txtCategoriaNombre
             // 
-            this.txtCategoriaNombre.Location = new System.Drawing.Point(14, 131);
+            this.txtCategoriaNombre.Location = new System.Drawing.Point(11, 172);
             this.txtCategoriaNombre.Name = "txtCategoriaNombre";
-            this.txtCategoriaNombre.Size = new System.Drawing.Size(266, 22);
+            this.txtCategoriaNombre.Size = new System.Drawing.Size(266, 20);
             this.txtCategoriaNombre.TabIndex = 2;
             this.txtCategoriaNombre.TextChanged += new System.EventHandler(this.txtCategoriaNombre_TextChanged);
             this.txtCategoriaNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCategoriaNombre_KeyPress);
@@ -144,9 +102,9 @@ namespace SistemaGestorDeVentas.api.category
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(11, 91);
+            this.label2.Location = new System.Drawing.Point(11, 150);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 23);
+            this.label2.Size = new System.Drawing.Size(73, 19);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nombre: ";
             // 
@@ -156,115 +114,35 @@ namespace SistemaGestorDeVentas.api.category
             this.label1.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(56, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(177, 28);
+            this.label1.Size = new System.Drawing.Size(143, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Detalle Categoria";
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.button6);
-            this.panel4.Controls.Add(this.button5);
-            this.panel4.Controls.Add(this.button4);
-            this.panel4.Controls.Add(this.comboBox2);
-            this.panel4.Controls.Add(this.txtCategoriaBuscar);
-            this.panel4.Controls.Add(this.label5);
-            this.panel4.Controls.Add(this.label4);
-            this.panel4.Location = new System.Drawing.Point(314, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(804, 64);
-            this.panel4.TabIndex = 2;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(7, 33);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(124, 23);
-            this.button6.TabIndex = 7;
-            this.button6.Text = "Descargar Excel";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Image = global::SistemaGestorDeVentas.Properties.Resources.limpiar;
-            this.button5.Location = new System.Drawing.Point(755, 12);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(45, 44);
-            this.button5.TabIndex = 5;
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Image = global::SistemaGestorDeVentas.Properties.Resources.buscar;
-            this.button4.Location = new System.Drawing.Point(704, 12);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(45, 44);
-            this.button4.TabIndex = 4;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Nombre"});
-            this.comboBox2.Location = new System.Drawing.Point(402, 21);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
-            this.comboBox2.TabIndex = 3;
-            this.comboBox2.Text = "Nombre";
-            // 
-            // txtCategoriaBuscar
-            // 
-            this.txtCategoriaBuscar.Location = new System.Drawing.Point(529, 23);
-            this.txtCategoriaBuscar.Name = "txtCategoriaBuscar";
-            this.txtCategoriaBuscar.Size = new System.Drawing.Size(169, 22);
-            this.txtCategoriaBuscar.TabIndex = 2;
-            this.txtCategoriaBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCategoriaBuscar_KeyPress);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(317, 24);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 16);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Buscar Por: ";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 12);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(141, 20);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Lista de Categorias";
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.dataGridView1);
-            this.panel5.Location = new System.Drawing.Point(317, 76);
+            this.panel5.Controls.Add(this.dataGridCategoria);
+            this.panel5.Location = new System.Drawing.Point(317, 12);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(800, 370);
+            this.panel5.Size = new System.Drawing.Size(800, 449);
             this.panel5.TabIndex = 3;
             // 
-            // dataGridView1
+            // dataGridCategoria
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Azure;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.detalleCategoriaNombre,
-            this.detalleCategoriaEstado});
-            this.dataGridView1.Location = new System.Drawing.Point(16, 14);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(766, 334);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridCategoria.BackgroundColor = System.Drawing.Color.Azure;
+            this.dataGridCategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridCategoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_categoria,
+            this.detalleCategoriaNombre});
+            this.dataGridCategoria.Location = new System.Drawing.Point(17, 21);
+            this.dataGridCategoria.Name = "dataGridCategoria";
+            this.dataGridCategoria.RowHeadersWidth = 51;
+            this.dataGridCategoria.RowTemplate.Height = 24;
+            this.dataGridCategoria.Size = new System.Drawing.Size(766, 405);
+            this.dataGridCategoria.TabIndex = 0;
+            this.dataGridCategoria.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridCategoria_CellClick);
+            this.dataGridCategoria.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // dataGridViewImageColumn1
             // 
@@ -277,6 +155,28 @@ namespace SistemaGestorDeVentas.api.category
             this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewImageColumn1.Width = 125;
             // 
+            // txtIDCategoria
+            // 
+            this.txtIDCategoria.Location = new System.Drawing.Point(11, 115);
+            this.txtIDCategoria.Name = "txtIDCategoria";
+            this.txtIDCategoria.Size = new System.Drawing.Size(266, 20);
+            this.txtIDCategoria.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(11, 93);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(31, 19);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "ID: ";
+            // 
+            // id_categoria
+            // 
+            this.id_categoria.HeaderText = "ID";
+            this.id_categoria.Name = "id_categoria";
+            // 
             // detalleCategoriaNombre
             // 
             this.detalleCategoriaNombre.HeaderText = "Nombre";
@@ -285,20 +185,12 @@ namespace SistemaGestorDeVentas.api.category
             this.detalleCategoriaNombre.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.detalleCategoriaNombre.Width = 125;
             // 
-            // detalleCategoriaEstado
-            // 
-            this.detalleCategoriaEstado.HeaderText = "Estado";
-            this.detalleCategoriaEstado.MinimumWidth = 6;
-            this.detalleCategoriaEstado.Name = "detalleCategoriaEstado";
-            this.detalleCategoriaEstado.Width = 125;
-            // 
             // categoryMenu
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.LightSeaGreen;
             this.ClientSize = new System.Drawing.Size(1130, 473);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "categoryMenu";
@@ -306,10 +198,8 @@ namespace SistemaGestorDeVentas.api.category
             this.Load += new System.EventHandler(this.categoryMenu_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridCategoria)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -317,25 +207,16 @@ namespace SistemaGestorDeVentas.api.category
         #endregion
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCategoriaNombre;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbCategoriaEstado;
-        private System.Windows.Forms.Button btnEliminarCategoria;
         private System.Windows.Forms.Button btnLimpiarCategoria;
         private System.Windows.Forms.Button btnGuardarCategoria;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox txtCategoriaBuscar;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridCategoria;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private System.Windows.Forms.Button button6;
+        private Label label3;
+        private TextBox txtIDCategoria;
+        private DataGridViewTextBoxColumn id_categoria;
         private DataGridViewTextBoxColumn detalleCategoriaNombre;
-        private DataGridViewTextBoxColumn detalleCategoriaEstado;
     }
 }

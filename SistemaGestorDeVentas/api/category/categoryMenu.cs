@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SistemaGestorDeVentas.db;
+using SistemaGestorDeVentas.middleware;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,6 +26,16 @@ namespace SistemaGestorDeVentas.api.category
 
         private void categoryMenu_Load(object sender, EventArgs e)
         {
+            CategoriaService categoriaService = new CategoriaService();
+
+  
+
+            var categorias = categoriaService.getCategorias();
+
+            foreach (var categoria in categorias)
+            {
+                dataGridCategoria.Rows.Add(categoria.id_categoria ,categoria.nombre);
+            }
 
         }
 
@@ -66,11 +78,71 @@ namespace SistemaGestorDeVentas.api.category
                 return;
             }
 
-            if (cbCategoriaEstado.SelectedItem == null)
+
+            if (string.IsNullOrWhiteSpace(txtIDCategoria.Text))
             {
-                MessageBox.Show("Por favor, seleccione un estado para la categoría.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                try
+                {
+                    string nombreCategoria = txtCategoriaNombre.Text;
+                    var nuevaCategoria = new Categoria
+                    {
+                        nombre = nombreCategoria
+                    };
+
+                    CategoriaService categoriaService = new CategoriaService();
+                    categoriaService.createCategoria(nuevaCategoria);
+                    MessageBox.Show("Categoria registrada exitosamente");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al guardar una categoria en la base de datos: " + ex.Message);
+                }
+            }
+            else
+            {
+                try
+                {
+
+                    string nombreCategoria = txtCategoriaNombre.Text;
+                    int idCategoria = int.Parse(txtIDCategoria.Text);
+                    var nuevaCategoria = new Categoria
+                    {
+                        id_categoria = idCategoria,
+                        nombre = nombreCategoria
+                    };
+
+                    CategoriaService categoriaService = new CategoriaService();
+
+                    if (categoriaService.getCategoria(nuevaCategoria.id_categoria) == null)
+                    {
+                        categoriaService.createCategoria(nuevaCategoria);
+                        MessageBox.Show("Categoria registrada exitosamente");
+                    }
+                    else
+                    {
+                        categoriaService.updateCateoria(nuevaCategoria);
+                        MessageBox.Show("Categoria modificada exitosamente");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al guardar una categoria en la base de datos: " + ex.Message);
+                }
             }
         }
+
+        private void dataGridCategoria_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = dataGridCategoria.Rows[e.RowIndex];
+            txtIDCategoria.Text = row.Cells["id_categoria"].Value.ToString();
+            txtCategoriaNombre.Text = row.Cells["detalleCategoriaNombre"].Value.ToString();
+        }
+
+        private void btnLimpiarCategoria_Click(object sender, EventArgs e)
+        {
+            txtCategoriaNombre.Clear();
+        }
+
+
     }
 }
