@@ -40,6 +40,19 @@ namespace SistemaGestorDeVentas.api.product
             }
         }
 
+        public Producto getProductServiceByName(string nombre)
+        {
+            try
+            {
+                Producto producto = productDao.getProductByName(nombre);
+                return producto;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("error al buscar el producto: " + ex.Message);
+            }
+        }
+
         public List<Producto> getProductsService()
         {
             try

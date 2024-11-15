@@ -32,25 +32,25 @@ namespace SistemaGestorDeVentas.api.compra
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.dateCartViewFecha = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbProveedores = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.txtPrecioVenta = new System.Windows.Forms.TextBox();
-            this.domainUpDown1 = new System.Windows.Forms.DomainUpDown();
+            this.dmCantidad = new System.Windows.Forms.DomainUpDown();
             this.label13 = new System.Windows.Forms.Label();
             this.txtCartPrecio = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.btnAgregarCompraView = new System.Windows.Forms.Button();
             this.txtCartProducto = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnBuscarProducto = new System.Windows.Forms.Button();
             this.txtCartCodProduct = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -60,7 +60,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.CompraProdutCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CompraProdutSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CompraProdutEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtTotal = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.btnRegistrarCompra = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -85,8 +85,8 @@ namespace SistemaGestorDeVentas.api.compra
             // 
             this.panel4.BackColor = System.Drawing.Color.Azure;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.textBox1);
             this.panel4.Controls.Add(this.dateCartViewFecha);
-            this.panel4.Controls.Add(this.comboBox1);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.label2);
@@ -95,23 +95,21 @@ namespace SistemaGestorDeVentas.api.compra
             this.panel4.Size = new System.Drawing.Size(528, 92);
             this.panel4.TabIndex = 1;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(167, 59);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(149, 22);
+            this.textBox1.TabIndex = 18;
+            this.textBox1.Text = "Factura";
+            // 
             // dateCartViewFecha
             // 
             this.dateCartViewFecha.Location = new System.Drawing.Point(17, 59);
             this.dateCartViewFecha.Name = "dateCartViewFecha";
             this.dateCartViewFecha.Size = new System.Drawing.Size(119, 22);
             this.dateCartViewFecha.TabIndex = 17;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Boleta",
-            "Factura"});
-            this.comboBox1.Location = new System.Drawing.Point(166, 57);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(178, 24);
-            this.comboBox1.TabIndex = 4;
             // 
             // label4
             // 
@@ -147,20 +145,21 @@ namespace SistemaGestorDeVentas.api.compra
             // 
             this.panel5.BackColor = System.Drawing.Color.Azure;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.comboBox2);
+            this.panel5.Controls.Add(this.cbProveedores);
             this.panel5.Controls.Add(this.label7);
             this.panel5.Location = new System.Drawing.Point(556, 45);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(525, 92);
             this.panel5.TabIndex = 5;
             // 
-            // comboBox2
+            // cbProveedores
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(16, 50);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(175, 24);
-            this.comboBox2.TabIndex = 7;
+            this.cbProveedores.FormattingEnabled = true;
+            this.cbProveedores.Location = new System.Drawing.Point(16, 50);
+            this.cbProveedores.Name = "cbProveedores";
+            this.cbProveedores.Size = new System.Drawing.Size(175, 24);
+            this.cbProveedores.TabIndex = 7;
+            this.cbProveedores.SelectedIndexChanged += new System.EventHandler(this.cbProveedores_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -176,14 +175,14 @@ namespace SistemaGestorDeVentas.api.compra
             // 
             this.panel6.Controls.Add(this.label5);
             this.panel6.Controls.Add(this.txtPrecioVenta);
-            this.panel6.Controls.Add(this.domainUpDown1);
+            this.panel6.Controls.Add(this.dmCantidad);
             this.panel6.Controls.Add(this.label13);
             this.panel6.Controls.Add(this.txtCartPrecio);
             this.panel6.Controls.Add(this.label11);
             this.panel6.Controls.Add(this.btnAgregarCompraView);
             this.panel6.Controls.Add(this.txtCartProducto);
             this.panel6.Controls.Add(this.label10);
-            this.panel6.Controls.Add(this.button2);
+            this.panel6.Controls.Add(this.btnBuscarProducto);
             this.panel6.Controls.Add(this.txtCartCodProduct);
             this.panel6.Controls.Add(this.label9);
             this.panel6.Controls.Add(this.label8);
@@ -210,14 +209,14 @@ namespace SistemaGestorDeVentas.api.compra
             this.txtPrecioVenta.Size = new System.Drawing.Size(145, 25);
             this.txtPrecioVenta.TabIndex = 17;
             // 
-            // domainUpDown1
+            // dmCantidad
             // 
-            this.domainUpDown1.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.domainUpDown1.Location = new System.Drawing.Point(590, 66);
-            this.domainUpDown1.Name = "domainUpDown1";
-            this.domainUpDown1.Size = new System.Drawing.Size(120, 25);
-            this.domainUpDown1.TabIndex = 16;
-            this.domainUpDown1.Text = "1";
+            this.dmCantidad.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dmCantidad.Location = new System.Drawing.Point(590, 66);
+            this.dmCantidad.Name = "dmCantidad";
+            this.dmCantidad.Size = new System.Drawing.Size(120, 25);
+            this.dmCantidad.TabIndex = 16;
+            this.dmCantidad.Text = "1";
             // 
             // label13
             // 
@@ -234,6 +233,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.txtCartPrecio.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCartPrecio.Location = new System.Drawing.Point(433, 65);
             this.txtCartPrecio.Name = "txtCartPrecio";
+            this.txtCartPrecio.ReadOnly = true;
             this.txtCartPrecio.Size = new System.Drawing.Size(145, 25);
             this.txtCartPrecio.TabIndex = 11;
             // 
@@ -256,12 +256,14 @@ namespace SistemaGestorDeVentas.api.compra
             this.btnAgregarCompraView.TabIndex = 7;
             this.btnAgregarCompraView.Text = "Agregar";
             this.btnAgregarCompraView.UseVisualStyleBackColor = true;
+            this.btnAgregarCompraView.Click += new System.EventHandler(this.btnAgregarCompraView_Click);
             // 
             // txtCartProducto
             // 
             this.txtCartProducto.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCartProducto.Location = new System.Drawing.Point(225, 65);
             this.txtCartProducto.Name = "txtCartProducto";
+            this.txtCartProducto.ReadOnly = true;
             this.txtCartProducto.Size = new System.Drawing.Size(195, 25);
             this.txtCartProducto.TabIndex = 9;
             // 
@@ -275,19 +277,20 @@ namespace SistemaGestorDeVentas.api.compra
             this.label10.TabIndex = 8;
             this.label10.Text = "Producto";
             // 
-            // button2
+            // btnBuscarProducto
             // 
-            this.button2.Image = global::SistemaGestorDeVentas.Properties.Resources.buscar;
-            this.button2.Location = new System.Drawing.Point(168, 47);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(45, 44);
-            this.button2.TabIndex = 7;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnBuscarProducto.Image = global::SistemaGestorDeVentas.Properties.Resources.buscar;
+            this.btnBuscarProducto.Location = new System.Drawing.Point(11, 47);
+            this.btnBuscarProducto.Name = "btnBuscarProducto";
+            this.btnBuscarProducto.Size = new System.Drawing.Size(45, 44);
+            this.btnBuscarProducto.TabIndex = 7;
+            this.btnBuscarProducto.UseVisualStyleBackColor = true;
+            this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscarProducto_Click);
             // 
             // txtCartCodProduct
             // 
             this.txtCartCodProduct.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCartCodProduct.Location = new System.Drawing.Point(10, 65);
+            this.txtCartCodProduct.Location = new System.Drawing.Point(68, 66);
             this.txtCartCodProduct.Name = "txtCartCodProduct";
             this.txtCartCodProduct.Size = new System.Drawing.Size(145, 25);
             this.txtCartCodProduct.TabIndex = 2;
@@ -296,7 +299,7 @@ namespace SistemaGestorDeVentas.api.compra
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(7, 43);
+            this.label9.Location = new System.Drawing.Point(69, 43);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(96, 17);
             this.label9.TabIndex = 1;
@@ -328,6 +331,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.dataGridCartView.RowTemplate.Height = 24;
             this.dataGridCartView.Size = new System.Drawing.Size(1062, 189);
             this.dataGridCartView.TabIndex = 8;
+            this.dataGridCartView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridCartView_CellContentClick);
             // 
             // CompraProdutProducto
             // 
@@ -366,13 +370,14 @@ namespace SistemaGestorDeVentas.api.compra
             this.CompraProdutEliminar.Text = "Eliminar";
             this.CompraProdutEliminar.Width = 125;
             // 
-            // textBox8
+            // txtTotal
             // 
-            this.textBox8.Location = new System.Drawing.Point(787, 406);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(149, 22);
-            this.textBox8.TabIndex = 9;
-            this.textBox8.Text = "0";
+            this.txtTotal.Location = new System.Drawing.Point(787, 406);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
+            this.txtTotal.Size = new System.Drawing.Size(149, 22);
+            this.txtTotal.TabIndex = 9;
+            this.txtTotal.Text = "0";
             // 
             // label14
             // 
@@ -394,6 +399,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.btnRegistrarCompra.TabIndex = 15;
             this.btnRegistrarCompra.Text = "Registrar";
             this.btnRegistrarCompra.UseVisualStyleBackColor = true;
+            this.btnRegistrarCompra.Click += new System.EventHandler(this.btnRegistrarCompra_Click);
             // 
             // panel3
             // 
@@ -401,7 +407,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.btnRegistrarCompra);
             this.panel3.Controls.Add(this.label14);
-            this.panel3.Controls.Add(this.textBox8);
+            this.panel3.Controls.Add(this.txtTotal);
             this.panel3.Controls.Add(this.dataGridCartView);
             this.panel3.Controls.Add(this.panel6);
             this.panel3.Controls.Add(this.panel5);
@@ -422,6 +428,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "compraProducto";
             this.Text = "compraProducto";
+            this.Load += new System.EventHandler(this.compraProducto_Load);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -438,37 +445,37 @@ namespace SistemaGestorDeVentas.api.compra
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.DateTimePicker dateCartViewFecha;
-        private System.Windows.Forms.ComboBox comboBox1;
+        public System.Windows.Forms.DateTimePicker dateCartViewFecha;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.DomainUpDown domainUpDown1;
+        private System.Windows.Forms.DomainUpDown dmCantidad;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtCartPrecio;
+        public System.Windows.Forms.TextBox txtCartPrecio;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtCartProducto;
+        public System.Windows.Forms.TextBox txtCartProducto;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox txtCartCodProduct;
+        private System.Windows.Forms.Button btnBuscarProducto;
+        public System.Windows.Forms.TextBox txtCartCodProduct;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnAgregarCompraView;
         private System.Windows.Forms.DataGridView dataGridCartView;
-        private System.Windows.Forms.TextBox textBox8;
+        public System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnRegistrarCompra;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CompraProdutProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CompraProdutPrecio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CompraProdutCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CompraProdutSubtotal;
-        private System.Windows.Forms.DataGridViewButtonColumn CompraProdutEliminar;
+        private System.Windows.Forms.ComboBox cbProveedores;
+        public System.Windows.Forms.DataGridViewTextBoxColumn CompraProdutProducto;
+        public System.Windows.Forms.DataGridViewTextBoxColumn CompraProdutPrecio;
+        public System.Windows.Forms.DataGridViewTextBoxColumn CompraProdutCantidad;
+        public System.Windows.Forms.DataGridViewTextBoxColumn CompraProdutSubtotal;
+        public System.Windows.Forms.DataGridViewButtonColumn CompraProdutEliminar;
         private Label label5;
-        private TextBox txtPrecioVenta;
+        public TextBox txtPrecioVenta;
+        public TextBox textBox1;
     }
 }

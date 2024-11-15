@@ -1,5 +1,6 @@
 ﻿using SistemaGestorDeVentas.api.cart;
 using SistemaGestorDeVentas.api.cliente;
+using SistemaGestorDeVentas.api.compra;
 using SistemaGestorDeVentas.components;
 using SistemaGestorDeVentas.db;
 using System;
@@ -17,10 +18,12 @@ namespace SistemaGestorDeVentas.api.product
     public partial class buscarProducto : Form
     {
         private cartView _carritoForm;
-        public buscarProducto(cartView cartViewForm)
+        private compraProducto _compraProductoForm;
+        public buscarProducto(cartView cartViewForm = null, compraProducto compraProdForm = null)
         {
             InitializeComponent();
             _carritoForm = cartViewForm;
+            _compraProductoForm = compraProdForm;
 
         }
 
@@ -147,36 +150,44 @@ namespace SistemaGestorDeVentas.api.product
 
 
             this.Close();
-            _carritoForm.Close();
-            //Form navbar = new navegador();
-            ////opcion 1
-            //navbar.clientesToolStripMenuItem_Click(object sender, EventArgs e);
+            if (_carritoForm != null && _carritoForm.Visible)
+            {
+                _carritoForm.Close();
+            }
+            if (_compraProductoForm != null && _compraProductoForm.Visible)
+            {
+                _compraProductoForm.Close();
+            }
 
-            ////opcion 2
-            ////// Verificar si el formulario detalleCliente ya está abierto
-            //Form existingForm = Application.OpenForms.Cast<Form>().FirstOrDefault(form => form is detalleCliente);
+                //Form navbar = new navegador();
+                ////opcion 1
+                //navbar.clientesToolStripMenuItem_Click(object sender, EventArgs e);
 
-            //if (existingForm != null)
-            //{
-            //    // Si ya está abierto, traerlo al frente
-            //    existingForm.BringToFront();
-            //}
-            //else
-            //{
-            //    // Si no está abierto, crear una nueva instancia
+                ////opcion 2
+                ////// Verificar si el formulario detalleCliente ya está abierto
+                //Form existingForm = Application.OpenForms.Cast<Form>().FirstOrDefault(form => form is detalleCliente);
 
-            //    detalleCliente gestionCliente = new detalleCliente();
+                //if (existingForm != null)
+                //{
+                //    // Si ya está abierto, traerlo al frente
+                //    existingForm.BringToFront();
+                //}
+                //else
+                //{
+                //    // Si no está abierto, crear una nueva instancia
 
-            //    navbar = gestionCliente.MdiParent;
-            //    gestionCliente.Dock = DockStyle.Fill; // Ajustar al tamaño del contenedor
-            //    gestionCliente.Show();
+                //    detalleCliente gestionCliente = new detalleCliente();
+
+                //    navbar = gestionCliente.MdiParent;
+                //    gestionCliente.Dock = DockStyle.Fill; // Ajustar al tamaño del contenedor
+                //    gestionCliente.Show();
 
 
 
-            //}
+                //}
 
-            // Busca la instancia abierta de navegador
-            Form navegadorForm = Application.OpenForms.Cast<Form>().FirstOrDefault(form => form is navegador);
+                // Busca la instancia abierta de navegador
+                Form navegadorForm = Application.OpenForms.Cast<Form>().FirstOrDefault(form => form is navegador);
 
             if (navegadorForm != null)
             {
@@ -198,13 +209,25 @@ namespace SistemaGestorDeVentas.api.product
                 //obtengo la fila que selecciono el cliente
                 DataGridViewRow row = dataGridBuscarProd.Rows[e.RowIndex];
 
-                // Asigna los valores directamente a los TextBox en _carritoForm
-                _carritoForm.txtCartCodProduct.Text = row.Cells["detalleProductoCodigo"].Value.ToString();
-                _carritoForm.txtCartProducto.Text = row.Cells["detalleProductoNombre"].Value.ToString();
-                _carritoForm.txtCartPrecio.Text = row.Cells["detalleProductoPrecio"].Value.ToString();
-                _carritoForm.txtCartStock.Text = row.Cells["detalleProductoStock"].Value.ToString();
+                if (_carritoForm != null && _carritoForm.Visible)
+                {
+                    // Asigna los valores directamente a los TextBox en _carritoForm
+                    _carritoForm.txtCartCodProduct.Text = row.Cells["detalleProductoCodigo"].Value.ToString();
+                    _carritoForm.txtCartProducto.Text = row.Cells["detalleProductoNombre"].Value.ToString();
+                    _carritoForm.txtCartPrecio.Text = row.Cells["detalleProductoPrecio"].Value.ToString();
+                    _carritoForm.txtCartStock.Text = row.Cells["detalleProductoStock"].Value.ToString();
+                }
+                //_compraProductoForm
+                // Verifico si _compraProductoForm no es nulo y está visible antes de asignar los valores
+                if (_compraProductoForm != null && _compraProductoForm.Visible)
+                {
+                    _compraProductoForm.txtCartCodProduct.Text = row.Cells["detalleProductoCodigo"].Value.ToString();
+                    _compraProductoForm.txtCartProducto.Text = row.Cells["detalleProductoNombre"].Value.ToString();
+                    _compraProductoForm.txtCartPrecio.Text = row.Cells["detalleProductoPrecio"].Value.ToString();
+                    //_compraProductoForm.txtCartStock.Text = row.Cells["detalleProductoStock"].Value.ToString();
+                }
 
-                this.Close();
+                    this.Close();
             }
         }
 

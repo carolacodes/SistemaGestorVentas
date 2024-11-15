@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SistemaGestorDeVentas.api.compra;
 
 namespace SistemaGestorDeVentas
 {
@@ -55,12 +56,15 @@ namespace SistemaGestorDeVentas
                 {
                     metodoPago.UsuarioEmail = email; // Asigna el email como propiedad estática
                     metodoPago metodoPagoForm = new metodoPago();
+                    compraProducto.UsuarioEmail = email;
+                    compraProducto compraProductoForm = new compraProducto();
                     //metodoPago metodoPagoForm = new metodoPago(null, this);
                     //metodoPagoForm.UsuarioEmail = email; // Guarda el email en metodoPago
                     navegador navForm = new navegador();
                     navForm.Show();
                     this.Hide();
-                    Console.WriteLine("email desde login" + (metodoPago.UsuarioEmail = email));
+                    Console.WriteLine("email desde login para metodo pago" + (metodoPago.UsuarioEmail = email));
+                    Console.WriteLine("email desde login para compra producto" + (compraProducto.UsuarioEmail = email));
                 }
                 else
                 {

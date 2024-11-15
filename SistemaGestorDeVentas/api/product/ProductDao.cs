@@ -170,6 +170,23 @@ namespace SistemaGestorDeVentas.api.product
         }
 
 
+        public Producto getProductByName(string nombreProducto)
+        {
+            try
+            {
+                using (var context = new sistema_de_ventas_taller_Entities())
+                {
+                    // Utilizamos LINQ para buscar el producto por nombre
+                    Producto producto = context.Producto.FirstOrDefault(p => p.nombre == nombreProducto);
+                    return producto;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al buscar el producto por nombre: " + ex.Message);
+            }
+        }
+
     }
 }
 

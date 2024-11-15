@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -81,6 +82,24 @@ namespace SistemaGestorDeVentas.api.compra
             }
         }
 
+        public Producto_Compra getProductoCompraDao(int id_compra)
+        {
+            using (var context = new sistema_de_ventas_taller_Entities())
+            {
+                try
+                {
+                    var compra = context.Producto_Compra.Find(id_compra);
+                    if (compra != null)
+                    {
+                        return compra;
+                    }
+                    return null; // agregar un mensaje en la interfaz if null...
+                }catch(Exception ex)
+                {
+                    throw new Exception("Error al intentar obtener el producto_compra: " + ex.Message);
+                }
+            }
+        }
 
     }
 }

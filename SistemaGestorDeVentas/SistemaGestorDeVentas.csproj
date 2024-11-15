@@ -181,6 +181,8 @@
       <DependentUpon>adminGestionProduct.cs</DependentUpon>
     </Compile>
     <Compile Include="api\product\ProductDao.cs" />
+    <Compile Include="api\product\ProductoCompraDao.cs" />
+    <Compile Include="api\product\ProductoCompraService.cs" />
     <Compile Include="api\product\ProductService.cs" />
     <Compile Include="api\proveedor\buscarProveedor.cs">
       <SubType>Form</SubType>

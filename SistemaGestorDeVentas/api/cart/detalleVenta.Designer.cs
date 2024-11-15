@@ -410,10 +410,10 @@ namespace SistemaGestorDeVentas.api.cart
         #endregion
 
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView dataProductosVenta;
+        public System.Windows.Forms.DataGridView dataProductosVenta;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox txtNombreCliVenta;
-        private System.Windows.Forms.TextBox txtClienteVenta;
+        public System.Windows.Forms.TextBox txtNombreCliVenta;
+        public System.Windows.Forms.TextBox txtClienteVenta;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
@@ -422,23 +422,23 @@ namespace SistemaGestorDeVentas.api.cart
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private System.Windows.Forms.TextBox txtUsuario;
+        public System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        public System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnBuscarVenta;
-        private System.Windows.Forms.TextBox txtCartDetalleNroVenta;
+        public System.Windows.Forms.TextBox txtCartDetalleNroVenta;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DateTimePicker dateCartDetalleFecha;
+        public System.Windows.Forms.DateTimePicker dateCartDetalleFecha;
         private System.Windows.Forms.Button btnPdfVenta;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox txtMontoTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DetalleCardProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DetalleCardPrecio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DetalleCardCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DetalleCardSubtotal;
+        public System.Windows.Forms.TextBox txtMontoTotal;
+        public System.Windows.Forms.DataGridViewTextBoxColumn DetalleCardProducto;
+        public System.Windows.Forms.DataGridViewTextBoxColumn DetalleCardPrecio;
+        public System.Windows.Forms.DataGridViewTextBoxColumn DetalleCardCantidad;
+        public System.Windows.Forms.DataGridViewTextBoxColumn DetalleCardSubtotal;
         private Panel panel1;
-        private TextBox txtTipoDocumento;
+        public TextBox txtTipoDocumento;
     }
 }

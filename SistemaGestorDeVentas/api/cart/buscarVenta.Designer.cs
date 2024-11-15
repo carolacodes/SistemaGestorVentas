@@ -86,6 +86,8 @@
             this.dataGridBuscarVenta.RowTemplate.Height = 24;
             this.dataGridBuscarVenta.Size = new System.Drawing.Size(709, 181);
             this.dataGridBuscarVenta.TabIndex = 9;
+            this.dataGridBuscarVenta.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridBuscarVenta_CellClick);
+            this.dataGridBuscarVenta.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridBuscarVenta_CellContentClick);
             // 
             // buscarVentaNroVenta
             // 

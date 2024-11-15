@@ -73,5 +73,18 @@ namespace SistemaGestorDeVentas.api.compra
                 throw new Exception("Error al intentar obtener las compra: " + ex.Message);
             }
         }
+
+        public Producto_Compra GetProductoCompra(int id_compra)
+        {
+            try
+            {
+                var producto_compra = compraDao.getProductoCompraDao(id_compra);
+                return producto_compra;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al intentar obtener la compra: " + ex.Message);
+            }
+        }
     }
 }

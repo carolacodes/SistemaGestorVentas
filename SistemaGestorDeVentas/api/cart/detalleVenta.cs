@@ -96,6 +96,7 @@ namespace SistemaGestorDeVentas.api.cart
         private void detalleVenta_Load(object sender, EventArgs e)
         {
             txtTipoDocumento.Text = "Factura";
+            CalcularTotal();
         }
 
         private void button3_Click_1(object sender, EventArgs e)
@@ -368,6 +369,7 @@ namespace SistemaGestorDeVentas.api.cart
                         }
 
                         CalcularTotal();
+                        btnClear_Click(sender, e);
                     }
                     else
                     {
