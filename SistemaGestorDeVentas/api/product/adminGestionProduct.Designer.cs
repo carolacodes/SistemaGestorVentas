@@ -32,14 +32,6 @@ namespace SistemaGestorDeVentas.api.product
         {
             this.panel5 = new System.Windows.Forms.Panel();
             this.dataGrid_productos = new System.Windows.Forms.DataGridView();
-            this.detalleProductoNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleProductoCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleProductoDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleProductoCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleProductoPrecio_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleProductoStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detalleProductoEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -65,6 +57,17 @@ namespace SistemaGestorDeVentas.api.product
             this.txtProductCodigo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.cbProveedor = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.detalleProductoNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleProductoCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleProductoDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleProductoCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleProductoPrecio_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleProductoStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleProductoEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_productos)).BeginInit();
             this.panel4.SuspendLayout();
@@ -93,68 +96,15 @@ namespace SistemaGestorDeVentas.api.product
             this.detalleProductoPrecio_compra,
             this.precio_venta,
             this.detalleProductoStock,
-            this.detalleProductoEstado});
-            this.dataGrid_productos.Location = new System.Drawing.Point(16, 17);
+            this.detalleProductoEstado,
+            this.proveedor});
+            this.dataGrid_productos.Location = new System.Drawing.Point(15, 17);
             this.dataGrid_productos.Name = "dataGrid_productos";
             this.dataGrid_productos.RowHeadersWidth = 51;
             this.dataGrid_productos.RowTemplate.Height = 24;
             this.dataGrid_productos.Size = new System.Drawing.Size(766, 334);
             this.dataGrid_productos.TabIndex = 0;
             this.dataGrid_productos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_productos_CellClick);
-            // 
-            // detalleProductoNombre
-            // 
-            this.detalleProductoNombre.HeaderText = "Nombre";
-            this.detalleProductoNombre.MinimumWidth = 6;
-            this.detalleProductoNombre.Name = "detalleProductoNombre";
-            this.detalleProductoNombre.Width = 125;
-            // 
-            // detalleProductoCodigo
-            // 
-            this.detalleProductoCodigo.HeaderText = "Codigo";
-            this.detalleProductoCodigo.MinimumWidth = 6;
-            this.detalleProductoCodigo.Name = "detalleProductoCodigo";
-            this.detalleProductoCodigo.Width = 125;
-            // 
-            // detalleProductoDescripcion
-            // 
-            this.detalleProductoDescripcion.HeaderText = "Descripcion";
-            this.detalleProductoDescripcion.MinimumWidth = 6;
-            this.detalleProductoDescripcion.Name = "detalleProductoDescripcion";
-            this.detalleProductoDescripcion.Width = 125;
-            // 
-            // detalleProductoCategoria
-            // 
-            this.detalleProductoCategoria.HeaderText = "Categoria";
-            this.detalleProductoCategoria.MinimumWidth = 6;
-            this.detalleProductoCategoria.Name = "detalleProductoCategoria";
-            this.detalleProductoCategoria.Width = 125;
-            // 
-            // detalleProductoPrecio_compra
-            // 
-            this.detalleProductoPrecio_compra.HeaderText = "Precio Compra";
-            this.detalleProductoPrecio_compra.MinimumWidth = 6;
-            this.detalleProductoPrecio_compra.Name = "detalleProductoPrecio_compra";
-            this.detalleProductoPrecio_compra.Width = 125;
-            // 
-            // precio_venta
-            // 
-            this.precio_venta.HeaderText = "Precio Venta";
-            this.precio_venta.Name = "precio_venta";
-            // 
-            // detalleProductoStock
-            // 
-            this.detalleProductoStock.HeaderText = "Stock";
-            this.detalleProductoStock.MinimumWidth = 6;
-            this.detalleProductoStock.Name = "detalleProductoStock";
-            this.detalleProductoStock.Width = 125;
-            // 
-            // detalleProductoEstado
-            // 
-            this.detalleProductoEstado.HeaderText = "Estado";
-            this.detalleProductoEstado.MinimumWidth = 6;
-            this.detalleProductoEstado.Name = "detalleProductoEstado";
-            this.detalleProductoEstado.Width = 125;
             // 
             // panel4
             // 
@@ -218,6 +168,8 @@ namespace SistemaGestorDeVentas.api.product
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.label5);
+            this.panel3.Controls.Add(this.cbProveedor);
             this.panel3.Controls.Add(this.txtProductNombre);
             this.panel3.Controls.Add(this.label10);
             this.panel3.Controls.Add(this.cboxProductCategoria);
@@ -243,7 +195,7 @@ namespace SistemaGestorDeVentas.api.product
             // 
             // txtProductNombre
             // 
-            this.txtProductNombre.Location = new System.Drawing.Point(10, 45);
+            this.txtProductNombre.Location = new System.Drawing.Point(11, 50);
             this.txtProductNombre.Name = "txtProductNombre";
             this.txtProductNombre.Size = new System.Drawing.Size(266, 20);
             this.txtProductNombre.TabIndex = 18;
@@ -253,7 +205,7 @@ namespace SistemaGestorDeVentas.api.product
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(8, 22);
+            this.label10.Location = new System.Drawing.Point(10, 30);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(59, 15);
             this.label10.TabIndex = 17;
@@ -263,14 +215,14 @@ namespace SistemaGestorDeVentas.api.product
             // cboxProductCategoria
             // 
             this.cboxProductCategoria.FormattingEnabled = true;
-            this.cboxProductCategoria.Location = new System.Drawing.Point(12, 187);
+            this.cboxProductCategoria.Location = new System.Drawing.Point(12, 178);
             this.cboxProductCategoria.Name = "cboxProductCategoria";
             this.cboxProductCategoria.Size = new System.Drawing.Size(264, 21);
             this.cboxProductCategoria.TabIndex = 16;
             // 
             // txtProductStock
             // 
-            this.txtProductStock.Location = new System.Drawing.Point(12, 285);
+            this.txtProductStock.Location = new System.Drawing.Point(12, 305);
             this.txtProductStock.Name = "txtProductStock";
             this.txtProductStock.Size = new System.Drawing.Size(266, 20);
             this.txtProductStock.TabIndex = 15;
@@ -281,7 +233,7 @@ namespace SistemaGestorDeVentas.api.product
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(12, 262);
+            this.label9.Location = new System.Drawing.Point(12, 288);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(42, 15);
             this.label9.TabIndex = 14;
@@ -289,7 +241,7 @@ namespace SistemaGestorDeVentas.api.product
             // 
             // txtProductPrecio
             // 
-            this.txtProductPrecio.Location = new System.Drawing.Point(12, 237);
+            this.txtProductPrecio.Location = new System.Drawing.Point(12, 266);
             this.txtProductPrecio.Name = "txtProductPrecio";
             this.txtProductPrecio.Size = new System.Drawing.Size(266, 20);
             this.txtProductPrecio.TabIndex = 13;
@@ -300,7 +252,7 @@ namespace SistemaGestorDeVentas.api.product
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(12, 214);
+            this.label8.Location = new System.Drawing.Point(12, 246);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(48, 15);
             this.label8.TabIndex = 12;
@@ -310,7 +262,7 @@ namespace SistemaGestorDeVentas.api.product
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 164);
+            this.label7.Location = new System.Drawing.Point(10, 158);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(66, 15);
             this.label7.TabIndex = 10;
@@ -318,7 +270,7 @@ namespace SistemaGestorDeVentas.api.product
             // 
             // txtProductDescripcion
             // 
-            this.txtProductDescripcion.Location = new System.Drawing.Point(10, 139);
+            this.txtProductDescripcion.Location = new System.Drawing.Point(12, 136);
             this.txtProductDescripcion.Name = "txtProductDescripcion";
             this.txtProductDescripcion.Size = new System.Drawing.Size(266, 20);
             this.txtProductDescripcion.TabIndex = 9;
@@ -328,7 +280,7 @@ namespace SistemaGestorDeVentas.api.product
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(6, 115);
+            this.label6.Location = new System.Drawing.Point(11, 116);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(78, 15);
             this.label6.TabIndex = 8;
@@ -349,7 +301,7 @@ namespace SistemaGestorDeVentas.api.product
             // 
             this.btnProductLimpiar.BackColor = System.Drawing.Color.LightSeaGreen;
             this.btnProductLimpiar.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProductLimpiar.Location = new System.Drawing.Point(61, 406);
+            this.btnProductLimpiar.Location = new System.Drawing.Point(61, 410);
             this.btnProductLimpiar.Name = "btnProductLimpiar";
             this.btnProductLimpiar.Size = new System.Drawing.Size(152, 36);
             this.btnProductLimpiar.TabIndex = 6;
@@ -360,7 +312,7 @@ namespace SistemaGestorDeVentas.api.product
             // 
             this.btnProductGuardar.BackColor = System.Drawing.Color.LimeGreen;
             this.btnProductGuardar.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProductGuardar.Location = new System.Drawing.Point(61, 364);
+            this.btnProductGuardar.Location = new System.Drawing.Point(61, 370);
             this.btnProductGuardar.Name = "btnProductGuardar";
             this.btnProductGuardar.Size = new System.Drawing.Size(152, 36);
             this.btnProductGuardar.TabIndex = 5;
@@ -374,7 +326,7 @@ namespace SistemaGestorDeVentas.api.product
             this.cboxProductEstado.Items.AddRange(new object[] {
             "Activo",
             "Inactivo"});
-            this.cboxProductEstado.Location = new System.Drawing.Point(14, 333);
+            this.cboxProductEstado.Location = new System.Drawing.Point(14, 340);
             this.cboxProductEstado.Name = "cboxProductEstado";
             this.cboxProductEstado.Size = new System.Drawing.Size(264, 21);
             this.cboxProductEstado.TabIndex = 4;
@@ -383,7 +335,7 @@ namespace SistemaGestorDeVentas.api.product
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 310);
+            this.label3.Location = new System.Drawing.Point(12, 324);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 15);
             this.label3.TabIndex = 3;
@@ -391,7 +343,7 @@ namespace SistemaGestorDeVentas.api.product
             // 
             // txtProductCodigo
             // 
-            this.txtProductCodigo.Location = new System.Drawing.Point(10, 90);
+            this.txtProductCodigo.Location = new System.Drawing.Point(11, 92);
             this.txtProductCodigo.Name = "txtProductCodigo";
             this.txtProductCodigo.Size = new System.Drawing.Size(266, 20);
             this.txtProductCodigo.TabIndex = 2;
@@ -402,7 +354,7 @@ namespace SistemaGestorDeVentas.api.product
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 70);
+            this.label2.Location = new System.Drawing.Point(10, 72);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 15);
             this.label2.TabIndex = 1;
@@ -418,6 +370,84 @@ namespace SistemaGestorDeVentas.api.product
             this.label1.Size = new System.Drawing.Size(126, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Detalle Producto";
+            // 
+            // cbProveedor
+            // 
+            this.cbProveedor.FormattingEnabled = true;
+            this.cbProveedor.Location = new System.Drawing.Point(12, 220);
+            this.cbProveedor.Name = "cbProveedor";
+            this.cbProveedor.Size = new System.Drawing.Size(264, 21);
+            this.cbProveedor.TabIndex = 19;
+            this.cbProveedor.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(9, 202);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(72, 15);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "Proveedor: ";
+            // 
+            // detalleProductoNombre
+            // 
+            this.detalleProductoNombre.HeaderText = "Nombre";
+            this.detalleProductoNombre.MinimumWidth = 6;
+            this.detalleProductoNombre.Name = "detalleProductoNombre";
+            this.detalleProductoNombre.Width = 125;
+            // 
+            // detalleProductoCodigo
+            // 
+            this.detalleProductoCodigo.HeaderText = "Codigo";
+            this.detalleProductoCodigo.MinimumWidth = 6;
+            this.detalleProductoCodigo.Name = "detalleProductoCodigo";
+            this.detalleProductoCodigo.Width = 125;
+            // 
+            // detalleProductoDescripcion
+            // 
+            this.detalleProductoDescripcion.HeaderText = "Descripcion";
+            this.detalleProductoDescripcion.MinimumWidth = 6;
+            this.detalleProductoDescripcion.Name = "detalleProductoDescripcion";
+            this.detalleProductoDescripcion.Width = 125;
+            // 
+            // detalleProductoCategoria
+            // 
+            this.detalleProductoCategoria.HeaderText = "Categoria";
+            this.detalleProductoCategoria.MinimumWidth = 6;
+            this.detalleProductoCategoria.Name = "detalleProductoCategoria";
+            this.detalleProductoCategoria.Width = 125;
+            // 
+            // detalleProductoPrecio_compra
+            // 
+            this.detalleProductoPrecio_compra.HeaderText = "Precio Compra";
+            this.detalleProductoPrecio_compra.MinimumWidth = 6;
+            this.detalleProductoPrecio_compra.Name = "detalleProductoPrecio_compra";
+            this.detalleProductoPrecio_compra.Width = 125;
+            // 
+            // precio_venta
+            // 
+            this.precio_venta.HeaderText = "Precio Venta";
+            this.precio_venta.Name = "precio_venta";
+            // 
+            // detalleProductoStock
+            // 
+            this.detalleProductoStock.HeaderText = "Stock";
+            this.detalleProductoStock.MinimumWidth = 6;
+            this.detalleProductoStock.Name = "detalleProductoStock";
+            this.detalleProductoStock.Width = 125;
+            // 
+            // detalleProductoEstado
+            // 
+            this.detalleProductoEstado.HeaderText = "Estado";
+            this.detalleProductoEstado.MinimumWidth = 6;
+            this.detalleProductoEstado.Name = "detalleProductoEstado";
+            this.detalleProductoEstado.Width = 125;
+            // 
+            // proveedor
+            // 
+            this.proveedor.HeaderText = "proveedor";
+            this.proveedor.Name = "proveedor";
             // 
             // adminGestionProduct
             // 
@@ -471,6 +501,8 @@ namespace SistemaGestorDeVentas.api.product
         private System.Windows.Forms.TextBox txtProductStock;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button6;
+        private Label label5;
+        private ComboBox cbProveedor;
         private DataGridViewTextBoxColumn detalleProductoNombre;
         private DataGridViewTextBoxColumn detalleProductoCodigo;
         private DataGridViewTextBoxColumn detalleProductoDescripcion;
@@ -479,5 +511,6 @@ namespace SistemaGestorDeVentas.api.product
         private DataGridViewTextBoxColumn precio_venta;
         private DataGridViewTextBoxColumn detalleProductoStock;
         private DataGridViewTextBoxColumn detalleProductoEstado;
+        private DataGridViewTextBoxColumn proveedor;
     }
 }

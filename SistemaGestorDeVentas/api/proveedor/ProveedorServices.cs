@@ -48,7 +48,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             }
         }
 
-        public Proveedor getProveedor(string codigo)
+        public Proveedor getProveedor(int codigo)
         {
             try
             {

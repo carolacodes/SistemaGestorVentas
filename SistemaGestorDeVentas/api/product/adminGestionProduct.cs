@@ -1,4 +1,5 @@
 ﻿using SistemaGestorDeVentas.api.category;
+using SistemaGestorDeVentas.api.proveedor;
 using SistemaGestorDeVentas.db;
 using SistemaGestorDeVentas.middleware;
 using System;
@@ -180,43 +181,93 @@ namespace SistemaGestorDeVentas.api.product
             EstadoService estadoService = new EstadoService();  
             ProductService productService = new ProductService();
             CategoriaService categoriaService = new CategoriaService();
+            ProveedorServices proveedorServices = new ProveedorServices();
             var estados = estadoService.getEstados();
+            List<Proveedor> proveedores = proveedorServices.getProveedores();
 
             cboxProductEstado.DataSource = estados;
             cboxProductEstado.DisplayMember = "nombre";
             cboxProductEstado.ValueMember = "id_estado";
 
+            cbProveedor.DataSource = proveedores;
+            cbProveedor.DisplayMember = "nombre";
+            cbProveedor.ValueMember = "id_proveedor";
+
             var productos = productService.getProductsService();
 
             foreach (var producto in productos)
             {
-                dataGrid_productos.Rows.Add(producto.nombre, producto.codigo_producto, producto.descripcion,categoriaService.getCategoria(producto.id_categoria).nombre,producto.precio_compra, producto.precio_venta , producto.stock ,estadoService.getEstado(producto.id_estado).nombre);
+                dataGrid_productos.Rows.Add(producto.nombre, producto.codigo_producto, producto.descripcion,categoriaService.getCategoria(producto.id_categoria).nombre,producto.precio_compra, producto.precio_venta , producto.stock ,estadoService.getEstado(producto.id_estado).nombre, proveedorServices.getProveedor(producto.id_proveedor).nombre);
             }
         }
 
+        /*  private void dataGrid_productos_CellClick(object sender, DataGridViewCellEventArgs e)
+          {
+              if (e.RowIndex >= 0)
+              {
+                  var estadoService = new EstadoService();
+                  CategoriaService categoriaService = new CategoriaService();
+                  // Obtener la fila seleccionada
+                  DataGridViewRow row = dataGrid_productos.Rows[e.RowIndex];
+
+                  // Rellenar los TextBox con los datos de la fila
+                  txtProductNombre.Text = row.Cells["detalleProductoNombre"].Value.ToString();
+                  txtProductCodigo.Text = row.Cells["detalleProductoCodigo"].Value.ToString(); // Cambia "Nombre" por el nombre de la columna correspondiente
+                  txtProductDescripcion.Text = row.Cells["detalleProductoDescripcion"].Value.ToString();
+                  txtProductPrecio.Text = row.Cells["precio_venta"].Value.ToString();
+                  txtProductStock.Text = row.Cells["detalleProductoStock"].Value.ToString();
+                  string nombreEstado = row.Cells["detalleProductoEstado"].Value.ToString();
+                  int? estadoID = estadoService.GetEstadoIdByNombre(nombreEstado);
+                  string nombreCategoria = row.Cells["detalleProductoCategoria"].Value.ToString();
+                  Categoria categoria = categoriaService.getCategoriaPorNombre(nombreCategoria);
+                  int? categoriaID = categoria.id_categoria;
+                  cboxProductEstado.SelectedValue = estadoID;
+                  cboxProductCategoria.SelectedValue = categoriaID;
+              }
+          }*/
         private void dataGrid_productos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            // Asegúrate de que se ha hecho clic en una fila válida
             if (e.RowIndex >= 0)
             {
                 var estadoService = new EstadoService();
-                CategoriaService categoriaService = new CategoriaService();
                 // Obtener la fila seleccionada
                 DataGridViewRow row = dataGrid_productos.Rows[e.RowIndex];
 
-                // Rellenar los TextBox con los datos de la fila
+
                 txtProductNombre.Text = row.Cells["detalleProductoNombre"].Value.ToString();
-                txtProductCodigo.Text = row.Cells["detalleProductoCodigo"].Value.ToString(); // Cambia "Nombre" por el nombre de la columna correspondiente
+                txtProductCodigo.Text = row.Cells["detalleProductoCodigo"].Value.ToString();
                 txtProductDescripcion.Text = row.Cells["detalleProductoDescripcion"].Value.ToString();
                 txtProductPrecio.Text = row.Cells["precio_venta"].Value.ToString();
                 txtProductStock.Text = row.Cells["detalleProductoStock"].Value.ToString();
+
+
                 string nombreEstado = row.Cells["detalleProductoEstado"].Value.ToString();
                 int? estadoID = estadoService.GetEstadoIdByNombre(nombreEstado);
-                string nombreCategoria = row.Cells["detalleProductoCategoria"].Value.ToString();
-                Categoria categoria = categoriaService.getCategoriaPorNombre(nombreCategoria);
-                int? categoriaID = categoria.id_categoria;
+
                 cboxProductEstado.SelectedValue = estadoID;
+
+                CategoriaService categoriaService = new CategoriaService();
+
+
+                string categorianombre = row.Cells["detalleProductoCategoria"].Value.ToString();
+                var categoria = categoriaService.getCategoriaPorNombre(categorianombre);
+                int? categoriaID = categoria.id_categoria;
+
                 cboxProductCategoria.SelectedValue = categoriaID;
+
+
+                ProveedorDao pro = new ProveedorDao();
+                string proveedorNombre = row.Cells["proveedor"].Value.ToString();
+                int? proveedorID = pro.GetProveedorIdByName(proveedorNombre);
+                cbProveedor.SelectedValue = proveedorID;
+
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

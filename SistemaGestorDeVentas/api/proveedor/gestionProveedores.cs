@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SistemaGestorDeVentas;
+using SistemaGestorDeVentas.api.category;
 using SistemaGestorDeVentas.db;
 using SistemaGestorDeVentas.middleware;
 
@@ -159,5 +160,7 @@ namespace SistemaGestorDeVentas.api.proveedor
 
             }
         }
+
+
     }
 }

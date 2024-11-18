@@ -28,8 +28,18 @@ namespace SistemaGestorDeVentas.api.proveedor
                 throw new Exception("Error al intentar crear un nuevo proveedor: "+ ex.Message);
             }
         }
+        public int? GetProveedorIdByName(string nombreProveedor)
+        {
+            using (var context = new sistema_de_ventas_taller_Entities())
+            {
+                // Busca el proveedor por nombre
+                var proveedor = context.Proveedor.FirstOrDefault(p => p.nombre == nombreProveedor);
 
-       public Proveedor getProveedorDao(string codigo)
+                // Si encuentra el proveedor, devuelve su ID; de lo contrario, devuelve null
+                return proveedor?.id_proveedor;
+            }
+        }
+        public Proveedor getProveedorDao(int codigo)
         {
             try
             {
