@@ -102,22 +102,24 @@ namespace SistemaGestorDeVentas.components
             // Verificar si el formulario cartView ya está abierto
             Form existingForm = Application.OpenForms.Cast<Form>().FirstOrDefault(form => form is adminGestionProduct);
 
+            adminGestionProduct producto = new adminGestionProduct();
+            //producto.adminGestionProduct_Load(sender, e);
+
             if (existingForm != null)
             {
                 // Si ya está abierto, traerlo al frente
+
                 existingForm.BringToFront();
             }
             else
             {
                 // Si no está abierto, crear una nueva instancia
 
-                adminGestionProduct producto = new adminGestionProduct();
-
+                //adminGestionProduct producto = new adminGestionProduct();
+                
                 producto.MdiParent = this;
                 producto.Dock = DockStyle.Fill; // Ajustar al tamaño del contenedor
                 producto.Show();
-
-
 
             }
             //cartView cartView = new cartView();

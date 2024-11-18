@@ -13,11 +13,10 @@ namespace SistemaGestorDeVentas.api.product
     {
         ProductDao productDao = new ProductDao();
 
-        public Producto createProductService(Producto nuevoProducto, int ganancia)
+        public Producto createProductService(Producto nuevoProducto)
         {
             try
             {
-                nuevoProducto.precio_venta = nuevoProducto.precio_compra * (1 + ganancia /100);
                 var producto = productDao.createProductDao(nuevoProducto);
                 return producto;
             }
@@ -131,6 +130,11 @@ namespace SistemaGestorDeVentas.api.product
             {
                 throw new Exception("error al encontrar el productos: " + ex.Message);
             }
+        }
+
+        public int GenerateNewProductCode()
+        {
+            return productDao.GenerateNewProductCode();
         }
 
     }

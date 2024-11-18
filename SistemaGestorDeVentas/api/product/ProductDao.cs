@@ -221,6 +221,18 @@ namespace SistemaGestorDeVentas.api.product
             }
         }
 
+        public int GenerateNewProductCode()
+        {
+            using (var context = new sistema_de_ventas_taller_Entities())
+            {
+                // Obtener el código más alto existente
+                int? maxCode = context.Producto.Max(p => (int?)p.codigo_producto);
+
+                // Si no hay productos, comienza en 1; de lo contrario, suma 1 al código más alto
+                return (maxCode ?? 0) + 1;
+            }
+        }
+
     }
 }
 
