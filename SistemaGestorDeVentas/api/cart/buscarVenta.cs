@@ -67,6 +67,7 @@ namespace SistemaGestorDeVentas.api.cart
                         } else
                         {
                             MessageBox.Show("No se encontró ninguna venta con el nro venta proporcionado. Por favor vuelva a ingresar el DNI", "Cliente No Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            dataGridBuscarVenta.Rows.Clear();
                             List<Venta> ventas = ventaService.getVentas();
                             foreach(var venta in ventas)
                             {
@@ -76,6 +77,7 @@ namespace SistemaGestorDeVentas.api.cart
                         }
                         break;
                     case 1:
+                        dataGridBuscarVenta.Rows.Clear();
                         dateBuscarVenta.Visible = true;
                         
                         DateTime fechaSeleccionada = dateBuscarVenta.Value;
@@ -88,6 +90,7 @@ namespace SistemaGestorDeVentas.api.cart
                             dataGridBuscarVenta.Rows.Add(venta.cod_venta, venta.fecha_venta,
                             venta.DNI_usuario, venta.DNI_cliente, venta.id_pago);
                         }
+                        
                         break;
                     //ver si agreguar filtro por usuario y cliente
                 }
@@ -100,11 +103,14 @@ namespace SistemaGestorDeVentas.api.cart
 
         private void buscarVenta_Load(object sender, EventArgs e)
         {
+
             VentaService ventaService = new VentaService();
 
             List<Venta> ventas = ventaService.getVentas();
 
-            foreach(var venta in ventas)
+            dataGridBuscarVenta.Rows.Clear();
+
+            foreach (var venta in ventas)
             {
                 dataGridBuscarVenta.Rows.Add(venta.cod_venta, venta.fecha_venta, venta.DNI_usuario,
                     venta.DNI_cliente, venta.id_pago);

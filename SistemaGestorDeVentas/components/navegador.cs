@@ -2,7 +2,7 @@
 using SistemaGestorDeVentas.api.category;
 using SistemaGestorDeVentas.api.cliente;
 using SistemaGestorDeVentas.api.compra;
-using SistemaGestorDeVentas.api.Negocio;
+using SistemaGestorDeVentas.api.negocio;
 using SistemaGestorDeVentas.api.product;
 using SistemaGestorDeVentas.api.proveedor;
 using SistemaGestorDeVentas.api.report;

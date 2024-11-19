@@ -171,19 +171,19 @@ namespace SistemaGestorDeVentas.api.cart
                 _carritoForm.clearPantalla();
             }
 
-            ProductoVentaService productoVentaService = new ProductoVentaService();
-            List<Producto_Venta> productosVendidos = productoVentaService.getProductVentaByCodVenta(ventaCreada.cod_venta);
-            //ProductService productService = new ProductService();
-            foreach (var prod in productosVendidos)
-            {
+            //ProductoVentaService productoVentaService = new ProductoVentaService();
+            //List<Producto_Venta> productosVendidos = productoVentaService.getProductVentaByCodVenta(ventaCreada.cod_venta);
+            ////ProductService productService = new ProductService();
+            //foreach (var prod in productosVendidos)
+            //{
                
-               Producto prodEncotrado = productService.getProductService(prod.id_producto);
-               if (prodEncotrado != null)
-                {
-                    prodEncotrado.stock -= prod.cantidad;
-                    productService.updateProductService(prodEncotrado);
-                }
-            }
+            //   Producto prodEncotrado = productService.getProductService(prod.id_producto);
+            //   if (prodEncotrado != null)
+            //    {
+            //        prodEncotrado.stock -= prod.cantidad;
+            //        productService.updateProductService(prodEncotrado);
+            //    }
+            //}
         }
 
 

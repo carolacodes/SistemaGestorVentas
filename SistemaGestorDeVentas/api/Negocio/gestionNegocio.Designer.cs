@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace SistemaGestorDeVentas.api.Negocio
+namespace SistemaGestorDeVentas.api.negocio
 {
     partial class gestionNegocio
     {
@@ -27,16 +27,16 @@ namespace SistemaGestorDeVentas.api.Negocio
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtNegocioNombre = new System.Windows.Forms.TextBox();
-            this.txtNegocioRUC = new System.Windows.Forms.TextBox();
+            this.guardarNegocio = new System.Windows.Forms.Button();
             this.txtNegocioDireccion = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.txtNegocioRUC = new System.Windows.Forms.TextBox();
+            this.txtNegocioNombre = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -57,7 +57,7 @@ namespace SistemaGestorDeVentas.api.Negocio
             // 
             this.panel4.BackColor = System.Drawing.Color.Azure;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.button2);
+            this.panel4.Controls.Add(this.guardarNegocio);
             this.panel4.Controls.Add(this.txtNegocioDireccion);
             this.panel4.Controls.Add(this.txtNegocioRUC);
             this.panel4.Controls.Add(this.txtNegocioNombre);
@@ -72,26 +72,73 @@ namespace SistemaGestorDeVentas.api.Negocio
             this.panel4.Size = new System.Drawing.Size(874, 326);
             this.panel4.TabIndex = 1;
             // 
-            // pictureBox1
+            // guardarNegocio
             // 
-            this.pictureBox1.Image = global::SistemaGestorDeVentas.Properties.Resources.stats_people_logo_icon_design_vector_229041561;
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(52, 44);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(246, 208);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.guardarNegocio.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guardarNegocio.Location = new System.Drawing.Point(438, 268);
+            this.guardarNegocio.Name = "guardarNegocio";
+            this.guardarNegocio.Size = new System.Drawing.Size(298, 43);
+            this.guardarNegocio.TabIndex = 9;
+            this.guardarNegocio.Text = "GUARDAR CAMBIOS ";
+            this.guardarNegocio.UseVisualStyleBackColor = true;
+            this.guardarNegocio.Click += new System.EventHandler(this.guardarNegocio_Click);
             // 
-            // label2
+            // txtNegocioDireccion
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(141, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 28);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "LOGO";
+            this.txtNegocioDireccion.Location = new System.Drawing.Point(510, 169);
+            this.txtNegocioDireccion.Name = "txtNegocioDireccion";
+            this.txtNegocioDireccion.Size = new System.Drawing.Size(336, 22);
+            this.txtNegocioDireccion.TabIndex = 8;
+            this.txtNegocioDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNegocioDireccion_KeyPress);
+            this.txtNegocioDireccion.Validating += new System.ComponentModel.CancelEventHandler(this.txtNegocioDireccion_Validating);
+            // 
+            // txtNegocioRUC
+            // 
+            this.txtNegocioRUC.Location = new System.Drawing.Point(510, 114);
+            this.txtNegocioRUC.Name = "txtNegocioRUC";
+            this.txtNegocioRUC.Size = new System.Drawing.Size(336, 22);
+            this.txtNegocioRUC.TabIndex = 7;
+            this.txtNegocioRUC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNegocioRUC_KeyPress);
+            this.txtNegocioRUC.Validating += new System.ComponentModel.CancelEventHandler(this.txtNegocioRUC_Validating);
+            // 
+            // txtNegocioNombre
+            // 
+            this.txtNegocioNombre.Location = new System.Drawing.Point(510, 55);
+            this.txtNegocioNombre.Name = "txtNegocioNombre";
+            this.txtNegocioNombre.Size = new System.Drawing.Size(336, 22);
+            this.txtNegocioNombre.TabIndex = 6;
+            this.txtNegocioNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNegocioNombre_KeyPress);
+            this.txtNegocioNombre.Validating += new System.ComponentModel.CancelEventHandler(this.txtNegocioNombre_Validating);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(316, 169);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(107, 28);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Dirección:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(316, 108);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 28);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "R.U.T:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Nirmala UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(316, 51);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(193, 25);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Nombre del Negocio:";
             // 
             // button1
             // 
@@ -106,72 +153,26 @@ namespace SistemaGestorDeVentas.api.Negocio
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // label2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Nirmala UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(316, 51);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(193, 25);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Nombre del Negocio:";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(141, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 28);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "LOGO";
             // 
-            // label4
+            // pictureBox1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(316, 108);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 28);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "R.U.T:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(316, 169);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(107, 28);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Dirección:";
-            // 
-            // txtNegocioNombre
-            // 
-            this.txtNegocioNombre.Location = new System.Drawing.Point(510, 55);
-            this.txtNegocioNombre.Name = "txtNegocioNombre";
-            this.txtNegocioNombre.Size = new System.Drawing.Size(336, 22);
-            this.txtNegocioNombre.TabIndex = 6;
-            this.txtNegocioNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNegocioNombre_KeyPress);
-            this.txtNegocioNombre.Validating += new System.ComponentModel.CancelEventHandler(this.txtNegocioNombre_Validating);
-            // 
-            // txtNegocioRUC
-            // 
-            this.txtNegocioRUC.Location = new System.Drawing.Point(510, 114);
-            this.txtNegocioRUC.Name = "txtNegocioRUC";
-            this.txtNegocioRUC.Size = new System.Drawing.Size(336, 22);
-            this.txtNegocioRUC.TabIndex = 7;
-            this.txtNegocioRUC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNegocioRUC_KeyPress);
-            this.txtNegocioRUC.Validating += new System.ComponentModel.CancelEventHandler(this.txtNegocioRUC_Validating);
-            // 
-            // txtNegocioDireccion
-            // 
-            this.txtNegocioDireccion.Location = new System.Drawing.Point(510, 169);
-            this.txtNegocioDireccion.Name = "txtNegocioDireccion";
-            this.txtNegocioDireccion.Size = new System.Drawing.Size(336, 22);
-            this.txtNegocioDireccion.TabIndex = 8;
-            this.txtNegocioDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNegocioDireccion_KeyPress);
-            this.txtNegocioDireccion.Validating += new System.ComponentModel.CancelEventHandler(this.txtNegocioDireccion_Validating);
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(438, 268);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(298, 43);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "GUARDAR CAMBIOS ";
-            this.button2.UseVisualStyleBackColor = true;
+            this.pictureBox1.Image = global::SistemaGestorDeVentas.Properties.Resources.stats_people_logo_icon_design_vector_229041561;
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(52, 44);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(246, 208);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // panel3
             // 
@@ -192,7 +193,7 @@ namespace SistemaGestorDeVentas.api.Negocio
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "gestionNegocio";
-            this.Text = "Negocio";
+            this.Load += new System.EventHandler(this.gestionNegocio_Load);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -206,7 +207,7 @@ namespace SistemaGestorDeVentas.api.Negocio
 
         private Label label1;
         private Panel panel4;
-        private Button button2;
+        private Button guardarNegocio;
         private TextBox txtNegocioDireccion;
         private TextBox txtNegocioRUC;
         private TextBox txtNegocioNombre;
