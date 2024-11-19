@@ -32,14 +32,7 @@ namespace SistemaGestorDeVentas.api.user
         private void InitializeComponent()
         {
             this.panel5 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.listaUsuarioDni = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.listaUsuarioNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.listaUsuarioCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.listaUsuarioContraseña = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.listaUsuarioRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.listaUsuarioEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.listaUsuarioSeleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGrid_usuarios = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -67,8 +60,14 @@ namespace SistemaGestorDeVentas.api.user
             this.txtUsuarioDNI = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.listaUsuarioDni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listaUsuarioNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listaUsuarioCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listaUsuarioContraseña = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listaUsuarioRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listaUsuarioEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_usuarios)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -77,79 +76,30 @@ namespace SistemaGestorDeVentas.api.user
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.dataGridView1);
+            this.panel5.Controls.Add(this.dataGrid_usuarios);
             this.panel5.Location = new System.Drawing.Point(317, 90);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(800, 370);
             this.panel5.TabIndex = 8;
             // 
-            // dataGridView1
+            // dataGrid_usuarios
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Azure;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGrid_usuarios.BackgroundColor = System.Drawing.Color.Azure;
+            this.dataGrid_usuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGrid_usuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.listaUsuarioDni,
             this.listaUsuarioNombre,
             this.listaUsuarioCorreo,
             this.listaUsuarioContraseña,
             this.listaUsuarioRol,
-            this.listaUsuarioEstado,
-            this.listaUsuarioSeleccionar});
-            this.dataGridView1.Location = new System.Drawing.Point(16, 14);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(766, 334);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // listaUsuarioDni
-            // 
-            this.listaUsuarioDni.HeaderText = "Nro DNI";
-            this.listaUsuarioDni.MinimumWidth = 6;
-            this.listaUsuarioDni.Name = "listaUsuarioDni";
-            this.listaUsuarioDni.Width = 125;
-            // 
-            // listaUsuarioNombre
-            // 
-            this.listaUsuarioNombre.HeaderText = "Nombre Completo";
-            this.listaUsuarioNombre.MinimumWidth = 6;
-            this.listaUsuarioNombre.Name = "listaUsuarioNombre";
-            this.listaUsuarioNombre.Width = 125;
-            // 
-            // listaUsuarioCorreo
-            // 
-            this.listaUsuarioCorreo.HeaderText = "Correo";
-            this.listaUsuarioCorreo.MinimumWidth = 6;
-            this.listaUsuarioCorreo.Name = "listaUsuarioCorreo";
-            this.listaUsuarioCorreo.Width = 125;
-            // 
-            // listaUsuarioContraseña
-            // 
-            this.listaUsuarioContraseña.HeaderText = "Contraseña";
-            this.listaUsuarioContraseña.MinimumWidth = 6;
-            this.listaUsuarioContraseña.Name = "listaUsuarioContraseña";
-            this.listaUsuarioContraseña.Width = 125;
-            // 
-            // listaUsuarioRol
-            // 
-            this.listaUsuarioRol.HeaderText = "Rol";
-            this.listaUsuarioRol.MinimumWidth = 6;
-            this.listaUsuarioRol.Name = "listaUsuarioRol";
-            this.listaUsuarioRol.Width = 125;
-            // 
-            // listaUsuarioEstado
-            // 
-            this.listaUsuarioEstado.HeaderText = "Estado";
-            this.listaUsuarioEstado.MinimumWidth = 6;
-            this.listaUsuarioEstado.Name = "listaUsuarioEstado";
-            this.listaUsuarioEstado.Width = 125;
-            // 
-            // listaUsuarioSeleccionar
-            // 
-            this.listaUsuarioSeleccionar.HeaderText = "Seleccionar";
-            this.listaUsuarioSeleccionar.MinimumWidth = 6;
-            this.listaUsuarioSeleccionar.Name = "listaUsuarioSeleccionar";
-            this.listaUsuarioSeleccionar.Width = 125;
+            this.listaUsuarioEstado});
+            this.dataGrid_usuarios.Location = new System.Drawing.Point(16, 14);
+            this.dataGrid_usuarios.Name = "dataGrid_usuarios";
+            this.dataGrid_usuarios.RowHeadersWidth = 51;
+            this.dataGrid_usuarios.RowTemplate.Height = 24;
+            this.dataGrid_usuarios.Size = new System.Drawing.Size(766, 334);
+            this.dataGrid_usuarios.TabIndex = 0;
+            this.dataGrid_usuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_usuarios_CellClick);
             // 
             // panel4
             // 
@@ -199,7 +149,7 @@ namespace SistemaGestorDeVentas.api.user
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(402, 21);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 3;
             this.comboBox2.Text = "Nombre";
             // 
@@ -207,7 +157,7 @@ namespace SistemaGestorDeVentas.api.user
             // 
             this.textBox2.Location = new System.Drawing.Point(529, 23);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(169, 22);
+            this.textBox2.Size = new System.Drawing.Size(169, 20);
             this.textBox2.TabIndex = 2;
             // 
             // label5
@@ -215,7 +165,7 @@ namespace SistemaGestorDeVentas.api.user
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(317, 24);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 16);
+            this.label5.Size = new System.Drawing.Size(65, 13);
             this.label5.TabIndex = 1;
             this.label5.Text = "Buscar Por: ";
             // 
@@ -225,7 +175,7 @@ namespace SistemaGestorDeVentas.api.user
             this.label4.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(3, 11);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(128, 20);
+            this.label4.Size = new System.Drawing.Size(99, 15);
             this.label4.TabIndex = 0;
             this.label4.Text = "Lista de Usuarios";
             // 
@@ -264,7 +214,7 @@ namespace SistemaGestorDeVentas.api.user
             "Inactivo"});
             this.cboxUsuarioEstado.Location = new System.Drawing.Point(10, 338);
             this.cboxUsuarioEstado.Name = "cboxUsuarioEstado";
-            this.cboxUsuarioEstado.Size = new System.Drawing.Size(266, 24);
+            this.cboxUsuarioEstado.Size = new System.Drawing.Size(266, 21);
             this.cboxUsuarioEstado.TabIndex = 17;
             // 
             // label10
@@ -273,7 +223,7 @@ namespace SistemaGestorDeVentas.api.user
             this.label10.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(6, 315);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(64, 20);
+            this.label10.Size = new System.Drawing.Size(49, 15);
             this.label10.TabIndex = 16;
             this.label10.Text = "Estado: ";
             // 
@@ -283,7 +233,7 @@ namespace SistemaGestorDeVentas.api.user
             this.label9.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(6, 265);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(40, 20);
+            this.label9.Size = new System.Drawing.Size(31, 15);
             this.label9.TabIndex = 15;
             this.label9.Text = "Rol: ";
             // 
@@ -291,7 +241,7 @@ namespace SistemaGestorDeVentas.api.user
             // 
             this.txtUsuarioConfirmarContraseña.Location = new System.Drawing.Point(10, 240);
             this.txtUsuarioConfirmarContraseña.Name = "txtUsuarioConfirmarContraseña";
-            this.txtUsuarioConfirmarContraseña.Size = new System.Drawing.Size(266, 22);
+            this.txtUsuarioConfirmarContraseña.Size = new System.Drawing.Size(266, 20);
             this.txtUsuarioConfirmarContraseña.TabIndex = 14;
             // 
             // label8
@@ -300,7 +250,7 @@ namespace SistemaGestorDeVentas.api.user
             this.label8.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(6, 217);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(167, 20);
+            this.label8.Size = new System.Drawing.Size(131, 15);
             this.label8.TabIndex = 13;
             this.label8.Text = "Confirmar Contraseña:";
             // 
@@ -308,14 +258,14 @@ namespace SistemaGestorDeVentas.api.user
             // 
             this.txtUsuarioContraseña.Location = new System.Drawing.Point(10, 192);
             this.txtUsuarioContraseña.Name = "txtUsuarioContraseña";
-            this.txtUsuarioContraseña.Size = new System.Drawing.Size(266, 22);
+            this.txtUsuarioContraseña.Size = new System.Drawing.Size(266, 20);
             this.txtUsuarioContraseña.TabIndex = 12;
             // 
             // txtUsuarioCorreo
             // 
             this.txtUsuarioCorreo.Location = new System.Drawing.Point(10, 144);
             this.txtUsuarioCorreo.Name = "txtUsuarioCorreo";
-            this.txtUsuarioCorreo.Size = new System.Drawing.Size(266, 22);
+            this.txtUsuarioCorreo.Size = new System.Drawing.Size(266, 20);
             this.txtUsuarioCorreo.TabIndex = 11;
             this.txtUsuarioCorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuarioCorreo_KeyPress);
             // 
@@ -325,7 +275,7 @@ namespace SistemaGestorDeVentas.api.user
             this.label7.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(6, 169);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(92, 20);
+            this.label7.Size = new System.Drawing.Size(72, 15);
             this.label7.TabIndex = 10;
             this.label7.Text = "Contraseña:";
             // 
@@ -335,7 +285,7 @@ namespace SistemaGestorDeVentas.api.user
             this.label6.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(6, 121);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 20);
+            this.label6.Size = new System.Drawing.Size(48, 15);
             this.label6.TabIndex = 9;
             this.label6.Text = "Correo:";
             // 
@@ -343,7 +293,7 @@ namespace SistemaGestorDeVentas.api.user
             // 
             this.txtUsuarioNombre.Location = new System.Drawing.Point(10, 96);
             this.txtUsuarioNombre.Name = "txtUsuarioNombre";
-            this.txtUsuarioNombre.Size = new System.Drawing.Size(266, 22);
+            this.txtUsuarioNombre.Size = new System.Drawing.Size(266, 20);
             this.txtUsuarioNombre.TabIndex = 8;
             this.txtUsuarioNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuarioNombre_KeyPress);
             // 
@@ -357,6 +307,7 @@ namespace SistemaGestorDeVentas.api.user
             this.btnUsuarioEliminar.TabIndex = 7;
             this.btnUsuarioEliminar.Text = "Eliminar";
             this.btnUsuarioEliminar.UseVisualStyleBackColor = false;
+            this.btnUsuarioEliminar.Click += new System.EventHandler(this.btnUsuarioEliminar_Click);
             // 
             // btnUsuarioLimpiar
             // 
@@ -368,6 +319,7 @@ namespace SistemaGestorDeVentas.api.user
             this.btnUsuarioLimpiar.TabIndex = 6;
             this.btnUsuarioLimpiar.Text = "Limpiar";
             this.btnUsuarioLimpiar.UseVisualStyleBackColor = false;
+            this.btnUsuarioLimpiar.Click += new System.EventHandler(this.btnUsuarioLimpiar_Click);
             // 
             // btnUsuarioGuardar
             // 
@@ -390,7 +342,7 @@ namespace SistemaGestorDeVentas.api.user
             "Vendedor"});
             this.cboxUsuarioRol.Location = new System.Drawing.Point(10, 288);
             this.cboxUsuarioRol.Name = "cboxUsuarioRol";
-            this.cboxUsuarioRol.Size = new System.Drawing.Size(266, 24);
+            this.cboxUsuarioRol.Size = new System.Drawing.Size(266, 21);
             this.cboxUsuarioRol.TabIndex = 4;
             // 
             // label3
@@ -399,7 +351,7 @@ namespace SistemaGestorDeVentas.api.user
             this.label3.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(6, 73);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(143, 20);
+            this.label3.Size = new System.Drawing.Size(113, 15);
             this.label3.TabIndex = 3;
             this.label3.Text = "Nombre Completo:";
             // 
@@ -407,7 +359,7 @@ namespace SistemaGestorDeVentas.api.user
             // 
             this.txtUsuarioDNI.Location = new System.Drawing.Point(10, 48);
             this.txtUsuarioDNI.Name = "txtUsuarioDNI";
-            this.txtUsuarioDNI.Size = new System.Drawing.Size(266, 22);
+            this.txtUsuarioDNI.Size = new System.Drawing.Size(266, 20);
             this.txtUsuarioDNI.TabIndex = 2;
             this.txtUsuarioDNI.TextChanged += new System.EventHandler(this.txtUsuarioDNI_TextChanged);
             this.txtUsuarioDNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuarioDNI_KeyPress);
@@ -418,7 +370,7 @@ namespace SistemaGestorDeVentas.api.user
             this.label2.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(6, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 20);
+            this.label2.Size = new System.Drawing.Size(59, 15);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nro DNI: ";
             // 
@@ -428,9 +380,51 @@ namespace SistemaGestorDeVentas.api.user
             this.label1.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(69, -1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 28);
+            this.label1.Size = new System.Drawing.Size(128, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Detalle Usuario";
+            // 
+            // listaUsuarioDni
+            // 
+            this.listaUsuarioDni.HeaderText = "Nro DNI";
+            this.listaUsuarioDni.MinimumWidth = 6;
+            this.listaUsuarioDni.Name = "listaUsuarioDni";
+            this.listaUsuarioDni.Width = 125;
+            // 
+            // listaUsuarioNombre
+            // 
+            this.listaUsuarioNombre.HeaderText = "Nombre Completo";
+            this.listaUsuarioNombre.MinimumWidth = 6;
+            this.listaUsuarioNombre.Name = "listaUsuarioNombre";
+            this.listaUsuarioNombre.Width = 125;
+            // 
+            // listaUsuarioCorreo
+            // 
+            this.listaUsuarioCorreo.HeaderText = "Correo";
+            this.listaUsuarioCorreo.MinimumWidth = 6;
+            this.listaUsuarioCorreo.Name = "listaUsuarioCorreo";
+            this.listaUsuarioCorreo.Width = 125;
+            // 
+            // listaUsuarioContraseña
+            // 
+            this.listaUsuarioContraseña.HeaderText = "Contraseña";
+            this.listaUsuarioContraseña.MinimumWidth = 6;
+            this.listaUsuarioContraseña.Name = "listaUsuarioContraseña";
+            this.listaUsuarioContraseña.Width = 125;
+            // 
+            // listaUsuarioRol
+            // 
+            this.listaUsuarioRol.HeaderText = "Rol";
+            this.listaUsuarioRol.MinimumWidth = 6;
+            this.listaUsuarioRol.Name = "listaUsuarioRol";
+            this.listaUsuarioRol.Width = 125;
+            // 
+            // listaUsuarioEstado
+            // 
+            this.listaUsuarioEstado.HeaderText = "Estado";
+            this.listaUsuarioEstado.MinimumWidth = 6;
+            this.listaUsuarioEstado.Name = "listaUsuarioEstado";
+            this.listaUsuarioEstado.Width = 125;
             // 
             // usuarioView
             // 
@@ -443,8 +437,9 @@ namespace SistemaGestorDeVentas.api.user
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "usuarioView";
             this.Text = "Usuarios";
+            this.Load += new System.EventHandler(this.usuarioView_Load);
             this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_usuarios)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -456,7 +451,7 @@ namespace SistemaGestorDeVentas.api.user
         #endregion
 
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGrid_usuarios;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
@@ -483,13 +478,12 @@ namespace SistemaGestorDeVentas.api.user
         private System.Windows.Forms.TextBox txtUsuarioConfirmarContraseña;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtUsuarioContraseña;
-        private System.Windows.Forms.DataGridViewTextBoxColumn listaUsuarioDni;
-        private System.Windows.Forms.DataGridViewTextBoxColumn listaUsuarioNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn listaUsuarioCorreo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn listaUsuarioContraseña;
-        private System.Windows.Forms.DataGridViewTextBoxColumn listaUsuarioRol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn listaUsuarioEstado;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn listaUsuarioSeleccionar;
         private System.Windows.Forms.Button button6;
+        private DataGridViewTextBoxColumn listaUsuarioDni;
+        private DataGridViewTextBoxColumn listaUsuarioNombre;
+        private DataGridViewTextBoxColumn listaUsuarioCorreo;
+        private DataGridViewTextBoxColumn listaUsuarioContraseña;
+        private DataGridViewTextBoxColumn listaUsuarioRol;
+        private DataGridViewTextBoxColumn listaUsuarioEstado;
     }
 }

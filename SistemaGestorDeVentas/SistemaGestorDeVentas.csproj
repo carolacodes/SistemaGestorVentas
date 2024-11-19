@@ -199,7 +199,8 @@
     <Compile Include="api\user\buscarUsuario.Designer.cs">
       <DependentUpon>buscarUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="api\user\controller.cs" />
+    <Compile Include="api\user\RolDao.cs" />
+    <Compile Include="api\user\RolService.cs" />
     <Compile Include="api\user\UserDao.cs" />
     <Compile Include="api\user\UserService.cs" />
     <Compile Include="api\user\usuarioView.cs">

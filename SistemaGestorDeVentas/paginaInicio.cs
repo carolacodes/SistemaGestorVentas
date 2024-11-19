@@ -50,9 +50,10 @@ namespace SistemaGestorDeVentas
 
             usuario = userService.getUserByEmail(email);
 
+
             if(usuario != null)
             {
-                if(usuario.pass == pass)
+                if(usuario.pass == pass && usuario.id_estado == 1)
                 {
                     metodoPago.UsuarioEmail = email; // Asigna el email como propiedad estática
                     metodoPago metodoPagoForm = new metodoPago();
