@@ -128,14 +128,28 @@ namespace SistemaGestorDeVentas.api.cart
                 return; // Salir del método si no se puede convertir
             }
 
-            Factura facturaEncontrada = facturaDao.getFactura(codVentaInt);
-
+            Factura facturaEncontrada = facturaDao.getFacturaByNroVenta(codVentaInt);
+            NegocioService negocioService = new NegocioService();
+            Negocio negocioEncontrado = negocioService.getNegocio(1);
+            VentaService ventaService = new VentaService();
             // Validar si se encontró la factura
             if (facturaEncontrada == null)
             {
-                MessageBox.Show("No se encontró la factura con el número de venta especificado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("No se encontró la factura con el número de venta especificado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Venta ventaExiste = ventaService.getVenta(codVentaInt);
+                if (ventaExiste != null)
+                {
+                    Factura factura = new Factura
+                    {
+                        cod_venta = ventaExiste.cod_venta,
+                        id_negocio = negocioEncontrado.id_negocio,
+                    };
+                    facturaDao.crearFactura(factura);
+                }
                 return; // Salir del método si no se encuentra la factura
             }
+ 
+
 
             string rutaCarpeta = @"E:\CAROLA\CAROLA FACULTAD\TERCER AÑO\SEGUNDO CUATRIMESTRE\taller\SistemaGestorVentas\facturas_ventas";
             if (!Directory.Exists(rutaCarpeta))
@@ -219,8 +233,7 @@ namespace SistemaGestorDeVentas.api.cart
             doc.Add(new Paragraph($"Monto Total: {txtMontoTotal.Text}", encabezadoFont));
 
 
-            NegocioService negocioService = new NegocioService();
-            Negocio negocioEncontrado = negocioService.getNegocio(1);
+            
 
             // Pie de página con datos de la empresa
             doc.Add(new Paragraph(" "));
@@ -234,18 +247,6 @@ namespace SistemaGestorDeVentas.api.cart
             // Cierra el documento
             doc.Close();
 
-            VentaService ventaService = new VentaService();
-            Venta ventaExiste = ventaService.getVenta(codVentaInt);
-            if (ventaExiste != null)
-            {
-                Factura factura = new Factura
-                {
-                    cod_venta = ventaExiste.cod_venta,
-                    id_negocio = negocioEncontrado.id_negocio,
-                };
-                facturaDao.crearFactura(factura);
-            }
-            
             MessageBox.Show($"El PDF de la factura {facturaEncontrada.numero_factura} se ha generado correctamente en la ruta: {rutaArchivo}");
         }
 
@@ -381,6 +382,8 @@ namespace SistemaGestorDeVentas.api.cart
                         //lista de productos_venta con el mismo codigo de venta
                         List<Producto_Venta> producto_ventas= prodVentaService.getProductVentaByCodVenta(ventaExiste.cod_venta);
 
+                        dataProductosVenta.Rows.Clear();
+
                         foreach(var productVenta in producto_ventas)
                         {
                             Producto productoEncontrado = productService.getProductService(productVenta.id_producto);
@@ -400,7 +403,7 @@ namespace SistemaGestorDeVentas.api.cart
                         //    id_negocio = negocioEncontrado.id_negocio,
                         //};
                         //facturaService.crearFactura(factura);
-                        btnClear_Click(sender, e);
+                        //btnClear_Click(sender, e);
                     }
                     else
                     {

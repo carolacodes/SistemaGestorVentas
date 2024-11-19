@@ -86,7 +86,7 @@ namespace SistemaGestorDeVentas.api.negocio
             var nombre = txtNegocioNombre.Text;
             var direccion = txtNegocioDireccion.Text;
             var rut = txtNegocioRUC.Text;
-            var imagen = pictureBox1.Image;
+            //var imagen = pictureBox1.Image;
 
             NegocioService negocioService = new NegocioService();
             Negocio negocioExiste = negocioService.getNegocio(1);

@@ -213,6 +213,7 @@ namespace SistemaGestorDeVentas.api.compra
             // 
             // dateCartDetalleFecha
             // 
+            this.dateCartDetalleFecha.Enabled = false;
             this.dateCartDetalleFecha.Location = new System.Drawing.Point(7, 54);
             this.dateCartDetalleFecha.Name = "dateCartDetalleFecha";
             this.dateCartDetalleFecha.Size = new System.Drawing.Size(143, 22);

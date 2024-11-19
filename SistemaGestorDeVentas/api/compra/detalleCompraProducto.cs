@@ -1,4 +1,5 @@
 ﻿using SistemaGestorDeVentas.api.product;
+using SistemaGestorDeVentas.api.user;
 using SistemaGestorDeVentas.db;
 using System;
 using System.Collections.Generic;
@@ -31,36 +32,92 @@ namespace SistemaGestorDeVentas.api.compra
 
         private void btnBuscarCompra_Click(object sender, EventArgs e)
         {
-            buscarCompra buscarCompraForm = new buscarCompra(this);
-            buscarCompraForm.Show();
-            if(txtCartDetalleNroVenta != null)
+            var nroCompra = txtCartDetalleNroVenta.Text.Trim();
+            if (string.IsNullOrEmpty(nroCompra))
+            {
+                buscarCompra buscarCompraForm = new buscarCompra(this);
+                buscarCompraForm.Show();
+                //detalleCompraProducto_Load(sender, e);
+            }
+            else
             {
                 CompraService compraService = new CompraService();
-                ProductoCompraService productoCompraService = new ProductoCompraService();
-
-                var codVentaText = txtCartDetalleNroVenta.Text.Trim(); // Elimina espacios adicionales
-
-                if (!string.IsNullOrEmpty(codVentaText) && int.TryParse(codVentaText, out int codVenta))
+                UserService userService = new UserService();
+                ProductoCompraService product = new ProductoCompraService();
+                try
                 {
-                    dataGridDetalleCompra.Rows.Clear();
-                    // Llama al servicio con el valor convertido
-                    List<Producto_Compra> productosCompra = productoCompraService.getProductosCompraService(codVenta);
+                    Compra compraExiste = compraService.GetCompra(int.Parse(nroCompra));
 
-                    foreach (var prod in productosCompra)
+                    if (compraExiste == null)
                     {
-                        ProductService productService = new ProductService();
-                        Producto prodEncontrado = productService.getProductService(prod.id_producto);
-                        var subtotal = prodEncontrado.precio_compra * prod.cantidad;
-                        dataGridDetalleCompra.Rows.Add(prodEncontrado.nombre,
-                            prodEncontrado.precio_compra, prod.cantidad, subtotal);
+                        MessageBox.Show("No se encontró ninguna compra con el número ingresado.",
+                            "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
                     }
 
+                    Usuario usuarioExiste = userService.getUser(compraExiste.DNI_usuario);
+
+                    if (usuarioExiste == null)
+                    {
+                        MessageBox.Show("Usuario no existe", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    dateCartDetalleFecha.Value = (DateTime)compraExiste.fecha_compra;
+                    txtUsuarioCompra.Text = usuarioExiste.nombre;
+
+                    List<Producto_Compra> prod_compras = product.getProductosCompraService(int.Parse(nroCompra));
+
+                    ProductService productService = new ProductService();
+                    dataGridDetalleCompra.Rows.Clear();
+                    foreach (var prodCompra in prod_compras)
+                    {
+                        Producto prod = productService.getProductService(prodCompra.id_producto);
+                        if (prod != null)
+                        {
+                            var subtotal = prodCompra.cantidad * prod.precio_compra;
+                            dataGridDetalleCompra.Rows.Add(prod.nombre, prod.precio_compra,
+                                prodCompra.cantidad, subtotal);
+                        }
+                    }
                     CalcularTotal();
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al intentar obtener los datos de la compra: {ex.Message}",
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
-                
+
+                //Compra compraExiste = compraService.GetCompra(int.Parse(nroCompra));
+                //Usuario usuarioExiste = userService.getUser(compraExiste.DNI_usuario);
+
+                //if(usuarioExiste == null)
+                //{
+                //    MessageBox.Show("Usuario no existe", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //    return;
+                //}
+
+                //txtUsuarioCompra.Text = usuarioExiste.nombre;
+
+                //List<Producto_Compra> prod_compras = product.getProductosCompraService(int.Parse(nroCompra));
+
+                //ProductService productService = new ProductService();
+                //dataGridDetalleCompra.Rows.Clear();
+                //foreach (var prodCompra in prod_compras)
+                //{
+                //    Producto prod = productService.getProductService(prodCompra.id_producto);
+                //    if (prod != null)
+                //    {
+                //        var subtotal = prodCompra.cantidad * prod.precio_compra;
+                //        dataGridDetalleCompra.Rows.Add(prod.nombre, prod.precio_compra,
+                //            prodCompra.cantidad, subtotal);
+                //    }
+                //}
+                //CalcularTotal();
 
             }
+            
         }
 
 
@@ -93,6 +150,7 @@ namespace SistemaGestorDeVentas.api.compra
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
+            dateCartDetalleFecha.Value = DateTime.Today;
             txtCartDetalleNroVenta.Text = "";
             txtUsuarioCompra.Text = "";
             dataGridDetalleCompra.Rows.Clear();
@@ -106,6 +164,12 @@ namespace SistemaGestorDeVentas.api.compra
 
         private void detalleCompraProducto_Load(object sender, EventArgs e)
         {
+            
+            dateCartDetalleFecha.Value = DateTime.Today;
+            txtCartDetalleNroVenta.Text = "";
+            txtUsuarioCompra.Text = "";
+            dataGridDetalleCompra.Rows.Clear();
+            txtMontoTotal.Text = "";
             CalcularTotal();
         }
     }

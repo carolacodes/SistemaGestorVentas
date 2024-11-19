@@ -36,6 +36,21 @@ namespace SistemaGestorDeVentas.api.factura
             }
         }
 
+
+        public Factura getFacturaByNroVenta(int numero_venta)
+        {
+            try
+            {
+                var factura = facturaDao.getFacturaPorNumeroVenta(numero_venta);
+                return factura;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al intentar obtener la factura" + ex.Message);
+            }
+        }
+
+
         public List<Factura> getFacturas()
         {
             try

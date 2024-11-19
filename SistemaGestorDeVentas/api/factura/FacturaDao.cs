@@ -62,7 +62,29 @@ namespace SistemaGestorDeVentas.api.factura
             }
         }
 
-        
+        public Factura getFacturaPorNumeroVenta(int numeroVenta)
+        {
+            using (var context = new sistema_de_ventas_taller_Entities())
+            {
+                try
+                {
+                    // Busca la factura por el número de venta
+                    var facturaExiste = context.Factura.FirstOrDefault(f => f.cod_venta == numeroVenta);
+                    if (facturaExiste != null)
+                    {
+                        return facturaExiste;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al intentar obtener la factura por número de venta: " + ex.Message);
+                }
+            }
+        }
 
     }
 }

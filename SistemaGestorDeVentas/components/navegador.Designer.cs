@@ -165,7 +165,6 @@
             this.negocioToolStripMenuItem.Name = "negocioToolStripMenuItem";
             this.negocioToolStripMenuItem.Size = new System.Drawing.Size(130, 54);
             this.negocioToolStripMenuItem.Text = "Negocio";
-            this.negocioToolStripMenuItem.Visible = false;
             this.negocioToolStripMenuItem.Click += new System.EventHandler(this.negocioToolStripMenuItem_Click);
             // 
             // usuariosToolStripMenuItem

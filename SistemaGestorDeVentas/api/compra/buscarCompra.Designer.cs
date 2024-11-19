@@ -31,11 +31,11 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtVolver = new System.Windows.Forms.Button();
             this.dataGridBuscarCompras = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.BuscarCompraNroCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BuscarCompraFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BuscarCompraDniUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBuscarCompras)).BeginInit();
             this.panel1.SuspendLayout();
@@ -76,27 +76,8 @@
             this.dataGridBuscarCompras.RowTemplate.Height = 24;
             this.dataGridBuscarCompras.Size = new System.Drawing.Size(709, 213);
             this.dataGridBuscarCompras.TabIndex = 9;
+            this.dataGridBuscarCompras.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridBuscarCompras_CellClick);
             this.dataGridBuscarCompras.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridBuscarCompras_CellContentClick);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 100);
-            this.panel1.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Nirmala UI", 20.8F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(257, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(302, 47);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Lista de Compras";
             // 
             // BuscarCompraNroCompra
             // 
@@ -119,6 +100,26 @@
             this.BuscarCompraDniUsuario.MinimumWidth = 6;
             this.BuscarCompraDniUsuario.Name = "BuscarCompraDniUsuario";
             this.BuscarCompraDniUsuario.Width = 125;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(800, 100);
+            this.panel1.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Nirmala UI", 20.8F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(257, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(302, 47);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Lista de Compras";
             // 
             // buscarCompra
             // 
