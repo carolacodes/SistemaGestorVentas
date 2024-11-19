@@ -31,6 +31,8 @@ namespace SistemaGestorDeVentas.api.category
         private void InitializeComponent()
         {
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtIDCategoria = new System.Windows.Forms.TextBox();
             this.btnLimpiarCategoria = new System.Windows.Forms.Button();
             this.btnGuardarCategoria = new System.Windows.Forms.Button();
             this.txtCategoriaNombre = new System.Windows.Forms.TextBox();
@@ -38,11 +40,9 @@ namespace SistemaGestorDeVentas.api.category
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dataGridCategoria = new System.Windows.Forms.DataGridView();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.txtIDCategoria = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.id_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.detalleCategoriaNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCategoria)).BeginInit();
@@ -63,6 +63,24 @@ namespace SistemaGestorDeVentas.api.category
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(296, 474);
             this.panel3.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(11, 93);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(31, 19);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "ID: ";
+            // 
+            // txtIDCategoria
+            // 
+            this.txtIDCategoria.Location = new System.Drawing.Point(11, 115);
+            this.txtIDCategoria.Name = "txtIDCategoria";
+            this.txtIDCategoria.Size = new System.Drawing.Size(266, 20);
+            this.txtIDCategoria.TabIndex = 7;
+            this.txtIDCategoria.TextChanged += new System.EventHandler(this.txtIDCategoria_TextChanged);
             // 
             // btnLimpiarCategoria
             // 
@@ -144,34 +162,6 @@ namespace SistemaGestorDeVentas.api.category
             this.dataGridCategoria.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridCategoria_CellClick);
             this.dataGridCategoria.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "Nombre";
-            this.dataGridViewImageColumn1.Image = global::SistemaGestorDeVentas.Properties.Resources.pngtree_green_check_icon_design_template_vector_png_image_3971423;
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.MinimumWidth = 6;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewImageColumn1.Width = 125;
-            // 
-            // txtIDCategoria
-            // 
-            this.txtIDCategoria.Location = new System.Drawing.Point(11, 115);
-            this.txtIDCategoria.Name = "txtIDCategoria";
-            this.txtIDCategoria.Size = new System.Drawing.Size(266, 20);
-            this.txtIDCategoria.TabIndex = 7;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(11, 93);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 19);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "ID: ";
-            // 
             // id_categoria
             // 
             this.id_categoria.HeaderText = "ID";
@@ -184,6 +174,17 @@ namespace SistemaGestorDeVentas.api.category
             this.detalleCategoriaNombre.Name = "detalleCategoriaNombre";
             this.detalleCategoriaNombre.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.detalleCategoriaNombre.Width = 125;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "Nombre";
+            this.dataGridViewImageColumn1.Image = global::SistemaGestorDeVentas.Properties.Resources.pngtree_green_check_icon_design_template_vector_png_image_3971423;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.MinimumWidth = 6;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewImageColumn1.Width = 125;
             // 
             // categoryMenu
             // 
