@@ -66,8 +66,9 @@ namespace SistemaGestorDeVentas.api.user
                     user.nombre = userActualizado.nombre;
                     user.pass = userActualizado.pass;
                     user.id_rol = userActualizado.id_rol;
-
-                }
+                    context.SaveChanges();
+                    return user;
+                    }
                 return user;
             }
             }catch(Exception ex) {
