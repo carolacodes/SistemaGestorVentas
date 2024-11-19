@@ -31,8 +31,7 @@ namespace SistemaGestorDeVentas.api.proveedor
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btn_eliminar_proveedor = new System.Windows.Forms.Button();
             this.cboxProveedorEstado = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtProveedorCodigo = new System.Windows.Forms.TextBox();
@@ -52,23 +51,25 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.label1 = new System.Windows.Forms.Label();
             this.lblTituloProveedor = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGrid_proveedores = new System.Windows.Forms.DataGridView();
             this.nombreProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CodigoProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.direccionProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefonoProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sitioWebProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalleProveedorEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_limpiar_proveedor = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_proveedores)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel2.Controls.Add(this.button6);
-            this.panel2.Controls.Add(this.button7);
+            this.panel2.Controls.Add(this.btn_limpiar_proveedor);
+            this.panel2.Controls.Add(this.btn_eliminar_proveedor);
             this.panel2.Controls.Add(this.cboxProveedorEstado);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.txtProveedorCodigo);
@@ -93,27 +94,17 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.panel2.Size = new System.Drawing.Size(296, 489);
             this.panel2.TabIndex = 8;
             // 
-            // button6
+            // btn_eliminar_proveedor
             // 
-            this.button6.BackColor = System.Drawing.Color.Red;
-            this.button6.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(61, 431);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(152, 36);
-            this.button6.TabIndex = 20;
-            this.button6.Text = "Eliminar";
-            this.button6.UseVisualStyleBackColor = false;
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button7.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(61, 389);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(152, 36);
-            this.button7.TabIndex = 19;
-            this.button7.Text = "Limpiar";
-            this.button7.UseVisualStyleBackColor = false;
+            this.btn_eliminar_proveedor.BackColor = System.Drawing.Color.Red;
+            this.btn_eliminar_proveedor.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_eliminar_proveedor.Location = new System.Drawing.Point(61, 431);
+            this.btn_eliminar_proveedor.Name = "btn_eliminar_proveedor";
+            this.btn_eliminar_proveedor.Size = new System.Drawing.Size(152, 36);
+            this.btn_eliminar_proveedor.TabIndex = 20;
+            this.btn_eliminar_proveedor.Text = "Eliminar";
+            this.btn_eliminar_proveedor.UseVisualStyleBackColor = false;
+            this.btn_eliminar_proveedor.Click += new System.EventHandler(this.btn_eliminar_proveedor_Click);
             // 
             // cboxProveedorEstado
             // 
@@ -121,8 +112,9 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.cboxProveedorEstado.Location = new System.Drawing.Point(12, 318);
             this.cboxProveedorEstado.Margin = new System.Windows.Forms.Padding(4);
             this.cboxProveedorEstado.Name = "cboxProveedorEstado";
-            this.cboxProveedorEstado.Size = new System.Drawing.Size(264, 24);
+            this.cboxProveedorEstado.Size = new System.Drawing.Size(264, 21);
             this.cboxProveedorEstado.TabIndex = 18;
+            this.cboxProveedorEstado.SelectedIndexChanged += new System.EventHandler(this.cboxProveedorEstado_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -131,7 +123,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.label9.Location = new System.Drawing.Point(9, 297);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 17);
+            this.label9.Size = new System.Drawing.Size(42, 13);
             this.label9.TabIndex = 16;
             this.label9.Text = "Estado";
             // 
@@ -140,7 +132,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.txtProveedorCodigo.Location = new System.Drawing.Point(12, 83);
             this.txtProveedorCodigo.Margin = new System.Windows.Forms.Padding(4);
             this.txtProveedorCodigo.Name = "txtProveedorCodigo";
-            this.txtProveedorCodigo.Size = new System.Drawing.Size(264, 22);
+            this.txtProveedorCodigo.Size = new System.Drawing.Size(264, 20);
             this.txtProveedorCodigo.TabIndex = 15;
             this.txtProveedorCodigo.TextChanged += new System.EventHandler(this.txtProveedorCodigo_TextChanged);
             this.txtProveedorCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProveedorCodigo_KeyPress);
@@ -152,7 +144,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.label6.Location = new System.Drawing.Point(9, 62);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 17);
+            this.label6.Size = new System.Drawing.Size(45, 13);
             this.label6.TabIndex = 14;
             this.label6.Text = "Codigo";
             // 
@@ -161,8 +153,9 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.txtProveedorSitioWeb.Location = new System.Drawing.Point(12, 271);
             this.txtProveedorSitioWeb.Margin = new System.Windows.Forms.Padding(4);
             this.txtProveedorSitioWeb.Name = "txtProveedorSitioWeb";
-            this.txtProveedorSitioWeb.Size = new System.Drawing.Size(264, 22);
+            this.txtProveedorSitioWeb.Size = new System.Drawing.Size(264, 20);
             this.txtProveedorSitioWeb.TabIndex = 13;
+            this.txtProveedorSitioWeb.TextChanged += new System.EventHandler(this.txtProveedorSitioWeb_TextChanged);
             // 
             // label5
             // 
@@ -171,7 +164,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.label5.Location = new System.Drawing.Point(14, 250);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 17);
+            this.label5.Size = new System.Drawing.Size(57, 13);
             this.label5.TabIndex = 12;
             this.label5.Text = "Sitio Web";
             this.label5.Click += new System.EventHandler(this.label5_Click);
@@ -218,7 +211,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.txtProveedorDireccion.Location = new System.Drawing.Point(13, 130);
             this.txtProveedorDireccion.Margin = new System.Windows.Forms.Padding(4);
             this.txtProveedorDireccion.Name = "txtProveedorDireccion";
-            this.txtProveedorDireccion.Size = new System.Drawing.Size(264, 22);
+            this.txtProveedorDireccion.Size = new System.Drawing.Size(264, 20);
             this.txtProveedorDireccion.TabIndex = 8;
             this.txtProveedorDireccion.TextChanged += new System.EventHandler(this.txtProveedorDireccion_TextChanged);
             // 
@@ -227,7 +220,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.txtProveedorTelefono.Location = new System.Drawing.Point(13, 177);
             this.txtProveedorTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.txtProveedorTelefono.Name = "txtProveedorTelefono";
-            this.txtProveedorTelefono.Size = new System.Drawing.Size(264, 22);
+            this.txtProveedorTelefono.Size = new System.Drawing.Size(264, 20);
             this.txtProveedorTelefono.TabIndex = 7;
             this.txtProveedorTelefono.TextChanged += new System.EventHandler(this.txtProveedorTelefono_TextChanged);
             this.txtProveedorTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProveedorTelefono_KeyPress);
@@ -237,15 +230,16 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.txtProveedorEmail.Location = new System.Drawing.Point(13, 224);
             this.txtProveedorEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtProveedorEmail.Name = "txtProveedorEmail";
-            this.txtProveedorEmail.Size = new System.Drawing.Size(264, 22);
+            this.txtProveedorEmail.Size = new System.Drawing.Size(264, 20);
             this.txtProveedorEmail.TabIndex = 6;
+            this.txtProveedorEmail.TextChanged += new System.EventHandler(this.txtProveedorEmail_TextChanged);
             // 
             // txtProveedorNombre
             // 
             this.txtProveedorNombre.Location = new System.Drawing.Point(12, 39);
             this.txtProveedorNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtProveedorNombre.Name = "txtProveedorNombre";
-            this.txtProveedorNombre.Size = new System.Drawing.Size(264, 22);
+            this.txtProveedorNombre.Size = new System.Drawing.Size(264, 20);
             this.txtProveedorNombre.TabIndex = 5;
             this.txtProveedorNombre.TextChanged += new System.EventHandler(this.txtProveedorNombre_TextChanged);
             // 
@@ -256,7 +250,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.label4.Location = new System.Drawing.Point(14, 203);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 17);
+            this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 4;
             this.label4.Text = "Email";
             // 
@@ -267,7 +261,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.label3.Location = new System.Drawing.Point(10, 156);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 17);
+            this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 3;
             this.label3.Text = "Telefono";
             // 
@@ -278,7 +272,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.label2.Location = new System.Drawing.Point(10, 109);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 17);
+            this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Direccion";
             // 
@@ -289,7 +283,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.label1.Location = new System.Drawing.Point(8, 19);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 17);
+            this.label1.Size = new System.Drawing.Size(50, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Nombre";
             // 
@@ -300,7 +294,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.lblTituloProveedor.Location = new System.Drawing.Point(66, 2);
             this.lblTituloProveedor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTituloProveedor.Name = "lblTituloProveedor";
-            this.lblTituloProveedor.Size = new System.Drawing.Size(165, 25);
+            this.lblTituloProveedor.Size = new System.Drawing.Size(134, 20);
             this.lblTituloProveedor.TabIndex = 0;
             this.lblTituloProveedor.Text = "Detalle Proveedor";
             // 
@@ -308,30 +302,32 @@ namespace SistemaGestorDeVentas.api.proveedor
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.dataGridView1);
+            this.panel4.Controls.Add(this.dataGrid_proveedores);
             this.panel4.Location = new System.Drawing.Point(315, 53);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(803, 372);
             this.panel4.TabIndex = 11;
             // 
-            // dataGridView1
+            // dataGrid_proveedores
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Azure;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGrid_proveedores.BackgroundColor = System.Drawing.Color.Azure;
+            this.dataGrid_proveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGrid_proveedores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nombreProveedor,
             this.CodigoProveedor,
             this.direccionProveedor,
             this.telefonoProveedor,
             this.emailProveedor,
-            this.sitioWebProveedor});
-            this.dataGridView1.Location = new System.Drawing.Point(18, 19);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(766, 334);
-            this.dataGridView1.TabIndex = 10;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.sitioWebProveedor,
+            this.detalleProveedorEstado});
+            this.dataGrid_proveedores.Location = new System.Drawing.Point(18, 19);
+            this.dataGrid_proveedores.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGrid_proveedores.Name = "dataGrid_proveedores";
+            this.dataGrid_proveedores.RowHeadersWidth = 51;
+            this.dataGrid_proveedores.Size = new System.Drawing.Size(766, 334);
+            this.dataGrid_proveedores.TabIndex = 10;
+            this.dataGrid_proveedores.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGrid_proveedores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // nombreProveedor
             // 
@@ -375,6 +371,23 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.sitioWebProveedor.Name = "sitioWebProveedor";
             this.sitioWebProveedor.Width = 125;
             // 
+            // detalleProveedorEstado
+            // 
+            this.detalleProveedorEstado.HeaderText = "estado";
+            this.detalleProveedorEstado.Name = "detalleProveedorEstado";
+            // 
+            // btn_limpiar_proveedor
+            // 
+            this.btn_limpiar_proveedor.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btn_limpiar_proveedor.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_limpiar_proveedor.Location = new System.Drawing.Point(61, 389);
+            this.btn_limpiar_proveedor.Name = "btn_limpiar_proveedor";
+            this.btn_limpiar_proveedor.Size = new System.Drawing.Size(152, 36);
+            this.btn_limpiar_proveedor.TabIndex = 21;
+            this.btn_limpiar_proveedor.Text = "Limpiar";
+            this.btn_limpiar_proveedor.UseVisualStyleBackColor = false;
+            this.btn_limpiar_proveedor.Click += new System.EventHandler(this.btn_limpiar_proveedor_Click);
+            // 
             // gestionProveedores
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -390,7 +403,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_proveedores)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -416,14 +429,15 @@ namespace SistemaGestorDeVentas.api.proveedor
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cboxProveedorEstado;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreProveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoProveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn direccionProveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefonoProveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailProveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sitioWebProveedor;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.DataGridView dataGrid_proveedores;
+        private System.Windows.Forms.Button btn_eliminar_proveedor;
+        private DataGridViewTextBoxColumn nombreProveedor;
+        private DataGridViewTextBoxColumn CodigoProveedor;
+        private DataGridViewTextBoxColumn direccionProveedor;
+        private DataGridViewTextBoxColumn telefonoProveedor;
+        private DataGridViewTextBoxColumn emailProveedor;
+        private DataGridViewTextBoxColumn sitioWebProveedor;
+        private DataGridViewTextBoxColumn detalleProveedorEstado;
+        private Button btn_limpiar_proveedor;
     }
 }

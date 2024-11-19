@@ -36,7 +36,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             }
         }
 
-        public Proveedor deleteProveedor(string codigo)
+        public Proveedor deleteProveedor(int codigo)
         {
             try
             {

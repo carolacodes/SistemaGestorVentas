@@ -64,6 +64,7 @@ namespace SistemaGestorDeVentas.api.proveedor
                     var proveedorExistente = context.Proveedor.Find(proveedorActualizado.id_proveedor);
                     if (proveedorExistente != null)
                     {
+                        proveedorExistente.nombre = proveedorActualizado.nombre;
                         proveedorExistente.email = proveedorActualizado.email;
                         proveedorExistente.telefono = proveedorActualizado.telefono;
                         proveedorExistente.direccion = proveedorActualizado.direccion;
@@ -73,7 +74,7 @@ namespace SistemaGestorDeVentas.api.proveedor
                         return proveedorExistente;
                     }
                     // agregar un mensaje que diga que no se encuentra el cliente
-                    return proveedorExistente;
+                    return null;
                 }
             }
             catch (Exception ex)
@@ -98,7 +99,7 @@ namespace SistemaGestorDeVentas.api.proveedor
             }
         }
 
-        public Proveedor deleteProveedor(string codigo)
+        public Proveedor deleteProveedor(int codigo)
         {
             try
             {
