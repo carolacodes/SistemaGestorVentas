@@ -288,19 +288,68 @@ namespace SistemaGestorDeVentas.api.proveedor
                 DataGridViewRow row = dataGrid_proveedores.Rows[e.RowIndex];
 
                 // Rellenar los TextBox con los datos de la fila
-                txtProveedorCodigo.Text = row.Cells["CodigoProveedor"].Value.ToString();
-                txtProveedorNombre.Text = row.Cells["nombreProveedor"].Value.ToString(); // Cambia "Nombre" por el nombre de la columna correspondiente
-                txtProveedorSitioWeb.Text = row.Cells["sitioWebProveedor"].Value.ToString();
-                txtProveedorTelefono.Text = row.Cells["telefonoProveedor"].Value.ToString();
-                txtProveedorDireccion.Text = row.Cells["direccionProveedor"].Value.ToString();
-                txtProveedorEmail.Text = row.Cells["emailProveedor"].Value.ToString();
+                if (row.Cells["CodigoProveedor"].Value != null)
+                {
+                    txtProveedorCodigo.Text = row.Cells["CodigoProveedor"].Value.ToString();
+                }
+                else
+                {
+                    txtProveedorCodigo.Text = "";
+                }
 
-                //cboxProveedorEstado.Text =
+                if (row.Cells["nombreProveedor"].Value != null)
+                {
+                    txtProveedorNombre.Text = row.Cells["nombreProveedor"].Value.ToString();
+                }
+                else
+                {
+                    txtProveedorNombre.Text = "";
+                }
 
-                string nombreEstado = row.Cells["detalleProveedorEstado"].Value.ToString();
-                int? estadoID = estadoService.GetEstadoIdByNombre(nombreEstado);
+                if (row.Cells["sitioWebProveedor"].Value != null)
+                {
+                    txtProveedorSitioWeb.Text = row.Cells["sitioWebProveedor"].Value.ToString();
+                }
+                else
+                {
+                    txtProveedorSitioWeb.Text = "";
+                }
+                if (row.Cells["telefonoProveedor"].Value != null)
+                {
+                    txtProveedorTelefono.Text = row.Cells["telefonoProveedor"].Value.ToString();
+                }
+                else
+                {
+                    txtProveedorTelefono.Text = "";
+                }
+                if (row.Cells["direccionProveedor"].Value != null)
+                {
+                    txtProveedorDireccion.Text = row.Cells["direccionProveedor"].Value.ToString();
+                }
+                else
+                {
+                    txtProveedorDireccion.Text = "";
+                }
+                if (row.Cells["emailProveedor"].Value != null)
+                {
+                    txtProveedorEmail.Text = row.Cells["emailProveedor"].Value.ToString();
+                }
+                else
+                {
+                    txtProveedorEmail.Text = "";
+                }
 
-                cboxProveedorEstado.SelectedValue = estadoID;
+                if (row.Cells["detalleProveedorEstado"].Value != null)
+                {
+                    string nombreEstado = row.Cells["detalleProveedorEstado"].Value.ToString();
+                    int? estadoID = estadoService.GetEstadoIdByNombre(nombreEstado);
+
+                    cboxProveedorEstado.SelectedValue = estadoID;
+                }
+                else
+                {
+                    cboxProveedorEstado.SelectedIndex = -1;
+                }
             }
         }
 

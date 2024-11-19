@@ -284,15 +284,53 @@ namespace SistemaGestorDeVentas.api.cliente
                 DataGridViewRow row = dataGridCliente.Rows[e.RowIndex];
 
                 // Rellenar los TextBox con los datos de la fila
-                txtClienteDni.Text = row.Cells["detalleClienteDni"].Value.ToString();
-                txtClienteNombre.Text = row.Cells["detalleClienteNombre"].Value.ToString(); // Cambia "Nombre" por el nombre de la columna correspondiente
-                txtClienteCorreo.Text = row.Cells["detalleClienteCorreo"].Value.ToString();
-                txtClienteTelefono.Text = row.Cells["detalleClienteTelefono"].Value.ToString();
+                if (row.Cells["detalleClienteDni"].Value != null)
+                {
+                    txtClienteDni.Text = row.Cells["detalleClienteDni"].Value.ToString();
+                }
+                else
+                {
+                    txtClienteDni.Text = "";
+                }
 
-                string nombreEstado = row.Cells["detalleClienteEstado"].Value.ToString();
-                int? estadoID = estadoService.GetEstadoIdByNombre(nombreEstado);
+                if (row.Cells["detalleClienteNombre"].Value != null)
+                {
+                    txtClienteNombre.Text = row.Cells["detalleClienteNombre"].Value.ToString();
+                }
+                else
+                {
+                    txtClienteNombre.Text = "";
+                }
+                if (row.Cells["detalleClienteCorreo"].Value != null)
+                {
+                    txtClienteCorreo.Text = row.Cells["detalleClienteCorreo"].Value.ToString();
+                }
+                else
+                {
+                    txtClienteCorreo.Text = "";
+                }
 
-                cbClienteEstado.SelectedValue = estadoID;
+                if (row.Cells["detalleClienteTelefono"].Value != null)
+                {
+                    txtClienteTelefono.Text = row.Cells["detalleClienteTelefono"].Value.ToString();
+                }
+                else
+                {
+                    txtClienteTelefono.Text = "";
+                }
+
+                if (row.Cells["detalleClienteEstado"].Value != null)
+                {
+                    string nombreEstado = row.Cells["detalleClienteEstado"].Value.ToString();
+                    int? estadoID = estadoService.GetEstadoIdByNombre(nombreEstado);
+
+                    cbClienteEstado.SelectedValue = estadoID;
+                }
+                else
+                {
+                    cbClienteEstado.SelectedIndex = -1;
+                }
+                
             }
         }
 

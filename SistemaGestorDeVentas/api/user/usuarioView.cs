@@ -271,20 +271,65 @@ namespace SistemaGestorDeVentas.api.user
                 DataGridViewRow row = dataGrid_usuarios.Rows[e.RowIndex];
 
                 // Rellenar los TextBox con los datos de la fila
-                txtUsuarioDNI.Text = row.Cells["listaUsuarioDni"].Value.ToString();
-                txtUsuarioNombre.Text = row.Cells["listaUsuarioNombre"].Value.ToString(); // Cambia "Nombre" por el nombre de la columna correspondiente
-                txtUsuarioCorreo.Text = row.Cells["listaUsuarioCorreo"].Value.ToString();
-                txtUsuarioContraseña.Text = row.Cells["listaUsuarioContraseña"].Value.ToString();
+                if (row.Cells["listaUsuarioDni"].Value != null)
+                {
+                    txtUsuarioDNI.Text = row.Cells["listaUsuarioDni"].Value.ToString();
+                }
+                else
+                {
+                    txtUsuarioDNI.Text = "";
+                }
+
+                if (row.Cells["listaUsuarioNombre"].Value != null)
+                {
+                    txtUsuarioNombre.Text = row.Cells["listaUsuarioNombre"].Value.ToString();
+                }
+                else
+                {
+                    txtUsuarioNombre.Text = "";
+                }
+
+                if (row.Cells["listaUsuarioCorreo"].Value != null)
+                {
+                    txtUsuarioCorreo.Text = row.Cells["listaUsuarioCorreo"].Value.ToString();
+                }
+                else
+                {
+                    txtUsuarioCorreo.Text = "";
+                }
+
+                if (row.Cells["listaUsuarioContraseña"].Value != null)
+                {
+                    txtUsuarioContraseña.Text = row.Cells["listaUsuarioContraseña"].Value.ToString();
+                }
+                else
+                {
+                    txtUsuarioContraseña.Text = "";
+                }
+
 
                 //cboxProveedorEstado.Text =
+                if (row.Cells["listaUsuarioEstado"].Value != null)
+                {
+                    string nombreEstado = row.Cells["listaUsuarioEstado"].Value.ToString();
+                    int? estadoID = estadoService.GetEstadoIdByNombre(nombreEstado);
+                    cboxUsuarioEstado.SelectedValue = estadoID;
+                }
+                else
+                {
+                    cboxUsuarioEstado.SelectedIndex = -1;
+                }
 
-                string nombreEstado = row.Cells["listaUsuarioEstado"].Value.ToString();
-                int? estadoID = estadoService.GetEstadoIdByNombre(nombreEstado);
-                cboxUsuarioEstado.SelectedValue = estadoID;
-
-                string nombreRol = row.Cells["listaUsuarioRol"].Value.ToString();
-                Rol rol = rolService.GetRolByNombre(nombreRol);
-                cboxUsuarioRol.SelectedValue = rol.id_rol;
+                if (row.Cells["listaUsuarioRol"].Value != null)
+                {
+                    string nombreRol = row.Cells["listaUsuarioRol"].Value.ToString();
+                    Rol rol = rolService.GetRolByNombre(nombreRol);
+                    cboxUsuarioRol.SelectedValue = rol.id_rol;
+                }
+                else
+                {
+                    cboxUsuarioRol.SelectedIndex = -1;
+                }
             }
         }
 

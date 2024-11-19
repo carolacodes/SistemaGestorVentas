@@ -334,33 +334,97 @@ namespace SistemaGestorDeVentas.api.product
                 // Obtener la fila seleccionada
                 DataGridViewRow row = dataGrid_productos.Rows[e.RowIndex];
 
+                if(row.Cells["detalleProductoNombre"].Value != null)
+                {
+                    txtProductNombre.Text = row.Cells["detalleProductoNombre"].Value.ToString();
+                }
+                else
+                {
+                    txtProductNombre.Text ="";
+                }
 
-                txtProductNombre.Text = row.Cells["detalleProductoNombre"].Value.ToString();
-                txtProductCodigo.Text = row.Cells["detalleProductoCodigo"].Value.ToString();
-                txtProductDescripcion.Text = row.Cells["detalleProductoDescripcion"].Value.ToString();
-                txtProductPrecioVenta.Text = row.Cells["precio_venta"].Value.ToString();
-                txtProductStock.Text = row.Cells["detalleProductoStock"].Value.ToString();
-                txtProductPrecioCompra.Text = row.Cells["detalleProductoPrecio_compra"].Value.ToString();
+                if (row.Cells["detalleProductoCodigo"].Value != null)
+                {
+                    txtProductCodigo.Text = row.Cells["detalleProductoCodigo"].Value.ToString();
+                }
+                else
+                {
+                    txtProductCodigo.Text = "";
+                }
 
-                string nombreEstado = row.Cells["detalleProductoEstado"].Value.ToString();
-                int? estadoID = estadoService.GetEstadoIdByNombre(nombreEstado);
+                if (row.Cells["detalleProductoDescripcion"].Value != null)
+                {
+                    txtProductDescripcion.Text = row.Cells["detalleProductoDescripcion"].Value.ToString();
+                }
+                else
+                {
+                    txtProductDescripcion.Text = "";
+                }
 
-                cboxProductEstado.SelectedValue = estadoID;
+                if (row.Cells["precio_venta"].Value != null)
+                {
+                    txtProductPrecioVenta.Text = row.Cells["precio_venta"].Value.ToString();
+                }
+                else
+                {
+                    txtProductPrecioVenta.Text = "";
+                }
 
-                CategoriaService categoriaService = new CategoriaService();
+                if (row.Cells["detalleProductoStock"].Value != null)
+                {
+                    txtProductStock.Text = row.Cells["detalleProductoStock"].Value.ToString();
+                }
+                else
+                {
+                    txtProductStock.Text = "";
+                }
 
+                if (row.Cells["detalleProductoPrecio_compra"].Value != null)
+                {
+                    txtProductPrecioCompra.Text = row.Cells["detalleProductoPrecio_compra"].Value.ToString();
+                }
+                else
+                {
+                    txtProductPrecioCompra.Text = "";
+                }
 
-                string categorianombre = row.Cells["detalleProductoCategoria"].Value.ToString();
-                var categoria = categoriaService.getCategoriaPorNombre(categorianombre);
-                int? categoriaID = categoria.id_categoria;
+                if (row.Cells["detalleProductoEstado"].Value != null)
+                {
+                    string nombreEstado = row.Cells["detalleProductoEstado"].Value.ToString();
+                    int? estadoID = estadoService.GetEstadoIdByNombre(nombreEstado);
+                    cboxProductEstado.SelectedValue = estadoID;
+                }
+                else
+                {
+                    cboxProductEstado.SelectedIndex = -1;
+                }
 
-                cboxProductCategoria.SelectedValue = categoriaID;
+                if (row.Cells["detalleProductoCategoria"].Value != null)
+                {
+                    CategoriaService categoriaService = new CategoriaService();
+                    string categorianombre = row.Cells["detalleProductoCategoria"].Value.ToString();
+                    var categoria = categoriaService.getCategoriaPorNombre(categorianombre);
+                    int? categoriaID = categoria.id_categoria;
+                    cboxProductCategoria.SelectedValue = categoriaID;
+                }
+                else
+                {
+                    cboxProductCategoria.SelectedIndex = -1;
+                }
 
+                if (row.Cells["proveedor"].Value != null)
+                {
+                    ProveedorDao pro = new ProveedorDao();
+                    string proveedorNombre = row.Cells["proveedor"].Value.ToString();
+                    int? proveedorID = pro.GetProveedorIdByName(proveedorNombre);
+                    cbProveedor.SelectedValue = proveedorID;
+                }
+                else
+                {
+                    cbProveedor.SelectedIndex = -1;
+                }
 
-                ProveedorDao pro = new ProveedorDao();
-                string proveedorNombre = row.Cells["proveedor"].Value.ToString();
-                int? proveedorID = pro.GetProveedorIdByName(proveedorNombre);
-                cbProveedor.SelectedValue = proveedorID;
+                
 
             }
         }
