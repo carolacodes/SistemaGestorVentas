@@ -17,10 +17,54 @@ namespace SistemaGestorDeVentas.api.product
 {
     public partial class adminGestionProduct : Form
     {
+        private static adminGestionProduct _instance;
         public adminGestionProduct()
         {
             InitializeComponent();
+            _instance = this; // Guarda la instancia actual en una variable estática
         }
+
+        public static void ActualizarDatosProductos()
+        {
+            if (_instance != null) // Verifica si la instancia está activa
+            {
+                using (var context = new sistema_de_ventas_taller_Entities())
+                {
+                    EstadoService estadoService = new EstadoService();
+                    ProductService productService = new ProductService();
+                    CategoriaService categoriaService = new CategoriaService();
+                    ProveedorServices proveedorServices = new ProveedorServices();
+
+                    var productos = productService.getProductsService(); // Obtén los productos actualizados
+                    _instance.dataGrid_productos.Rows.Clear(); // Limpia las filas existentes para evitar duplicados
+
+                    foreach (var producto in productos)
+                    {
+                        // Obtén los valores adicionales necesarios
+                        var categoria = categoriaService.getCategoria(producto.id_categoria)?.nombre ?? "Sin categoría";
+                        var estado = estadoService.getEstado(producto.id_estado)?.nombre ?? "Sin estado";
+                        var proveedor = proveedorServices.getProveedor(producto.id_proveedor)?.nombre ?? "Sin proveedor";
+
+                        // Agrega una nueva fila al DataGridView
+                        _instance.dataGrid_productos.Rows.Add(
+                            producto.nombre,
+                            producto.codigo_producto,
+                            producto.descripcion,
+                            categoria,
+                            producto.precio_compra,
+                            producto.precio_venta,
+                            producto.stock,
+                            estado,
+                            proveedor
+                        );
+                    }
+
+                    // Opcional: Aplica algún orden después de actualizar
+                    _instance.OrdenarPorCodigo();
+                }
+            }
+        }
+
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -548,6 +592,11 @@ namespace SistemaGestorDeVentas.api.product
             {
                 MessageBox.Show("Error al dar de baja el producto: " + ex.Message);
             }
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            btnProductLimpiar_Click(sender, e);
         }
     }    
 }

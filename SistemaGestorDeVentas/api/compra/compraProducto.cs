@@ -407,29 +407,70 @@ namespace SistemaGestorDeVentas.api.compra
                 }
             }
 
-            // Actualiza el stock de los productos en la base de datos
-            using (var context = new sistema_de_ventas_taller_Entities())
-            {
-                try
-                {
-                    foreach (var ProductoDatos in productosCompraClass)
-                    {
-                        Producto producto = context.Producto.Find(ProductoDatos.ProductoId);
-                        if (producto != null)
-                        {
-                            producto.stock += ProductoDatos.cantidad; // Actualiza el stock
-                            context.SaveChanges();  // Guarda los cambios de manera sincrónica
-                        }
-                    }
+            //// Actualiza el stock de los productos en la base de datos
+            //using (var context = new sistema_de_ventas_taller_Entities())
+            //{
+            //    try
+            //    {
+            //        foreach (var ProductoDatos in productosCompraClass)
+            //        {
+            //            Producto producto = context.Producto.Find(ProductoDatos.ProductoId);
+            //            if (producto != null)
+            //            {
+            //                producto.stock += ProductoDatos.cantidad; // Actualiza el stock
+            //                context.SaveChanges();  // Guarda los cambios de manera sincrónica
+            //            }
+            //        }
 
-                    MessageBox.Show("Se registró la compra de productos correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.None);
-                }
-                catch (Exception ex)
+            //        MessageBox.Show("Se registró la compra de productos correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.None);
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show($"Error al actualizar los productos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    }
+            //}
+
+            sistema_de_ventas_taller_Entities context = null;
+            try
+            {
+                context = new sistema_de_ventas_taller_Entities();
+
+                foreach (var ProductoDatos in productosCompraClass)
                 {
-                    MessageBox.Show($"Error al actualizar los productos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Producto producto = context.Producto.Find(ProductoDatos.ProductoId);
+                    if (producto != null)
+                    {
+                        producto.stock += ProductoDatos.cantidad; // Actualiza el stock
+                        context.SaveChanges();  // Guarda los cambios de manera sincrónica
+                    }
+                }
+
+                MessageBox.Show("Se registró la compra de productos correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.None);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al actualizar los productos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                // Liberación de recursos en el bloque finally
+                if (context != null)
+                {
+                    context.Dispose();
                 }
             }
+
+            clearPantalla();
+
+            adminGestionProduct.ActualizarDatosProductos();
         }
+
+        private void clearPantalla()
+        {
+            dataGridCartView.Rows.Clear();
+            txtTotal.Text = "";
+        }
+
 
         private void dmCantidad_SelectedItemChanged(object sender, EventArgs e)
         {
