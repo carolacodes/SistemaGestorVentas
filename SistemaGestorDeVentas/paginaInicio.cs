@@ -79,6 +79,24 @@ namespace SistemaGestorDeVentas
             }
         }
 
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            //txtContraseñaUsuario.Text = "";
+        }
 
+        private void btnMostrar_Click(object sender, EventArgs e)
+        {
+            // Cambia el estado de UseSystemPasswordChar para mostrar u ocultar el texto
+            if (txtContraseñaUsuario.UseSystemPasswordChar)
+            {
+                txtContraseñaUsuario.UseSystemPasswordChar = false; 
+                btnMostrar.Text = "Ocultar"; 
+            }
+            else
+            {
+                txtContraseñaUsuario.UseSystemPasswordChar = true; 
+                btnMostrar.Text = "Mostrar"; 
+            }
+        }
     }
 }

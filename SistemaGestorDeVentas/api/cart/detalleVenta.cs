@@ -17,12 +17,14 @@ using SistemaGestorDeVentas.db;
 using SistemaGestorDeVentas.api.cliente;
 using SistemaGestorDeVentas.api.user;
 using SistemaGestorDeVentas.api.product;
+using SistemaGestorDeVentas.api.negocio;
 
 
 namespace SistemaGestorDeVentas.api.cart
 {
     public partial class detalleVenta : Form
     {
+        //public static string NombreNegocio { get; set; }
         public detalleVenta()
         {
             InitializeComponent();
@@ -95,6 +97,7 @@ namespace SistemaGestorDeVentas.api.cart
 
         private void detalleVenta_Load(object sender, EventArgs e)
         {
+            dateCartDetalleFecha.Value = DateTime.Today;
             txtTipoDocumento.Text = "Factura";
             CalcularTotal();
         }
@@ -112,11 +115,26 @@ namespace SistemaGestorDeVentas.api.cart
 
             var cod_venta = txtCartDetalleNroVenta.Text;
 
-            Factura facturaEncontrada = facturaDao.getFactura(int.Parse(cod_venta));
-
-            if (facturaEncontrada is null)
+            if (string.IsNullOrEmpty(cod_venta))
             {
-                throw new Exception("No se encontró la factura con el numero de venta especificado.");
+               MessageBox.Show("Debe ingresar un numero de venta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Intentar convertir a número entero
+            if (!int.TryParse(cod_venta, out int codVentaInt))
+            {
+                MessageBox.Show("El número de venta debe ser un valor numérico.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // Salir del método si no se puede convertir
+            }
+
+            Factura facturaEncontrada = facturaDao.getFactura(codVentaInt);
+
+            // Validar si se encontró la factura
+            if (facturaEncontrada == null)
+            {
+                MessageBox.Show("No se encontró la factura con el número de venta especificado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; // Salir del método si no se encuentra la factura
             }
 
             string rutaCarpeta = @"E:\CAROLA\CAROLA FACULTAD\TERCER AÑO\SEGUNDO CUATRIMESTRE\taller\SistemaGestorVentas\facturas_ventas";
@@ -124,9 +142,10 @@ namespace SistemaGestorDeVentas.api.cart
             {
                 Directory.CreateDirectory(rutaCarpeta);
             }
+            string fechaHoraActual = DateTime.Now.ToString("yyyyMMdd_HHmmss");
 
             // Define la ruta completa con el nombre del archivo
-            string rutaArchivo = Path.Combine(rutaCarpeta, $"Factura_{facturaEncontrada.numero_factura}.pdf");
+            string rutaArchivo = Path.Combine(rutaCarpeta, $"Factura_{facturaEncontrada.numero_factura}_{fechaHoraActual}.pdf");
 
             // Define el nombre y la ruta del archivo PDF
             //string rutaArchivo = $@"C:\Factura_{facturaEncontrada.numero_factura}.pdf";
@@ -191,22 +210,6 @@ namespace SistemaGestorDeVentas.api.cart
             }
 
 
-            //// Agrega el encabezado de la tabla
-            //foreach (DataColumn columna in dataProductosVenta.Columns)
-            //{
-            //    PdfPCell cell = new PdfPCell(new Phrase(columna.ColumnName, encabezadoFont));
-            //    cell.BackgroundColor = BaseColor.Gray; //LIGHT_GRAY
-            //    tabla.AddCell(cell);
-            //}
-
-            //// Agrega las filas de datos a la tabla
-            //foreach (DataRow fila in dataProductosVenta.Rows)
-            //{
-            //    foreach (var item in fila.ItemArray)
-            //    {
-            //        tabla.AddCell(new Phrase(item.ToString(), textoNormalFont));
-            //    }
-            //}
 
             // Agrega la tabla al documento
             doc.Add(tabla);
@@ -215,17 +218,34 @@ namespace SistemaGestorDeVentas.api.cart
             doc.Add(new Paragraph(" "));
             doc.Add(new Paragraph($"Monto Total: {txtMontoTotal.Text}", encabezadoFont));
 
+
+            NegocioService negocioService = new NegocioService();
+            Negocio negocioEncontrado = negocioService.getNegocio(1);
+
             // Pie de página con datos de la empresa
             doc.Add(new Paragraph(" "));
             doc.Add(new Paragraph("Datos de la Empresa:", encabezadoFont));
-            doc.Add(new Paragraph("Empresa XYZ S.A.", textoNormalFont));
-            doc.Add(new Paragraph("Dirección: Av. Siempre Viva 123, Ciudad", textoNormalFont));
-            doc.Add(new Paragraph("Teléfono: +123 456 789", textoNormalFont));
-            doc.Add(new Paragraph("Email: contacto@empresa.com", textoNormalFont));
+            doc.Add(new Paragraph($"Empresa: {negocioEncontrado.nombre}", textoNormalFont));
+            doc.Add(new Paragraph($"Dirección: {negocioEncontrado.direccion}", textoNormalFont));
+            doc.Add(new Paragraph($"R.U.T.: {negocioEncontrado.rut}", textoNormalFont));
+            //doc.Add(new Paragraph("Teléfono: +123 456 789", textoNormalFont));
+            //doc.Add(new Paragraph("Email: contacto@empresa.com", textoNormalFont));
 
             // Cierra el documento
             doc.Close();
 
+            VentaService ventaService = new VentaService();
+            Venta ventaExiste = ventaService.getVenta(codVentaInt);
+            if (ventaExiste != null)
+            {
+                Factura factura = new Factura
+                {
+                    cod_venta = ventaExiste.cod_venta,
+                    id_negocio = negocioEncontrado.id_negocio,
+                };
+                facturaDao.crearFactura(factura);
+            }
+            
             MessageBox.Show($"El PDF de la factura {facturaEncontrada.numero_factura} se ha generado correctamente en la ruta: {rutaArchivo}");
         }
 
@@ -369,6 +389,17 @@ namespace SistemaGestorDeVentas.api.cart
                         }
 
                         CalcularTotal();
+
+                        //NegocioService negocioService = new NegocioService();
+                        //Negocio negocioEncontrado = negocioService.getNegocio(1);
+
+                        //FacturaService facturaService = new FacturaService();
+                        //Factura factura = new Factura
+                        //{
+                        //    cod_venta = ventaExiste.cod_venta,
+                        //    id_negocio = negocioEncontrado.id_negocio,
+                        //};
+                        //facturaService.crearFactura(factura);
                         btnClear_Click(sender, e);
                     }
                     else
@@ -385,6 +416,7 @@ namespace SistemaGestorDeVentas.api.cart
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            dateCartDetalleFecha.Value = DateTime.Today;
             txtCartDetalleNroVenta.Text = "";
             txtMontoTotal.Text = "";
             txtClienteVenta.Text = "";

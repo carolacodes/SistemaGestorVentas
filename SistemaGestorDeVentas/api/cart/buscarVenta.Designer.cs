@@ -178,6 +178,7 @@
             // 
             // cbBuscarVenta
             // 
+            this.cbBuscarVenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBuscarVenta.FormattingEnabled = true;
             this.cbBuscarVenta.Items.AddRange(new object[] {
             "Nro Venta",
@@ -186,7 +187,6 @@
             this.cbBuscarVenta.Name = "cbBuscarVenta";
             this.cbBuscarVenta.Size = new System.Drawing.Size(121, 24);
             this.cbBuscarVenta.TabIndex = 2;
-            this.cbBuscarVenta.Text = "Nro Venta";
             this.cbBuscarVenta.SelectedIndexChanged += new System.EventHandler(this.cbBuscarVenta_SelectedIndexChanged);
             // 
             // label2

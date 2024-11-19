@@ -39,6 +39,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnMostrar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -48,6 +49,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.panel1.Controls.Add(this.btnMostrar);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.txtContraseñaUsuario);
             this.panel1.Controls.Add(this.txtNombreUsuario);
@@ -60,6 +62,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(563, 631);
             this.panel1.TabIndex = 0;
+            this.panel1.Click += new System.EventHandler(this.panel1_Click);
             // 
             // button1
             // 
@@ -80,6 +83,7 @@
             this.txtContraseñaUsuario.Name = "txtContraseñaUsuario";
             this.txtContraseñaUsuario.Size = new System.Drawing.Size(249, 22);
             this.txtContraseñaUsuario.TabIndex = 4;
+            this.txtContraseñaUsuario.UseSystemPasswordChar = true;
             // 
             // txtNombreUsuario
             // 
@@ -165,6 +169,17 @@
             this.label4.Text = "¡Obten un mejor control de tu negocio con TuComercioVirtual!";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
+            // btnMostrar
+            // 
+            this.btnMostrar.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMostrar.Location = new System.Drawing.Point(405, 403);
+            this.btnMostrar.Name = "btnMostrar";
+            this.btnMostrar.Size = new System.Drawing.Size(75, 31);
+            this.btnMostrar.TabIndex = 6;
+            this.btnMostrar.Text = "Mostrar";
+            this.btnMostrar.UseVisualStyleBackColor = true;
+            this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
+            // 
             // paginaInicio
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -198,6 +213,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button btnMostrar;
     }
 }
 

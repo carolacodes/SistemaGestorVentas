@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaGestorDeVentas.db;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,8 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SistemaGestorDeVentas.api.cart;
 
-namespace SistemaGestorDeVentas.api.Negocio
+namespace SistemaGestorDeVentas.api.negocio
 {
     public partial class gestionNegocio : Form
     {
@@ -77,6 +79,38 @@ namespace SistemaGestorDeVentas.api.Negocio
         private void navbar_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void guardarNegocio_Click(object sender, EventArgs e)
+        {
+            var nombre = txtNegocioNombre.Text;
+            var direccion = txtNegocioDireccion.Text;
+            var rut = txtNegocioRUC.Text;
+            var imagen = pictureBox1.Image;
+
+            NegocioService negocioService = new NegocioService();
+            Negocio negocioExiste = negocioService.getNegocio(1);
+            
+            negocioExiste.nombre = nombre;
+            negocioExiste.direccion = direccion;
+            negocioExiste.rut = rut;
+            
+            negocioService.updateNegocio(negocioExiste);
+
+            MessageBox.Show("Se guardaron los datos correctamente");
+
+
+            //detalleVenta.NombreNegocio = nombre;
+            //detalleVenta detalleVentaForm = new detalleVenta();
+        }
+
+        private void gestionNegocio_Load(object sender, EventArgs e)
+        {
+            NegocioService negocioService = new NegocioService();
+            Negocio negocioExiste = negocioService.getNegocio(1);
+            txtNegocioNombre.Text = negocioExiste.nombre;
+            txtNegocioDireccion.Text = negocioExiste.direccion;
+            txtNegocioRUC.Text = negocioExiste.rut;
         }
     }
 }

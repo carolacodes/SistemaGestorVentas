@@ -41,7 +41,6 @@ namespace SistemaGestorDeVentas.api.cart
             this.cartSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cartEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.dpCantidad = new System.Windows.Forms.DomainUpDown();
             this.label13 = new System.Windows.Forms.Label();
             this.txtCartPrecio = new System.Windows.Forms.TextBox();
             this.btnAgregarCartView = new System.Windows.Forms.Button();
@@ -67,11 +66,13 @@ namespace SistemaGestorDeVentas.api.cart
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dpCantidad = new System.Windows.Forms.NumericUpDown();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCartView)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dpCantidad)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -195,15 +196,6 @@ namespace SistemaGestorDeVentas.api.cart
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1062, 100);
             this.panel6.TabIndex = 6;
-            // 
-            // dpCantidad
-            // 
-            this.dpCantidad.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dpCantidad.Location = new System.Drawing.Point(591, 66);
-            this.dpCantidad.Name = "dpCantidad";
-            this.dpCantidad.Size = new System.Drawing.Size(120, 25);
-            this.dpCantidad.TabIndex = 16;
-            this.dpCantidad.Text = "1";
             // 
             // label13
             // 
@@ -466,6 +458,28 @@ namespace SistemaGestorDeVentas.api.cart
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.Width = 125;
             // 
+            // dpCantidad
+            // 
+            this.dpCantidad.Location = new System.Drawing.Point(593, 67);
+            this.dpCantidad.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.dpCantidad.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.dpCantidad.Name = "dpCantidad";
+            this.dpCantidad.Size = new System.Drawing.Size(120, 22);
+            this.dpCantidad.TabIndex = 17;
+            this.dpCantidad.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // cartView
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -486,6 +500,7 @@ namespace SistemaGestorDeVentas.api.cart
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dpCantidad)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -514,7 +529,6 @@ namespace SistemaGestorDeVentas.api.cart
         public System.Windows.Forms.TextBox txtCartCodProduct;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DomainUpDown dpCantidad;
         private System.Windows.Forms.Label label13;
         public System.Windows.Forms.DataGridView dataGridCartView;
         private System.Windows.Forms.Label label14;
@@ -528,5 +542,6 @@ namespace SistemaGestorDeVentas.api.cart
         private System.Windows.Forms.DataGridViewTextBoxColumn cartSubtotal;
         private System.Windows.Forms.DataGridViewButtonColumn cartEliminar;
         private TextBox txtTipoDoc;
+        private NumericUpDown dpCantidad;
     }
 }

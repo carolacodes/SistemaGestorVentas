@@ -316,24 +316,62 @@ namespace SistemaGestorDeVentas.api.cart
 
         private void btnAgregarCartView_Click(object sender, EventArgs e)
         {
-
+            var dni_cliente = txtCartViewDNI.Text;
             var cod_product = txtCartCodProduct.Text;
             var nombre_product = txtCartProducto.Text;
             var precio = txtCartPrecio.Text;
             var cantidad =dpCantidad.Text;
 
             if (!string.IsNullOrEmpty(cod_product) && !string.IsNullOrEmpty(nombre_product) &&
-                !string.IsNullOrEmpty(precio) && !string.IsNullOrEmpty(cantidad))
+                !string.IsNullOrEmpty(precio) && !string.IsNullOrEmpty(cantidad) && !string.IsNullOrEmpty(dni_cliente))
             {
-                var subtotal = float.Parse(precio) * int.Parse(cantidad);
-                dataGridCartView.Rows.Add(nombre_product, precio, cantidad, subtotal);
-                txtCartCodProduct.Text = "";
-                txtCartProducto.Text = "";
-                txtCartPrecio.Text = "";
-                //txtCartStock.Text = "";
+                ProductService productService = new ProductService();
+
+                // Validar y convertir el código del producto
+                if (int.TryParse(cod_product, out int codProducto))
+                {
+                    Producto prod = productService.getProductService(codProducto);
+
+                    if (prod != null) // Asegurarse de que el producto existe
+                    {
+                        var stockProducto = prod.stock;
+                        // Aquí puedes continuar con tu lógica
+                        Console.WriteLine($"Stock actual: {stockProducto}");
+
+                        if (stockProducto >= int.Parse(cantidad))
+                        {
+                            var subtotal = float.Parse(precio) * int.Parse(cantidad);
+                            dataGridCartView.Rows.Add(nombre_product, precio, cantidad, subtotal);
+                            txtCartCodProduct.Text = "";
+                            txtCartProducto.Text = "";
+                            txtCartPrecio.Text = "";
+                            dpCantidad.Value = 1;
+                            //txtCartStock.Text = "";
+                            CalcularTotal();
+                        }
+                        else
+                        {
+                            MessageBox.Show("ERROR: La cantidad seleccionada es mayor que el stock", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("ERROR: Codigo de producto no existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"ERROR: NO SE PUEDO CONVERTIR EL COD_PRODUCTO A TIPO INT");
+                }
+            }
+            else
+            {
+                MessageBox.Show("ERROR: Campos vacios. Completalos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             CalcularTotal();
+
+
 
             //ProductService productService = new ProductService();
             //Producto prodEncontrado = productService.getProductService(int.Parse(cod_product));

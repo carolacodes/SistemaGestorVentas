@@ -117,6 +117,7 @@
             // 
             // cbMetodoPago
             // 
+            this.cbMetodoPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMetodoPago.FormattingEnabled = true;
             this.cbMetodoPago.Location = new System.Drawing.Point(501, 44);
             this.cbMetodoPago.Name = "cbMetodoPago";

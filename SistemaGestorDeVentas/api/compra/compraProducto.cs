@@ -27,7 +27,7 @@ namespace SistemaGestorDeVentas.api.compra
             InitializeComponent();
         }
 
-        private string email = metodoPago.UsuarioEmail;
+        private string email = UsuarioEmail;
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
@@ -91,15 +91,55 @@ namespace SistemaGestorDeVentas.api.compra
 
             List<Proveedor> proveedores = proveedorServices.getProveedores();
 
-            foreach (var proveedor in proveedores)
-            {
-                cbProveedores.Items.Add(proveedor.nombre);
-            }
+            UserService userService = new UserService();
+            Usuario usuario = userService.getUserByEmail(email);
+            string nombreUser = usuario.nombre;
+            txtCorreoUser.Text = email;
+            txtUser.Text = nombreUser;
+
+            //foreach (var proveedor in proveedores)
+            //{
+            //    cbProveedores.Items.Add(proveedor.nombre);
+            //}
 
             var cod_product = txtCartCodProduct.Text;
             var nombre_product = txtCartProducto.Text;
             var precio = txtCartPrecio.Text;
             var cantidad = dmCantidad.Text;
+
+            ////--------------------------------------------------------------------------------------------
+            //ProductService productService = new ProductService();
+
+            //// Validar y convertir el código del producto
+            //if (int.TryParse(cod_product, out int codProducto))
+            //{
+            //    Producto prod = productService.getProductService(codProducto);
+
+            //    if (prod != null) // Asegurarse de que el producto existe
+            //    {
+            //        var stockProducto = prod.stock;
+            //        // Aquí puedes continuar con tu lógica
+            //        Console.WriteLine($"Stock actual: {stockProducto}");
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("El producto no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("El código de producto debe ser un número válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
+
+            //// Configuración del NumericUpDown
+            //dmCantidad1.Minimum = 1;      // Valor mínimo
+            //dmCantidad1.Maximum = 100;    // Valor máximo
+            //dmCantidad1.Increment = 1;    // Incremento de 1
+            //dmCantidad1.Value = 1;        // Valor inicial
+            //dmCantidad1.ReadOnly = true;  // Evita que el usuario escriba texto directamente
+
+            ////----------------------------------------------------------------------------------------------
+
 
             if (!string.IsNullOrEmpty(cod_product) && !string.IsNullOrEmpty(nombre_product) &&
                 !string.IsNullOrEmpty(precio) && !string.IsNullOrEmpty(cantidad))
@@ -119,22 +159,43 @@ namespace SistemaGestorDeVentas.api.compra
             var nombre_product = txtCartProducto.Text;
             var precio = txtCartPrecio.Text;
             var cantidad = dmCantidad.Text;
-
+            var userNombre = txtUser.Text;
+            var userCorreo = txtCorreoUser.Text;
+            ProductService productService = new ProductService();
             if (!string.IsNullOrEmpty(cod_product) && !string.IsNullOrEmpty(nombre_product) &&
-                !string.IsNullOrEmpty(precio) && !string.IsNullOrEmpty(cantidad))
+                !string.IsNullOrEmpty(precio) && !string.IsNullOrEmpty(cantidad) &&
+                !string.IsNullOrEmpty(userNombre) && !string.IsNullOrEmpty(userCorreo))
+
             {
-                var subtotal = float.Parse(precio) * int.Parse(cantidad);
-                dataGridCartView.Rows.Add(nombre_product, precio, cantidad, subtotal);
-                txtCartCodProduct.Text = "";
-                txtCartProducto.Text = "";
-                txtCartPrecio.Text = "";
-                //txtCartStock.Text = "";
-                //txtCartStock.Text = "";
+                if(int.TryParse(cod_product, out int codProducto))
+                {
+                    Producto prod = productService.getProductService(codProducto);
+                    if(prod != null)
+                    {
+                        var subtotal = float.Parse(precio) * int.Parse(cantidad);
+                        dataGridCartView.Rows.Add(nombre_product, precio, cantidad, subtotal);
+                        txtCartCodProduct.Text = "";
+                        txtCartProducto.Text = "";
+                        txtCartPrecio.Text = "";
+                        dmCantidad.Value = 1;
+                    }
+                    else
+                    {
+                        MessageBox.Show("ERROR: Codigo de producto no existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"ERROR: NO SE PUEDO CONVERTIR EL COD_PRODUCTO A TIPO INT");
+
+                }
+
+                CalcularTotal();
             }
-
-            CalcularTotal();
-            
-
+            else
+            {
+                MessageBox.Show("ERROR: Campos vacios. Completalos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public void CalcularTotal()
@@ -368,6 +429,20 @@ namespace SistemaGestorDeVentas.api.compra
                     MessageBox.Show($"Error al actualizar los productos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void dmCantidad_SelectedItemChanged(object sender, EventArgs e)
+        {
+        //    // Obtén el valor actual como entero
+        //    int currentValue = int.Parse(dmCantidad.SelectedItem.ToString());
+        //    Console.WriteLine("Valor actual: " + currentValue);
+        }
+
+        private void dmCantidad1_ValueChanged(object sender, EventArgs e)
+        {
+            //int currentValue = (int)dmCantidad1.Value;
+            //Console.WriteLine("Valor actual: " + currentValue);
+            
         }
     }
 }
