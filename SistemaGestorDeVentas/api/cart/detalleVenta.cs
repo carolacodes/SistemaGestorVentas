@@ -451,5 +451,10 @@ namespace SistemaGestorDeVentas.api.cart
             // Asigna el total calculado al TextBox txtTotal
             txtMontoTotal.Text = total.ToString(); // Formato de dos decimales
         }
+
+        private void dataProductosVenta_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -398,6 +398,9 @@ namespace SistemaGestorDeVentas.api.compra
                             cantidad = cantidadInt
                         };
 
+                        ProductoCompraService prodCompraService = new ProductoCompraService();
+                        prodCompraService.createProductoCompraService(productoCompra);
+
                         productosCompraClass.Add(new productCantidad
                         {
                             ProductoId = productoCompra.id_producto,

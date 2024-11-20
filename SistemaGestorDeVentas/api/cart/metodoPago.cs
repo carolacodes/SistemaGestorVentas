@@ -121,6 +121,9 @@ namespace SistemaGestorDeVentas.api.cart
                             cantidad = cantidadInt
                         };
 
+                        ProductoVentaDao prodVentaService = new ProductoVentaDao();
+                        prodVentaService.crearProductoVentaDao(productoCompra);
+
                         productosCompraClass.Add(new productCantidad
                         {
                             ProductoId = productoCompra.id_producto,

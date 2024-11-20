@@ -92,8 +92,11 @@ VALUES
 ('67890123', 'Sofía Ruiz', 'sofia.ruiz@gmail.com', 'contraseña103', '1992-08-25', 'sofia.jpg', 1, 1), -- Vendedora, Activa
 ('78901234', 'Roberto Torres', 'roberto.torres@gmail.com', 'contraseña104', '1980-03-15', 'roberto.jpg', 2, 1); -- Administrador, Activo
 
-
-
+INSERT INTO Usuario (DNI_usuario, nombre, email, pass,id_rol, id_estado)
+VALUES 
+('51849523', 'supervisor', 'supervisor@gmail.com', 'contraseña123', 3, 1),
+('51849524', 'administrador', 'administrador@gmail.com', 'contraseña123', 2, 1),
+('51849525', 'vendedor', 'vendedor@gmail.com', 'contraseña123', 1, 1)
 
 ----- CLIENTES
 
