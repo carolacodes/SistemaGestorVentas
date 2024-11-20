@@ -110,7 +110,7 @@ namespace SistemaGestorDeVentas.api.product
                         producto.precio_compra = productoActualizado.precio_compra;
                         producto.precio_venta = productoActualizado.precio_venta;
                         producto.stock = productoActualizado.stock;
-                        producto.Estado = productoActualizado.Estado;
+                        producto.id_estado = productoActualizado.id_estado;
 
                         context.SaveChanges();
                     }
