@@ -1,3 +1,7 @@
+UPDATE Usuario
+SET id_estado = 1
+WHERE nombre = 'Carlos López';
+
 ---- INSERTS
 
 ----- CATEGORIA
