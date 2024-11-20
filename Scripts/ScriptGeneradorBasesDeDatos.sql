@@ -79,8 +79,8 @@ CREATE TABLE Usuario
   nombre VARCHAR(200) NOT NULL,
   email VARCHAR(200) NOT NULL,
   pass VARCHAR(200) NOT NULL,
-  fecha_nacimiento DATE NOT NULL,
-  imagen_usuario VARCHAR (200) NOT NULL,
+  fecha_nacimiento DATE,
+  imagen_usuario VARCHAR (200),
   id_rol INT NOT NULL,
   id_estado INT NOT NULL,
   CONSTRAINT PK_usuario PRIMARY KEY (DNI_usuario),
@@ -88,7 +88,6 @@ CREATE TABLE Usuario
   CONSTRAINT FK_usuario_estado FOREIGN KEY (id_estado) REFERENCES Estado(id_estado),
   CONSTRAINT UQ_email_usuario UNIQUE (email),
   CONSTRAINT CK_dni_longitud_usuario CHECK (LEN (DNI_usuario) < 9),
-  CONSTRAINT CK_fecha_nacimiento CHECK (fecha_nacimiento <= DATEADD(YEAR, -18, GETDATE()))
 );
 
 
