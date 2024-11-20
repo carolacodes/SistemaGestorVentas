@@ -148,10 +148,11 @@ namespace SistemaGestorDeVentas.api.cart
                 }
                 return; // Salir del método si no se encuentra la factura
             }
- 
 
 
-            string rutaCarpeta = @"E:\CAROLA\CAROLA FACULTAD\TERCER AÑO\SEGUNDO CUATRIMESTRE\taller\SistemaGestorVentas\facturas_ventas";
+            string projectDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string rutaCarpeta = Path.Combine(projectDirectory, "facturas_ventas");
+            //string rutaCarpeta = @"E:\CAROLA\CAROLA FACULTAD\TERCER AÑO\SEGUNDO CUATRIMESTRE\taller\SistemaGestorVentas\facturas_ventas";
             if (!Directory.Exists(rutaCarpeta))
             {
                 Directory.CreateDirectory(rutaCarpeta);
