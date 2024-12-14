@@ -60,7 +60,7 @@ namespace SistemaGestorDeVentas.api.cart
                 {
                     // Llamar al método para obtener el cliente con el DNI ingresado
                     Cliente clienteExiste = clienteService.getCliente(dniCliente);
-
+                    var estadoService = new EstadoService();
                     // Limpiar las filas actuales del DataGridView
                     dataGridBuscarCliente.Rows.Clear();
 
@@ -70,7 +70,7 @@ namespace SistemaGestorDeVentas.api.cart
                         // Si el cliente existe, mostrar los datos en el DataGridView
                         //dataGridBuscarCliente.DataSource = new List<Cliente> { cliente }; // Usamos una lista con un solo cliente
 
-                        dataGridBuscarCliente.Rows.Add(clienteExiste.DNI_cliente, clienteExiste.nombre, clienteExiste.correo, clienteExiste.telefono, clienteExiste.id_estado);
+                        dataGridBuscarCliente.Rows.Add(clienteExiste.DNI_cliente, clienteExiste.nombre, clienteExiste.correo, clienteExiste.telefono, estadoService.getEstado(clienteExiste.id_estado).nombre);
 
                     }
                     else
@@ -81,7 +81,7 @@ namespace SistemaGestorDeVentas.api.cart
 
                         foreach (var cliente in clientes)
                         {
-                            dataGridBuscarCliente.Rows.Add(cliente.DNI_cliente, cliente.nombre, cliente.id_estado, cliente.telefono, cliente.correo);
+                            dataGridBuscarCliente.Rows.Add(cliente.DNI_cliente, cliente.nombre, estadoService.getEstado(cliente.id_estado).nombre, cliente.telefono, cliente.correo);
                         }
                     }
                 }
@@ -89,7 +89,7 @@ namespace SistemaGestorDeVentas.api.cart
                 {
                     // Llamar al método para obtener el cliente con el DNI ingresado
                     List <Cliente> clientes = clienteService.getClienteByName(nombre_cliente);
-
+                    var estadoService = new EstadoService();
                     // Limpiar las filas actuales del DataGridView
                     dataGridBuscarCliente.Rows.Clear();
 
@@ -98,7 +98,7 @@ namespace SistemaGestorDeVentas.api.cart
                     {
                         foreach (var cliente in clientes)
                         {
-                            dataGridBuscarCliente.Rows.Add(cliente.DNI_cliente, cliente.nombre, cliente.id_estado, cliente.telefono, cliente.correo);
+                            dataGridBuscarCliente.Rows.Add(cliente.DNI_cliente, cliente.nombre, estadoService.getEstado(cliente.id_estado).nombre, cliente.telefono, cliente.correo);
                         }
 
                     }
@@ -108,7 +108,7 @@ namespace SistemaGestorDeVentas.api.cart
 
                         foreach (var cliente in clientes)
                         {
-                            dataGridBuscarCliente.Rows.Add(cliente.DNI_cliente, cliente.nombre, cliente.id_estado, cliente.telefono, cliente.correo);
+                            dataGridBuscarCliente.Rows.Add(cliente.DNI_cliente, cliente.nombre, estadoService.getEstado(cliente.id_estado).nombre, cliente.telefono, cliente.correo);
                         }
                     }
                 }
@@ -131,12 +131,12 @@ namespace SistemaGestorDeVentas.api.cart
             try
             {
                 ClienteService clienteService = new ClienteService();
-
+                var estadoService = new EstadoService();
                 List<Cliente> clientes = clienteService.getClientes();
 
                 foreach (var cliente in clientes)
                 {
-                    dataGridBuscarCliente.Rows.Add(cliente.DNI_cliente, cliente.nombre, cliente.id_estado, cliente.telefono, cliente.correo);
+                    dataGridBuscarCliente.Rows.Add(cliente.DNI_cliente, cliente.nombre, estadoService.getEstado(cliente.id_estado).nombre, cliente.telefono, cliente.correo);
                 }
 
                 //dataGridBuscarCliente.DataSource = clientes;

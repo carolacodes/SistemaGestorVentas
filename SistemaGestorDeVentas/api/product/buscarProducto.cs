@@ -1,4 +1,5 @@
 ﻿using SistemaGestorDeVentas.api.cart;
+using SistemaGestorDeVentas.api.category;
 using SistemaGestorDeVentas.api.cliente;
 using SistemaGestorDeVentas.api.compra;
 using SistemaGestorDeVentas.components;
@@ -49,6 +50,8 @@ namespace SistemaGestorDeVentas.api.product
             // Crear una instancia de ClienteService
             ProductService productService = new ProductService();
 
+            CategoriaService categoriaService = new CategoriaService();
+
             try
             {
                 int indiceSeleccionado = cbBuscarProd.SelectedIndex;
@@ -58,7 +61,8 @@ namespace SistemaGestorDeVentas.api.product
                     //Cliente clienteExiste = clienteService.getCliente(dniCliente);
 
                     Producto productoExiste = productService.getProductService(int.Parse(cod_product));
-
+                    //int idCategoriaProd = productoExiste.id_categoria;
+                    //Categoria categoriaExiste = categoriaService.getCategoria(idCategoriaProd);
                     // Limpiar las filas actuales del DataGridView
                     dataGridBuscarProd.Rows.Clear();
 
@@ -68,7 +72,7 @@ namespace SistemaGestorDeVentas.api.product
                         // Si el cliente existe, mostrar los datos en el DataGridView
                         //dataGridBuscarCliente.DataSource = new List<Cliente> { cliente }; // Usamos una lista con un solo cliente
 
-                        dataGridBuscarProd.Rows.Add(productoExiste.nombre, productoExiste.codigo_producto, productoExiste.descripcion, productoExiste.id_categoria, productoExiste.stock, productoExiste.id_estado);
+                        dataGridBuscarProd.Rows.Add(productoExiste.nombre, productoExiste.codigo_producto, productoExiste.descripcion, categoriaService.getCategoria(productoExiste.id_categoria).nombre, productoExiste.stock, productoExiste.id_estado);
 
                     }
                     else
@@ -79,7 +83,7 @@ namespace SistemaGestorDeVentas.api.product
 
                         foreach (var prod in productos)
                         {
-                            dataGridBuscarProd.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, prod.id_categoria, prod.stock, prod.id_estado);
+                            dataGridBuscarProd.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, categoriaService.getCategoria(prod.id_categoria).nombre, prod.stock, prod.id_estado);
                         }
                     }
                 }
@@ -96,7 +100,7 @@ namespace SistemaGestorDeVentas.api.product
                     {
                         foreach (var prod in productos)
                         {
-                            dataGridBuscarProd.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, prod.id_categoria, prod.stock, prod.precio_venta);
+                            dataGridBuscarProd.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, categoriaService.getCategoria(prod.id_categoria).nombre, prod.stock, prod.precio_venta);
                         }
 
                     }
@@ -106,7 +110,7 @@ namespace SistemaGestorDeVentas.api.product
 
                         foreach (var prod in productos)
                         {
-                            dataGridBuscarProd.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, prod.id_categoria, prod.stock, prod.precio_venta);
+                            dataGridBuscarProd.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, categoriaService.getCategoria(prod.id_categoria).nombre, prod.stock, prod.precio_venta);
                         }
                     }
                 }
@@ -123,7 +127,7 @@ namespace SistemaGestorDeVentas.api.product
             try
             {
                 //ClienteService clienteService = new ClienteService();
-
+                CategoriaService categoriaService = new CategoriaService();
                 ProductService productService = new ProductService();
 
                 List<Producto> productos = productService.getProductsService();
@@ -133,11 +137,11 @@ namespace SistemaGestorDeVentas.api.product
                     Console.WriteLine("stock: " + prod.stock);
                     if(_carritoForm != null && _carritoForm.Visible)
                     {
-                        dataGridBuscarProd.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, prod.id_categoria, prod.stock, prod.precio_venta);
+                        dataGridBuscarProd.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, categoriaService.getCategoria(prod.id_categoria).nombre, prod.stock, prod.precio_venta);
                     }
                     if (_compraProductoForm != null && _compraProductoForm.Visible)
                     {
-                        dataGridBuscarProd.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, prod.id_categoria, prod.stock, prod.precio_compra);
+                        dataGridBuscarProd.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, categoriaService.getCategoria(prod.id_categoria).nombre, prod.stock, prod.precio_compra);
 
                     }
                         

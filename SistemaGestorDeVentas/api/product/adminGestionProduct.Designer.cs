@@ -42,6 +42,7 @@ namespace SistemaGestorDeVentas.api.product
             this.detalleProductoEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
@@ -66,7 +67,6 @@ namespace SistemaGestorDeVentas.api.product
             this.txtProductCodigo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnActualizar = new System.Windows.Forms.Button();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_productos)).BeginInit();
             this.panel4.SuspendLayout();
@@ -179,13 +179,24 @@ namespace SistemaGestorDeVentas.api.product
             this.panel4.Size = new System.Drawing.Size(804, 64);
             this.panel4.TabIndex = 7;
             // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnActualizar.Location = new System.Drawing.Point(682, 18);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(102, 33);
+            this.btnActualizar.TabIndex = 1;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(14, 23);
+            this.label4.Font = new System.Drawing.Font("Nirmala UI", 14F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(12, 15);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(138, 20);
+            this.label4.Size = new System.Drawing.Size(225, 32);
             this.label4.TabIndex = 0;
             this.label4.Text = "Lista de Productos";
             // 
@@ -436,17 +447,6 @@ namespace SistemaGestorDeVentas.api.product
             this.label1.Size = new System.Drawing.Size(155, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Detalle Producto";
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnActualizar.Location = new System.Drawing.Point(682, 18);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(102, 33);
-            this.btnActualizar.TabIndex = 1;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // adminGestionProduct
             // 
