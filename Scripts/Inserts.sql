@@ -40,8 +40,7 @@ INSERT INTO Metodo_Pago (nombre)
 VALUES 
 ('efectivo'),
 ('transferencia'),
-('debito'),
-('tarjeta de credito');
+('debito');
 
 
 
