@@ -82,7 +82,7 @@ SELECT * FROM Proveedor
 
 INSERT INTO Usuario (DNI_usuario, nombre, email, pass, fecha_nacimiento, imagen_usuario, id_rol, id_estado)
 VALUES 
-('12345678', 'Juan Pérez', 'juan.perez@gmail.com', 'contraseña123', '2000-01-15', 'juan.jpg', 1, 1), -- Vendedor, Activo
+('12345678', 'Juan Pérez', 'juan.perez@gmail.com', 'contraseña123', '2000-01-15', 'juan.jpg', 3, 1), -- Vendedor, Activo
 ('23456789', 'María Gómez', 'maria.gomez@gmail.com', 'contraseña456', '1995-03-22', 'maria.jpg', 2, 1), -- Administrador, Activo
 ('34567890', 'Carlos López', 'carlos.lopez@gmail.com', 'contraseña789', '2005-07-10', 'carlos.jpg', 3, 1), -- Supervisor, Activo
 ('45678901', 'Ana Martínez', 'ana.martinez@gmail.com', 'contraseña101', '1990-05-30', 'ana.jpg', 1, 1), -- Vendedora, Activa
