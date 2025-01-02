@@ -167,6 +167,7 @@
             this.btnLimpiarBP.Size = new System.Drawing.Size(45, 44);
             this.btnLimpiarBP.TabIndex = 25;
             this.btnLimpiarBP.UseVisualStyleBackColor = true;
+            this.btnLimpiarBP.Click += new System.EventHandler(this.btnLimpiarBP_Click);
             // 
             // btnBuscarProd
             // 

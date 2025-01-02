@@ -248,5 +248,11 @@ namespace SistemaGestorDeVentas.api.product
         {
             this.Close();
         }
+
+        private void btnLimpiarBP_Click(object sender, EventArgs e)
+        {
+            txtBuscarProd.Text = "";
+            buscarProducto_Load(sender, e);
+        }
     }
 }

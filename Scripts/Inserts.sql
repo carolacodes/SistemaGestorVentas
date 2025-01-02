@@ -357,7 +357,6 @@ INSERT INTO Producto_Venta (cod_venta, id_producto, cantidad) VALUES
 (4, 1008, 1),
 (5, 1009, 5),
 (5, 1010, 2),
-(6, 1011, 3),
 (6, 1012, 4),
 (7, 1013, 1),
 (7, 1014, 3),
@@ -367,21 +366,18 @@ INSERT INTO Producto_Venta (cod_venta, id_producto, cantidad) VALUES
 (9, 1018, 3),
 (10, 1019, 2),
 (10, 1020, 5),
-(11, 1021, 3),
 (11, 1022, 4),
 (12, 1023, 1),
 (12, 1024, 3),
 (13, 1025, 6),
 (13, 1026, 2),
 (14, 1027, 1),
-(14, 1028, 3),
 (15, 1029, 2),
 (15, 1030, 5),
 (16, 1031, 3),
 (16, 1032, 4),
 (17, 1033, 1),
 (17, 1034, 3),
-(18, 1035, 6),
 (18, 1036, 2),
 (19, 1037, 1),
 (19, 1038, 3),
@@ -417,7 +413,6 @@ VALUES
 ---- Producto Compra
 
 INSERT INTO Producto_Compra (cantidad, id_compra, id_producto) VALUES 
-(3, 1, 1001),  -- 3 Manzanas en la compra 1
 (2, 1, 1002),  -- 2 Leche Entera en la compra 1
 (1, 1, 1003),  -- 1 Pechuga de Pollo en la compra 1
 (5, 2, 1004),  -- 5 Pan Integral en la compra 2
@@ -427,7 +422,6 @@ INSERT INTO Producto_Compra (cantidad, id_compra, id_producto) VALUES
 (4, 3, 1008),  -- 4 Pescado Congelado en la compra 3
 (3, 3, 1009),  -- 3 Arroz Blanco en la compra 3
 (2, 4, 1010),  -- 2 Chocolate con Almendras en la compra 4
-(1, 4, 1011),  -- 1 Plátano en la compra 4
 (3, 5, 1012),  -- 3 Yogur Natural en la compra 5
 (2, 5, 1013),  -- 2 Chorizos en la compra 5
 (4, 6, 1014),  -- 4 Croissants en la compra 6
@@ -437,21 +431,18 @@ INSERT INTO Producto_Compra (cantidad, id_compra, id_producto) VALUES
 (1, 8, 1018),  -- 1 Verduras Mixtas Congeladas en la compra 8
 (2, 8, 1019),  -- 2 Lentejas en la compra 8
 (5, 9, 1020),  -- 5 Galletas de Chocolate en la compra 9
-(3, 9, 1021),  -- 3 Naranjas en la compra 9
 (2, 10, 1022), -- 2 Leche Descremada en la compra 10
 (1, 10, 1023), -- 1 Salchicha en la compra 10
 (4, 11, 1024), -- 4 Pan de Ajo en la compra 11
 (2, 11, 1025), -- 2 Agua Mineral en la compra 11
 (3, 12, 1026), -- 3 Limpiador de Baño en la compra 12
 (1, 12, 1027), -- 1 Jabón de Manos en la compra 12
-(2, 13, 1028), -- 2 Verduras Frescas en la compra 13
 (5, 13, 1029), -- 5 Filetes de Res en la compra 13
 (1, 14, 1030), -- 1 Bollos de Canela en la compra 14
 (3, 14, 1031), -- 3 Cervezas en la compra 14
 (2, 15, 1032), -- 2 Detergentes en Polvo en la compra 15
 (1, 15, 1033), -- 1 Pasta de Dientes en la compra 15
 (4, 16, 1034), -- 4 Pollo Congelado en la compra 16
-(2, 16, 1035), -- 2 Cebollas en la compra 16
 (3, 17, 1036), -- 3 Mantequillas en la compra 17
 (1, 17, 1037), -- 1 Tocino en la compra 17
 (5, 18, 1038), -- 5 Panes de Molde en la compra 18
