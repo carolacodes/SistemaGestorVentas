@@ -292,6 +292,7 @@
       <DependentUpon>DB_Connect.tt</DependentUpon>
     </Compile>
     <Compile Include="middleware\EstadoService.cs" />
+    <Compile Include="MyApplicationContext.cs" />
     <Compile Include="paginaInicio.cs">
       <SubType>Form</SubType>
     </Compile>

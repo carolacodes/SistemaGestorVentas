@@ -431,5 +431,23 @@ namespace SistemaGestorDeVentas.components
                 backup.Show();
             }
         }
+
+        private void btnSesion_Click(object sender, EventArgs e)
+        {
+            // Crea la nueva ventana de inicio de sesión
+            paginaInicio iniciarSesion = new paginaInicio();
+
+            // Verifica que AppContext no sea null antes de cambiar la ventana
+            if (Program.AppContext != null)
+            {
+                Program.AppContext.SwitchMainForm(iniciarSesion);
+                // Crea un nuevo ApplicationContext para la nueva ventana de inicio de sesión
+                
+            }
+            else
+            {
+                MessageBox.Show("Error crítico: AppContext no está inicializado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

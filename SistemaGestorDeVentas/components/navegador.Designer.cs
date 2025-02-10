@@ -43,6 +43,7 @@
             this.negocioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnSesion = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -185,11 +186,23 @@
             this.backupToolStripMenuItem.Text = "Backup";
             this.backupToolStripMenuItem.Click += new System.EventHandler(this.backupToolStripMenuItem_Click);
             // 
+            // btnSesion
+            // 
+            this.btnSesion.Font = new System.Drawing.Font("Nirmala UI", 7.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSesion.Location = new System.Drawing.Point(1041, 15);
+            this.btnSesion.Name = "btnSesion";
+            this.btnSesion.Size = new System.Drawing.Size(97, 31);
+            this.btnSesion.TabIndex = 3;
+            this.btnSesion.Text = "Cerrar Sesion";
+            this.btnSesion.UseVisualStyleBackColor = true;
+            this.btnSesion.Click += new System.EventHandler(this.btnSesion_Click);
+            // 
             // navegador
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1155, 746);
+            this.Controls.Add(this.btnSesion);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.Name = "navegador";
@@ -219,5 +232,6 @@
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem backupToolStripMenuItem;
+        private System.Windows.Forms.Button btnSesion;
     }
 }
