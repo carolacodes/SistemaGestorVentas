@@ -64,16 +64,18 @@ namespace SistemaGestorDeVentas
                     
                     // Pasa el usuario al formulario navegador
                     navegador navForm = new navegador(usuario);
+                    navForm.Show();
+                    //this.Hide();
 
                     // Verifica que AppContext no sea null antes de cambiar la ventana
-                    if (Program.AppContext != null)
-                    {
-                        Program.AppContext.SwitchMainForm(navForm);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error crítico: AppContext no está inicializado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    //if (Program.AppContext != null)
+                    //{
+                    //    Program.AppContext.SwitchMainForm(navForm);
+                    //}
+                    //else
+                    //{
+                    //    MessageBox.Show("Error crítico: AppContext no está inicializado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //}
 
                     Console.WriteLine("email desde login para metodo pago" + (metodoPago.UsuarioEmail = email));
                     Console.WriteLine("email desde login para compra producto " + (compraProducto.UsuarioEmail = email));

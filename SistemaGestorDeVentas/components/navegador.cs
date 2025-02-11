@@ -435,19 +435,62 @@ namespace SistemaGestorDeVentas.components
         private void btnSesion_Click(object sender, EventArgs e)
         {
             // Crea la nueva ventana de inicio de sesión
-            paginaInicio iniciarSesion = new paginaInicio();
+            //paginaInicio iniciarSesion = new paginaInicio();
 
-            // Verifica que AppContext no sea null antes de cambiar la ventana
-            if (Program.AppContext != null)
+            //// Verifica que AppContext no sea null antes de cambiar la ventana
+            //if (Program.AppContext != null)
+            //{
+            //    Program.AppContext.SwitchMainForm(iniciarSesion);
+            //    // Crea un nuevo ApplicationContext para la nueva ventana de inicio de sesión
+
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Error crítico: AppContext no está inicializado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+
+            // Verificar si ya existe una ventana de inicio de sesión abierta
+            //paginaInicio iniciarSesion = new paginaInicio();
+            //this.Hide();
+            //iniciarSesion.Show();
+
+            // Cerrar todas las demás ventanas activas excepto la de inicio de sesión
+            //foreach (Form form in Application.OpenForms.Cast<Form>().ToList())
+            //{
+            //    if (form != iniciarSesion)
+            //    {
+            //        form.Close();
+            //    }
+            //}
+
+            // Resetear variables de sesión
+            metodoPago.UsuarioEmail = null;
+            compraProducto.UsuarioEmail = null;
+
+            //// Cierra todas las ventanas abiertas, excepto `paginaInicio`
+            //foreach (Form form in Application.OpenForms.Cast<Form>().ToList())
+            //{
+            //    if (form.Name != "paginaInicio")
+            //    {
+            //        form.Close();
+            //    }
+            //}
+
+            // Cerrar todas las ventanas de la aplicación
+            foreach (Form form in Application.OpenForms.Cast<Form>().ToList())
             {
-                Program.AppContext.SwitchMainForm(iniciarSesion);
-                // Crea un nuevo ApplicationContext para la nueva ventana de inicio de sesión
-                
+                form.Close();
             }
-            else
-            {
-                MessageBox.Show("Error crítico: AppContext no está inicializado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
+            // Reiniciar la aplicación para garantizar una sesión limpia
+            Application.Restart();
+
+            // Mostrar la página de inicio de sesión
+            //paginaInicio iniciarSesion = new paginaInicio();
+            //iniciarSesion.Show();
+
+            // Cierra el `navegador` actual
+            //this.Close();
         }
     }
 }
