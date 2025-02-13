@@ -334,13 +334,84 @@ namespace SistemaGestorDeVentas.api.cart
 
                     if (prod != null) // Asegurarse de que el producto existe
                     {
+
+                        //Verificar si el codigo esta asociado con el nombre
+                        if (prod.nombre != nombre_product)
+                        {
+                            var result = MessageBox.Show($"Código incorrecto\nEl código pertenece a: {prod.nombre}\n\n¿Deseas actualizar el nombre del producto?",
+                            "Advertencia",
+                             MessageBoxButtons.YesNo,
+                             MessageBoxIcon.Warning);
+                            if (result == DialogResult.Yes)
+                            {
+                                txtCartCodProduct.Text = prod.codigo_producto.ToString();
+                                txtCartProducto.Text = prod.nombre;
+                                txtCartPrecio.Text = prod.precio_compra.ToString();
+                                dpCantidad.Value = 1;
+                                //dmCantidad.Maximum = prod.stock; // que no supere el maximo del producto
+                                return;
+                            }
+                            else
+                            {
+                                txtCartCodProduct.Text = "";
+                                txtCartProducto.Text = "";
+                                txtCartPrecio.Text = "";
+                                dpCantidad.Value = 1;
+                                return;
+                            }
+                        }
+
+
+
+
+
                         var stockProducto = prod.stock;
                         // Aquí puedes continuar con tu lógica
                         Console.WriteLine($"Stock actual: {stockProducto}");
 
-                        if (stockProducto >= int.Parse(cantidad))
+                        ////
+
+                        var stockDisponible = prod.stock;
+
+                        int cantidadEnGrid = 0;
+                        foreach (DataGridViewRow row in dataGridCartView.Rows)
+                        {
+                            if (row.Cells["cartProducto"].Value != null && row.Cells["cartProducto"].Value.ToString() == prod.nombre)
+                            {
+                                cantidadEnGrid += Convert.ToInt32(row.Cells["cartCantidad"].Value);
+                            }
+                        }
+
+                        int stockRestante = stockDisponible - cantidadEnGrid;
+
+
+                        /////
+
+
+                        if (stockRestante >= int.Parse(cantidad))
                         {
                             var subtotal = float.Parse(precio) * int.Parse(cantidad);
+
+
+                            foreach (DataGridViewRow row in dataGridCartView.Rows)
+                            {
+                                if (row.Cells["cartProducto"].Value != null && row.Cells["cartProducto"].Value.ToString() == prod.nombre)
+                                {
+                                    int cantidadActial = Convert.ToInt32(row.Cells["cartCantidad"].Value);
+                                    int nuevaCantidad = cantidadEnGrid + (int)dpCantidad.Value;
+                                    row.Cells["cartCantidad"].Value = nuevaCantidad;
+                                    subtotal = float.Parse(precio) * nuevaCantidad;
+                                    row.Cells["cartSubtotal"].Value = subtotal;
+                                    CalcularTotal();
+                                    txtCartCodProduct.Text = "";
+                                    txtCartProducto.Text = "";
+                                    txtCartPrecio.Text = "";
+                                    dpCantidad.Value = 1;
+                                    return;
+                                }
+                            }
+
+
                             dataGridCartView.Rows.Add(nombre_product, precio, cantidad, subtotal);
                             txtCartCodProduct.Text = "";
                             txtCartProducto.Text = "";
@@ -351,7 +422,8 @@ namespace SistemaGestorDeVentas.api.cart
                         }
                         else
                         {
-                            MessageBox.Show("ERROR: La cantidad seleccionada es mayor que el stock", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show($"La cantidad ingresada excede el stock disponible ({stockRestante}).",
+                             "Stock insuficiente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                     else

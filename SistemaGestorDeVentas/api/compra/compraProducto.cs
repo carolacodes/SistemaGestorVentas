@@ -11,6 +11,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -170,14 +171,78 @@ namespace SistemaGestorDeVentas.api.compra
                 if(int.TryParse(cod_product, out int codProducto))
                 {
                     Producto prod = productService.getProductService(codProducto);
-                    if(prod != null)
+                    
+
+
+                    //agrega al datagrid
+                    if (prod != null)
                     {
-                        var subtotal = float.Parse(precio) * int.Parse(cantidad);
-                        dataGridCartView.Rows.Add(nombre_product, precio, cantidad, subtotal);
-                        txtCartCodProduct.Text = "";
-                        txtCartProducto.Text = "";
-                        txtCartPrecio.Text = "";
-                        dmCantidad.Value = 1;
+                        //Verificar si el codigo esta asociado con el nombre
+                        if (prod.nombre != nombre_product)
+                        {
+                            var result = MessageBox.Show($"Código incorrecto\nEl código pertenece a: {prod.nombre}\n\n¿Deseas actualizar el nombre del producto?",
+                            "Advertencia",
+                             MessageBoxButtons.YesNo,
+                             MessageBoxIcon.Warning);
+                            if(result == DialogResult.Yes)
+                            {
+                                txtCartCodProduct.Text = prod.codigo_producto.ToString();
+                                txtCartProducto.Text = prod.nombre;
+                                txtCartPrecio.Text = prod.precio_compra.ToString();
+                                dmCantidad.Value = 1;
+                                //dmCantidad.Maximum = prod.stock; // que no supere el maximo del producto
+                                return;
+                            }
+                            else
+                            {
+                                txtCartCodProduct.Text = "";
+                                txtCartProducto.Text = "";
+                                txtCartPrecio.Text = "";
+                                dmCantidad.Value = 1;
+                                return;
+                            }
+                        }
+
+                        var stockDisponible = prod.stock;
+
+                        int cantidadEnGrid = 0;
+                        foreach (DataGridViewRow row in dataGridCartView.Rows)
+                        {
+                            if (row.Cells["CompraProdutProducto"].Value != null && row.Cells["CompraProdutProducto"].Value.ToString() == prod.nombre)
+                            {
+                                cantidadEnGrid += Convert.ToInt32(row.Cells["CompraProdutCantidad"].Value);
+                            }
+                        }
+
+                       // int stockRestante = stockDisponible - cantidadEnGrid; 
+
+                        
+                            var subtotal = float.Parse(precio) * int.Parse(cantidad);
+                            foreach (DataGridViewRow row in dataGridCartView.Rows)
+                            {
+                                if (row.Cells["CompraProdutProducto"].Value != null && row.Cells["CompraProdutProducto"].Value.ToString() == prod.nombre)
+                                {
+                                    int cantidadActial = Convert.ToInt32(row.Cells["CompraProdutCantidad"].Value);
+                                    int nuevaCantidad = cantidadEnGrid + (int)dmCantidad.Value;
+                                    row.Cells["CompraProdutCantidad"].Value = nuevaCantidad;
+                                    subtotal = float.Parse(precio) * nuevaCantidad;
+                                    row.Cells["CompraProdutSubtotal"].Value = subtotal;
+                                    CalcularTotal();
+                                    txtCartCodProduct.Text = "";
+                                    txtCartProducto.Text = "";
+                                    txtCartPrecio.Text = "";
+                                    dmCantidad.Value = 1;
+                                    return;
+                                }
+                            }
+
+                            
+                            dataGridCartView.Rows.Add(nombre_product, precio, cantidad, subtotal);
+                            txtCartCodProduct.Text = "";
+                            txtCartProducto.Text = "";
+                            txtCartPrecio.Text = "";
+                            dmCantidad.Value = 1;
+                            //dmCantidad.Maximum = Convert.ToDecimal(prod.stock);
                     }
                     else
                     {
@@ -487,6 +552,16 @@ namespace SistemaGestorDeVentas.api.compra
             //int currentValue = (int)dmCantidad1.Value;
             //Console.WriteLine("Valor actual: " + currentValue);
             
+        }
+
+        private void dmCantidad_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTotal_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
