@@ -493,7 +493,15 @@ namespace SistemaGestorDeVentas.api.cart
 
         private void btnPago_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(txtTotal.Text))
+
+            if (dataGridCartView.Rows.Count == 0 || (dataGridCartView.Rows.Count == 1 && dataGridCartView.Rows[0].IsNewRow))
+            {
+                MessageBox.Show("Carrito vacío. Agrega productos antes de registrar la venta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+            if (string.IsNullOrEmpty(txtTotal.Text))
             {
                 MessageBox.Show("Debes cargar productos al carrito para realizar el pago", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }

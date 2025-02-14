@@ -422,6 +422,13 @@ namespace SistemaGestorDeVentas.api.compra
 
         private void btnRegistrarCompra_Click(object sender, EventArgs e)
         {
+
+            if (dataGridCartView.Rows.Count == 0 || (dataGridCartView.Rows.Count == 1 && dataGridCartView.Rows[0].IsNewRow))
+            {
+                MessageBox.Show("Carrito vacío. Agrega productos antes de registrar la compra.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             var cod_prod = txtCartCodProduct.Text;
 
             // Reemplaza la validación de código de producto si es necesario
