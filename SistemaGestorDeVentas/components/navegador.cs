@@ -386,9 +386,27 @@ namespace SistemaGestorDeVentas.components
             else if (usuario.id_rol == 2) // Administrador
             {
                 MostrarMenuAdministrador();
+            }else if(usuario.id_rol == 3)
+            {
+                MostrarMenuSupervisor();
             }
         }
 
+        public void MostrarMenuSupervisor()
+        {             //paginas de gestion que no puede ver
+            productosToolStripMenuItem.Visible = false;
+            categoriasToolStripMenuItem.Visible = false;
+            proveedoresToolStripMenuItem.Visible = false;
+            compraToolStripMenuItem.Visible = false;
+            //reportesToolStripMenuItem.Visible = false;
+            //negocioToolStripMenuItem.Visible = false;
+            //usuariosToolStripMenuItem.Visible = false;
+            //backupToolStripMenuItem.Visible = false;
+            gestioToolStripMenuItem.Visible = false;
+            ventasToolStripMenuItem.Visible = false;
+            nuevaCompraToolStripMenuItem.Visible = false;
+            nuevaVentaToolStripMenuItem.Visible = false;
+        }
 
         public void MostrarMenuVendedor()
         {
@@ -396,7 +414,6 @@ namespace SistemaGestorDeVentas.components
             productosToolStripMenuItem.Visible = false;
             categoriasToolStripMenuItem.Visible=false;
             proveedoresToolStripMenuItem.Visible=false;
-
 
             compraToolStripMenuItem.Visible = false;
             reportesToolStripMenuItem.Visible=false;
@@ -410,8 +427,9 @@ namespace SistemaGestorDeVentas.components
             reportesToolStripMenuItem.Visible = false;
             negocioToolStripMenuItem.Visible = false;
             usuariosToolStripMenuItem.Visible = false;
-
             backupToolStripMenuItem.Visible = false;
+            ventasToolStripMenuItem.Visible = false;
+            nuevaVentaToolStripMenuItem.Visible = false;
         }
 
         private void backupToolStripMenuItem_Click(object sender, EventArgs e)
