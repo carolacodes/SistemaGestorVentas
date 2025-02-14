@@ -2,6 +2,7 @@
 using SistemaGestorDeVentas.api.category;
 using SistemaGestorDeVentas.api.cliente;
 using SistemaGestorDeVentas.api.compra;
+using SistemaGestorDeVentas.api.proveedor;
 using SistemaGestorDeVentas.components;
 using SistemaGestorDeVentas.db;
 using System;
@@ -32,6 +33,7 @@ namespace SistemaGestorDeVentas.api.product
         {
             // Obtener el DNI del cliente ingresado
             var cod_product = txtBuscarProd.Text;
+            //var proveedor = txtProveedor.Text;
 
             // Verificar si el DNI está vacío
             if (string.IsNullOrEmpty(cod_product))
@@ -49,7 +51,7 @@ namespace SistemaGestorDeVentas.api.product
 
             // Crear una instancia de ClienteService
             ProductService productService = new ProductService();
-
+            ProveedorServices proveedorService = new ProveedorServices();
             CategoriaService categoriaService = new CategoriaService();
 
             try
@@ -59,8 +61,11 @@ namespace SistemaGestorDeVentas.api.product
                 {
                     // Llamar al método para obtener el cliente con el DNI ingresado
                     //Cliente clienteExiste = clienteService.getCliente(dniCliente);
-
+                    //Proveedor proveedorExiste = proveedorService.getProveedor(int.Parse(proveedor));
                     Producto productoExiste = productService.getProductService(int.Parse(cod_product));
+                    var idProveedor = productoExiste.id_proveedor;
+                    Proveedor proveedorExiste = proveedorService.getProveedor(idProveedor);
+                    
                     //int idCategoriaProd = productoExiste.id_categoria;
                     //Categoria categoriaExiste = categoriaService.getCategoria(idCategoriaProd);
                     // Limpiar las filas actuales del DataGridView
@@ -71,8 +76,10 @@ namespace SistemaGestorDeVentas.api.product
                     {
                         // Si el cliente existe, mostrar los datos en el DataGridView
                         //dataGridBuscarCliente.DataSource = new List<Cliente> { cliente }; // Usamos una lista con un solo cliente
-
-                        dataGridBuscarProd.Rows.Add(productoExiste.nombre, productoExiste.codigo_producto, productoExiste.descripcion, categoriaService.getCategoria(productoExiste.id_categoria).nombre, productoExiste.stock, productoExiste.id_estado);
+                        if(proveedorExiste != null)
+                        {
+                            dataGridBuscarProd.Rows.Add(productoExiste.nombre, productoExiste.codigo_producto, productoExiste.descripcion, categoriaService.getCategoria(productoExiste.id_categoria).nombre, productoExiste.stock, productoExiste.id_estado, proveedorExiste.nombre);
+                        }
 
                     }
                     else
@@ -83,7 +90,7 @@ namespace SistemaGestorDeVentas.api.product
 
                         foreach (var prod in productos)
                         {
-                            dataGridBuscarProd.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, categoriaService.getCategoria(prod.id_categoria).nombre, prod.stock, prod.id_estado);
+                            dataGridBuscarProd.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, categoriaService.getCategoria(prod.id_categoria).nombre, prod.stock, prod.id_estado, proveedorService.getProveedor(prod.id_proveedor).nombre);
                         }
                     }
                 }
@@ -100,7 +107,7 @@ namespace SistemaGestorDeVentas.api.product
                     {
                         foreach (var prod in productos)
                         {
-                            dataGridBuscarProd.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, categoriaService.getCategoria(prod.id_categoria).nombre, prod.stock, prod.precio_venta);
+                            dataGridBuscarProd.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, categoriaService.getCategoria(prod.id_categoria).nombre, prod.stock, prod.precio_venta, proveedorService.getProveedor(prod.id_proveedor).nombre);
                         }
 
                     }
@@ -110,7 +117,7 @@ namespace SistemaGestorDeVentas.api.product
 
                         foreach (var prod in productos)
                         {
-                            dataGridBuscarProd.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, categoriaService.getCategoria(prod.id_categoria).nombre, prod.stock, prod.precio_venta);
+                            dataGridBuscarProd.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, categoriaService.getCategoria(prod.id_categoria).nombre, prod.stock, prod.precio_venta, proveedorService.getProveedor(prod.id_proveedor).nombre);
                         }
                     }
                 }
@@ -129,7 +136,7 @@ namespace SistemaGestorDeVentas.api.product
                 //ClienteService clienteService = new ClienteService();
                 CategoriaService categoriaService = new CategoriaService();
                 ProductService productService = new ProductService();
-
+                ProveedorServices proveedorService = new ProveedorServices();
                 List<Producto> productos = productService.getProductsService();
 
                 foreach (var prod in productos)
@@ -137,11 +144,11 @@ namespace SistemaGestorDeVentas.api.product
                     Console.WriteLine("stock: " + prod.stock);
                     if(_carritoForm != null && _carritoForm.Visible)
                     {
-                        dataGridBuscarProd.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, categoriaService.getCategoria(prod.id_categoria).nombre, prod.stock, prod.precio_venta);
+                        dataGridBuscarProd.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, categoriaService.getCategoria(prod.id_categoria).nombre, prod.stock, prod.precio_venta, proveedorService.getProveedor(prod.id_proveedor).nombre);
                     }
                     if (_compraProductoForm != null && _compraProductoForm.Visible)
                     {
-                        dataGridBuscarProd.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, categoriaService.getCategoria(prod.id_categoria).nombre, prod.stock, prod.precio_compra);
+                        dataGridBuscarProd.Rows.Add(prod.nombre, prod.codigo_producto, prod.descripcion, categoriaService.getCategoria(prod.id_categoria).nombre, prod.stock, prod.precio_compra, proveedorService.getProveedor(prod.id_proveedor).nombre);
 
                     }
                         
@@ -237,6 +244,7 @@ namespace SistemaGestorDeVentas.api.product
                     _compraProductoForm.txtCartCodProduct.Text = row.Cells["detalleProductoCodigo"].Value.ToString();
                     _compraProductoForm.txtCartProducto.Text = row.Cells["detalleProductoNombre"].Value.ToString();
                     _compraProductoForm.txtCartPrecio.Text = row.Cells["detalleProductoPrecio"].Value.ToString();
+                    _compraProductoForm.txtProveedor.Text = row.Cells["detalleProductoProveedor"].Value.ToString();
                     //_compraProductoForm.txtCartStock.Text = row.Cells["detalleProductoStock"].Value.ToString();
                 }
 

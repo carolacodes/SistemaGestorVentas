@@ -162,10 +162,12 @@ namespace SistemaGestorDeVentas.api.compra
             var cantidad = dmCantidad.Text;
             var userNombre = txtUser.Text;
             var userCorreo = txtCorreoUser.Text;
+            var proveedor = txtProveedor.Text;
+            ProveedorServices proveedorServices = new ProveedorServices();
             ProductService productService = new ProductService();
             if (!string.IsNullOrEmpty(cod_product) && !string.IsNullOrEmpty(nombre_product) &&
                 !string.IsNullOrEmpty(precio) && !string.IsNullOrEmpty(cantidad) &&
-                !string.IsNullOrEmpty(userNombre) && !string.IsNullOrEmpty(userCorreo))
+                !string.IsNullOrEmpty(userNombre) && !string.IsNullOrEmpty(userCorreo) && !string.IsNullOrEmpty(proveedor))
 
             {
                 if(int.TryParse(cod_product, out int codProducto))
@@ -194,6 +196,7 @@ namespace SistemaGestorDeVentas.api.compra
                                 txtCartCodProduct.Text = prod.codigo_producto.ToString();
                                 txtCartProducto.Text = prod.nombre;
                                 txtCartPrecio.Text = prod.precio_compra.ToString();
+                                txtProveedor.Text = proveedorServices.getProveedor(prod.id_proveedor).nombre;
                                 dmCantidad.Value = 1;
                                 //dmCantidad.Maximum = prod.stock; // que no supere el maximo del producto
                                 return;
@@ -203,8 +206,32 @@ namespace SistemaGestorDeVentas.api.compra
                                 txtCartCodProduct.Text = "";
                                 txtCartProducto.Text = "";
                                 txtCartPrecio.Text = "";
+                                txtProveedor.Text = "";
                                 dmCantidad.Value = 1;
                                 return;
+                            }
+                        }
+
+                        // Validar si el usuario ingresó un nombre de proveedor diferente al que está registrado
+                        Proveedor proveedorActual = proveedorServices.getProveedor(prod.id_proveedor);
+                        if (proveedorActual != null && proveedorActual.nombre != proveedor)
+                        {
+                            var cambiarProveedor = MessageBox.Show($"El proveedor actual es: {proveedorActual.nombre}.\n\n¿Deseas actualizarlo a {proveedor}?",
+                            "Cambio de Proveedor",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question);
+
+                            if (cambiarProveedor == DialogResult.Yes)
+                            {
+                                // Actualizar el nombre del proveedor en la base de datos
+                                proveedorActual.nombre = proveedor;
+                                proveedorServices.updateProveedor(proveedorActual);
+
+                                MessageBox.Show("El nombre del proveedor ha sido actualizado.", "Actualización Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                txtProveedor.Text = proveedorActual.nombre; // Mantiene el nombre original si no acepta
                             }
                         }
 
@@ -221,7 +248,7 @@ namespace SistemaGestorDeVentas.api.compra
                         //    {
                         //        // Actualizar el precio en la base de datos
                         //        bool actualizado = productService.updateProductoCompraService(codProducto, precioIngresado);
-                                
+
                         //        if (!actualizado)
                         //        {
                         //            MessageBox.Show("Error al actualizar el precio en la base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -264,6 +291,7 @@ namespace SistemaGestorDeVentas.api.compra
                                     txtCartCodProduct.Text = "";
                                     txtCartProducto.Text = "";
                                     txtCartPrecio.Text = "";
+                                    txtProveedor.Text = "";
                                     dmCantidad.Value = 1;
                                     return;
                                 }
@@ -274,6 +302,7 @@ namespace SistemaGestorDeVentas.api.compra
                             txtCartCodProduct.Text = "";
                             txtCartProducto.Text = "";
                             txtCartPrecio.Text = "";
+                            txtProveedor.Text = "";
                             dmCantidad.Value = 1;
                             //dmCantidad.Maximum = Convert.ToDecimal(prod.stock);
                     }
@@ -463,7 +492,7 @@ namespace SistemaGestorDeVentas.api.compra
             }
 
             var cod_prod = txtCartCodProduct.Text;
-
+            //var proveedor = txtProveedor.Text;
             // Reemplaza la validación de código de producto si es necesario
             // Si el producto existe o no, realiza las verificaciones necesarias
 
@@ -482,7 +511,8 @@ namespace SistemaGestorDeVentas.api.compra
 
             ProductoCompraService productoCompraService = new ProductoCompraService();
             List<productCantidad> productosCompraClass = new List<productCantidad>();
-
+            
+            //ProveedorServices proveedorServices = new ProveedorServices();
             foreach (DataGridViewRow fila in dataGridCartView.Rows)
             {
                 if (fila.IsNewRow) continue;  // Ignora la nueva fila
@@ -632,6 +662,16 @@ namespace SistemaGestorDeVentas.api.compra
             {
                 e.Handled = true;
             }
+        }
+
+        private void txtProveedor_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

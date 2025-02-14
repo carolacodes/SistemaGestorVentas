@@ -66,6 +66,8 @@ namespace SistemaGestorDeVentas.api.compra
             this.btnRegistrarCompra = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
+            this.txtProveedor = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -207,6 +209,8 @@ namespace SistemaGestorDeVentas.api.compra
             // panel6
             // 
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.txtProveedor);
+            this.panel6.Controls.Add(this.label12);
             this.panel6.Controls.Add(this.dmCantidad);
             this.panel6.Controls.Add(this.label13);
             this.panel6.Controls.Add(this.txtCartPrecio);
@@ -225,7 +229,7 @@ namespace SistemaGestorDeVentas.api.compra
             // 
             // dmCantidad
             // 
-            this.dmCantidad.Location = new System.Drawing.Point(589, 66);
+            this.dmCantidad.Location = new System.Drawing.Point(741, 66);
             this.dmCantidad.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -250,7 +254,7 @@ namespace SistemaGestorDeVentas.api.compra
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(586, 46);
+            this.label13.Location = new System.Drawing.Point(736, 43);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(63, 17);
             this.label13.TabIndex = 14;
@@ -278,7 +282,7 @@ namespace SistemaGestorDeVentas.api.compra
             // btnAgregarCompraView
             // 
             this.btnAgregarCompraView.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarCompraView.Location = new System.Drawing.Point(730, 59);
+            this.btnAgregarCompraView.Location = new System.Drawing.Point(869, 57);
             this.btnAgregarCompraView.Name = "btnAgregarCompraView";
             this.btnAgregarCompraView.Size = new System.Drawing.Size(114, 31);
             this.btnAgregarCompraView.TabIndex = 7;
@@ -456,6 +460,26 @@ namespace SistemaGestorDeVentas.api.compra
             this.entityCommand1.EnablePlanCaching = true;
             this.entityCommand1.Transaction = null;
             // 
+            // txtProveedor
+            // 
+            this.txtProveedor.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProveedor.Location = new System.Drawing.Point(588, 65);
+            this.txtProveedor.Name = "txtProveedor";
+            this.txtProveedor.Size = new System.Drawing.Size(145, 25);
+            this.txtProveedor.TabIndex = 19;
+            this.txtProveedor.TextChanged += new System.EventHandler(this.txtProveedor_TextChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(585, 44);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(71, 17);
+            this.label12.TabIndex = 18;
+            this.label12.Text = "Proveedor";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
+            // 
             // compraProducto
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -517,5 +541,8 @@ namespace SistemaGestorDeVentas.api.compra
         private Label label6;
         private TextBox txtCorreoUser;
         private System.Data.Entity.Core.EntityClient.EntityCommand entityCommand1;
+        //public TextBox txtProveedor;
+        public System.Windows.Forms.TextBox txtProveedor;
+        private Label label12;
     }
 }
