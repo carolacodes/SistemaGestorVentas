@@ -171,8 +171,13 @@ namespace SistemaGestorDeVentas.api.compra
                 if(int.TryParse(cod_product, out int codProducto))
                 {
                     Producto prod = productService.getProductService(codProducto);
-                    
 
+                    // Validar que el precio ingresado sea un número decimal válido
+                    //if (!decimal.TryParse(precio, out decimal precioIngresado))
+                    //{
+                    //    MessageBox.Show("Ingrese un valor numérico válido para el precio.", "Error de entrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //    return; // Detener la ejecución si el valor no es válido
+                    //}
 
                     //agrega al datagrid
                     if (prod != null)
@@ -203,6 +208,34 @@ namespace SistemaGestorDeVentas.api.compra
                             }
                         }
 
+                        // Comprobar si el administrador modificó el precio
+                        //decimal precioIngresado = decimal.Parse(precio);
+                        //if (precioIngresado != prod.precio_compra)
+                        //{
+                        //    var confirmarCambio = MessageBox.Show($"El precio ha cambiado de {prod.precio_compra} a {precioIngresado}. ¿Deseas actualizarlo en la base de datos?",
+                        //    "Confirmar actualización",
+                        //    MessageBoxButtons.YesNo,
+                        //    MessageBoxIcon.Question);
+
+                        //    if (confirmarCambio == DialogResult.Yes)
+                        //    {
+                        //        // Actualizar el precio en la base de datos
+                        //        bool actualizado = productService.updateProductoCompraService(codProducto, precioIngresado);
+                                
+                        //        if (!actualizado)
+                        //        {
+                        //            MessageBox.Show("Error al actualizar el precio en la base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //            return;
+                        //        }
+                        //        prod.precio_compra = precioIngresado; // Actualizar el objeto en memoria
+                        //    }
+                        //}
+
+                        //// Agregar el producto con el nuevo precio al DataGridView
+                        //var subtotal = precioIngresado * int.Parse(cantidad);
+
+
+
                         var stockDisponible = prod.stock;
 
                         int cantidadEnGrid = 0;
@@ -217,7 +250,7 @@ namespace SistemaGestorDeVentas.api.compra
                        // int stockRestante = stockDisponible - cantidadEnGrid; 
 
                         
-                            var subtotal = float.Parse(precio) * int.Parse(cantidad);
+                            var subtotal = decimal.Parse(precio) * int.Parse(cantidad);
                             foreach (DataGridViewRow row in dataGridCartView.Rows)
                             {
                                 if (row.Cells["CompraProdutProducto"].Value != null && row.Cells["CompraProdutProducto"].Value.ToString() == prod.nombre)
@@ -225,7 +258,7 @@ namespace SistemaGestorDeVentas.api.compra
                                     int cantidadActial = Convert.ToInt32(row.Cells["CompraProdutCantidad"].Value);
                                     int nuevaCantidad = cantidadEnGrid + (int)dmCantidad.Value;
                                     row.Cells["CompraProdutCantidad"].Value = nuevaCantidad;
-                                    subtotal = float.Parse(precio) * nuevaCantidad;
+                                    subtotal = decimal.Parse(precio) * nuevaCantidad;
                                     row.Cells["CompraProdutSubtotal"].Value = subtotal;
                                     CalcularTotal();
                                     txtCartCodProduct.Text = "";
@@ -513,9 +546,24 @@ namespace SistemaGestorDeVentas.api.compra
                 foreach (var ProductoDatos in productosCompraClass)
                 {
                     Producto producto = context.Producto.Find(ProductoDatos.ProductoId);
+                    
                     if (producto != null)
                     {
                         producto.stock += ProductoDatos.cantidad; // Actualiza el stock
+
+                        // Actualizar el precio de compra del producto solo al registrar la compra
+                        var fila = dataGridCartView.Rows.Cast<DataGridViewRow>()
+                                    .FirstOrDefault(r => r.Cells["CompraProdutProducto"].Value.ToString() == producto.nombre);
+
+                        if (fila != null)
+                        {
+                            string precioStr = fila.Cells["CompraProdutPrecio"].Value?.ToString();
+                            if (decimal.TryParse(precioStr, out decimal nuevoPrecio))
+                            {
+                                producto.precio_compra = nuevoPrecio; // Se actualiza el precio de compra
+                            }
+                        }
+
                         context.SaveChanges();  // Guarda los cambios de manera sincrónica
                     }
                 }
@@ -569,6 +617,21 @@ namespace SistemaGestorDeVentas.api.compra
         private void txtTotal_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtCartPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir números, punto decimal y la tecla de retroceso (Backspace)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true; // Bloquea la tecla si no es un número o un punto decimal
+            }
+
+            // Asegurar que solo haya un punto decimal
+            if (e.KeyChar == '.' && (sender as TextBox).Text.Contains("."))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

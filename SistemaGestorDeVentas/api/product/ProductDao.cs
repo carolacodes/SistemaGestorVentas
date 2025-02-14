@@ -221,6 +221,28 @@ namespace SistemaGestorDeVentas.api.product
             }
         }
 
+        public bool updateProductoCompraDao(int codigo, decimal nuevoPrecio)
+        {
+            try
+            {
+                using (var context = new sistema_de_ventas_taller_Entities())
+                {
+                    var productoCompra = context.Producto.Find(codigo);
+                    if (productoCompra != null)
+                    {
+                        productoCompra.precio_compra = nuevoPrecio;
+                        context.SaveChanges();
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al actualizar el precio de compra: " + ex.Message);
+            }
+        }
+
         public int GenerateNewProductCode()
         {
             using (var context = new sistema_de_ventas_taller_Entities())

@@ -39,6 +39,18 @@ namespace SistemaGestorDeVentas.api.product
             }
         }
 
+        public bool updateProductoCompraService(int codigo, decimal nuevoPrecio)
+        {
+            try
+            {
+                return productDao.updateProductoCompraDao(codigo, nuevoPrecio);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error en la actualización del precio de compra: " + ex.Message);
+            }
+        }
+
         public Producto getProductServiceByName(string nombre)
         {
             try

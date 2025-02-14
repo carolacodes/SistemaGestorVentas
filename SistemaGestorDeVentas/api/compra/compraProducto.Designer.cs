@@ -80,7 +80,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.label1.Font = new System.Drawing.Font("Nirmala UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(455, -1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(195, 30);
+            this.label1.Size = new System.Drawing.Size(245, 38);
             this.label1.TabIndex = 0;
             this.label1.Text = "Registrar Compra";
             // 
@@ -103,7 +103,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.textBox1.Location = new System.Drawing.Point(167, 59);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(149, 20);
+            this.textBox1.Size = new System.Drawing.Size(149, 22);
             this.textBox1.TabIndex = 18;
             this.textBox1.Text = "Factura";
             // 
@@ -111,7 +111,7 @@ namespace SistemaGestorDeVentas.api.compra
             // 
             this.dateCartViewFecha.Location = new System.Drawing.Point(17, 59);
             this.dateCartViewFecha.Name = "dateCartViewFecha";
-            this.dateCartViewFecha.Size = new System.Drawing.Size(119, 20);
+            this.dateCartViewFecha.Size = new System.Drawing.Size(119, 22);
             this.dateCartViewFecha.TabIndex = 17;
             // 
             // label4
@@ -120,7 +120,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.label4.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
             this.label4.Location = new System.Drawing.Point(162, 33);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(128, 19);
+            this.label4.Size = new System.Drawing.Size(154, 23);
             this.label4.TabIndex = 2;
             this.label4.Text = "Tipo Documento: ";
             // 
@@ -130,7 +130,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.label3.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
             this.label3.Location = new System.Drawing.Point(13, 33);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 19);
+            this.label3.Size = new System.Drawing.Size(65, 23);
             this.label3.TabIndex = 1;
             this.label3.Text = "Fecha: ";
             // 
@@ -140,7 +140,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.label2.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(12, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 20);
+            this.label2.Size = new System.Drawing.Size(178, 25);
             this.label2.TabIndex = 0;
             this.label2.Text = "Informacion Venta";
             // 
@@ -163,7 +163,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.txtCorreoUser.Location = new System.Drawing.Point(216, 59);
             this.txtCorreoUser.Name = "txtCorreoUser";
             this.txtCorreoUser.ReadOnly = true;
-            this.txtCorreoUser.Size = new System.Drawing.Size(189, 20);
+            this.txtCorreoUser.Size = new System.Drawing.Size(189, 22);
             this.txtCorreoUser.TabIndex = 11;
             // 
             // label6
@@ -172,7 +172,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.label6.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
             this.label6.Location = new System.Drawing.Point(212, 33);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 19);
+            this.label6.Size = new System.Drawing.Size(69, 23);
             this.label6.TabIndex = 10;
             this.label6.Text = "Correo:";
             // 
@@ -182,7 +182,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.label5.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
             this.label5.Location = new System.Drawing.Point(11, 33);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 19);
+            this.label5.Size = new System.Drawing.Size(81, 23);
             this.label5.TabIndex = 9;
             this.label5.Text = "Nombre:";
             // 
@@ -191,7 +191,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.txtUser.Location = new System.Drawing.Point(14, 59);
             this.txtUser.Name = "txtUser";
             this.txtUser.ReadOnly = true;
-            this.txtUser.Size = new System.Drawing.Size(189, 20);
+            this.txtUser.Size = new System.Drawing.Size(189, 22);
             this.txtUser.TabIndex = 8;
             // 
             // label7
@@ -200,7 +200,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.label7.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold);
             this.label7.Location = new System.Drawing.Point(9, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(153, 20);
+            this.label7.Size = new System.Drawing.Size(196, 25);
             this.label7.TabIndex = 0;
             this.label7.Text = "Informacion Usuario";
             // 
@@ -237,7 +237,7 @@ namespace SistemaGestorDeVentas.api.compra
             0,
             0});
             this.dmCantidad.Name = "dmCantidad";
-            this.dmCantidad.Size = new System.Drawing.Size(120, 20);
+            this.dmCantidad.Size = new System.Drawing.Size(120, 22);
             this.dmCantidad.TabIndex = 17;
             this.dmCantidad.Value = new decimal(new int[] {
             1,
@@ -252,7 +252,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.label13.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(586, 46);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(54, 13);
+            this.label13.Size = new System.Drawing.Size(63, 17);
             this.label13.TabIndex = 14;
             this.label13.Text = "Cantidad";
             // 
@@ -261,9 +261,9 @@ namespace SistemaGestorDeVentas.api.compra
             this.txtCartPrecio.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCartPrecio.Location = new System.Drawing.Point(433, 65);
             this.txtCartPrecio.Name = "txtCartPrecio";
-            this.txtCartPrecio.ReadOnly = true;
-            this.txtCartPrecio.Size = new System.Drawing.Size(145, 21);
+            this.txtCartPrecio.Size = new System.Drawing.Size(145, 25);
             this.txtCartPrecio.TabIndex = 11;
+            this.txtCartPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCartPrecio_KeyPress);
             // 
             // label11
             // 
@@ -271,7 +271,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.label11.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(430, 43);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(83, 13);
+            this.label11.Size = new System.Drawing.Size(98, 17);
             this.label11.TabIndex = 10;
             this.label11.Text = "Precio Compra";
             // 
@@ -292,7 +292,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.txtCartProducto.Location = new System.Drawing.Point(225, 65);
             this.txtCartProducto.Name = "txtCartProducto";
             this.txtCartProducto.ReadOnly = true;
-            this.txtCartProducto.Size = new System.Drawing.Size(195, 21);
+            this.txtCartProducto.Size = new System.Drawing.Size(195, 25);
             this.txtCartProducto.TabIndex = 9;
             // 
             // label10
@@ -301,7 +301,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.label10.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(222, 43);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(55, 13);
+            this.label10.Size = new System.Drawing.Size(64, 17);
             this.label10.TabIndex = 8;
             this.label10.Text = "Producto";
             // 
@@ -320,7 +320,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.txtCartCodProduct.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCartCodProduct.Location = new System.Drawing.Point(68, 66);
             this.txtCartCodProduct.Name = "txtCartCodProduct";
-            this.txtCartCodProduct.Size = new System.Drawing.Size(145, 21);
+            this.txtCartCodProduct.Size = new System.Drawing.Size(145, 25);
             this.txtCartCodProduct.TabIndex = 2;
             // 
             // label9
@@ -329,7 +329,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.label9.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(69, 43);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(82, 13);
+            this.label9.Size = new System.Drawing.Size(96, 17);
             this.label9.TabIndex = 1;
             this.label9.Text = "Cod. Producto";
             // 
@@ -339,7 +339,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.label8.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
             this.label8.Location = new System.Drawing.Point(7, 11);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(181, 19);
+            this.label8.Size = new System.Drawing.Size(215, 23);
             this.label8.TabIndex = 0;
             this.label8.Text = "Informacion del Producto";
             // 
@@ -403,7 +403,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.txtTotal.Location = new System.Drawing.Point(787, 406);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
-            this.txtTotal.Size = new System.Drawing.Size(149, 20);
+            this.txtTotal.Size = new System.Drawing.Size(149, 22);
             this.txtTotal.TabIndex = 9;
             this.txtTotal.Text = "0";
             this.txtTotal.TextChanged += new System.EventHandler(this.txtTotal_TextChanged);
@@ -415,7 +415,7 @@ namespace SistemaGestorDeVentas.api.compra
             this.label14.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold);
             this.label14.Location = new System.Drawing.Point(799, 373);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(99, 20);
+            this.label14.Size = new System.Drawing.Size(126, 25);
             this.label14.TabIndex = 10;
             this.label14.Text = "Total a Pagar";
             // 
