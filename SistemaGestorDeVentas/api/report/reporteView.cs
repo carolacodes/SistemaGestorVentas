@@ -78,6 +78,8 @@ namespace SistemaGestorDeVentas.api.report
             lbl_desde.Visible = false;
             lbl_hasta.Visible = false;
             cbYear.Visible = false;
+            chartTortaReport.Legends.Clear();
+            chartVentasBarras.Legends.Clear();
         }
 
         private void button1_Click(object sender, EventArgs e)
