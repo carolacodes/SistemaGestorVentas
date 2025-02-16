@@ -65,6 +65,19 @@ namespace SistemaGestorDeVentas.api.report
 
             CargarComboBoxGrafico();
             CargarComboBoxReporte();
+            int currentYear = DateTime.Now.Year;
+            for (int year = 2020; year <= currentYear; year++)
+            {
+                cbYear.Items.Add(year.ToString());
+            }
+            cbYear.SelectedIndex = cbYear.Items.Count - 1; // Seleccionar el año actual por defecto
+
+            // Inicialmente, ocultar el ComboBox de años
+            dateTimeGradicoDesde.Visible = false;
+            dateTimeGraficoHasta.Visible = false;
+            lbl_desde.Visible = false;
+            lbl_hasta.Visible = false;
+            cbYear.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -456,7 +469,45 @@ namespace SistemaGestorDeVentas.api.report
 
         private void cbox_grafico_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Verificar si hay una selección válida
+            if (cbox_grafico.SelectedItem == null || cbox_grafico.SelectedIndex == -1)
+            {
+                // Si no hay selección, ocultar todo
+                dateTimeGradicoDesde.Visible = false;
+                dateTimeGraficoHasta.Visible = false;
+                lbl_desde.Visible = false;
+                lbl_hasta.Visible = false;
+                cbYear.Visible = false;
+                return; // Salir de la función para evitar errores
+            }
 
+            if (cbox_grafico.SelectedItem.ToString() == "Ventas Mensuales")
+            {
+                // Ocultar DateTimePickers y mostrar ComboBox de año
+                dateTimeGradicoDesde.Visible = false;
+                dateTimeGraficoHasta.Visible = false;
+                lbl_desde.Text = "Elegir Año";
+                lbl_hasta.Visible = false;
+                cbYear.Visible = true;
+            }
+
+            else if (cbox_grafico.SelectedItem.ToString() == "Ventas Historicas")
+            {
+                // Ocultar DateTimePickers y mostrar ComboBox de año
+                dateTimeGradicoDesde.Visible = false;
+                dateTimeGraficoHasta.Visible = false;
+                lbl_desde.Visible = false;
+                lbl_hasta.Visible = false;
+                cbYear.Visible = false;
+            }
+
+            else
+            {
+                // Mostrar DateTimePickers y ocultar ComboBox de año
+                dateTimeGradicoDesde.Visible = true;
+                dateTimeGraficoHasta.Visible = true;
+                cbYear.Visible = false;
+            }
         }
     }
 }
