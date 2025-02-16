@@ -30,9 +30,12 @@ namespace SistemaGestorDeVentas.api.report
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridReportes = new System.Windows.Forms.DataGridView();
             this.nroVenta_informe = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,17 +64,20 @@ namespace SistemaGestorDeVentas.api.report
             this.dateTimeGraficoHasta = new System.Windows.Forms.DateTimePicker();
             this.dateTimeGradicoDesde = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
+            this.chartVentasBarras = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridReportes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartTortaReport)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartVentasBarras)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.chartVentasBarras);
             this.panel2.Controls.Add(this.dataGridReportes);
             this.panel2.Controls.Add(this.chartTortaReport);
             this.panel2.Location = new System.Drawing.Point(318, 0);
@@ -131,21 +137,22 @@ namespace SistemaGestorDeVentas.api.report
             // 
             // chartTortaReport
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartTortaReport.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartTortaReport.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.chartTortaReport.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartTortaReport.Legends.Add(legend3);
             this.chartTortaReport.Location = new System.Drawing.Point(16, 286);
             this.chartTortaReport.Margin = new System.Windows.Forms.Padding(4);
             this.chartTortaReport.Name = "chartTortaReport";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartTortaReport.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chartTortaReport.Series.Add(series3);
             this.chartTortaReport.Size = new System.Drawing.Size(354, 189);
             this.chartTortaReport.TabIndex = 0;
             this.chartTortaReport.Text = "chart1";
+            this.chartTortaReport.Click += new System.EventHandler(this.chartTortaReport_Click);
             // 
             // panel3
             // 
@@ -327,6 +334,7 @@ namespace SistemaGestorDeVentas.api.report
             this.cbox_grafico.Name = "cbox_grafico";
             this.cbox_grafico.Size = new System.Drawing.Size(265, 21);
             this.cbox_grafico.TabIndex = 5;
+            this.cbox_grafico.SelectedIndexChanged += new System.EventHandler(this.cbox_grafico_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -378,6 +386,22 @@ namespace SistemaGestorDeVentas.api.report
             this.label9.Text = "Generar Grafico";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
+            // chartVentasBarras
+            // 
+            chartArea4.Name = "ChartArea1";
+            this.chartVentasBarras.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chartVentasBarras.Legends.Add(legend4);
+            this.chartVentasBarras.Location = new System.Drawing.Point(432, 291);
+            this.chartVentasBarras.Name = "chartVentasBarras";
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chartVentasBarras.Series.Add(series4);
+            this.chartVentasBarras.Size = new System.Drawing.Size(350, 185);
+            this.chartVentasBarras.TabIndex = 2;
+            this.chartVentasBarras.Text = "chart1";
+            // 
             // reporteView
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -398,6 +422,7 @@ namespace SistemaGestorDeVentas.api.report
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartVentasBarras)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -431,5 +456,6 @@ namespace SistemaGestorDeVentas.api.report
         private DataGridViewTextBoxColumn Cliente_reporte;
         private DataGridViewTextBoxColumn vendedor_reporte;
         private DataGridViewTextBoxColumn total_reporte;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartVentasBarras;
     }
 }

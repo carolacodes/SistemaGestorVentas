@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace SistemaGestorDeVentas.api.report
 {
@@ -76,7 +77,7 @@ namespace SistemaGestorDeVentas.api.report
                 return productosMasVendidos;
             }
         }
-        
+
 
         // Clase auxiliar para almacenar los productos más vendidos
         public class ProductoMasVendido
@@ -198,6 +199,69 @@ namespace SistemaGestorDeVentas.api.report
             public string VendedorId { get; set; }   // Asegúrate de que sea de tipo string
             public string NombreVendedor { get; set; }
             public int CantidadVentas { get; set; }
+        }
+
+        /*
+        public List<KeyValuePair<int, decimal>> ObtenerVentasMensuales(int anio)
+        {
+            using (var context = new sistema_de_ventas_taller_Entities())
+            {
+                return context.Venta
+                    .Where(v => v.fecha_venta.Year == anio)
+                    .GroupBy(v => v.fecha_venta.Month)
+                    .Select(g => new KeyValuePair<int, decimal>(g.Key, g.Sum(v => v.Pago.total)))
+                    .OrderBy(g => g.Key)
+                    .ToList();
+            }
+        }
+        */
+
+        public List<KeyValuePair<int, decimal>> ObtenerVentasMensuales(int anio)
+        {
+            using (var context = new sistema_de_ventas_taller_Entities())
+            {
+                var ventasMensuales = context.Venta
+                    .Where(v => v.fecha_venta.Year == anio)
+                    .GroupBy(v => v.fecha_venta.Month)
+                    .Select(g => new { Mes = g.Key, Total = g.Sum(v => v.Pago.total) }) // Consulta en base de datos
+                    .ToList() // Trae los datos a memoria
+                    .Select(g => new KeyValuePair<int, decimal>(g.Mes, g.Total)) // Conversión en memoria
+                    .OrderBy(g => g.Key)
+                    .ToList();
+
+                return ventasMensuales;
+            }
+        }
+
+        /*
+        public List<KeyValuePair<int, decimal>> ObtenerVentasAnuales()
+        {
+            using (var context = new sistema_de_ventas_taller_Entities())
+            {
+                return context.Venta
+                    .GroupBy(v => v.fecha_venta.Year)
+                    .Select(g => new KeyValuePair<int, decimal>(g.Key, g.Sum(v => v.Pago.total)))
+                    .OrderBy(g => g.Key)
+                    .ToList();
+            }
+        }
+
+        */
+
+        public List<KeyValuePair<int, decimal>> ObtenerVentasAnuales()
+        {
+            using (var context = new sistema_de_ventas_taller_Entities())
+            {
+                var ventasAnuales = context.Venta
+                    .GroupBy(v => v.fecha_venta.Year)
+                    .Select(g => new { Anio = g.Key, Total = g.Sum(v => v.Pago.total) }) // Proyección intermedia soportada
+                    .ToList() // Trae los datos a memoria
+                    .Select(g => new KeyValuePair<int, decimal>(g.Anio, g.Total)) // Conversión en memoria
+                    .OrderBy(g => g.Key)
+                    .ToList();
+
+                return ventasAnuales;
+            }
         }
     }
 }

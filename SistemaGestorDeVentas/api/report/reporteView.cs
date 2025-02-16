@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using static SistemaGestorDeVentas.api.report.reportes;
 
 namespace SistemaGestorDeVentas.api.report
@@ -42,6 +43,8 @@ namespace SistemaGestorDeVentas.api.report
             cbox_grafico.Items.Clear();  // Limpia cualquier elemento existente en el ComboBox
 
             // Agrega elementos de texto al ComboBox
+            cbox_grafico.Items.Add("Ventas Mensuales");
+            cbox_grafico.Items.Add("Ventas Historicas");
             cbox_grafico.Items.Add("Producto");
             cbox_grafico.Items.Add("Categoria");
             cbox_grafico.Items.Add("Vendedor");
@@ -182,6 +185,15 @@ namespace SistemaGestorDeVentas.api.report
             {
                 CargarGraficoVendedores(fechaDesde, fechaHasta);
             }
+            if(cbox_grafico.SelectedItem != null && cbox_grafico.SelectedItem.ToString() == "Ventas Mensuales")
+            {
+                int anio = fechaDesde.Year;
+                CargarGraficoVentasMensuales(anio);
+            }
+            if (cbox_grafico.SelectedItem != null && cbox_grafico.SelectedItem.ToString() == "Ventas Historicas")
+            {
+                CargarGraficoVentasAnuales();
+            }
         }
 
         private void CargarGraficoProductosMasVendidos(DateTime fechaInicio, DateTime fechaFin)
@@ -321,6 +333,110 @@ namespace SistemaGestorDeVentas.api.report
             dateTimeReportHasta.Value = DateTime.Today;
         }
 
+        // GRAFICO DE BARRAS
+        /*
+        private void CargarGraficoVentasMensuales(int anio)
+        {
+            reportes reportes = new reportes();
+            var ventasMensuales = reportes.ObtenerVentasMensuales(anio);
+            chartVentasBarras.Series.Clear();
+
+            Series serie = new Series("Ventas Mensuales")
+            {
+                ChartType = SeriesChartType.Column
+            };
+
+            foreach (var venta in ventasMensuales)
+            {
+                serie.Points.AddXY(venta.Key, venta.Value);
+            }
+
+            chartVentasBarras.Series.Add(serie);
+            chartVentasBarras.ChartAreas[0].AxisX.Title = "Meses";
+            chartVentasBarras.ChartAreas[0].AxisY.Title = "Total Vendido ($)";
+        }
+        */
+        private void CargarGraficoVentasMensuales(int anio)
+        {
+            reportes reportes = new reportes();
+            var ventasMensuales = reportes.ObtenerVentasMensuales(anio);
+            chartVentasBarras.Series.Clear();
+
+            Series serie = new Series("Ventas Mensuales")
+            {
+                ChartType = SeriesChartType.Column
+            };
+
+            // Diccionario para convertir números de mes a nombres de mes
+            string[] nombresMeses = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
+
+            foreach (var venta in ventasMensuales)
+            {
+                string nombreMes = nombresMeses[venta.Key - 1]; // Convertir número de mes a texto
+                serie.Points.AddXY(nombreMes, venta.Value);
+            }
+
+            chartVentasBarras.Series.Add(serie);
+            chartVentasBarras.ChartAreas[0].AxisX.Title = "Meses";
+            chartVentasBarras.ChartAreas[0].AxisY.Title = "Total Vendido ($)";
+
+            // Asegurar que el eje X trate los meses como etiquetas de texto
+            chartVentasBarras.ChartAreas[0].AxisX.Interval = 1;
+            chartVentasBarras.ChartAreas[0].AxisX.LabelStyle.IsStaggered = true; // Evita superposición
+        }
+
+        /*
+        private void CargarGraficoVentasAnuales()
+        {
+            reportes reportes = new reportes();
+            var ventasAnuales = reportes.ObtenerVentasAnuales();
+            chartVentasBarras.Series.Clear();
+
+            Series serie = new Series("Ventas Anuales")
+            {
+                ChartType = SeriesChartType.Column
+            };
+
+            foreach (var venta in ventasAnuales)
+            {
+                serie.Points.AddXY(venta.Key, venta.Value);
+            }
+
+            chartVentasBarras.Series.Add(serie);
+            chartVentasBarras.ChartAreas[0].AxisX.Title = "Años";
+            chartVentasBarras.ChartAreas[0].AxisY.Title = "Total Vendido ($)";
+        }
+        */
+
+
+        private void CargarGraficoVentasAnuales()
+        {
+            reportes reportes = new reportes();
+            var ventasAnuales = reportes.ObtenerVentasAnuales();
+            chartVentasBarras.Series.Clear();
+
+            Series serie = new Series("Ventas Anuales")
+            {
+                ChartType = SeriesChartType.Column
+            };
+
+            foreach (var venta in ventasAnuales)
+            {
+                // Convertir el año a string para que el eje X lo interprete como etiqueta
+                serie.Points.AddXY(venta.Key.ToString(), venta.Value);
+            }
+
+            chartVentasBarras.Series.Add(serie);
+            chartVentasBarras.ChartAreas[0].AxisX.Title = "Años";
+            chartVentasBarras.ChartAreas[0].AxisY.Title = "Total Vendido ($)";
+
+            // Forzar que el eje X trate los valores como etiquetas en lugar de valores numéricos
+            chartVentasBarras.ChartAreas[0].AxisX.Interval = 1;
+            chartVentasBarras.ChartAreas[0].AxisX.LabelStyle.IsStaggered = true; // Evita superposición
+        }
+        
+
+        //
         private void btn_limpiar_grafico_Click(object sender, EventArgs e)
         {
             cbox_grafico.SelectedIndex = -1;
@@ -328,6 +444,18 @@ namespace SistemaGestorDeVentas.api.report
             dateTimeGraficoHasta.Value = DateTime.Today;
             chartTortaReport.Series.Clear();
             chartTortaReport.Titles.Clear();
+            chartVentasBarras.Series.Clear();
+            chartVentasBarras.Titles.Clear();
+
+        }
+
+        private void chartTortaReport_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbox_grafico_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
