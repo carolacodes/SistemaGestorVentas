@@ -18,12 +18,12 @@ Para el inicio de sesion:
 
 Vendedor:
 Correo: vendedor@gmail.com        
-Contraseña: vendedor123
+Contraseña: contraseña123
 
 Administrador:
 Correo: admin@gmail.com 
-Contraseña: admin123
+Contraseña: contraseña123
 
 Supervisor:
 Correo: supervisor@gmail.com
-Contraseña: supervisor123
+Contraseña: contraseña123
